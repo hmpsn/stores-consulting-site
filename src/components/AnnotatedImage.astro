@@ -1,0 +1,44 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  label: string;
+  detail?: string;
+  eager?: boolean;
+  position?: string;
+  class?: string;
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  label,
+  detail,
+  eager = false,
+  position = 'center',
+  class: className,
+} = Astro.props;
+---
+
+<figure class:list={['fm-image', className]} style={`--fm-image-position: ${position}`}>
+  <div class="fm-image__frame">
+    <img
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+      fetchpriority={eager ? 'high' : undefined}
+    />
+    <span class="fm-image__line" aria-hidden="true"></span>
+  </div>
+  <figcaption class="fm-image__caption">
+    <span>{label}</span>
+    {detail && <strong>{detail}</strong>}
+  </figcaption>
+</figure>
