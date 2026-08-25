@@ -146,14 +146,6 @@ h3 { font-size: 1.25rem; }
 .ratio-band__copy { color: #a88e86; font-size: .88rem; }
 .ratio-band blockquote { font-family: var(--font-display); font-size: 1.2rem; font-style: italic; margin: 0; text-align: left; }
 .proof-grid { align-items: center; grid-template-columns: 1fr .9fr; }
-.receipt { background: var(--paper); box-shadow: var(--shadow-raised); font-family: var(--font-mono); margin-inline: auto; max-width: 26rem; padding: 2rem; transform: rotate(-1deg); }
-.receipt__head { font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-align: center; }
-.receipt dl { border-block: 1px dashed #d8cfc5; margin-block: 1rem; padding-block: .8rem; }
-.receipt dl div { display: flex; font-size: .76rem; justify-content: space-between; padding-block: .3rem; }
-.receipt dt, .receipt dd { margin: 0; }
-.receipt__total { display: flex; font-size: .95rem; font-weight: 600; justify-content: space-between; }
-.receipt__total strong { color: var(--maroon-dark); }
-
 .service-grid { display: grid; gap: 1rem; grid-template-columns: repeat(4, 1fr); }
 .service-card { background: var(--ink-strong); color: var(--paper); display: flex; flex-direction: column; min-height: 19rem; padding: 2.35rem 1.35rem 0; position: relative; text-decoration: none; }
 .service-card:nth-child(even) { background: var(--maroon-dark); }

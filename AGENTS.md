@@ -11,8 +11,9 @@ Before building or changing a page, review the living style guide at `/styleguid
 - New visual constants must be named CSS custom properties when they represent a reusable decision.
 - When an authorized structural change adds or changes a reusable pattern, update the style guide in the same pull request.
 - `Operational Field Manual` is the selected direction for a controlled prototype only. Its current review surfaces are `/` and `/services/shrink-profit-recovery/`; do not apply it to additional routes until a human approves the prototype for wider rollout.
-- Review `#field-manual-v2` in the style guide before changing either prototype surface. Its reusable implementation lives in `src/styles/field-manual.css` and `src/components/AnnotatedImage.astro`.
+- Review `#field-manual-v2` in the style guide before changing either prototype surface. Its reusable implementation lives in `src/styles/field-manual.css` and `src/components/FieldImage.astro`.
 - Follow the documented image roles: documentary context, operational detail, and approved evidence artifacts. Migrated stock images are provisional; do not treat them as final art direction or introduce new image claims.
+- Images are unannotated by default. Do not add decorative image labels, marker lines, or pseudo-data notes; use a separate metric or evidence component when structured information is required.
 - Eyebrows are orientation tools, not default section decoration. Keep them for evidence status, philosophy, methodology, or a necessary category distinction; skip them when the heading already supplies the context.
 - `Retail Wayfinding` and `Quiet Executive Authority` remain comparison prototypes, not approved production tokens.
 - The style guide is unlinked, excluded from the sitemap, and marked `noindex`; it is an implementation reference, not a public marketing page.

@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import FieldManualMotion from '../components/FieldManualMotion.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -56,6 +57,7 @@ const socialImage = new URL(image, Astro.site || Astro.url.origin);
     {fieldManual && <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />}
   </head>
   <body class:list={{ 'theme-field-manual': fieldManual }}>
+    {fieldManual && <FieldManualMotion />}
     <a class="skip-link" href="#main-content">Skip to content</a>
     <Header />
     <main id="main-content" tabindex="-1">

@@ -1,0 +1,33 @@
+<script is:inline>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('fm-motion');
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const targets = document.querySelectorAll([
+        '.field-manual-page .section__heading',
+        '.field-manual-page .problem-card',
+        '.field-manual-page .ratio-band__item',
+        '.field-manual-page .ratio-band blockquote',
+        '.field-manual-page .fm-proof-layout > *',
+        '.field-manual-page .service-card',
+        '.field-manual-page .approach-grid > *',
+        '.field-manual-page .philosophy',
+        '.field-manual-page .metrics__item',
+        '.field-manual-page .workstream-grid li',
+        '.field-manual-page .fm-service-results > *',
+        '.field-manual-page .cta-band__inner',
+      ].join(','));
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+
+      targets.forEach((target) => observer.observe(target));
+    }, { once: true });
+  }
+</script>

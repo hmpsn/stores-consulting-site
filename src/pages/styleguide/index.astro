@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import AnnotatedImage from '../../components/AnnotatedImage.astro';
+import FieldImage from '../../components/FieldImage.astro';
 import PageIntro from '../../components/PageIntro.astro';
 import Metrics from '../../components/Metrics.astro';
 import ServiceCards from '../../components/ServiceCards.astro';
@@ -225,17 +225,15 @@ const territories = [
 
       <section class="fm-hero fm-spec-hero" aria-label="Image-led hero pattern">
         <div class="fm-hero__copy">
-          <h3>Retailers have the AI.<br />Most aren't capturing <em>the return.</em></h3>
-          <p class="fm-hero__description">An image-led opening puts the work in view immediately. One annotation connects the image to the central operating idea; it does not turn photography into a diagram.</p>
+          <h3>Retailers have the AI. Most aren't capturing <em>the return.</em></h3>
+          <p class="fm-hero__description">An image-led opening puts the work in view immediately. The photograph supports the idea without a decorative label, marker, or pseudo-data overlay.</p>
           <a class="button" href="/">View the homepage prototype</a>
         </div>
-        <AnnotatedImage
+        <FieldImage
           src="/wp-content/uploads/2016/09/iStock-543570406_2.jpg"
           alt="A contemporary clothing store with merchandise arranged across display tables and racks."
           width={2048}
           height={1365}
-          label="The execution gap"
-          detail="Documentary context"
           position="center"
         />
       </section>
@@ -244,19 +242,19 @@ const territories = [
         <header class="fm-spec-section__heading"><p>Imagery system</p><h3 id="image-roles-heading">Three jobs for images. No decorative filler.</h3></header>
         <div class="fm-image-roles">
           <article>
-            <AnnotatedImage src="/wp-content/uploads/2016/09/convenience.jpg" alt="A store associate at a checkout while a customer stands beside the counter." width={2048} height={1407} label="01 · Documentary" detail="People in context" position="center" />
+            <FieldImage src="/wp-content/uploads/2016/09/convenience.jpg" alt="A store associate at a checkout while a customer stands beside the counter." width={2048} height={1407} position="center" />
             <h4>Documentary context</h4><p>Show the people, store environments, and moments where execution succeeds or breaks down.</p>
           </article>
           <article>
-            <AnnotatedImage src="/wp-content/uploads/2016/09/iStock-506018790_02.jpg" alt="Rows of wine and spirits arranged on densely stocked retail shelves." width={2048} height={1486} label="02 · Operational detail" detail="Shelf conditions" position="center" />
+            <FieldImage src="/wp-content/uploads/2016/09/iStock-506018790_02.jpg" alt="Rows of wine and spirits arranged on densely stocked retail shelves." width={2048} height={1486} position="center" />
             <h4>Operational detail</h4><p>Make the work tangible through shelves, process touchpoints, controls, tools, and physical conditions.</p>
           </article>
           <article>
-            <AnnotatedImage src="/wp-content/uploads/2023/01/Chart-1280x905.png" alt="A pie chart titled FY 2021 Inventory Shrink by Source." width={1280} height={905} label="03 · Evidence" detail="Approved artifacts only" position="center" />
+            <FieldImage src="/wp-content/uploads/2023/01/Chart-1280x905.png" alt="A pie chart titled FY 2021 Inventory Shrink by Source." width={1280} height={905} position="center" />
             <h4>Evidence artifacts</h4><p>Use scorecards, field documents, and charts only when their source and claims are approved for the page.</p>
           </article>
         </div>
-        <p class="fm-library-note"><strong>Current library note:</strong> migrated images are sufficient to test the system, but final art direction should prioritize current, owned field photography over generic stock.</p>
+        <p class="fm-library-note"><strong>Image rule:</strong> migrated images are sufficient to test the system, but they remain unannotated by default. Use a separate metric or evidence component when the page needs data; final art direction should prioritize current, owned field photography over generic stock.</p>
       </section>
 
       <section class="fm-spec-section" aria-labelledby="label-rules-heading">
@@ -278,7 +276,7 @@ const territories = [
         <ol class="fm-composition-rules">
           <li><span>01</span><div><h4>Alternate density</h4><p>Pair expansive image-led sections with concise operating grids and full-width thesis bands.</p></div></li>
           <li><span>02</span><div><h4>Break the card reflex</h4><p>Use bordered rows, editorial columns, and evidence overlays when the information does not need a card container.</p></div></li>
-          <li><span>03</span><div><h4>Move with purpose</h4><p>Limit motion to the initial image reveal and annotation line. Nothing floats, pulses, or scroll-jacks; reduced-motion preferences are honored.</p></div></li>
+          <li><span>03</span><div><h4>Move with purpose</h4><p>Limit motion to one initial hero sequence, one scroll-reveal behavior, and restrained interaction feedback. Nothing floats, pulses, counts up, or scroll-jacks; reduced-motion preferences are honored.</p></div></li>
         </ol>
       </section>
     </div>
@@ -629,34 +627,34 @@ const territories = [
 
   .territories__note { max-width: 60rem; margin: 3rem 0 0; font: 400 0.9rem/1.6 'Public Sans', sans-serif; color: #59666c; }
 
-  .field-manual-spec { padding: clamp(5rem, 10vw, 9rem) 0; background: #f3f0e8; }
-  .fm-spec-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(20rem, .72fr); gap: clamp(2rem, 8vw, 8rem); align-items: end; margin-bottom: clamp(3rem, 7vw, 6rem); }
-  .fm-spec-intro h2 { max-width: 12ch; margin: 0; font-size: clamp(3rem, 7vw, 7rem); }
+  .field-manual-spec { padding: clamp(4.5rem, 8vw, 7rem) 0; background: #f3f0e8; }
+  .fm-spec-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(20rem, .72fr); gap: clamp(2rem, 6vw, 6rem); align-items: end; margin-bottom: clamp(2.5rem, 5vw, 4.5rem); }
+  .fm-spec-intro h2 { max-width: 13ch; margin: 0; font-size: clamp(2.75rem, 5.5vw, 5.75rem); }
   .fm-spec-intro > p { max-width: 42rem; margin: 0; color: var(--fm-muted); font-size: 1.08rem; }
   .fm-spec-status, .fm-spec-section__heading > p { margin: 0 0 1rem; color: var(--fm-signal); font: 700 .7rem/1.2 var(--fm-label); letter-spacing: .12em; text-transform: uppercase; }
-  .fm-spec-hero { min-height: 44rem; border: 1px solid var(--fm-line); }
-  .fm-spec-hero .fm-hero__copy { padding: clamp(2.5rem, 6vw, 5.5rem); }
-  .fm-spec-hero h3 { max-width: 12ch; margin: 0; font-size: clamp(2.7rem, 5.5vw, 5.5rem); }
+  .fm-spec-hero { min-height: 38rem; border: 1px solid var(--fm-line); }
+  .fm-spec-hero .fm-hero__copy { padding: clamp(2.5rem, 5vw, 4.5rem); }
+  .fm-spec-hero h3 { max-width: 13ch; margin: 0; font-size: clamp(2.4rem, 4.3vw, 4.3rem); }
   .fm-spec-hero .button { align-self: flex-start; margin-top: 2rem; }
-  .fm-spec-hero > :global(.fm-image) :global(.fm-image__frame) { min-height: 44rem; }
-  .fm-spec-section { padding-top: clamp(5rem, 9vw, 8rem); }
+  .fm-spec-hero > :global(.fm-image) :global(.fm-image__frame) { min-height: 38rem; }
+  .fm-spec-section { padding-top: clamp(4.25rem, 7vw, 6rem); }
   .fm-spec-section__heading { display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 2rem; border-top: 1px solid var(--fm-line); padding-top: 1.5rem; }
-  .fm-spec-section__heading h3 { max-width: 18ch; margin: 0; font-size: clamp(2.25rem, 4.5vw, 4.5rem); }
-  .fm-image-roles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin-top: clamp(3rem, 6vw, 5rem); background: var(--fm-line); border: 1px solid var(--fm-line); }
+  .fm-spec-section__heading h3 { max-width: 20ch; margin: 0; font-size: clamp(2rem, 3.5vw, 3.5rem); }
+  .fm-image-roles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin-top: clamp(2.5rem, 5vw, 4rem); background: var(--fm-line); border: 1px solid var(--fm-line); }
   .fm-image-roles article { min-width: 0; background: var(--fm-white); padding: 1rem; }
   .fm-image-roles :global(.fm-image__frame) { min-height: 21rem; aspect-ratio: 4 / 5; }
   .fm-image-roles h4 { margin: 1.5rem 0 .65rem; font-size: 1.35rem; }
   .fm-image-roles article > p { margin: 0; color: var(--fm-muted); }
   .fm-image-roles article:nth-child(3) :global(.fm-image img) { object-fit: contain; padding: 1rem; background: #fff; }
   .fm-library-note { max-width: 48rem; margin: 2rem 0 0; border-left: 3px solid var(--fm-signal); padding-left: 1rem; color: var(--fm-muted); }
-  .fm-label-rules { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin-top: clamp(3rem, 6vw, 5rem); border: 1px solid var(--fm-line); background: var(--fm-line); }
+  .fm-label-rules { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin-top: clamp(2.5rem, 5vw, 4rem); border: 1px solid var(--fm-line); background: var(--fm-line); }
   .fm-label-rule { background: var(--fm-white); padding: clamp(1.5rem, 4vw, 3rem); }
   .fm-label-rule > span { color: var(--fm-signal); font: 700 .68rem/1 var(--fm-label); letter-spacing: .12em; text-transform: uppercase; }
   .fm-label-rule > p:not(.eyebrow) { color: var(--fm-muted); }
   .fm-label-rule .eyebrow { margin: 2rem 0 0; }
   .fm-label-rule--skip > p:not(:last-child) { margin: 2rem 0 0; color: var(--fm-ink); font: 600 1.3rem/1 var(--fm-display); text-decoration: line-through; text-decoration-color: var(--fm-signal); }
   .fm-label-rule--skip > p:last-child { margin-top: 2.5rem; }
-  .fm-composition-rules { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: clamp(3rem, 6vw, 5rem) 0 0; padding: 0; border-block: 1px solid var(--fm-line); list-style: none; }
+  .fm-composition-rules { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: clamp(2.5rem, 5vw, 4rem) 0 0; padding: 0; border-block: 1px solid var(--fm-line); list-style: none; }
   .fm-composition-rules li { display: grid; grid-template-columns: 2rem 1fr; gap: 1rem; border-right: 1px solid var(--fm-line); padding: 2rem; }
   .fm-composition-rules li:first-child { padding-left: 0; }
   .fm-composition-rules li:last-child { border-right: 0; }

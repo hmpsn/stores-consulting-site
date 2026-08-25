@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import AnnotatedImage from '../../components/AnnotatedImage.astro';
+import FieldImage from '../../components/FieldImage.astro';
 import PageIntro from '../../components/PageIntro.astro';
 import WorkstreamGrid from '../../components/WorkstreamGrid.astro';
 import Metrics from '../../components/Metrics.astro';
@@ -30,13 +30,11 @@ const isShrinkPrototype = service.slug === 'shrink-profit-recovery';
           <p class="fm-service-hero__summary">{service.summary}</p>
           <p class="fm-service-hero__thesis"><strong>{service.thesisLabel}</strong>{service.thesis}</p>
         </div>
-        <AnnotatedImage
+        <FieldImage
           src="/wp-content/uploads/2016/09/iStock-506018790_02.jpg"
           alt="Rows of wine and spirits arranged on densely stocked retail shelves."
           width={2048}
           height={1486}
-          label={service.title}
-          detail="Shrink Analytics & Transaction Monitoring"
           position="center"
           eager
         />
@@ -45,13 +43,11 @@ const isShrinkPrototype = service.slug === 'shrink-profit-recovery';
       <section class="section section--paper"><div class="shell"><div class="section__heading"><h2>Six workstreams, applied to your specific gap.</h2></div><WorkstreamGrid items={service.workstreams} /></div></section>
 
       <section class="section"><div class="shell fm-service-results">
-        <AnnotatedImage
+        <FieldImage
           src="/wp-content/uploads/2016/10/iStock-506033946.jpg"
           alt="A retail aisle densely stocked with packaged household products."
           width={2048}
           height={1365}
-          label="Results"
-          detail={service.title}
           position="center"
         />
         <div class="fm-service-results__metrics"><h2>Results</h2><Metrics items={service.metrics} note={service.metricsNote} /></div>

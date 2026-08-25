@@ -4,8 +4,6 @@ interface Props {
   alt: string;
   width: number;
   height: number;
-  label: string;
-  detail?: string;
   eager?: boolean;
   position?: string;
   class?: string;
@@ -16,8 +14,6 @@ const {
   alt,
   width,
   height,
-  label,
-  detail,
   eager = false,
   position = 'center',
   class: className,
@@ -35,10 +31,5 @@ const {
       decoding="async"
       fetchpriority={eager ? 'high' : undefined}
     />
-    <span class="fm-image__line" aria-hidden="true"></span>
   </div>
-  <figcaption class="fm-image__caption">
-    <span>{label}</span>
-    {detail && <strong>{detail}</strong>}
-  </figcaption>
 </figure>
