@@ -41,6 +41,57 @@ const sampleWorkstreams = [
   { title: 'Prove', description: 'Test the standard in a controlled environment with measurable outcomes.' },
   { title: 'Scale', description: 'Transfer the working model through field ownership and accountability.' },
 ];
+
+const territories = [
+  {
+    id: 'field-manual',
+    number: '01',
+    name: 'Operational Field Manual',
+    recommendation: 'Recommended direction',
+    summary: 'Measured, practical, and close to the work. It borrows from operating standards, scorecards, and annotated field documents without becoming industrial theater.',
+    displayFont: 'Archivo',
+    bodyFont: 'Source Sans 3',
+    palette: [
+      { name: 'Graphite', value: '#17242d' },
+      { name: 'Mineral', value: '#2f5c66' },
+      { name: 'Signal', value: '#c55a32' },
+      { name: 'Paper', value: '#f3f0e8' },
+      { name: 'White', value: '#ffffff' },
+    ],
+  },
+  {
+    id: 'wayfinding',
+    number: '02',
+    name: 'Retail Wayfinding',
+    recommendation: 'Higher-energy alternative',
+    summary: 'Direct, visible, and unmistakably retail. Aisle markers, directional bands, and controlled color blocking create momentum without adding decorative illustration.',
+    displayFont: 'Barlow Condensed',
+    bodyFont: 'Public Sans',
+    palette: [
+      { name: 'Forest', value: '#1d2b25' },
+      { name: 'Aisle', value: '#f1bb3f' },
+      { name: 'Action', value: '#bf4635' },
+      { name: 'Cream', value: '#f6f0df' },
+      { name: 'White', value: '#ffffff' },
+    ],
+  },
+  {
+    id: 'executive',
+    number: '03',
+    name: 'Quiet Executive Authority',
+    recommendation: 'Most restrained alternative',
+    summary: 'Calm, precise, and board-ready. Editorial hierarchy is retained in a quieter operating-brief format, with fewer visual devices and more disciplined whitespace.',
+    displayFont: 'Newsreader',
+    bodyFont: 'Public Sans',
+    palette: [
+      { name: 'Slate', value: '#1d2a33' },
+      { name: 'Brick', value: '#9e4c3e' },
+      { name: 'Blue gray', value: '#6d7f89' },
+      { name: 'Canvas', value: '#faf9f6' },
+      { name: 'White', value: '#ffffff' },
+    ],
+  },
+];
 ---
 
 <BaseLayout
@@ -57,6 +108,7 @@ const sampleWorkstreams = [
   >
     <nav aria-label="Style guide sections">
       <ul class="styleguide-nav">
+        <li><a href="#territories">Territories</a></li>
         <li><a href="#color">Color</a></li>
         <li><a href="#typography">Typography</a></li>
         <li><a href="#spacing">Spacing</a></li>
@@ -65,6 +117,98 @@ const sampleWorkstreams = [
       </ul>
     </nav>
   </PageIntro>
+
+  <section class="territories" id="territories" aria-labelledby="territories-heading">
+    <div class="shell">
+      <header class="territories__intro">
+        <div>
+          <p class="territories__eyebrow">Visual exploration · August 2026</p>
+          <h2 id="territories-heading">Three directions. One unchanged content set.</h2>
+        </div>
+        <p>These are controlled style tiles, not page redesigns. Each direction applies a different visual system to the same headline, service, metrics, and operating sequence so the look and feel can be evaluated on its own.</p>
+      </header>
+
+      <div class="territory-list">
+        {territories.map((territory) => (
+          <article class:list={['territory', `territory--${territory.id}`]} aria-labelledby={`${territory.id}-heading`}>
+            <header class="territory__header">
+              <div class="territory__title-group">
+                <span class="territory__number" aria-hidden="true">{territory.number}</span>
+                <div>
+                  <p class="territory__status">{territory.recommendation}</p>
+                  <h3 id={`${territory.id}-heading`}>{territory.name}</h3>
+                </div>
+              </div>
+              <div class="territory__notes">
+                <p>{territory.summary}</p>
+                <dl>
+                  <div><dt>Display</dt><dd>{territory.displayFont}</dd></div>
+                  <div><dt>Body</dt><dd>{territory.bodyFont}</dd></div>
+                </dl>
+              </div>
+            </header>
+
+            <div class="territory__palette" role="group" aria-label={`${territory.name} color palette`}>
+              {territory.palette.map((color) => (
+                <div class="territory__swatch">
+                  <span style={`--swatch: ${color.value}`} aria-hidden="true"></span>
+                  <div><strong>{color.name}</strong><code>{color.value}</code></div>
+                </div>
+              ))}
+            </div>
+
+            <div class="territory__canvas">
+              <section class="territory-hero" aria-label={`${territory.name} hero example`}>
+                <div class="territory-hero__rail" aria-hidden="true">
+                  <span>Store execution</span>
+                  <span>Field standard 04</span>
+                </div>
+                <div class="territory-hero__content">
+                  <p class="territory-label"><span>01</span> The execution gap</p>
+                  <h4>Retailers have the AI.<br /><em>Most aren’t capturing the return.</em></h4>
+                  <p class="territory-hero__description">the Stores Consulting Group closes the gap between what your technology promises and what your stores actually deliver — foundational retail execution, built for the AI era.</p>
+                  <a class="territory-action" href="/approach/">See How We Work <span aria-hidden="true">→</span></a>
+                </div>
+                <div class="territory-hero__marker" aria-hidden="true"><span>Gap</span><strong>01</strong></div>
+              </section>
+
+              <div class="territory__proof-grid">
+                <section class="territory-metrics" aria-label={`${territory.name} example outcomes`}>
+                  <p class="territory-label"><span>02</span> Measured outcomes</p>
+                  <div class="territory-metrics__grid">
+                    <div><strong>5–15%</strong><span>Labor productivity</span></div>
+                    <div><strong>20–60%</strong><span>Shrink &amp; waste reduction</span></div>
+                    <div><strong>7–10x</strong><span>Typical return generated relative to engagement investment</span></div>
+                  </div>
+                </section>
+
+                <section class="territory-service" aria-label={`${territory.name} example service`}>
+                  <p class="territory-label"><span>03</span> Priority workstream</p>
+                  <div class="territory-service__card">
+                    <span class="territory-service__index">01 / 04</span>
+                    <h5>Shrink &amp;<br />Profit Recovery</h5>
+                    <p>Find where margin leaks and build the accountability structure to stop it for good.</p>
+                    <span class="territory-service__link">Explore the service <b aria-hidden="true">↗</b></span>
+                  </div>
+                </section>
+
+                <section class="territory-process" aria-label={`${territory.name} example process`}>
+                  <p class="territory-label"><span>04</span> Operating sequence</p>
+                  <ol>
+                    <li><span>01</span><div><strong>Diagnose the real gap</strong><p>Observe the store floor, quantify friction, and establish which intervention is actually required.</p></div></li>
+                    <li><span>02</span><div><strong>Prove the standard</strong><p>Build ownership with store and district leaders in a lighthouse or model-store environment.</p></div></li>
+                    <li><span>03</span><div><strong>Scale through the field</strong><p>Transfer capability through dashboards, escalation paths, and peer mentorship.</p></div></li>
+                  </ol>
+                </section>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <p class="territories__note"><strong>Comparison rule:</strong> these palettes and typefaces are exploratory and are not yet production tokens. Selecting a direction comes before applying it to shared components or public pages.</p>
+    </div>
+  </section>
 
   <section class="section section--paper" id="color" aria-labelledby="color-heading">
     <div class="shell">
@@ -234,3 +378,218 @@ const sampleWorkstreams = [
     label="Back to Top"
   />
 </BaseLayout>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+  .territories {
+    padding: clamp(4rem, 8vw, 7rem) 0;
+    color: #17242d;
+    background:
+      linear-gradient(rgba(23, 36, 45, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(23, 36, 45, 0.035) 1px, transparent 1px),
+      #e9e6df;
+    background-size: 24px 24px;
+  }
+
+  .territories__intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: end;
+    margin-bottom: clamp(2.5rem, 6vw, 5rem);
+  }
+
+  .territories__eyebrow,
+  .territory__status,
+  .territory-label {
+    margin: 0;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .territories__eyebrow { margin-bottom: 1rem; color: #54636a; }
+  .territories__intro h2 { max-width: 15ch; margin: 0; font-family: 'Archivo', sans-serif; font-size: clamp(2.5rem, 5.5vw, 5.3rem); line-height: 0.94; letter-spacing: -0.045em; }
+  .territories__intro > p { max-width: 39rem; margin: 0; font-family: 'Source Sans 3', sans-serif; font-size: 1.05rem; line-height: 1.65; color: #4b585e; }
+
+  .territory-list { display: grid; gap: clamp(3rem, 7vw, 6.5rem); }
+
+  .territory {
+    --tile-ink: #17242d;
+    --tile-muted: #59666c;
+    --tile-primary: #2f5c66;
+    --tile-signal: #c55a32;
+    --tile-bg: #f3f0e8;
+    --tile-paper: #fff;
+    --tile-line: #bdc5c4;
+    --tile-display: 'Archivo', sans-serif;
+    --tile-body: 'Source Sans 3', sans-serif;
+    overflow: hidden;
+    border: 1px solid rgba(23, 36, 45, 0.16);
+    background: #fff;
+    box-shadow: 0 1rem 3.5rem rgba(23, 36, 45, 0.08);
+  }
+
+  .territory--wayfinding {
+    --tile-ink: #1d2b25;
+    --tile-muted: #526058;
+    --tile-primary: #1d2b25;
+    --tile-signal: #bf4635;
+    --tile-accent: #f1bb3f;
+    --tile-bg: #f6f0df;
+    --tile-line: #bdb8a9;
+    --tile-display: 'Barlow Condensed', sans-serif;
+    --tile-body: 'Public Sans', sans-serif;
+  }
+
+  .territory--executive {
+    --tile-ink: #1d2a33;
+    --tile-muted: #5f6d75;
+    --tile-primary: #1d2a33;
+    --tile-signal: #9e4c3e;
+    --tile-accent: #6d7f89;
+    --tile-bg: #faf9f6;
+    --tile-line: #d3d6d6;
+    --tile-display: 'Newsreader', serif;
+    --tile-body: 'Public Sans', sans-serif;
+  }
+
+  .territory__header {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(20rem, 1.1fr);
+    gap: 2rem;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    color: #17242d;
+    background: #fff;
+  }
+
+  .territory__title-group { display: flex; gap: 1.25rem; align-items: flex-start; }
+  .territory__number { font: 600 0.75rem/1 'Public Sans', sans-serif; color: #879196; padding-top: 0.35rem; }
+  .territory__status { margin-bottom: 0.55rem; color: #9e4c3e; }
+  .territory--field-manual .territory__status { color: #2f5c66; }
+  .territory__header h3 { margin: 0; font: 600 clamp(1.65rem, 3vw, 2.7rem)/1 var(--tile-display); letter-spacing: -0.025em; }
+  .territory__notes { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem; align-items: start; }
+  .territory__notes > p { max-width: 40rem; margin: 0; font: 400 0.96rem/1.6 'Public Sans', sans-serif; color: #5d686d; }
+  .territory__notes dl { min-width: 9rem; margin: 0; font-family: 'Public Sans', sans-serif; }
+  .territory__notes dl div { display: grid; grid-template-columns: 3.4rem 1fr; gap: 0.6rem; border-top: 1px solid #d9dcdd; padding: 0.45rem 0; }
+  .territory__notes dt { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #7a858a; }
+  .territory__notes dd { margin: 0; font-size: 0.72rem; font-weight: 600; }
+
+  .territory__palette { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-block: 1px solid #d8dcdd; background: #fff; }
+  .territory__swatch { display: grid; grid-template-columns: 3.4rem minmax(0, 1fr); min-width: 0; border-right: 1px solid #d8dcdd; }
+  .territory__swatch:last-child { border-right: 0; }
+  .territory__swatch > span { min-height: 3.4rem; background: var(--swatch); }
+  .territory__swatch > div { min-width: 0; padding: 0.65rem 0.75rem; font-family: 'Public Sans', sans-serif; }
+  .territory__swatch strong, .territory__swatch code { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .territory__swatch strong { font-size: 0.68rem; }
+  .territory__swatch code { margin-top: 0.15rem; font-size: 0.6rem; color: #788287; }
+
+  .territory__canvas { color: var(--tile-ink); background: var(--tile-bg); font-family: var(--tile-body); }
+  .territory-label { display: flex; gap: 0.7rem; color: var(--tile-muted); }
+  .territory-label span { color: var(--tile-signal); }
+
+  .territory-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3.4rem minmax(0, 1fr) minmax(8rem, 0.23fr);
+    min-height: 38rem;
+    border-bottom: 1px solid var(--tile-line);
+  }
+  .territory-hero__rail { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; border-right: 1px solid var(--tile-line); writing-mode: vertical-rl; transform: rotate(180deg); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tile-muted); }
+  .territory-hero__content { display: flex; flex-direction: column; justify-content: center; padding: clamp(2.5rem, 7vw, 6.5rem); }
+  .territory-hero h4 { max-width: 18ch; margin: clamp(2rem, 4vw, 3.5rem) 0 2rem; font-family: var(--tile-display); font-size: clamp(3rem, 6.8vw, 6.7rem); font-weight: 600; line-height: 0.93; letter-spacing: -0.055em; }
+  .territory-hero h4 em { color: var(--tile-signal); font-style: normal; }
+  .territory-hero__description { max-width: 43rem; margin: 0; font-size: clamp(1rem, 1.5vw, 1.2rem); line-height: 1.6; color: var(--tile-muted); }
+  .territory-action { display: inline-flex; gap: 1.5rem; align-items: center; align-self: flex-start; margin-top: 2.25rem; padding-bottom: 0.35rem; border-bottom: 2px solid var(--tile-signal); color: var(--tile-ink); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.08em; text-decoration: none; text-transform: uppercase; }
+  .territory-hero__marker { display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem; border-left: 1px solid var(--tile-line); color: var(--tile-paper); background: var(--tile-primary); }
+  .territory-hero__marker span { font-size: 0.67rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+  .territory-hero__marker strong { align-self: flex-end; font-family: var(--tile-display); font-size: clamp(4rem, 9vw, 8rem); font-weight: 600; line-height: 0.8; opacity: 0.22; }
+
+  .territory__proof-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr); }
+  .territory-metrics { padding: clamp(2rem, 5vw, 4.5rem); border-right: 1px solid var(--tile-line); }
+  .territory-metrics__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: clamp(2.5rem, 5vw, 4rem); }
+  .territory-metrics__grid > div { padding: 0 1.5rem; border-left: 1px solid var(--tile-line); }
+  .territory-metrics__grid > div:first-child { padding-left: 0; border-left: 0; }
+  .territory-metrics__grid strong, .territory-metrics__grid span { display: block; }
+  .territory-metrics__grid strong { font-family: var(--tile-display); font-size: clamp(2.5rem, 5vw, 4.8rem); line-height: 1; letter-spacing: -0.045em; color: var(--tile-primary); }
+  .territory-metrics__grid span { max-width: 15rem; margin-top: 0.8rem; font-size: 0.75rem; line-height: 1.45; color: var(--tile-muted); }
+  .territory-service { grid-row: span 2; padding: clamp(2rem, 4vw, 3rem); background: var(--tile-paper); }
+  .territory-service__card { display: flex; flex-direction: column; min-height: 31rem; margin-top: 2.5rem; padding: 1.5rem; border: 1px solid var(--tile-line); }
+  .territory-service__index { align-self: flex-end; font-size: 0.65rem; font-weight: 700; color: var(--tile-signal); }
+  .territory-service h5 { margin: auto 0 1.5rem; font-family: var(--tile-display); font-size: clamp(2.3rem, 4vw, 4rem); font-weight: 600; line-height: 0.93; letter-spacing: -0.04em; }
+  .territory-service p { margin: 0; font-size: 0.9rem; line-height: 1.55; color: var(--tile-muted); }
+  .territory-service__link { display: flex; justify-content: space-between; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--tile-line); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+  .territory-process { padding: clamp(2rem, 5vw, 4.5rem); border-top: 1px solid var(--tile-line); border-right: 1px solid var(--tile-line); }
+  .territory-process ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin: 3rem 0 0; padding: 0; list-style: none; }
+  .territory-process li { display: grid; grid-template-columns: 1.4rem minmax(0, 1fr); gap: 0.8rem; }
+  .territory-process li > span { font-size: 0.65rem; font-weight: 700; color: var(--tile-signal); }
+  .territory-process strong { display: block; font-family: var(--tile-display); font-size: 1.2rem; line-height: 1.1; }
+  .territory-process li p { margin: 0.65rem 0 0; font-size: 0.77rem; line-height: 1.5; color: var(--tile-muted); }
+
+  .territory--wayfinding .territory__canvas { background-image: linear-gradient(90deg, transparent 0 75%, rgba(29, 43, 37, 0.04) 75%); background-size: 3rem 100%; }
+  .territory--wayfinding .territory-label span, .territory--wayfinding .territory-service__index, .territory--wayfinding .territory-process li > span { display: inline-grid; place-items: center; min-width: 1.65rem; min-height: 1.65rem; margin-top: -0.42rem; color: var(--tile-ink); background: var(--tile-accent); }
+  .territory--wayfinding .territory-hero h4 { max-width: 13ch; font-size: clamp(3.6rem, 8.2vw, 8.4rem); line-height: 0.82; letter-spacing: -0.035em; text-transform: uppercase; }
+  .territory--wayfinding .territory-hero h4 em { display: inline; padding: 0 0.08em; color: var(--tile-bg); background: var(--tile-signal); box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  .territory--wayfinding .territory-hero__marker { color: var(--tile-ink); background: var(--tile-accent); clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%); }
+  .territory--wayfinding .territory-service__card { border: 0; color: var(--tile-bg); background: var(--tile-primary); box-shadow: 0.7rem 0.7rem 0 var(--tile-accent); }
+  .territory--wayfinding .territory-service p { color: rgba(246, 240, 223, 0.75); }
+  .territory--wayfinding .territory-service__link { border-color: rgba(246, 240, 223, 0.3); }
+  .territory--wayfinding .territory-metrics__grid strong { font-stretch: condensed; }
+
+  .territory--executive .territory-hero { grid-template-columns: minmax(0, 1fr) minmax(7rem, 0.18fr); min-height: 36rem; }
+  .territory--executive .territory-hero__rail { display: none; }
+  .territory--executive .territory-hero__content { padding-left: clamp(2.5rem, 10vw, 9rem); }
+  .territory--executive .territory-hero h4 { max-width: 16ch; font-size: clamp(3.2rem, 6.5vw, 6.3rem); font-weight: 500; line-height: 0.98; letter-spacing: -0.045em; }
+  .territory--executive .territory-hero h4 em { color: inherit; font-style: italic; }
+  .territory--executive .territory-hero__marker { color: var(--tile-ink); background: transparent; }
+  .territory--executive .territory-hero__marker span { color: var(--tile-signal); }
+  .territory--executive .territory-hero__marker strong { opacity: 0.08; }
+  .territory--executive .territory-action { border-bottom-width: 1px; }
+  .territory--executive .territory-service__card { border: 0; border-top: 3px solid var(--tile-signal); padding-inline: 0; }
+  .territory--executive .territory-metrics__grid strong { font-family: var(--tile-body); font-weight: 500; color: var(--tile-ink); }
+  .territory--executive .territory-process strong { font-family: var(--tile-body); font-size: 1rem; }
+
+  .territories__note { max-width: 60rem; margin: 3rem 0 0; font: 400 0.9rem/1.6 'Public Sans', sans-serif; color: #59666c; }
+
+  @media (max-width: 960px) {
+    .territories__intro, .territory__header { grid-template-columns: 1fr; }
+    .territory__notes { grid-template-columns: minmax(0, 1fr) auto; }
+    .territory__palette { grid-template-columns: repeat(5, minmax(8rem, 1fr)); overflow-x: auto; }
+    .territory__proof-grid { grid-template-columns: 1fr; }
+    .territory-metrics, .territory-process { border-right: 0; }
+    .territory-service { grid-row: auto; border-top: 1px solid var(--tile-line); }
+    .territory-service__card { min-height: 24rem; }
+  }
+
+  @media (max-width: 640px) {
+    .territories { padding-block: 3.5rem; background-size: 18px 18px; }
+    .territories__intro { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+    .territories__intro h2 { font-size: clamp(2.45rem, 12vw, 3.6rem); }
+    .territory__header { padding: 1.35rem; }
+    .territory__title-group { gap: 0.7rem; }
+    .territory__header h3 { font-size: 1.85rem; }
+    .territory__notes { grid-template-columns: 1fr; gap: 1rem; }
+    .territory__notes dl { max-width: 15rem; }
+    .territory__palette { grid-template-columns: repeat(5, minmax(7.8rem, 1fr)); }
+    .territory__swatch { grid-template-columns: 2.8rem minmax(0, 1fr); }
+    .territory-hero, .territory--executive .territory-hero { grid-template-columns: minmax(0, 1fr); min-height: auto; }
+    .territory-hero__rail { display: none; }
+    .territory-hero__content, .territory--executive .territory-hero__content { padding: 3rem 1.35rem 4rem; }
+    .territory-hero h4, .territory--wayfinding .territory-hero h4, .territory--executive .territory-hero h4 { margin-block: 2rem 1.5rem; font-size: clamp(3rem, 15.5vw, 4.5rem); }
+    .territory-hero__marker { display: grid; grid-template-columns: 1fr auto; padding: 1rem 1.35rem; border-top: 1px solid var(--tile-line); border-left: 0; }
+    .territory-hero__marker strong { font-size: 3.5rem; }
+    .territory--wayfinding .territory-hero__marker { clip-path: none; }
+    .territory-metrics, .territory-process, .territory-service { padding: 2.5rem 1.35rem; }
+    .territory-metrics__grid, .territory-process ol { grid-template-columns: 1fr; }
+    .territory-metrics__grid { gap: 1.5rem; }
+    .territory-metrics__grid > div { padding: 1.5rem 0 0; border-top: 1px solid var(--tile-line); border-left: 0; }
+    .territory-metrics__grid > div:first-child { padding-top: 0; border-top: 0; }
+    .territory-metrics__grid strong { font-size: 3.6rem; }
+    .territory-service__card { min-height: 25rem; }
+    .territory-process ol { gap: 1.75rem; }
+  }
+</style>
