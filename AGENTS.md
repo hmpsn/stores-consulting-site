@@ -10,6 +10,7 @@ Before building or changing a page, review the living style guide at `/styleguid
 - Do not copy component markup into content files.
 - New visual constants must be named CSS custom properties when they represent a reusable decision.
 - When an authorized structural change adds or changes a reusable pattern, update the style guide in the same pull request.
+- The `Visual Territories` section contains comparison prototypes, not approved production tokens. Do not apply a territory to shared components or public pages until a human explicitly selects it; after selection, replace the exploratory values with documented shared tokens.
 - The style guide is unlinked, excluded from the sitemap, and marked `noindex`; it is an implementation reference, not a public marketing page.
 
 Before proposing a pull request:
