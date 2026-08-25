@@ -6,7 +6,7 @@
 - Recover the three public media records listed as `review` in `src/data/media-manifest.json` from the host backup. The live server currently returns 403 for them.
 - Resolve or explicitly approve the inherited external-link findings in `docs/MIGRATION-REPORT.md`.
 - Capture current DNS records and TTLs.
-- Confirm ownership of GitHub, Vercel, Resend, Cloudflare Turnstile, the domain registrar, DNS, and GA4.
+- Confirm ownership of GitHub, Vercel, Resend, the domain registrar, DNS, and GA4.
 - Configure every variable in `.env.example` for Vercel Preview and Production.
 - Verify the existing GA4 property before adding measurement ID `G-73E0EDSM19`; do not create a new property during migration.
 - Configure GitHub branch protection for `main`: require the Validate workflow, one human approval, resolved conversations, and no direct pushes.
@@ -20,8 +20,9 @@ npx playwright install --with-deps chromium
 npm run test:e2e
 ```
 
-- Test successful form delivery and Reply-To in a Vercel preview using Turnstile test credentials and a Resend test recipient.
-- Test expired/missing tokens, duplicate submissions, provider failure, and browser-safe error messages.
+- Configure a Vercel Firewall rate limit for `POST /api/contact` before public launch; retain the application honeypot, same-origin check, server validation, and Resend idempotency.
+- Test successful form delivery and Reply-To in a Vercel preview using Josh's Resend test instance and recipient.
+- Test cross-origin requests, duplicate submissions, honeypot submissions, provider failure, and browser-safe error messages.
 - Crawl every route and media URL in `src/data/route-manifest.json` against the preview; all expected public records must return 200 without redirects.
 - Confirm titles, descriptions, canonicals, social metadata, RSS, sitemap, robots, 404 handling, and analytics continuity.
 - Record contrast findings for the later design pass without changing the approved visual direction.

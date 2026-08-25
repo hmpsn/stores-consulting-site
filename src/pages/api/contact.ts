@@ -17,7 +17,7 @@ function wantsJson(request: Request) {
 
 function reply(request: Request, status: number, code: string, message: string) {
   if (wantsJson(request)) return Response.json({ ok: status < 400, code, message }, { status });
-  const redirectStatus = status < 400 ? 'success' : code === 'invalid' ? 'invalid' : code === 'verification' ? 'verification' : 'unavailable';
+  const redirectStatus = status < 400 ? 'success' : code === 'invalid' ? 'invalid' : 'unavailable';
   return new Response(null, { status: 303, headers: { location: `/contact-us/?status=${redirectStatus}` } });
 }
 
@@ -25,19 +25,12 @@ function escapeHtml(value: string) {
   return value.replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[character] || character);
 }
 
-async function verifyTurnstile(token: string, secret: string, remoteip?: string) {
-  const body = new URLSearchParams({ secret, response: token });
-  if (remoteip) body.set('remoteip', remoteip);
-  const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', { method: 'POST', body });
-  if (!response.ok) return false;
-  const result = await response.json() as { success?: boolean };
-  return result.success === true;
-}
-
-export const POST: APIRoute = async ({ request, clientAddress }) => {
+export const POST: APIRoute = async ({ request }) => {
   const allowedOrigin = import.meta.env.CONTACT_ALLOWED_ORIGIN;
   const origin = request.headers.get('origin');
-  if (origin && allowedOrigin && origin !== allowedOrigin && origin !== new URL(request.url).origin) {
+  const requestOrigin = new URL(request.url).origin;
+  const acceptedOrigins = new Set([requestOrigin, allowedOrigin].filter(Boolean));
+  if (origin && !acceptedOrigins.has(origin)) {
     return reply(request, 403, 'invalid', 'The submission origin was not accepted.');
   }
 
@@ -62,15 +55,10 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     message: clean(input.get('message'), 'message'),
     website: clean(input.get('website'), 'website'),
   };
-  const token = String(input.get('cf-turnstile-response') || '').trim().slice(0, 4096);
   if (fields.website) return reply(request, 200, 'success', 'Thank you. Your message has been sent.');
   if (!fields.name || !fields.email || !fields.message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) {
     return reply(request, 422, 'invalid', 'Name, a valid email address, and message are required.');
   }
-
-  const turnstileSecret = import.meta.env.TURNSTILE_SECRET_KEY;
-  if (!turnstileSecret || !token) return reply(request, 400, 'verification', 'Please complete the verification and try again.');
-  if (!(await verifyTurnstile(token, turnstileSecret, clientAddress))) return reply(request, 400, 'verification', 'Verification failed or expired. Please try again.');
 
   const apiKey = import.meta.env.RESEND_API_KEY;
   const from = import.meta.env.CONTACT_FROM_EMAIL;

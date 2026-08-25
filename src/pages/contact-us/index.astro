@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageIntro from '../../components/PageIntro.astro';
 const status = Astro.url.searchParams.get('status');
-const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 ---
 <BaseLayout title="Contact Us" description="Start a conversation with the Stores Consulting Group about retail execution, operations, and technology adoption." canonicalPath="/contact-us/">
   <PageIntro eyebrow="Contact" title="Let's talk about the gap between the platform and the floor." description="Tell us what is live, what is not working yet, and what the business needs to see change." />
@@ -11,7 +10,6 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
     <div>
       {status === 'success' && <p class="form-status" role="status">Thank you. Your message has been sent.</p>}
       {status === 'invalid' && <p class="form-error" role="alert">Please review the required fields and try again.</p>}
-      {status === 'verification' && <p class="form-error" role="alert">We could not verify the submission. Please try again.</p>}
       {status === 'unavailable' && <p class="form-error" role="alert">The form is temporarily unavailable. Please email contact@storesconsulting.com.</p>}
       <form class="contact-form" action="/api/contact" method="post" data-enhanced-contact>
         <div class="form-grid">
@@ -22,13 +20,11 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
           <div class="form-field form-field--wide"><label for="message">Message <span aria-hidden="true">*</span></label><textarea id="message" name="message" maxlength="5000" required></textarea></div>
           <div class="form-honeypot" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" autocomplete="off" tabindex="-1" /></div>
         </div>
-        {turnstileSiteKey ? <div class="turnstile-shell"><div class="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="light"></div></div> : <p class="form-error">Form verification is not configured in this environment. Email us directly instead.</p>}
-        <button class="button" type="submit" disabled={!turnstileSiteKey}>Send Message</button>
+        <button class="button" type="submit">Send Message</button>
         <p data-form-feedback aria-live="polite"></p>
       </form>
     </div>
   </div></section>
-  {turnstileSiteKey && <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
   <script>
     const form = document.querySelector('[data-enhanced-contact]');
     const feedback = document.querySelector('[data-form-feedback]');
@@ -44,10 +40,8 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
         if (!response.ok) throw new Error(result.message || 'Please review the form and try again.');
         form.reset();
         if (feedback) feedback.textContent = 'Thank you. Your message has been sent.';
-        window.turnstile?.reset();
       } catch (error) {
         if (feedback) feedback.textContent = error instanceof Error ? error.message : 'The form is temporarily unavailable.';
-        window.turnstile?.reset();
       } finally {
         if (submitter instanceof HTMLButtonElement) submitter.disabled = false;
       }

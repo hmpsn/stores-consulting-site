@@ -231,8 +231,6 @@ h3 { font-size: 1.25rem; }
 .form-honeypot { left: -10000px; position: absolute; }
 .form-status { background: #e9f5ea; border-left: 3px solid #347044; margin-bottom: 1.5rem; padding: 1rem; }
 .form-error { background: #f8e9eb; border-left: 3px solid var(--maroon); margin-bottom: 1.5rem; padding: 1rem; }
-.turnstile-shell { margin-block: 1.2rem; min-height: 65px; }
-
 .cta-band { background: var(--ink-strong); color: var(--paper); padding-block: 5rem; text-align: center; }
 .cta-band__inner { max-width: 45rem; }
 .cta-band p { color: #e9dcd3; font-size: 1.08rem; }

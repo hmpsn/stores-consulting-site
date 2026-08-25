@@ -34,12 +34,12 @@ Recover the exact files from the WordPress host backup and place them at the pat
 
 The final local snapshot completed these gates:
 
-- Astro content/type check: 37 source files, zero errors, warnings, or hints
-- Production build: 122 public HTML pages plus the on-demand contact function
+- Astro content/type check: 38 source files, zero errors, warnings, or hints
+- Production build: 123 public HTML pages plus the on-demand contact function
 - HTML validation: passed, including duplicate-ID checks
-- Internal links and assets: 3,367 references passed
+- Internal links and assets: 3,392 references passed
 - Intrinsic media: 125 image instances across generated pages, all with width and height
-- Browser regression: 85 passed, 23 intentionally skipped by viewport/capability
+- Browser regression: 92 passed, 28 intentionally skipped by viewport/capability
 - Viewports: 320, 390, 768, 1024, and 1440 pixels
 - JavaScript-disabled core-route coverage: passed
 - Critical/serious structural accessibility scan: passed
@@ -67,11 +67,11 @@ These links were not silently rewritten because this phase preserves legacy copy
 The following work requires owner access and therefore remains a launch gate:
 
 - WordPress database, WXR, uploads, and DNS backups
-- Marty-owned GitHub repository/organization and branch protection
-- Marty-owned Vercel project and preview deployment
-- Resend domain/API credentials and a delivery test
-- Cloudflare Turnstile keys and success/expiry tests
+- Josh-owned GitHub repository with Marty added as a collaborator and branch protection configured
+- Josh-owned Vercel project and preview deployment
+- Josh's Resend test instance/API credentials and a delivery test
+- Vercel Firewall rate limiting for the contact endpoint; Turnstile was intentionally removed
 - Domain/DNS access and the 30-day WordPress rollback window
 - Existing GA4 ownership confirmation before re-enabling measurement
 
-No remote repository, Vercel project, production environment variables, DNS records, analytics property, or provider account was created or changed during the local rebuild.
+Infrastructure decision recorded 2026-08-25: Josh owns GitHub and Vercel, shares the repository with Marty, and uses his Resend instance during testing. Production environment variables, DNS records, analytics property, and provider accounts remain unchanged until the preview is accepted.

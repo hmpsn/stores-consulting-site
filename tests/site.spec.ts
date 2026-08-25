@@ -48,13 +48,19 @@ test.describe('production structure', () => {
   test('core pages have no critical or serious axe violations', async ({ page }) => {
     test.skip(test.info().project.name !== 'chromium-1440', 'Accessibility scan runs once on the desktop project.');
     await page.goto('/');
-    const results = await new AxeBuilder({ page }).exclude('.cf-turnstile').exclude('astro-dev-toolbar').disableRules(['color-contrast']).analyze();
+    const results = await new AxeBuilder({ page }).exclude('astro-dev-toolbar').disableRules(['color-contrast']).analyze();
     const structural = results.violations.filter((violation) => violation.impact === 'critical' || violation.impact === 'serious');
     expect(structural).toEqual([]);
   });
 });
 
 test.describe('contact endpoint safeguards', () => {
+  test('rejects cross-origin submissions', async ({ request }) => {
+    test.skip(test.info().project.name !== 'chromium-1440', 'Endpoint tests run once.');
+    const response = await request.post('/api/contact', { headers: { accept: 'application/json', origin: 'https://malicious.example' }, form: { name: 'Test User', email: 'test@example.com', message: 'A cross-origin test message.' } });
+    expect(response.status()).toBe(403);
+  });
+
   test('rejects invalid required fields', async ({ request }) => {
     test.skip(test.info().project.name !== 'chromium-1440', 'Endpoint tests run once.');
     const response = await request.post('/api/contact', { headers: { accept: 'application/json', origin: 'http://127.0.0.1:4321' }, form: { name: '', email: 'bad', message: '' } });
@@ -69,10 +75,10 @@ test.describe('contact endpoint safeguards', () => {
     await expect(response.json()).resolves.toMatchObject({ ok: true });
   });
 
-  test('rejects a valid payload without Turnstile', async ({ request }) => {
+  test('requires delivery configuration for a valid submission', async ({ request }) => {
     test.skip(test.info().project.name !== 'chromium-1440', 'Endpoint tests run once.');
     const response = await request.post('/api/contact', { headers: { accept: 'application/json', origin: 'http://127.0.0.1:4321' }, form: { name: 'Test User', email: 'test@example.com', message: 'A legitimate test message.' } });
-    expect(response.status()).toBe(400);
-    await expect(response.json()).resolves.toMatchObject({ ok: false, code: 'verification' });
+    expect(response.status()).toBe(503);
+    await expect(response.json()).resolves.toMatchObject({ ok: false, code: 'unavailable' });
   });
 });
