@@ -7,7 +7,9 @@ export default defineConfig({
   site: 'https://storesconsulting.com',
   output: 'static',
   adapter: vercel(),
-  integrations: [sitemap()],
+  integrations: [sitemap({
+    filter: (page) => !page.endsWith('/styleguide/'),
+  })],
   trailingSlash: 'ignore',
   redirects: {},
   vite: {

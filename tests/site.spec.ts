@@ -5,7 +5,7 @@ const coreRoutes = [
   '/', '/about/', '/approach/', '/results/', '/clients/', '/services/',
   '/services/shrink-profit-recovery/', '/services/fresh-inventory-operations/',
   '/services/workforce-store-execution/', '/services/technology-adoption-change-management/',
-  '/contact-us/', '/tscg-blog/',
+  '/contact-us/', '/tscg-blog/', '/styleguide/',
 ];
 
 test.describe('production structure', () => {

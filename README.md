@@ -16,6 +16,8 @@ Pull requests create Vercel previews. `main` is production and requires one huma
 
 Read `docs/CONTENT-EDITING.md` and `AGENTS.md` before editing content.
 
+The living interface reference is available at `/styleguide/` while the site is running locally. It renders the actual tokens and shared components used by production pages and is excluded from navigation and the sitemap.
+
 ## Current migration status
 
 The generated application, HTML, metadata, and internal-link gates pass. Route parity remains intentionally blocked until three WordPress media files that currently return `403` are recovered from the host backup. See `docs/MIGRATION-REPORT.md` for the frozen inventory, verification results, inherited external-link findings, and remaining launch dependencies.
