@@ -62,16 +62,19 @@ The GetGo image host at `geweb.azureedge.net` no longer resolves. Its original s
 
 These links were not silently rewritten because this phase preserves legacy copy and source references. Resolve or approve each finding before cutover.
 
-## External dependencies not available locally
+## Repository and remaining external dependencies
+
+The private repository is live at `https://github.com/hmpsn/stores-consulting-site` with the implementation in draft PR #1. Marty still needs to be added after his GitHub username is supplied.
+
+GitHub rejected branch protection for this private repository because the current personal account plan does not include that feature. Keep the PR-only convention manually for now, or enable protection after moving the repository to an eligible plan/organization. Do not make the repository public solely to unlock protection.
 
 The following work requires owner access and therefore remains a launch gate:
 
 - WordPress database, WXR, uploads, and DNS backups
-- Josh-owned GitHub repository with Marty added as a collaborator and branch protection configured
 - Josh-owned Vercel project and preview deployment
 - Josh's Resend test instance/API credentials and a delivery test
 - Vercel Firewall rate limiting for the contact endpoint; Turnstile was intentionally removed
 - Domain/DNS access and the 30-day WordPress rollback window
 - Existing GA4 ownership confirmation before re-enabling measurement
 
-Infrastructure decision recorded 2026-08-25: Josh owns GitHub and Vercel, shares the repository with Marty, and uses his Resend instance during testing. Production environment variables, DNS records, analytics property, and provider accounts remain unchanged until the preview is accepted.
+Infrastructure decision recorded 2026-08-25: Josh owns GitHub and Vercel, shares the repository with Marty, and uses his Resend instance during testing. The connected Vercel integration currently exposes no team/account scope and the local CLI is not authenticated, so preview deployment still requires Vercel authorization. Production environment variables, DNS records, analytics property, and provider accounts remain unchanged until the preview is accepted.
