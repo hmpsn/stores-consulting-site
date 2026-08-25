@@ -1,0 +1,20 @@
+---
+interface Workstream {
+  title: string;
+  description: string;
+}
+interface Props {
+  items: Workstream[];
+}
+const { items } = Astro.props;
+---
+
+<ol class="workstream-grid">
+  {items.map((item, index) => (
+    <li>
+      <span class="workstream-grid__number">{String(index + 1).padStart(2, '0')}</span>
+      <h3>{item.title}</h3>
+      <p>{item.description}</p>
+    </li>
+  ))}
+</ol>

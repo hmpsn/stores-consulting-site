@@ -1,0 +1,23 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from '../components/PageIntro.astro';
+
+export async function getStaticPaths() {
+  const explicitRoutes = new Set(['/', '/about/', '/approach/', '/results/', '/clients/', '/services/', '/contact-us/', '/tscg-blog/']);
+  const pages = (await getCollection('legacy-pages')).filter((entry) => !explicitRoutes.has(entry.data.route)).map((entry) => ({ params: { slug: entry.data.route.replace(/^\//, '').replace(/\/$/, '') }, props: { entry, type: 'page', description: entry.data.description, published: null } }));
+  const posts = (await getCollection('posts', ({ data }) => !data.draft)).map((entry) => ({ params: { slug: entry.data.route.replace(/^\//, '').replace(/\/$/, '') }, props: { entry, type: 'post', description: entry.data.excerpt || entry.data.title, published: entry.data.publishedDate } }));
+  return [...pages, ...posts];
+}
+const { entry, type, description, published } = Astro.props;
+const { Content } = await render(entry);
+const data = entry.data;
+const canonicalPath = data.route;
+---
+<BaseLayout title={data.title} description={description} canonicalPath={canonicalPath} article={type === 'post'}>
+  <PageIntro eyebrow={type === 'post' ? 'tSCG Blog' : 'Legacy Page'} title={data.title} description={description} compact />
+  <article class="section"><div class="shell prose">
+    {published && <p class="article-meta">Published {published.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>}
+    <Content />
+  </div></article>
+</BaseLayout>

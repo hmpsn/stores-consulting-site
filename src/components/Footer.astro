@@ -1,0 +1,23 @@
+---
+import Brand from './Brand.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="shell site-footer__inner">
+    <a href="/" aria-label="the Stores Consulting Group home"><Brand compact /></a>
+    <nav aria-label="Footer navigation">
+      <ul>
+        <li><a href="/services/">What We Do</a></li>
+        <li><a href="/approach/">Our Approach</a></li>
+        <li><a href="/results/">Results</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/clients/">Clients</a></li>
+        <li><a href="/tscg-blog/">Blog</a></li>
+        <li><a href="/contact-us/">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <p class="site-footer__legal">© {year} the Stores Consulting Group · Wilmington, OH</p>
+</footer>

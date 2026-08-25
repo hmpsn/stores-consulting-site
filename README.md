@@ -1,43 +1,21 @@
-# Astro Starter Kit: Minimal
+# the Stores Consulting Group website
 
-```sh
-npm create astro@latest -- --template minimal
+Production rebuild of storesconsulting.com using Astro 7, strict TypeScript, Node 24, npm, and the Vercel adapter.
+
+```bash
+npm ci
+npm run dev
+npm run migrate        # developer-only WordPress/mockup import
+npm run validate       # schemas, types, build, HTML, links, route parity
+npm run test:e2e       # viewport and accessibility checks
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+All public pages are prerendered. `POST /api/contact` is the only on-demand Vercel Function. Environment variables are documented in `.env.example`.
 
-## 🚀 Project Structure
+Pull requests create Vercel previews. `main` is production and requires one human approval. DNS cutover is allowed only after route parity, contact delivery, mobile/accessibility checks, backup capture, and analytics ownership confirmation. Keep WordPress available for 30 days after cutover.
 
-Inside of your Astro project, you'll see the following folders and files:
+Read `docs/CONTENT-EDITING.md` and `AGENTS.md` before editing content.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Current migration status
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The generated application, HTML, metadata, and internal-link gates pass. Route parity remains intentionally blocked until three WordPress media files that currently return `403` are recovered from the host backup. See `docs/MIGRATION-REPORT.md` for the frozen inventory, verification results, inherited external-link findings, and remaining launch dependencies.

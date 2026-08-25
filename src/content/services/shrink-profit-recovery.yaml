@@ -1,0 +1,31 @@
+title: Shrink & Profit Recovery
+slug: shrink-profit-recovery
+order: 1
+eyebrow: AISLE 01 · What We Do
+summary: Find where margin leaks and build the accountability structure to stop it for good.
+thesisLabel: Why Technology Alone Hasn't Solved This
+thesis: Transaction-monitoring and video-AI platforms are very good at surfacing an exception. They're not built to install the daily habits — front-end controls, vendor accountability, associate awareness — that actually stop the loss. That's the layer we build.
+workstreams:
+  - title: Foundational
+    description: Shrink measurement methods and integrity, physical inventory process and post-audit, shelf price accuracy and markdown controls.
+  - title: Inventory Management
+    description: Product allocation and ordering effectiveness, backroom organization and physical product security, DSD vendor performance tracking.
+  - title: Shrink Analytics & Transaction Monitoring
+    description: POS, DSD, and inventory transaction monitoring; store risk assessment and predictive shrink analysis; proactive shrink response.
+  - title: Front-End Controls & Theft Deterrence
+    description: POS parameters and manager intervention, self-checkout and BOB traffic flow, cashier awareness and scorecard performance.
+  - title: People Strategies
+    description: New-hire and progressive screening for promotions, shrink awareness and communication strategy, training and certification for key positions.
+  - title: Door Controls & Physical Security
+    description: Door and trash-handling controls, authorized key handling and traffic flow, organized retail crime and physical asset strategy.
+metrics:
+  - value: 20–60%
+    label: Typical reduction in shrink and waste across engagement history
+  - value: 30–80%
+    label: Reduction in cash-handling hours through front-end re-engineering
+  - value: Platform-agnostic
+    label: Works alongside any transaction-monitoring or video-AI system already in place
+metricsNote: Ranges reflect typical results across tSCG's engagement history, not a single client. A fully sourced, engagement-specific proof point for this pillar is in development.
+relatedPaths:
+  - /approach/
+  - /results/

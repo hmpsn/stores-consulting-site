@@ -1,0 +1,24 @@
+---
+interface Service {
+  title: string;
+  slug: string;
+  order: number;
+  summary: string;
+}
+interface Props {
+  services: Service[];
+}
+const { services } = Astro.props;
+---
+
+<div class="service-grid">
+  {services.sort((a, b) => a.order - b.order).map((service) => (
+    <a class="service-card" href={`/services/${service.slug}/`}>
+      <span class="service-card__hole" aria-hidden="true"></span>
+      <span class="service-card__number">Aisle {String(service.order).padStart(2, '0')}</span>
+      <h3>{service.title}</h3>
+      <p>{service.summary}</p>
+      <span class="service-card__link">Explore this aisle →</span>
+    </a>
+  ))}
+</div>

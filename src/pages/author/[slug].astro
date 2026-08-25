@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import BlogList from '../../components/BlogList.astro';
+export async function getStaticPaths() {
+  const authors = await getCollection('authors');
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  return authors.map((author) => ({ params: { slug: author.data.slug }, props: { author: author.data, posts: posts.filter((post) => post.data.author === author.data.slug).map((post) => post.data).sort((a, b) => b.publishedDate.valueOf() - a.publishedDate.valueOf()) } }));
+}
+const { author, posts } = Astro.props;
+---
+<BaseLayout title={author.name} description={author.description || `Articles by ${author.name} for the Stores Consulting Group.`} canonicalPath={author.route}>
+  <PageIntro eyebrow="Author" title={author.name} description={author.description || `${posts.length} published article${posts.length === 1 ? '' : 's'}.`} compact />
+  <section class="section"><div class="shell"><BlogList posts={posts} /></div></section>
+</BaseLayout>

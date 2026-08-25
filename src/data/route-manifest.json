@@ -1,0 +1,3137 @@
+[
+  {
+    "sourceUrl": "https://storesconsulting.com/",
+    "sourcePath": "/",
+    "targetPath": "/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 26774
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/28549-2/",
+    "sourcePath": "/28549-2/",
+    "targetPath": "/28549-2/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28549
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/about/",
+    "sourcePath": "/about/",
+    "targetPath": "/about/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 11
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/about/partners/",
+    "sourcePath": "/about/partners/",
+    "targetPath": "/about/partners/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 28905
+  },
+  {
+    "sourceUrl": null,
+    "sourcePath": null,
+    "targetPath": "/approach/",
+    "type": "new",
+    "status": 200
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/author/admin/",
+    "sourcePath": "/author/admin/",
+    "targetPath": "/author/admin/",
+    "type": "author",
+    "status": 200,
+    "sourceId": 1
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/author/ecollie/",
+    "sourcePath": "/author/ecollie/",
+    "targetPath": "/author/ecollie/",
+    "type": "author",
+    "status": 200,
+    "sourceId": 6
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/author/rochelle/",
+    "sourcePath": "/author/rochelle/",
+    "targetPath": "/author/rochelle/",
+    "type": "author",
+    "status": 200,
+    "sourceId": 2
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/author/scott/",
+    "sourcePath": "/author/scott/",
+    "targetPath": "/author/scott/",
+    "type": "author",
+    "status": 200,
+    "sourceId": 4
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/big-data-big-deal/",
+    "sourcePath": "/big-data-big-deal/",
+    "targetPath": "/big-data-big-deal/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28606
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/blurring-the-line-between-grocerys-prepared-foods-and-restaurants-fast-casual-meals/",
+    "sourcePath": "/blurring-the-line-between-grocerys-prepared-foods-and-restaurants-fast-casual-meals/",
+    "targetPath": "/blurring-the-line-between-grocerys-prepared-foods-and-restaurants-fast-casual-meals/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28643
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/c-store-transformation/",
+    "sourcePath": "/c-store-transformation/",
+    "targetPath": "/c-store-transformation/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 28717
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/case-studies/",
+    "sourcePath": "/case-studies/",
+    "targetPath": "/case-studies/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 26997
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/category-management/",
+    "sourcePath": "/category-management/",
+    "targetPath": "/category-management/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 27069
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/category/about/",
+    "sourcePath": "/category/about/",
+    "targetPath": "/category/about/",
+    "type": "category",
+    "status": 200,
+    "sourceId": 19
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/category/blog/",
+    "sourcePath": "/category/blog/",
+    "targetPath": "/category/blog/",
+    "type": "category",
+    "status": 200,
+    "sourceId": 18
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/category/category-management/",
+    "sourcePath": "/category/category-management/",
+    "targetPath": "/category/category-management/",
+    "type": "category",
+    "status": 200,
+    "sourceId": 27
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/category/customer-service/",
+    "sourcePath": "/category/customer-service/",
+    "targetPath": "/category/customer-service/",
+    "type": "category",
+    "status": 200,
+    "sourceId": 28
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/category/fresh/",
+    "sourcePath": "/category/fresh/",
+    "targetPath": "/category/fresh/",
+    "type": "category",
+    "status": 200,
+    "sourceId": 22
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/category/industry-perspective/",
+    "sourcePath": "/category/industry-perspective/",
+    "targetPath": "/category/industry-perspective/",
+    "type": "category",
+    "status": 200,
+    "sourceId": 25
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/category/labor/",
+    "sourcePath": "/category/labor/",
+    "targetPath": "/category/labor/",
+    "type": "category",
+    "status": 200,
+    "sourceId": 24
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/category/loss-prevention/",
+    "sourcePath": "/category/loss-prevention/",
+    "targetPath": "/category/loss-prevention/",
+    "type": "category",
+    "status": 200,
+    "sourceId": 23
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/category/process-improvement/",
+    "sourcePath": "/category/process-improvement/",
+    "targetPath": "/category/process-improvement/",
+    "type": "category",
+    "status": 200,
+    "sourceId": 20
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/category/slider-category/",
+    "sourcePath": "/category/slider-category/",
+    "targetPath": "/category/slider-category/",
+    "type": "category",
+    "status": 200,
+    "sourceId": 3
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/category/store-manager-effectiveness/",
+    "sourcePath": "/category/store-manager-effectiveness/",
+    "targetPath": "/category/store-manager-effectiveness/",
+    "type": "category",
+    "status": 200,
+    "sourceId": 21
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/category/uncategorized/",
+    "sourcePath": "/category/uncategorized/",
+    "targetPath": "/category/uncategorized/",
+    "type": "category",
+    "status": 200,
+    "sourceId": 1
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/click-here-to-meet-us-at-nrf/",
+    "sourcePath": "/click-here-to-meet-us-at-nrf/",
+    "targetPath": "/click-here-to-meet-us-at-nrf/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 28575
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/clients/",
+    "sourcePath": "/clients/",
+    "targetPath": "/clients/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 27300
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/contact-us/",
+    "sourcePath": "/contact-us/",
+    "targetPath": "/contact-us/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 13
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/convenienceblog/",
+    "sourcePath": "/convenienceblog/",
+    "targetPath": "/convenienceblog/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28707
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/customer-experience-strategy/",
+    "sourcePath": "/customer-experience-strategy/",
+    "targetPath": "/customer-experience-strategy/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28671
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/digital-consumer/",
+    "sourcePath": "/digital-consumer/",
+    "targetPath": "/digital-consumer/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 28259
+  },
+  {
+    "sourceUrl": null,
+    "sourcePath": null,
+    "targetPath": "/feed/",
+    "type": "new",
+    "status": 200
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/fresh-item-management/",
+    "sourcePath": "/fresh-item-management/",
+    "targetPath": "/fresh-item-management/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 169
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/gatekeeper/",
+    "sourcePath": "/gatekeeper/",
+    "targetPath": "/gatekeeper/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 27067
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/grocery-benchmarking/",
+    "sourcePath": "/grocery-benchmarking/",
+    "targetPath": "/grocery-benchmarking/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 28410
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/hello-world/",
+    "sourcePath": "/hello-world/",
+    "targetPath": "/hello-world/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 1
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/how-do-you-get-all-that-and-a-bag-of-chips-with-dsd/",
+    "sourcePath": "/how-do-you-get-all-that-and-a-bag-of-chips-with-dsd/",
+    "targetPath": "/how-do-you-get-all-that-and-a-bag-of-chips-with-dsd/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28619
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/how-well-positioned-are-you-in-fresh-departments-to-differentiate-from-the-big-box-operators-and-your-other-local-competition/",
+    "sourcePath": "/how-well-positioned-are-you-in-fresh-departments-to-differentiate-from-the-big-box-operators-and-your-other-local-competition/",
+    "targetPath": "/how-well-positioned-are-you-in-fresh-departments-to-differentiate-from-the-big-box-operators-and-your-other-local-competition/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28504
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/improving-loss-prevention-strategies/",
+    "sourcePath": "/improving-loss-prevention-strategies/",
+    "targetPath": "/improving-loss-prevention-strategies/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28966
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/industries/",
+    "sourcePath": "/industries/",
+    "targetPath": "/industries/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 26983
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/is-your-organization-stepping-over-dollars-to-pick-up-pennies/",
+    "sourcePath": "/is-your-organization-stepping-over-dollars-to-pick-up-pennies/",
+    "targetPath": "/is-your-organization-stepping-over-dollars-to-pick-up-pennies/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28468
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/key-professionals/",
+    "sourcePath": "/key-professionals/",
+    "targetPath": "/key-professionals/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 30
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/labor-standards-what-is-the-correct-level-of-detail/",
+    "sourcePath": "/labor-standards-what-is-the-correct-level-of-detail/",
+    "targetPath": "/labor-standards-what-is-the-correct-level-of-detail/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28534
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/leadership-change-management/",
+    "sourcePath": "/leadership-change-management/",
+    "targetPath": "/leadership-change-management/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 29074
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/manager-effectiveness/",
+    "sourcePath": "/manager-effectiveness/",
+    "targetPath": "/manager-effectiveness/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 27075
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/never-a-better-time-for-providing-customer-service/",
+    "sourcePath": "/never-a-better-time-for-providing-customer-service/",
+    "targetPath": "/never-a-better-time-for-providing-customer-service/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28659
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/omnichannel-merchandising/",
+    "sourcePath": "/omnichannel-merchandising/",
+    "targetPath": "/omnichannel-merchandising/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28664
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/out-of-stocks-in-the-fresh-departments-solving-the-last-100-feet/",
+    "sourcePath": "/out-of-stocks-in-the-fresh-departments-solving-the-last-100-feet/",
+    "targetPath": "/out-of-stocks-in-the-fresh-departments-solving-the-last-100-feet/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28522
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/process-improvement/",
+    "sourcePath": "/process-improvement/",
+    "targetPath": "/process-improvement/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 27063
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/29124/",
+    "sourcePath": "/project/29124/",
+    "targetPath": "/project/29124/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 29124
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/99-cent-only/",
+    "sourcePath": "/project/99-cent-only/",
+    "targetPath": "/project/99-cent-only/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28055
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/ahold/",
+    "sourcePath": "/project/ahold/",
+    "targetPath": "/project/ahold/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28063
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/american-thrift-stores/",
+    "sourcePath": "/project/american-thrift-stores/",
+    "targetPath": "/project/american-thrift-stores/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28065
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/aml/",
+    "sourcePath": "/project/aml/",
+    "targetPath": "/project/aml/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 29181
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/at-home/",
+    "sourcePath": "/project/at-home/",
+    "targetPath": "/project/at-home/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 29163
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/bargain-hunt/",
+    "sourcePath": "/project/bargain-hunt/",
+    "targetPath": "/project/bargain-hunt/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 29205
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/bealls/",
+    "sourcePath": "/project/bealls/",
+    "targetPath": "/project/bealls/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 29210
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/best-buy/",
+    "sourcePath": "/project/best-buy/",
+    "targetPath": "/project/best-buy/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28059
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/bloomingdales/",
+    "sourcePath": "/project/bloomingdales/",
+    "targetPath": "/project/bloomingdales/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28071
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/buehlers/",
+    "sourcePath": "/project/buehlers/",
+    "targetPath": "/project/buehlers/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28073
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/coborns/",
+    "sourcePath": "/project/coborns/",
+    "targetPath": "/project/coborns/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 29200
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/crate-barrel/",
+    "sourcePath": "/project/crate-barrel/",
+    "targetPath": "/project/crate-barrel/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28075
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/delhaize/",
+    "sourcePath": "/project/delhaize/",
+    "targetPath": "/project/delhaize/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28133
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/family-dollar/",
+    "sourcePath": "/project/family-dollar/",
+    "targetPath": "/project/family-dollar/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28077
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/getgo/",
+    "sourcePath": "/project/getgo/",
+    "targetPath": "/project/getgo/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 29186
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/giant-eagle/",
+    "sourcePath": "/project/giant-eagle/",
+    "targetPath": "/project/giant-eagle/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28085
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/good-food-holdings/",
+    "sourcePath": "/project/good-food-holdings/",
+    "targetPath": "/project/good-food-holdings/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 29174
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/goodyear/",
+    "sourcePath": "/project/goodyear/",
+    "targetPath": "/project/goodyear/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28087
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/harris-teeter/",
+    "sourcePath": "/project/harris-teeter/",
+    "targetPath": "/project/harris-teeter/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28091
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/kangaroo-express/",
+    "sourcePath": "/project/kangaroo-express/",
+    "targetPath": "/project/kangaroo-express/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28093
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/kroger/",
+    "sourcePath": "/project/kroger/",
+    "targetPath": "/project/kroger/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28097
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/lazy-days/",
+    "sourcePath": "/project/lazy-days/",
+    "targetPath": "/project/lazy-days/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28131
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/lowes-foods/",
+    "sourcePath": "/project/lowes-foods/",
+    "targetPath": "/project/lowes-foods/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28095
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/macys/",
+    "sourcePath": "/project/macys/",
+    "targetPath": "/project/macys/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28101
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/michaels/",
+    "sourcePath": "/project/michaels/",
+    "targetPath": "/project/michaels/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 29156
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/national-vision/",
+    "sourcePath": "/project/national-vision/",
+    "targetPath": "/project/national-vision/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 29145
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/pilot-flying-j/",
+    "sourcePath": "/project/pilot-flying-j/",
+    "targetPath": "/project/pilot-flying-j/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 29168
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/schnucks/",
+    "sourcePath": "/project/schnucks/",
+    "targetPath": "/project/schnucks/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28107
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/shane-company/",
+    "sourcePath": "/project/shane-company/",
+    "targetPath": "/project/shane-company/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28111
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/sobeys/",
+    "sourcePath": "/project/sobeys/",
+    "targetPath": "/project/sobeys/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28113
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/southeastern-grocers/",
+    "sourcePath": "/project/southeastern-grocers/",
+    "targetPath": "/project/southeastern-grocers/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 29215
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/superior-grocers/",
+    "sourcePath": "/project/superior-grocers/",
+    "targetPath": "/project/superior-grocers/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28115
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/supervalu/",
+    "sourcePath": "/project/supervalu/",
+    "targetPath": "/project/supervalu/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28057
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/the-fresh-market/",
+    "sourcePath": "/project/the-fresh-market/",
+    "targetPath": "/project/the-fresh-market/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28083
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/tops/",
+    "sourcePath": "/project/tops/",
+    "targetPath": "/project/tops/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28129
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/total-wine/",
+    "sourcePath": "/project/total-wine/",
+    "targetPath": "/project/total-wine/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 28117
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/weis-markets/",
+    "sourcePath": "/project/weis-markets/",
+    "targetPath": "/project/weis-markets/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 29134
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/project/whole-foods/",
+    "sourcePath": "/project/whole-foods/",
+    "targetPath": "/project/whole-foods/",
+    "type": "project",
+    "status": 200,
+    "sourceId": 29220
+  },
+  {
+    "sourceUrl": null,
+    "sourcePath": null,
+    "targetPath": "/results/",
+    "type": "new",
+    "status": 200
+  },
+  {
+    "sourceUrl": null,
+    "sourcePath": null,
+    "targetPath": "/robots.txt",
+    "type": "new",
+    "status": 200
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/selling-effectiveness/",
+    "sourcePath": "/selling-effectiveness/",
+    "targetPath": "/selling-effectiveness/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 27065
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/servant-leadership-evolving-to-an-effective-management-style/",
+    "sourcePath": "/servant-leadership-evolving-to-an-effective-management-style/",
+    "targetPath": "/servant-leadership-evolving-to-an-effective-management-style/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28669
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/services_nonfood/",
+    "sourcePath": "/services_nonfood/",
+    "targetPath": "/services_nonfood/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 28562
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/services/",
+    "sourcePath": "/services/",
+    "targetPath": "/services/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 159
+  },
+  {
+    "sourceUrl": null,
+    "sourcePath": null,
+    "targetPath": "/services/fresh-inventory-operations/",
+    "type": "new",
+    "status": 200
+  },
+  {
+    "sourceUrl": null,
+    "sourcePath": null,
+    "targetPath": "/services/shrink-profit-recovery/",
+    "type": "new",
+    "status": 200
+  },
+  {
+    "sourceUrl": null,
+    "sourcePath": null,
+    "targetPath": "/services/technology-adoption-change-management/",
+    "type": "new",
+    "status": 200
+  },
+  {
+    "sourceUrl": null,
+    "sourcePath": null,
+    "targetPath": "/services/workforce-store-execution/",
+    "type": "new",
+    "status": 200
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/shink-and-profit-recovery/",
+    "sourcePath": "/shink-and-profit-recovery/",
+    "targetPath": "/shink-and-profit-recovery/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 173
+  },
+  {
+    "sourceUrl": null,
+    "sourcePath": null,
+    "targetPath": "/sitemap-index.xml",
+    "type": "new",
+    "status": 200
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/supply-chain/",
+    "sourcePath": "/supply-chain/",
+    "targetPath": "/supply-chain/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 177
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/support/",
+    "sourcePath": "/support/",
+    "targetPath": "/support/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 28676
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/sustainability/",
+    "sourcePath": "/sustainability/",
+    "targetPath": "/sustainability/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28601
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/testing-slider-123/",
+    "sourcePath": "/testing-slider-123/",
+    "targetPath": "/testing-slider-123/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 69
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/the-digital-age-of-retail/",
+    "sourcePath": "/the-digital-age-of-retail/",
+    "targetPath": "/the-digital-age-of-retail/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28616
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/there-is-always-a-better-way/",
+    "sourcePath": "/there-is-always-a-better-way/",
+    "targetPath": "/there-is-always-a-better-way/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28623
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/tom-sinnen-part-1-video-series/",
+    "sourcePath": "/tom-sinnen-part-1-video-series/",
+    "targetPath": "/tom-sinnen-part-1-video-series/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28871
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/training-makes-the-difference/",
+    "sourcePath": "/training-makes-the-difference/",
+    "targetPath": "/training-makes-the-difference/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28667
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/transaction-monitoring-with-tscg/",
+    "sourcePath": "/transaction-monitoring-with-tscg/",
+    "targetPath": "/transaction-monitoring-with-tscg/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28528
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/transaction-monitoring/",
+    "sourcePath": "/transaction-monitoring/",
+    "targetPath": "/transaction-monitoring/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 26957
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/tscg-blog/",
+    "sourcePath": "/tscg-blog/",
+    "targetPath": "/tscg-blog/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 28431
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/tscg-designs-new-cash-stand-layout-for-department-store-and-reduces-transaction-time-by-over-15/",
+    "sourcePath": "/tscg-designs-new-cash-stand-layout-for-department-store-and-reduces-transaction-time-by-over-15/",
+    "targetPath": "/tscg-designs-new-cash-stand-layout-for-department-store-and-reduces-transaction-time-by-over-15/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28442
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/tscg-future-page/",
+    "sourcePath": "/tscg-future-page/",
+    "targetPath": "/tscg-future-page/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 29003
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/tscg-team-communication-page/",
+    "sourcePath": "/tscg-team-communication-page/",
+    "targetPath": "/tscg-team-communication-page/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28790
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/tscg-team-page/",
+    "sourcePath": "/tscg-team-page/",
+    "targetPath": "/tscg-team-page/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 29005
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/video-series-rich-van-patten-labor-part-2/",
+    "sourcePath": "/video-series-rich-van-patten-labor-part-2/",
+    "targetPath": "/video-series-rich-van-patten-labor-part-2/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28950
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/video-series-rich-van-patten-labor/",
+    "sourcePath": "/video-series-rich-van-patten-labor/",
+    "targetPath": "/video-series-rich-van-patten-labor/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28897
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/video-series-tom-sinnen-fresh-part-2/",
+    "sourcePath": "/video-series-tom-sinnen-fresh-part-2/",
+    "targetPath": "/video-series-tom-sinnen-fresh-part-2/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28888
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/where-are-my-improvements-in-category-management/",
+    "sourcePath": "/where-are-my-improvements-in-category-management/",
+    "targetPath": "/where-are-my-improvements-in-category-management/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28566
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/who-is-the-stores-consulting-group/",
+    "sourcePath": "/who-is-the-stores-consulting-group/",
+    "targetPath": "/who-is-the-stores-consulting-group/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28436
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/why-arent-retail-managers-managing/",
+    "sourcePath": "/why-arent-retail-managers-managing/",
+    "targetPath": "/why-arent-retail-managers-managing/",
+    "type": "post",
+    "status": 200,
+    "sourceId": 28474
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/workforce-management/",
+    "sourcePath": "/workforce-management/",
+    "targetPath": "/workforce-management/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 171
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/working-here/",
+    "sourcePath": "/working-here/",
+    "targetPath": "/working-here/",
+    "type": "page",
+    "status": 200,
+    "sourceId": 17
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/20200515_100011.jpg",
+    "sourcePath": "/wp-content/uploads/2016/04/20200515_100011.jpg",
+    "targetPath": "/wp-content/uploads/2016/04/20200515_100011.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28863
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/20201118_165616.jpg",
+    "sourcePath": "/wp-content/uploads/2016/04/20201118_165616.jpg",
+    "targetPath": "/wp-content/uploads/2016/04/20201118_165616.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28979
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/4b38e4e353f2401a265e1110bcdb5aee.jpg",
+    "sourcePath": "/wp-content/uploads/2016/04/4b38e4e353f2401a265e1110bcdb5aee.jpg",
+    "targetPath": "/wp-content/uploads/2016/04/4b38e4e353f2401a265e1110bcdb5aee.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28972
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/803247880027844322.jpg",
+    "sourcePath": "/wp-content/uploads/2016/04/803247880027844322.jpg",
+    "targetPath": "/wp-content/uploads/2016/04/803247880027844322.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28840
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/8C7C43B0-470A-46DC-839B-6DDB847E2534_1_201_a.jpeg",
+    "sourcePath": "/wp-content/uploads/2016/04/8C7C43B0-470A-46DC-839B-6DDB847E2534_1_201_a.jpeg",
+    "targetPath": "/wp-content/uploads/2016/04/8C7C43B0-470A-46DC-839B-6DDB847E2534_1_201_a.jpeg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28857
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/Covid-19-Travel-Information_07142020.pdf",
+    "sourcePath": "/wp-content/uploads/2016/04/Covid-19-Travel-Information_07142020.pdf",
+    "targetPath": "/wp-content/uploads/2016/04/Covid-19-Travel-Information_07142020.pdf",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28954
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/For-the-front-line-workers.png",
+    "sourcePath": "/wp-content/uploads/2016/04/For-the-front-line-workers.png",
+    "targetPath": "/wp-content/uploads/2016/04/For-the-front-line-workers.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28861
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/Hall-1.jpg",
+    "sourcePath": "/wp-content/uploads/2016/04/Hall-1.jpg",
+    "targetPath": "/wp-content/uploads/2016/04/Hall-1.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28843
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/Hall-2.jpg",
+    "sourcePath": "/wp-content/uploads/2016/04/Hall-2.jpg",
+    "targetPath": "/wp-content/uploads/2016/04/Hall-2.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28842
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/IMG_1315.jpeg",
+    "sourcePath": "/wp-content/uploads/2016/04/IMG_1315.jpeg",
+    "targetPath": "/wp-content/uploads/2016/04/IMG_1315.jpeg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28858
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/IMG_2697.jpg",
+    "sourcePath": "/wp-content/uploads/2016/04/IMG_2697.jpg",
+    "targetPath": "/wp-content/uploads/2016/04/IMG_2697.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28836
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/IMG_3679.jpg",
+    "sourcePath": "/wp-content/uploads/2016/04/IMG_3679.jpg",
+    "targetPath": "/wp-content/uploads/2016/04/IMG_3679.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28976
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/IMG_3799.jpg",
+    "sourcePath": "/wp-content/uploads/2016/04/IMG_3799.jpg",
+    "targetPath": "/wp-content/uploads/2016/04/IMG_3799.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28856
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/IMG_4689.jpg",
+    "sourcePath": "/wp-content/uploads/2016/04/IMG_4689.jpg",
+    "targetPath": "/wp-content/uploads/2016/04/IMG_4689.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28960
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/Jack-on-the-Roof.jpg",
+    "sourcePath": "/wp-content/uploads/2016/04/Jack-on-the-Roof.jpg",
+    "targetPath": "/wp-content/uploads/2016/04/Jack-on-the-Roof.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28846
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/Larry-Office-Space.jpg",
+    "sourcePath": "/wp-content/uploads/2016/04/Larry-Office-Space.jpg",
+    "targetPath": "/wp-content/uploads/2016/04/Larry-Office-Space.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28835
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/Masks.jpg",
+    "sourcePath": "/wp-content/uploads/2016/04/Masks.jpg",
+    "targetPath": "/wp-content/uploads/2016/04/Masks.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28841
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/New-Patio-Night.png",
+    "sourcePath": "/wp-content/uploads/2016/04/New-Patio-Night.png",
+    "targetPath": "/wp-content/uploads/2016/04/New-Patio-Night.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28860
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/New-Patio.png",
+    "sourcePath": "/wp-content/uploads/2016/04/New-Patio.png",
+    "targetPath": "/wp-content/uploads/2016/04/New-Patio.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28859
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/Office-Pic-1.jpg",
+    "sourcePath": "/wp-content/uploads/2016/04/Office-Pic-1.jpg",
+    "targetPath": "/wp-content/uploads/2016/04/Office-Pic-1.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28833
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/Office-Pic-2.jpg",
+    "sourcePath": "/wp-content/uploads/2016/04/Office-Pic-2.jpg",
+    "targetPath": "/wp-content/uploads/2016/04/Office-Pic-2.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28834
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/Stairs_After.jpeg",
+    "sourcePath": "/wp-content/uploads/2016/04/Stairs_After.jpeg",
+    "targetPath": "/wp-content/uploads/2016/04/Stairs_After.jpeg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28838
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/Stairs_Before.jpeg",
+    "sourcePath": "/wp-content/uploads/2016/04/Stairs_Before.jpeg",
+    "targetPath": "/wp-content/uploads/2016/04/Stairs_Before.jpeg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28839
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/Sunset.jpg",
+    "sourcePath": "/wp-content/uploads/2016/04/Sunset.jpg",
+    "targetPath": "/wp-content/uploads/2016/04/Sunset.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28855
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/Sweeney-Office-225x300-2.jpg",
+    "sourcePath": "/wp-content/uploads/2016/04/Sweeney-Office-225x300-2.jpg",
+    "targetPath": "/wp-content/uploads/2016/04/Sweeney-Office-225x300-2.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28832
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/Sweeney-Walk.jpg",
+    "sourcePath": "/wp-content/uploads/2016/04/Sweeney-Walk.jpg",
+    "targetPath": "/wp-content/uploads/2016/04/Sweeney-Walk.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28837
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/04/yf5SeOH36hrQ9gt99BA_rMTVMUBNMeWRrbGbk2B36bU_R9ul0izSmw4xrLEa4pHNBYxSCYPPZZ1M1Apkig5djIvftoIotVfBLAvWCcNzGQqv4qxYngNVEQXvmrU2WjgXFQ9bKj3mk7adwGC8bKQzeEMklpEbTixVz4ki3Va9zFy8.png",
+    "sourcePath": "/wp-content/uploads/2016/04/yf5SeOH36hrQ9gt99BA_rMTVMUBNMeWRrbGbk2B36bU_R9ul0izSmw4xrLEa4pHNBYxSCYPPZZ1M1Apkig5djIvftoIotVfBLAvWCcNzGQqv4qxYngNVEQXvmrU2WjgXFQ9bKj3mk7adwGC8bKQzeEMklpEbTixVz4ki3Va9zFy8.png",
+    "targetPath": "/wp-content/uploads/2016/04/yf5SeOH36hrQ9gt99BA_rMTVMUBNMeWRrbGbk2B36bU_R9ul0izSmw4xrLEa4pHNBYxSCYPPZZ1M1Apkig5djIvftoIotVfBLAvWCcNzGQqv4qxYngNVEQXvmrU2WjgXFQ9bKj3mk7adwGC8bKQzeEMklpEbTixVz4ki3Va9zFy8.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28973
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/Headshot_Foster.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/Headshot_Foster.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/Headshot_Foster.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27139
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/Headshot_Hobert.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/Headshot_Hobert.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/Headshot_Hobert.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28629
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/Headshot_JVC.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/Headshot_JVC.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/Headshot_JVC.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27140
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/Headshot_Krause.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/Headshot_Krause.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/Headshot_Krause.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27141
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/Headshot_Lee.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/Headshot_Lee.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/Headshot_Lee.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28633
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/Headshot_Mahoney.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/Headshot_Mahoney.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/Headshot_Mahoney.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28461
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/Headshot_Marc_McMahon_Pic.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/Headshot_Marc_McMahon_Pic.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/Headshot_Marc_McMahon_Pic.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27142
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/Headshot_Marino.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/Headshot_Marino.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/Headshot_Marino.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27143
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/Headshot_Mason.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/Headshot_Mason.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/Headshot_Mason.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28653
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/Headshot_McGovern.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/Headshot_McGovern.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/Headshot_McGovern.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27724
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/Headshot_Moyer.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/Headshot_Moyer.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/Headshot_Moyer.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27144
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/Headshot_Paris.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/Headshot_Paris.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/Headshot_Paris.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27145
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/Headshot_Romeo.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/Headshot_Romeo.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/Headshot_Romeo.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27146
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/Headshot_Sinnen.jpeg",
+    "sourcePath": "/wp-content/uploads/2016/05/Headshot_Sinnen.jpeg",
+    "targetPath": "/wp-content/uploads/2016/05/Headshot_Sinnen.jpeg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27147
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/Headshot_Sweeney.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/Headshot_Sweeney.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/Headshot_Sweeney.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28433
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/Headshot_VanPatten.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/Headshot_VanPatten.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/Headshot_VanPatten.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27148
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/iStock-186324930.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/iStock-186324930.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/iStock-186324930.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27422
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/iStock-452087681.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/iStock-452087681.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/iStock-452087681.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27427
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/iStock-532049662_2.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/iStock-532049662_2.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/iStock-532049662_2.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27792
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/iStock-540567820-1.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/iStock-540567820-1.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/iStock-540567820-1.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27466
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/iStock-540567820.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/iStock-540567820.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/iStock-540567820.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27464
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/JSweeney.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/JSweeney.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/JSweeney.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 36
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/LargeLogo.png",
+    "sourcePath": "/wp-content/uploads/2016/05/LargeLogo.png",
+    "targetPath": "/wp-content/uploads/2016/05/LargeLogo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 25
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/Phone_1.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/Phone_1.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/Phone_1.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27424
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/SLaSchiazza-Photo.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/SLaSchiazza-Photo.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/SLaSchiazza-Photo.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28631
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/05/Team_Cropped.jpg",
+    "sourcePath": "/wp-content/uploads/2016/05/Team_Cropped.jpg",
+    "targetPath": "/wp-content/uploads/2016/05/Team_Cropped.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27468
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/Arrow.png",
+    "sourcePath": "/wp-content/uploads/2016/06/Arrow.png",
+    "targetPath": "/wp-content/uploads/2016/06/Arrow.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27557
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/cropped-Logo_Words_1-1.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/cropped-Logo_Words_1-1.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/cropped-Logo_Words_1-1.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 167
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/cropped-Logo_Words_1.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/cropped-Logo_Words_1.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/cropped-Logo_Words_1.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 72
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/ecp-5164-1211.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/ecp-5164-1211.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/ecp-5164-1211.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27116
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/FIM_CircleImage1.png",
+    "sourcePath": "/wp-content/uploads/2016/06/FIM_CircleImage1.png",
+    "targetPath": "/wp-content/uploads/2016/06/FIM_CircleImage1.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27597
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/FIM_CircleImage2.png",
+    "sourcePath": "/wp-content/uploads/2016/06/FIM_CircleImage2.png",
+    "targetPath": "/wp-content/uploads/2016/06/FIM_CircleImage2.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27613
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/FIM_CircleImage3.png",
+    "sourcePath": "/wp-content/uploads/2016/06/FIM_CircleImage3.png",
+    "targetPath": "/wp-content/uploads/2016/06/FIM_CircleImage3.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27617
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/FIM_CircleImage4.png",
+    "sourcePath": "/wp-content/uploads/2016/06/FIM_CircleImage4.png",
+    "targetPath": "/wp-content/uploads/2016/06/FIM_CircleImage4.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27618
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/FIM_CircleImage5.png",
+    "sourcePath": "/wp-content/uploads/2016/06/FIM_CircleImage5.png",
+    "targetPath": "/wp-content/uploads/2016/06/FIM_CircleImage5.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27619
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/Footer_ClientsFinals.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/Footer_ClientsFinals.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/Footer_ClientsFinals.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27284
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/Footer_ContactFinal.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/Footer_ContactFinal.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/Footer_ContactFinal.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27285
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/Footer_ServicesFinal.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/Footer_ServicesFinal.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/Footer_ServicesFinal.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27286
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/Footer_TeamFinal.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/Footer_TeamFinal.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/Footer_TeamFinal.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27287
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/gears-1311171.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/gears-1311171.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/gears-1311171.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 26859
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/Graph_2.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/Graph_2.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/Graph_2.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27703
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/Graph.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/Graph.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/Graph.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27688
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/grocerycarts.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/grocerycarts.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/grocerycarts.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 139
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/hand-shaking.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/hand-shaking.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/hand-shaking.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27195
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/iStock-155392146.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/iStock-155392146.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/iStock-155392146.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27549
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/iStock-186144387._2.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/iStock-186144387._2.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/iStock-186144387._2.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27550
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/iStock-508548916_2.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/iStock-508548916_2.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/iStock-508548916_2.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27683
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/iStock-508548916.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/iStock-508548916.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/iStock-508548916.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27680
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/iStock-543194530.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/iStock-543194530.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/iStock-543194530.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28271
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/leadership.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/leadership.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/leadership.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 140
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/Logo_Words_1.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/Logo_Words_1.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/Logo_Words_1.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 68
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/LP_1.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/LP_1.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/LP_1.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 143
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/Process.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/Process.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/Process.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27207
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/puzzle-961800.png",
+    "sourcePath": "/wp-content/uploads/2016/06/puzzle-961800.png",
+    "targetPath": "/wp-content/uploads/2016/06/puzzle-961800.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 26918
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/Shrink_2.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/Shrink_2.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/Shrink_2.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 136
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/SupplyChain_1.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/SupplyChain_1.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/SupplyChain_1.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 138
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/SupplyChain_2.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/SupplyChain_2.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/SupplyChain_2.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 141
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/Team_1.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/Team_1.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/Team_1.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 145
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/WFM_2.jpg",
+    "sourcePath": "/wp-content/uploads/2016/06/WFM_2.jpg",
+    "targetPath": "/wp-content/uploads/2016/06/WFM_2.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 142
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/WFM_Cycle.png",
+    "sourcePath": "/wp-content/uploads/2016/06/WFM_Cycle.png",
+    "targetPath": "/wp-content/uploads/2016/06/WFM_Cycle.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27312
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/WFM_Cycle2.png",
+    "sourcePath": "/wp-content/uploads/2016/06/WFM_Cycle2.png",
+    "targetPath": "/wp-content/uploads/2016/06/WFM_Cycle2.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27332
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/06/wmf_3.png",
+    "sourcePath": "/wp-content/uploads/2016/06/wmf_3.png",
+    "targetPath": "/wp-content/uploads/2016/06/wmf_3.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 137
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/07/logo.png",
+    "sourcePath": "/wp-content/uploads/2016/07/logo.png",
+    "targetPath": "/wp-content/uploads/2016/07/logo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 205
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/07/newlogo.png",
+    "sourcePath": "/wp-content/uploads/2016/07/newlogo.png",
+    "targetPath": "/wp-content/uploads/2016/07/newlogo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 206
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/08/1st-Choice-1.jpg",
+    "sourcePath": "/wp-content/uploads/2016/08/1st-Choice-1.jpg",
+    "targetPath": "/wp-content/uploads/2016/08/1st-Choice-1.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 221
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/08/1st-Choice.jpg",
+    "sourcePath": "/wp-content/uploads/2016/08/1st-Choice.jpg",
+    "targetPath": "/wp-content/uploads/2016/08/1st-Choice.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 220
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/CeridianDayforceLogo.png",
+    "sourcePath": "/wp-content/uploads/2016/09/CeridianDayforceLogo.png",
+    "targetPath": "/wp-content/uploads/2016/09/CeridianDayforceLogo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 26891
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/convenience.jpg",
+    "sourcePath": "/wp-content/uploads/2016/09/convenience.jpg",
+    "targetPath": "/wp-content/uploads/2016/09/convenience.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28715
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/DM_03242016_1135.jpg",
+    "sourcePath": "/wp-content/uploads/2016/09/DM_03242016_1135.jpg",
+    "targetPath": "/wp-content/uploads/2016/09/DM_03242016_1135.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27123
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/ecp-5041-1191.jpg",
+    "sourcePath": "/wp-content/uploads/2016/09/ecp-5041-1191.jpg",
+    "targetPath": "/wp-content/uploads/2016/09/ecp-5041-1191.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27126
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/EZShiftLogo.png",
+    "sourcePath": "/wp-content/uploads/2016/09/EZShiftLogo.png",
+    "targetPath": "/wp-content/uploads/2016/09/EZShiftLogo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 26892
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/farmer-potatoes.jpg",
+    "sourcePath": "/wp-content/uploads/2016/09/farmer-potatoes.jpg",
+    "targetPath": "/wp-content/uploads/2016/09/farmer-potatoes.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 264
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/field1-e1473980580102.jpg",
+    "sourcePath": "/wp-content/uploads/2016/09/field1-e1473980580102.jpg",
+    "targetPath": "/wp-content/uploads/2016/09/field1-e1473980580102.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 265
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/infologo.png",
+    "sourcePath": "/wp-content/uploads/2016/09/infologo.png",
+    "targetPath": "/wp-content/uploads/2016/09/infologo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 26893
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/iStock-155359705.jpg",
+    "sourcePath": "/wp-content/uploads/2016/09/iStock-155359705.jpg",
+    "targetPath": "/wp-content/uploads/2016/09/iStock-155359705.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27774
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/iStock-177273605.jpg",
+    "sourcePath": "/wp-content/uploads/2016/09/iStock-177273605.jpg",
+    "targetPath": "/wp-content/uploads/2016/09/iStock-177273605.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27256
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/iStock-506018790_02.jpg",
+    "sourcePath": "/wp-content/uploads/2016/09/iStock-506018790_02.jpg",
+    "targetPath": "/wp-content/uploads/2016/09/iStock-506018790_02.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27781
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/iStock-508942834.jpg",
+    "sourcePath": "/wp-content/uploads/2016/09/iStock-508942834.jpg",
+    "targetPath": "/wp-content/uploads/2016/09/iStock-508942834.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27230
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/iStock-509030151.jpg",
+    "sourcePath": "/wp-content/uploads/2016/09/iStock-509030151.jpg",
+    "targetPath": "/wp-content/uploads/2016/09/iStock-509030151.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27277
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/iStock-513439064_2.jpg",
+    "sourcePath": "/wp-content/uploads/2016/09/iStock-513439064_2.jpg",
+    "targetPath": "/wp-content/uploads/2016/09/iStock-513439064_2.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27233
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/iStock-519863664_02.jpg",
+    "sourcePath": "/wp-content/uploads/2016/09/iStock-519863664_02.jpg",
+    "targetPath": "/wp-content/uploads/2016/09/iStock-519863664_02.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27782
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/iStock-529801079.jpg",
+    "sourcePath": "/wp-content/uploads/2016/09/iStock-529801079.jpg",
+    "targetPath": "/wp-content/uploads/2016/09/iStock-529801079.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27240
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/iStock-532177398.jpg",
+    "sourcePath": "/wp-content/uploads/2016/09/iStock-532177398.jpg",
+    "targetPath": "/wp-content/uploads/2016/09/iStock-532177398.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27235
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/iStock-543570406_2.jpg",
+    "sourcePath": "/wp-content/uploads/2016/09/iStock-543570406_2.jpg",
+    "targetPath": "/wp-content/uploads/2016/09/iStock-543570406_2.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27779
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/jdaLogo.png",
+    "sourcePath": "/wp-content/uploads/2016/09/jdaLogo.png",
+    "targetPath": "/wp-content/uploads/2016/09/jdaLogo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 26894
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/kaba-logo.gif",
+    "sourcePath": "/wp-content/uploads/2016/09/kaba-logo.gif",
+    "targetPath": "/wp-content/uploads/2016/09/kaba-logo.gif",
+    "type": "media",
+    "status": 200,
+    "sourceId": 26895
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/Kronos-empowerheaderlogo_reg.png",
+    "sourcePath": "/wp-content/uploads/2016/09/Kronos-empowerheaderlogo_reg.png",
+    "targetPath": "/wp-content/uploads/2016/09/Kronos-empowerheaderlogo_reg.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 26896
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/kronos-logo-2012.gif",
+    "sourcePath": "/wp-content/uploads/2016/09/kronos-logo-2012.gif",
+    "targetPath": "/wp-content/uploads/2016/09/kronos-logo-2012.gif",
+    "type": "media",
+    "status": 200,
+    "sourceId": 26887
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/KronosLogo.png",
+    "sourcePath": "/wp-content/uploads/2016/09/KronosLogo.png",
+    "targetPath": "/wp-content/uploads/2016/09/KronosLogo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 26888
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/RedPrairieLogo.png",
+    "sourcePath": "/wp-content/uploads/2016/09/RedPrairieLogo.png",
+    "targetPath": "/wp-content/uploads/2016/09/RedPrairieLogo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 26897
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/SumTotalLogo.png",
+    "sourcePath": "/wp-content/uploads/2016/09/SumTotalLogo.png",
+    "targetPath": "/wp-content/uploads/2016/09/SumTotalLogo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 26898
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/TM_AfterInstall.png",
+    "sourcePath": "/wp-content/uploads/2016/09/TM_AfterInstall.png",
+    "targetPath": "/wp-content/uploads/2016/09/TM_AfterInstall.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27486
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/TM_BeforeInstall.png",
+    "sourcePath": "/wp-content/uploads/2016/09/TM_BeforeInstall.png",
+    "targetPath": "/wp-content/uploads/2016/09/TM_BeforeInstall.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27485
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/TM_Install.png",
+    "sourcePath": "/wp-content/uploads/2016/09/TM_Install.png",
+    "targetPath": "/wp-content/uploads/2016/09/TM_Install.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27487
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/veggies4.jpg",
+    "sourcePath": "/wp-content/uploads/2016/09/veggies4.jpg",
+    "targetPath": "/wp-content/uploads/2016/09/veggies4.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 271
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/veggies5.jpg",
+    "sourcePath": "/wp-content/uploads/2016/09/veggies5.jpg",
+    "targetPath": "/wp-content/uploads/2016/09/veggies5.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 268
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/veggies8.jpg",
+    "sourcePath": "/wp-content/uploads/2016/09/veggies8.jpg",
+    "targetPath": "/wp-content/uploads/2016/09/veggies8.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 270
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/webinar1.png",
+    "sourcePath": "/wp-content/uploads/2016/09/webinar1.png",
+    "targetPath": "/wp-content/uploads/2016/09/webinar1.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29013
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/webinarpic.png",
+    "sourcePath": "/wp-content/uploads/2016/09/webinarpic.png",
+    "targetPath": "/wp-content/uploads/2016/09/webinarpic.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29011
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/09/WorkforceSoftware.png",
+    "sourcePath": "/wp-content/uploads/2016/09/WorkforceSoftware.png",
+    "targetPath": "/wp-content/uploads/2016/09/WorkforceSoftware.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 26899
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/10/CategoryManagementDiagram.png",
+    "sourcePath": "/wp-content/uploads/2016/10/CategoryManagementDiagram.png",
+    "targetPath": "/wp-content/uploads/2016/10/CategoryManagementDiagram.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28286
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/10/clock-559963_960_720.png",
+    "sourcePath": "/wp-content/uploads/2016/10/clock-559963_960_720.png",
+    "targetPath": "/wp-content/uploads/2016/10/clock-559963_960_720.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27817
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/10/iStock-453006117_2.jpg",
+    "sourcePath": "/wp-content/uploads/2016/10/iStock-453006117_2.jpg",
+    "targetPath": "/wp-content/uploads/2016/10/iStock-453006117_2.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27652
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/10/iStock-490245946.jpg",
+    "sourcePath": "/wp-content/uploads/2016/10/iStock-490245946.jpg",
+    "targetPath": "/wp-content/uploads/2016/10/iStock-490245946.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27643
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/10/iStock-500003410_2.jpg",
+    "sourcePath": "/wp-content/uploads/2016/10/iStock-500003410_2.jpg",
+    "targetPath": "/wp-content/uploads/2016/10/iStock-500003410_2.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27878
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/10/iStock-506033946.jpg",
+    "sourcePath": "/wp-content/uploads/2016/10/iStock-506033946.jpg",
+    "targetPath": "/wp-content/uploads/2016/10/iStock-506033946.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27653
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/10/iStock-507375110.jpg",
+    "sourcePath": "/wp-content/uploads/2016/10/iStock-507375110.jpg",
+    "targetPath": "/wp-content/uploads/2016/10/iStock-507375110.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27855
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/10/iStock-509919198_2.jpg",
+    "sourcePath": "/wp-content/uploads/2016/10/iStock-509919198_2.jpg",
+    "targetPath": "/wp-content/uploads/2016/10/iStock-509919198_2.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27801
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/10/iStock-509919198_3.jpg",
+    "sourcePath": "/wp-content/uploads/2016/10/iStock-509919198_3.jpg",
+    "targetPath": "/wp-content/uploads/2016/10/iStock-509919198_3.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27804
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/10/iStock-511727402.jpg",
+    "sourcePath": "/wp-content/uploads/2016/10/iStock-511727402.jpg",
+    "targetPath": "/wp-content/uploads/2016/10/iStock-511727402.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27816
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/11/DM_03242016_0917.jpg",
+    "sourcePath": "/wp-content/uploads/2016/11/DM_03242016_0917.jpg",
+    "targetPath": "/wp-content/uploads/2016/11/DM_03242016_0917.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27131
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/11/ecp-5092-1194.jpg",
+    "sourcePath": "/wp-content/uploads/2016/11/ecp-5092-1194.jpg",
+    "targetPath": "/wp-content/uploads/2016/11/ecp-5092-1194.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27132
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/11/organic-cucumbers-being-sold-in-a-market_GJRneBPO.jpg",
+    "sourcePath": "/wp-content/uploads/2016/11/organic-cucumbers-being-sold-in-a-market_GJRneBPO.jpg",
+    "targetPath": "/wp-content/uploads/2016/11/organic-cucumbers-being-sold-in-a-market_GJRneBPO.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27134
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2016/11/pecurka-1-89.jpg",
+    "sourcePath": "/wp-content/uploads/2016/11/pecurka-1-89.jpg",
+    "targetPath": "/wp-content/uploads/2016/11/pecurka-1-89.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 27135
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/1000px-Supervalu-logo.svg_.png",
+    "sourcePath": "/wp-content/uploads/2017/01/1000px-Supervalu-logo.svg_.png",
+    "targetPath": "/wp-content/uploads/2017/01/1000px-Supervalu-logo.svg_.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28023
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/2000px-Best_Buy_Logo.svg_.png",
+    "sourcePath": "/wp-content/uploads/2017/01/2000px-Best_Buy_Logo.svg_.png",
+    "targetPath": "/wp-content/uploads/2017/01/2000px-Best_Buy_Logo.svg_.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28024
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/2000px-Winn_Dixie_Logo.svg_.png",
+    "sourcePath": "/wp-content/uploads/2017/01/2000px-Winn_Dixie_Logo.svg_.png",
+    "targetPath": "/wp-content/uploads/2017/01/2000px-Winn_Dixie_Logo.svg_.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28025
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/99cent_logo.png",
+    "sourcePath": "/wp-content/uploads/2017/01/99cent_logo.png",
+    "targetPath": "/wp-content/uploads/2017/01/99cent_logo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28022
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/Ahold_Logo.svg_.png",
+    "sourcePath": "/wp-content/uploads/2017/01/Ahold_Logo.svg_.png",
+    "targetPath": "/wp-content/uploads/2017/01/Ahold_Logo.svg_.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28026
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/AmericanThrift.png",
+    "sourcePath": "/wp-content/uploads/2017/01/AmericanThrift.png",
+    "targetPath": "/wp-content/uploads/2017/01/AmericanThrift.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28027
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/BI-LO_Logo.png",
+    "sourcePath": "/wp-content/uploads/2017/01/BI-LO_Logo.png",
+    "targetPath": "/wp-content/uploads/2017/01/BI-LO_Logo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28028
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/Bloomingdales_Logo.png",
+    "sourcePath": "/wp-content/uploads/2017/01/Bloomingdales_Logo.png",
+    "targetPath": "/wp-content/uploads/2017/01/Bloomingdales_Logo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28029
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/Bonton-Stores2.png",
+    "sourcePath": "/wp-content/uploads/2017/01/Bonton-Stores2.png",
+    "targetPath": "/wp-content/uploads/2017/01/Bonton-Stores2.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28030
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/Buehlers_Green.png",
+    "sourcePath": "/wp-content/uploads/2017/01/Buehlers_Green.png",
+    "targetPath": "/wp-content/uploads/2017/01/Buehlers_Green.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28031
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/crate_barrel.png",
+    "sourcePath": "/wp-content/uploads/2017/01/crate_barrel.png",
+    "targetPath": "/wp-content/uploads/2017/01/crate_barrel.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28032
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/Delhaize.png",
+    "sourcePath": "/wp-content/uploads/2017/01/Delhaize.png",
+    "targetPath": "/wp-content/uploads/2017/01/Delhaize.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28192
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/earth-fare-logo.png",
+    "sourcePath": "/wp-content/uploads/2017/01/earth-fare-logo.png",
+    "targetPath": "/wp-content/uploads/2017/01/earth-fare-logo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28033
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/family-dollar-logo_final.png",
+    "sourcePath": "/wp-content/uploads/2017/01/family-dollar-logo_final.png",
+    "targetPath": "/wp-content/uploads/2017/01/family-dollar-logo_final.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28034
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/Freds_20170124.png",
+    "sourcePath": "/wp-content/uploads/2017/01/Freds_20170124.png",
+    "targetPath": "/wp-content/uploads/2017/01/Freds_20170124.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28222
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/freds.png",
+    "sourcePath": "/wp-content/uploads/2017/01/freds.png",
+    "targetPath": "/wp-content/uploads/2017/01/freds.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28035
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/freds2.png",
+    "sourcePath": "/wp-content/uploads/2017/01/freds2.png",
+    "targetPath": "/wp-content/uploads/2017/01/freds2.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28397
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/Freshmarket.png",
+    "sourcePath": "/wp-content/uploads/2017/01/Freshmarket.png",
+    "targetPath": "/wp-content/uploads/2017/01/Freshmarket.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28036
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/GiantEagle.png",
+    "sourcePath": "/wp-content/uploads/2017/01/GiantEagle.png",
+    "targetPath": "/wp-content/uploads/2017/01/GiantEagle.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28037
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/Goodyear_Tire__Rubber_Company_logo_blue.png",
+    "sourcePath": "/wp-content/uploads/2017/01/Goodyear_Tire__Rubber_Company_logo_blue.png",
+    "targetPath": "/wp-content/uploads/2017/01/Goodyear_Tire__Rubber_Company_logo_blue.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28038
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/harris-teeter-logo.png",
+    "sourcePath": "/wp-content/uploads/2017/01/harris-teeter-logo.png",
+    "targetPath": "/wp-content/uploads/2017/01/harris-teeter-logo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28040
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/KangarooExpress_logo.png",
+    "sourcePath": "/wp-content/uploads/2017/01/KangarooExpress_logo.png",
+    "targetPath": "/wp-content/uploads/2017/01/KangarooExpress_logo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28041
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/Kroger.png",
+    "sourcePath": "/wp-content/uploads/2017/01/Kroger.png",
+    "targetPath": "/wp-content/uploads/2017/01/Kroger.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28193
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/lazy-days-21.png",
+    "sourcePath": "/wp-content/uploads/2017/01/lazy-days-21.png",
+    "targetPath": "/wp-content/uploads/2017/01/lazy-days-21.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28120
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/logo_gordmans.png",
+    "sourcePath": "/wp-content/uploads/2017/01/logo_gordmans.png",
+    "targetPath": "/wp-content/uploads/2017/01/logo_gordmans.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28121
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/LowesFoods.png",
+    "sourcePath": "/wp-content/uploads/2017/01/LowesFoods.png",
+    "targetPath": "/wp-content/uploads/2017/01/LowesFoods.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28043
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/macys-logo.png",
+    "sourcePath": "/wp-content/uploads/2017/01/macys-logo.png",
+    "targetPath": "/wp-content/uploads/2017/01/macys-logo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28044
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/marsh.png",
+    "sourcePath": "/wp-content/uploads/2017/01/marsh.png",
+    "targetPath": "/wp-content/uploads/2017/01/marsh.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28045
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/NEW_FFO_Logo_Homepage-compressor.png",
+    "sourcePath": "/wp-content/uploads/2017/01/NEW_FFO_Logo_Homepage-compressor.png",
+    "targetPath": "/wp-content/uploads/2017/01/NEW_FFO_Logo_Homepage-compressor.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28046
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/schnucks_logo.png",
+    "sourcePath": "/wp-content/uploads/2017/01/schnucks_logo.png",
+    "targetPath": "/wp-content/uploads/2017/01/schnucks_logo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28047
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/Sears_Canada_logo.svg_.png",
+    "sourcePath": "/wp-content/uploads/2017/01/Sears_Canada_logo.svg_.png",
+    "targetPath": "/wp-content/uploads/2017/01/Sears_Canada_logo.svg_.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28048
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/SearsHoldings.png",
+    "sourcePath": "/wp-content/uploads/2017/01/SearsHoldings.png",
+    "targetPath": "/wp-content/uploads/2017/01/SearsHoldings.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28049
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/Shane-Co-Logo-2016.png",
+    "sourcePath": "/wp-content/uploads/2017/01/Shane-Co-Logo-2016.png",
+    "targetPath": "/wp-content/uploads/2017/01/Shane-Co-Logo-2016.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28050
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/sobeys.png",
+    "sourcePath": "/wp-content/uploads/2017/01/sobeys.png",
+    "targetPath": "/wp-content/uploads/2017/01/sobeys.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28051
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/SponsorPage-TotalWine.png",
+    "sourcePath": "/wp-content/uploads/2017/01/SponsorPage-TotalWine.png",
+    "targetPath": "/wp-content/uploads/2017/01/SponsorPage-TotalWine.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28052
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/superiorgrocers.png",
+    "sourcePath": "/wp-content/uploads/2017/01/superiorgrocers.png",
+    "targetPath": "/wp-content/uploads/2017/01/superiorgrocers.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28053
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/01/Tops2.png",
+    "sourcePath": "/wp-content/uploads/2017/01/Tops2.png",
+    "targetPath": "/wp-content/uploads/2017/01/Tops2.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28122
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2017/02/iStock-613672992.jpg",
+    "sourcePath": "/wp-content/uploads/2017/02/iStock-613672992.jpg",
+    "targetPath": "/wp-content/uploads/2017/02/iStock-613672992.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28314
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/05/eCommerce_Splash_May2020.pdf",
+    "sourcePath": "/wp-content/uploads/2020/05/eCommerce_Splash_May2020.pdf",
+    "targetPath": "/wp-content/uploads/2020/05/eCommerce_Splash_May2020.pdf",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28865
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/05/Managing-Occupancy-Mitigating-Checkout-Congestion-April2020-3-1.pdf",
+    "sourcePath": "/wp-content/uploads/2020/05/Managing-Occupancy-Mitigating-Checkout-Congestion-April2020-3-1.pdf",
+    "targetPath": "/wp-content/uploads/2020/05/Managing-Occupancy-Mitigating-Checkout-Congestion-April2020-3-1.pdf",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28853
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/05/Managing-Occupancy-Mitigating-Checkout-Congestion-April2020-3.pdf",
+    "sourcePath": "/wp-content/uploads/2020/05/Managing-Occupancy-Mitigating-Checkout-Congestion-April2020-3.pdf",
+    "targetPath": "/wp-content/uploads/2020/05/Managing-Occupancy-Mitigating-Checkout-Congestion-April2020-3.pdf",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28851
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/05/Tom-Sinnen4.10.20-Final_Part1.mp4",
+    "sourcePath": "/wp-content/uploads/2020/05/Tom-Sinnen4.10.20-Final_Part1.mp4",
+    "targetPath": "/wp-content/uploads/2020/05/Tom-Sinnen4.10.20-Final_Part1.mp4",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28872
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/05/Tom-Sinnen5.20.20-Final_Part1.mp4",
+    "sourcePath": "/wp-content/uploads/2020/05/Tom-Sinnen5.20.20-Final_Part1.mp4",
+    "targetPath": "/wp-content/uploads/2020/05/Tom-Sinnen5.20.20-Final_Part1.mp4",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28874
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/06/0.png",
+    "sourcePath": "/wp-content/uploads/2020/06/0.png",
+    "targetPath": "/wp-content/uploads/2020/06/0.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28924
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/06/014b7khfKPFPv3LHYNgZryB-9.fit_scale.size_1028x578.v_1569477747.jpg",
+    "sourcePath": "/wp-content/uploads/2020/06/014b7khfKPFPv3LHYNgZryB-9.fit_scale.size_1028x578.v_1569477747.jpg",
+    "targetPath": "/wp-content/uploads/2020/06/014b7khfKPFPv3LHYNgZryB-9.fit_scale.size_1028x578.v_1569477747.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28926
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/06/FaceFirst_HorizontalLogo.png",
+    "sourcePath": "/wp-content/uploads/2020/06/FaceFirst_HorizontalLogo.png",
+    "targetPath": "/wp-content/uploads/2020/06/FaceFirst_HorizontalLogo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28920
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/06/GaiaDigits.png",
+    "sourcePath": "/wp-content/uploads/2020/06/GaiaDigits.png",
+    "targetPath": "/wp-content/uploads/2020/06/GaiaDigits.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28906
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/06/images.jpg",
+    "sourcePath": "/wp-content/uploads/2020/06/images.jpg",
+    "targetPath": "/wp-content/uploads/2020/06/images.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28918
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/06/Irisys_company_logo.jpg",
+    "sourcePath": "/wp-content/uploads/2020/06/Irisys_company_logo.jpg",
+    "targetPath": "/wp-content/uploads/2020/06/Irisys_company_logo.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28922
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/06/logo-1-2x.png",
+    "sourcePath": "/wp-content/uploads/2020/06/logo-1-2x.png",
+    "targetPath": "/wp-content/uploads/2020/06/logo-1-2x.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28925
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/06/myrmex-logo.png",
+    "sourcePath": "/wp-content/uploads/2020/06/myrmex-logo.png",
+    "targetPath": "/wp-content/uploads/2020/06/myrmex-logo.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28914
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/06/myrmex.html",
+    "sourcePath": "/wp-content/uploads/2020/06/myrmex.html",
+    "targetPath": "/wp-content/uploads/2020/06/myrmex.html",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28910
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/06/Oculogx.png",
+    "sourcePath": "/wp-content/uploads/2020/06/Oculogx.png",
+    "targetPath": "/wp-content/uploads/2020/06/Oculogx.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28970
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/06/RVP-Part-1.mp4",
+    "sourcePath": "/wp-content/uploads/2020/06/RVP-Part-1.mp4",
+    "targetPath": "/wp-content/uploads/2020/06/RVP-Part-1.mp4",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28898
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/06/skyfii_official_logo_black_skyfii_io_d_blue.png",
+    "sourcePath": "/wp-content/uploads/2020/06/skyfii_official_logo_black_skyfii_io_d_blue.png",
+    "targetPath": "/wp-content/uploads/2020/06/skyfii_official_logo_black_skyfii_io_d_blue.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28919
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/06/thumbnail_image001.png",
+    "sourcePath": "/wp-content/uploads/2020/06/thumbnail_image001.png",
+    "targetPath": "/wp-content/uploads/2020/06/thumbnail_image001.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28977
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/06/Tom-Sinnen5.20.20-Final_Part2_Trim.mp4",
+    "sourcePath": "/wp-content/uploads/2020/06/Tom-Sinnen5.20.20-Final_Part2_Trim.mp4",
+    "targetPath": "/wp-content/uploads/2020/06/Tom-Sinnen5.20.20-Final_Part2_Trim.mp4",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28894
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/06/WorkJam-Thumbnail.png",
+    "sourcePath": "/wp-content/uploads/2020/06/WorkJam-Thumbnail.png",
+    "targetPath": "/wp-content/uploads/2020/06/WorkJam-Thumbnail.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28917
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/07/Part-2-RVP.mp4",
+    "sourcePath": "/wp-content/uploads/2020/07/Part-2-RVP.mp4",
+    "targetPath": "/wp-content/uploads/2020/07/Part-2-RVP.mp4",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28951
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/08/Improving-Loss-Prevention-Strategies-Deterring-Retail-Theft-with-WorkJam-and-tSCG-1.pdf",
+    "sourcePath": "/wp-content/uploads/2020/08/Improving-Loss-Prevention-Strategies-Deterring-Retail-Theft-with-WorkJam-and-tSCG-1.pdf",
+    "targetPath": "/wp-content/uploads/2020/08/Improving-Loss-Prevention-Strategies-Deterring-Retail-Theft-with-WorkJam-and-tSCG-1.pdf",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28965
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2020/08/Improving-Loss-Prevention-Strategies-Deterring-Retail-Theft-with-WorkJam-and-tSCG.pdf",
+    "sourcePath": "/wp-content/uploads/2020/08/Improving-Loss-Prevention-Strategies-Deterring-Retail-Theft-with-WorkJam-and-tSCG.pdf",
+    "targetPath": "/wp-content/uploads/2020/08/Improving-Loss-Prevention-Strategies-Deterring-Retail-Theft-with-WorkJam-and-tSCG.pdf",
+    "type": "media",
+    "status": 200,
+    "sourceId": 28959
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/1200px-Weis_Markets_logo.svg_.png",
+    "sourcePath": "/wp-content/uploads/2023/01/1200px-Weis_Markets_logo.svg_.png",
+    "targetPath": "/wp-content/uploads/2023/01/1200px-Weis_Markets_logo.svg_.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29137
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/2560px-Lunds__Byerlys_logo.svg_.png",
+    "sourcePath": "/wp-content/uploads/2023/01/2560px-Lunds__Byerlys_logo.svg_.png",
+    "targetPath": "/wp-content/uploads/2023/01/2560px-Lunds__Byerlys_logo.svg_.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29127
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/ahold.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/ahold.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/ahold.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29192
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/AML-1.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/AML-1.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/AML-1.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29225
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/AML.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/AML.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/AML.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29182
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/arhome.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/arhome.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/arhome.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29164
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/bealls.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/bealls.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/bealls.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29211
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Bhunt.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/Bhunt.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/Bhunt.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29206
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/btqssidx2z7ilrmaubj7-2.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/btqssidx2z7ilrmaubj7-2.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/btqssidx2z7ilrmaubj7-2.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29048
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Change-Management.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/Change-Management.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/Change-Management.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29077
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Chart.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Chart.png",
+    "targetPath": "/wp-content/uploads/2023/01/Chart.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29108
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/coborns.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/coborns.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/coborns.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29201
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Color-Horizontal.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Color-Horizontal.png",
+    "targetPath": "/wp-content/uploads/2023/01/Color-Horizontal.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29046
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/cropped-Screen-Shot-2023-01-13-at-1.05.09-PM.png",
+    "sourcePath": "/wp-content/uploads/2023/01/cropped-Screen-Shot-2023-01-13-at-1.05.09-PM.png",
+    "targetPath": "/wp-content/uploads/2023/01/cropped-Screen-Shot-2023-01-13-at-1.05.09-PM.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29097
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/GetGo.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/GetGo.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/GetGo.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29187
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/good-food.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/good-food.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/good-food.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29175
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Jean-1.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Jean-1.png",
+    "targetPath": "/wp-content/uploads/2023/01/Jean-1.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29069
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Jean.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Jean.png",
+    "targetPath": "/wp-content/uploads/2023/01/Jean.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29068
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Jeanie-1.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Jeanie-1.png",
+    "targetPath": "/wp-content/uploads/2023/01/Jeanie-1.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29055
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Jeanie-2.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Jeanie-2.png",
+    "targetPath": "/wp-content/uploads/2023/01/Jeanie-2.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29056
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Jeanie-3.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Jeanie-3.png",
+    "targetPath": "/wp-content/uploads/2023/01/Jeanie-3.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29057
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Jeanie.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Jeanie.png",
+    "targetPath": "/wp-content/uploads/2023/01/Jeanie.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29054
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/LB.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/LB.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/LB.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29144
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Logo-Header-Sticky.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Logo-Header-Sticky.png",
+    "targetPath": "/wp-content/uploads/2023/01/Logo-Header-Sticky.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29045
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/logo132.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/logo132.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/logo132.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29050
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Michaels-1.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/Michaels-1.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/Michaels-1.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29161
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Michaels.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/Michaels.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/Michaels.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29159
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Mike-1.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Mike-1.png",
+    "targetPath": "/wp-content/uploads/2023/01/Mike-1.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29066
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Mike.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Mike.png",
+    "targetPath": "/wp-content/uploads/2023/01/Mike.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29065
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/NCR_logo_without_background.png",
+    "sourcePath": "/wp-content/uploads/2023/01/NCR_logo_without_background.png",
+    "targetPath": "/wp-content/uploads/2023/01/NCR_logo_without_background.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29047
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/NV.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/NV.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/NV.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29153
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/NV.pdf",
+    "sourcePath": "/wp-content/uploads/2023/01/NV.pdf",
+    "targetPath": "/wp-content/uploads/2023/01/NV.pdf",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29152
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/NVI_LOGO_2020.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/NVI_LOGO_2020.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/NVI_LOGO_2020.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29148
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Pay.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Pay.png",
+    "targetPath": "/wp-content/uploads/2023/01/Pay.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29078
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/People.png",
+    "sourcePath": "/wp-content/uploads/2023/01/People.png",
+    "targetPath": "/wp-content/uploads/2023/01/People.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29079
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/pilot.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/pilot.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/pilot.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29170
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/pilot.pdf",
+    "sourcePath": "/wp-content/uploads/2023/01/pilot.pdf",
+    "targetPath": "/wp-content/uploads/2023/01/pilot.pdf",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29169
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Place.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Place.png",
+    "targetPath": "/wp-content/uploads/2023/01/Place.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29080
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Presentation.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/Presentation.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/Presentation.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29100
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Results.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Results.png",
+    "targetPath": "/wp-content/uploads/2023/01/Results.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29081
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Screen-Shot-2023-01-13-at-1.05.09-PM.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Screen-Shot-2023-01-13-at-1.05.09-PM.png",
+    "targetPath": "/wp-content/uploads/2023/01/Screen-Shot-2023-01-13-at-1.05.09-PM.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29096
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Screen-Shot-2023-01-13-at-11.27.03-AM.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Screen-Shot-2023-01-13-at-11.27.03-AM.png",
+    "targetPath": "/wp-content/uploads/2023/01/Screen-Shot-2023-01-13-at-11.27.03-AM.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29067
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Screen-Shot-2023-01-13-at-11.45.10-AM.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Screen-Shot-2023-01-13-at-11.45.10-AM.png",
+    "targetPath": "/wp-content/uploads/2023/01/Screen-Shot-2023-01-13-at-11.45.10-AM.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29070
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Screen-Shot-2023-01-13-at-12.31.45-PM.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Screen-Shot-2023-01-13-at-12.31.45-PM.png",
+    "targetPath": "/wp-content/uploads/2023/01/Screen-Shot-2023-01-13-at-12.31.45-PM.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29093
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Screen-Shot-2023-01-13-at-3.28.54-PM.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Screen-Shot-2023-01-13-at-3.28.54-PM.png",
+    "targetPath": "/wp-content/uploads/2023/01/Screen-Shot-2023-01-13-at-3.28.54-PM.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29104
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Screen-Shot-2023-01-17-at-1.09.30-PM.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Screen-Shot-2023-01-17-at-1.09.30-PM.png",
+    "targetPath": "/wp-content/uploads/2023/01/Screen-Shot-2023-01-17-at-1.09.30-PM.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29228
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/seg.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/seg.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/seg.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29216
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Solink-wordmark-WEB-Full-Colour-R.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/Solink-wordmark-WEB-Full-Colour-R.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/Solink-wordmark-WEB-Full-Colour-R.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29049
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Thing.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Thing.png",
+    "targetPath": "/wp-content/uploads/2023/01/Thing.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29082
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Time.png",
+    "sourcePath": "/wp-content/uploads/2023/01/Time.png",
+    "targetPath": "/wp-content/uploads/2023/01/Time.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29083
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/tSCG-Logo_2023.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/tSCG-Logo_2023.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/tSCG-Logo_2023.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29102
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/tSCG-Logo-No-Background_2023.png",
+    "sourcePath": "/wp-content/uploads/2023/01/tSCG-Logo-No-Background_2023.png",
+    "targetPath": "/wp-content/uploads/2023/01/tSCG-Logo-No-Background_2023.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29099
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/tSCG-Logo-No-Background.png",
+    "sourcePath": "/wp-content/uploads/2023/01/tSCG-Logo-No-Background.png",
+    "targetPath": "/wp-content/uploads/2023/01/tSCG-Logo-No-Background.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29101
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/Weis.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/Weis.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/Weis.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29143
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/wf.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/wf.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/wf.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29221
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/01/workjam_logo.jpg",
+    "sourcePath": "/wp-content/uploads/2023/01/workjam_logo.jpg",
+    "targetPath": "/wp-content/uploads/2023/01/workjam_logo.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29051
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/05/Screenshot-2023-05-02-at-11.01.45-AM.png",
+    "sourcePath": "/wp-content/uploads/2023/05/Screenshot-2023-05-02-at-11.01.45-AM.png",
+    "targetPath": "/wp-content/uploads/2023/05/Screenshot-2023-05-02-at-11.01.45-AM.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29239
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/05/Screenshot-2023-05-02-at-11.02.36-AM.png",
+    "sourcePath": "/wp-content/uploads/2023/05/Screenshot-2023-05-02-at-11.02.36-AM.png",
+    "targetPath": "/wp-content/uploads/2023/05/Screenshot-2023-05-02-at-11.02.36-AM.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29240
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/08/AJ-Headshot.jpg",
+    "sourcePath": "/wp-content/uploads/2023/08/AJ-Headshot.jpg",
+    "targetPath": "/wp-content/uploads/2023/08/AJ-Headshot.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29252
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/08/Headshot.jpg",
+    "sourcePath": "/wp-content/uploads/2023/08/Headshot.jpg",
+    "targetPath": "/wp-content/uploads/2023/08/Headshot.jpg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29250
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2023/11/IMG_2359.png",
+    "sourcePath": "/wp-content/uploads/2023/11/IMG_2359.png",
+    "targetPath": "/wp-content/uploads/2023/11/IMG_2359.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29258
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2024/04/Screenshot-2024-04-11-at-1.34.08 PM.png",
+    "sourcePath": "/wp-content/uploads/2024/04/Screenshot-2024-04-11-at-1.34.08%E2%80%AFPM.png",
+    "targetPath": "/wp-content/uploads/2024/04/Screenshot-2024-04-11-at-1.34.08%E2%80%AFPM.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29263
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2024/04/Screenshot-2024-04-11-at-1.37.45 PM.png",
+    "sourcePath": "/wp-content/uploads/2024/04/Screenshot-2024-04-11-at-1.37.45%E2%80%AFPM.png",
+    "targetPath": "/wp-content/uploads/2024/04/Screenshot-2024-04-11-at-1.37.45%E2%80%AFPM.png",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29265
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/2024/11/IMG_9994.jpeg",
+    "sourcePath": "/wp-content/uploads/2024/11/IMG_9994.jpeg",
+    "targetPath": "/wp-content/uploads/2024/11/IMG_9994.jpeg",
+    "type": "media",
+    "status": 200,
+    "sourceId": 29279
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/revslider/techjournal/BW-Scroll.mp4",
+    "sourcePath": "/wp-content/uploads/revslider/techjournal/BW-Scroll.mp4",
+    "targetPath": "/wp-content/uploads/revslider/techjournal/BW-Scroll.mp4",
+    "type": "media",
+    "status": "review",
+    "sourceId": 214
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/revslider/techjournal/city_bg.jpg",
+    "sourcePath": "/wp-content/uploads/revslider/techjournal/city_bg.jpg",
+    "targetPath": "/wp-content/uploads/revslider/techjournal/city_bg.jpg",
+    "type": "media",
+    "status": "review",
+    "sourceId": 217
+  },
+  {
+    "sourceUrl": "https://storesconsulting.com/wp-content/uploads/revslider/techjournal/iwatch_smallimage.jpg",
+    "sourcePath": "/wp-content/uploads/revslider/techjournal/iwatch_smallimage.jpg",
+    "targetPath": "/wp-content/uploads/revslider/techjournal/iwatch_smallimage.jpg",
+    "type": "media",
+    "status": "review",
+    "sourceId": 218
+  }
+]

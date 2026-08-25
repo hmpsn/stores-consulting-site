@@ -1,17 +1,48 @@
 ---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import Metrics from '../components/Metrics.astro';
+import CtaBand from '../components/CtaBand.astro';
 
+const services = (await getCollection('services')).map((entry) => entry.data);
+const proof = [
+  { value: '40+', label: 'Practitioners across grocery, specialty, convenience and mass retail' },
+  { value: '7–10x', label: 'Typical return generated relative to engagement investment' },
+  { value: 'Multi', label: 'Project engagements are the norm, not the exception, with our clients' },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="the Stores Consulting Group" description="Retail execution consulting that closes the gap between what technology promises and what stores actually deliver." canonicalPath="/">
+  <section class="page-intro"><div class="shell page-intro__inner">
+    <p class="eyebrow">Execution Consulting · AI-Powered Retail Era</p>
+    <h1>Retailers have the AI.<br />Most aren't capturing <em>the return.</em></h1>
+    <p class="page-intro__description">the Stores Consulting Group closes the gap between what your technology promises and what your stores actually deliver — foundational retail execution, built for the AI era.</p>
+    <div class="hero-actions"><a class="button" href="/approach/">See How We Work</a><a class="button button--outline" href="/contact-us/">Talk to Us</a></div>
+  </div></section>
+  <section class="section"><div class="shell">
+    <div class="section__heading"><p class="eyebrow">The Problem We Solve</p><h2>The hardware wave has crested. The execution gap is the only gap left.</h2><p>ESLs, shelf robots, and AI platforms are deployed across tens of thousands of stores. The technology is in. The adoption isn't. Three structural gaps compound one another every day that technology goes underutilized — and tSCG exists to close them.</p></div>
+    <div class="problem-grid">
+      <article class="problem-card"><p class="problem-card__label">The Adoption Gap</p><h3>The alert fires. Nobody acts.</h3><p>Most stores are dramatically underutilizing platforms they've already paid for — not because the technology failed, but because adoption did. The workflow was never installed. The accountability was never built.</p></article>
+      <article class="problem-card"><p class="problem-card__label">The Attention Gap</p><h3>Too much data. No framework.</h3><p>Store teams receive more alerts and tasks than ever, with no structured framework for directing limited time and energy. The result: paralysis, or doing what was always done regardless of what the platform recommends.</p></article>
+      <article class="problem-card"><p class="problem-card__label">The ROI Gap</p><h3>The promise never shows up on the floor.</h3><p>The gap between what technology promises on paper and what the store delivers is where margin is lost every single day. This isn't a technology problem — it's organizational, and it requires a different kind of intervention.</p></article>
+    </div>
+  </div></section>
+  <section class="ratio-band" aria-labelledby="execution-thesis"><div class="shell ratio-band__grid">
+    <div class="ratio-band__item"><div class="ratio-band__value">70%</div><p class="ratio-band__label">Human Execution</p><p class="ratio-band__copy">Accountability. Workflows. Trust. The daily discipline to act on what the platform signals.</p></div>
+    <div class="ratio-band__item"><div class="ratio-band__value">30%</div><p class="ratio-band__label">The Platform</p><p class="ratio-band__copy">AI surfaces the problem. Humans actually solve it.</p></div>
+    <blockquote id="execution-thesis">“This is 70% a change management game, 30% a technology game.”</blockquote>
+  </div></section>
+  <section class="section section--soft"><div class="shell proof-grid">
+    <div><p class="eyebrow">Proof, Not Promises</p><h2>We measure results the way your finance team would.</h2><p>Every range we quote is pulled from actual engagement outcomes across grocery, drug, department, convenience, and specialty retail — not an industry average or a best-case scenario borrowed from somewhere else.</p><p>A diagnostic determines which of these drivers actually applies to you before any number ends up in a proposal.</p><a class="text-link" href="/results/">See how we measure results →</a></div>
+    <div class="receipt" role="group" aria-label="Summary of typical engagement outcomes"><p class="receipt__head">tSCG · Engagement Outcomes</p><dl><div><dt>Labor productivity</dt><dd>5–15%</dd></div><div><dt>Shrink &amp; waste reduction</dt><dd>20–60%</dd></div><div><dt>Total store sales gains</dt><dd>Up to 7%</dd></div><div><dt>Cash-handling hours cut</dt><dd>30–80%</dd></div></dl><p class="receipt__total"><span>Profit created, all clients</span><strong>$12B+</strong></p></div>
+  </div></section>
+  <section class="section" id="what-we-do"><div class="shell"><div class="section__heading"><p class="eyebrow">What We Do</p><h2>Four aisles. One discipline.</h2><p>Turning what your data already tells you into what your stores actually do — every shift, every store, every time.</p></div><ServiceCards services={services} /></div></section>
+  <section class="section section--paper"><div class="shell approach-grid">
+    <div><p class="eyebrow">Our Approach</p><h2>The 72-Hour Diagnostic. The Lighthouse Strategy. Two paths, one standard.</h2><p>Whether you've deployed the technology and need adoption, or you're still building the standard from the floor up, the path in depends on where you're starting — not a one-size-fits-all engagement.</p><a class="button" href="/approach/">See Our Full Approach</a></div>
+    <ol class="flow-list"><li><span class="flow-list__number">01</span><div><h3>Diagnose the real gap</h3><p>Observe the store floor, quantify friction, and establish which intervention is actually required.</p></div></li><li><span class="flow-list__number">02</span><div><h3>Prove the standard</h3><p>Build ownership with store and district leaders in a lighthouse or model-store environment.</p></div></li><li><span class="flow-list__number">03</span><div><h3>Scale through the field</h3><p>Transfer capability through dashboards, escalation paths, and peer mentorship.</p></div></li></ol>
+  </div></section>
+  <section class="section section--dark" id="technology"><div class="shell philosophy"><p class="eyebrow">Technology Philosophy</p><h2>We work with any platform — on purpose.</h2><p>We're not selling software, and we're not paid by the vendors whose platforms you've already bought. That independence is the point: our job is making sure the investment you already made actually pays off on the floor.</p><ul class="pill-list"><li>Vendor-agnostic</li><li>Execution-first</li><li>Built for adoption</li><li>Measured in outcomes</li></ul></div></section>
+  <section class="section"><div class="shell"><div class="section__heading"><p class="eyebrow">Why tSCG</p><h2>Decades inside retail. Not just around it.</h2><p>Our team has run stores, managed P&amp;Ls, and sat where you sit. We don't bring theory — we bring people who've done the job, and a methodology built from doing it again and again.</p></div><Metrics items={proof} /></div></section>
+  <CtaBand />
+</BaseLayout>

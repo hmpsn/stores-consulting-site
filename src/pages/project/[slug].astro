@@ -1,0 +1,16 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import CtaBand from '../../components/CtaBand.astro';
+export async function getStaticPaths() {
+  return (await getCollection('clients')).map((entry) => ({ params: { slug: entry.data.slug }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+<BaseLayout title={entry.data.name} description={`${entry.data.name} client profile from the Stores Consulting Group.`} canonicalPath={entry.data.route}>
+  <PageIntro eyebrow="Client Profile" title={entry.data.name} compact />
+  <article class="section"><div class="shell prose"><Content /></div></article>
+  <CtaBand />
+</BaseLayout>

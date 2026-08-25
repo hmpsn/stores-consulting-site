@@ -1,0 +1,31 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import CtaBand from '../../components/CtaBand.astro';
+
+const entries = (await getCollection('people')).sort((a, b) => a.data.order - b.data.order);
+const people = await Promise.all(entries.map(async (entry) => ({ ...entry.data, Content: (await render(entry)).Content })));
+const groups = [
+  { tier: 'leadership', title: 'Leadership' },
+  { tier: 'director', title: 'Directors' },
+  { tier: 'managing-consultant', title: 'Managing Consultants' },
+  { tier: 'senior-consultant', title: 'Senior Consultants' },
+] as const;
+---
+
+<BaseLayout title="About" description="Meet the veteran retail professionals and analysts behind the Stores Consulting Group." canonicalPath="/about/">
+  <PageIntro eyebrow="About tSCG" title="The people at the Stores Consulting Group make our company what it is." description="Our team is comprised of industry experts with a deep level of knowledge and experience — veteran retail professionals and tech-savvy analysts who bring real experience to the client, not theory." />
+  <section class="section"><div class="shell">
+    {groups.map((group) => {
+      const members = people.filter((person) => person.tier === group.tier);
+      return <section class="people-group" aria-labelledby={`group-${group.tier}`}>
+        <p class="eyebrow" id={`group-${group.tier}`}>{group.title}</p>
+        <div class:list={['people-grid', { 'people-grid--compact': group.tier !== 'leadership' }]}>
+          {members.map(({ Content, ...person }) => <article class="person-card"><p class="person-card__role">{person.role}</p><h2>{person.name}</h2><div class="prose"><Content /></div></article>)}
+        </div>
+      </section>;
+    })}
+  </div></section>
+  <CtaBand title="Over 50 retailers since 2009." description="More than half have engaged us on more than one project. That's not an accident. That's the result." />
+</BaseLayout>

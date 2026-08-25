@@ -1,0 +1,45 @@
+---
+import Brand from './Brand.astro';
+
+const currentPath = Astro.url.pathname;
+const links = [
+  { href: '/services/', label: 'What We Do' },
+  { href: '/approach/', label: 'Our Approach' },
+  { href: '/#technology', label: 'Technology' },
+  { href: '/results/', label: 'Results' },
+  { href: '/about/', label: 'About' },
+  { href: '/clients/', label: 'Clients' },
+];
+
+const isCurrent = (href: string) => {
+  const path = href.split('#')[0];
+  return path !== '/' && currentPath.startsWith(path);
+};
+---
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__brand" href="/" aria-label="the Stores Consulting Group home">
+      <Brand />
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <ul>
+        {links.map((link) => (
+          <li><a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+    <a class="button button--small site-header__cta" href="/contact-us/">Talk to Us</a>
+    <details class="mobile-nav">
+      <summary aria-label="Open navigation"><span></span><span></span><span></span></summary>
+      <nav aria-label="Mobile navigation">
+        <ul>
+          {links.map((link) => (
+            <li><a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a></li>
+          ))}
+          <li><a href="/contact-us/">Talk to Us</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>

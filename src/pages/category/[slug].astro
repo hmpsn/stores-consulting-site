@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import BlogList from '../../components/BlogList.astro';
+export async function getStaticPaths() {
+  const categories = await getCollection('categories');
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  return categories.map((category) => ({ params: { slug: category.data.slug }, props: { category: category.data, posts: posts.filter((post) => post.data.categories.includes(category.data.slug)).map((post) => post.data).sort((a, b) => b.publishedDate.valueOf() - a.publishedDate.valueOf()) } }));
+}
+const { category, posts } = Astro.props;
+---
+<BaseLayout title={category.name} description={category.description || `tSCG articles filed under ${category.name}.`} canonicalPath={category.route}>
+  <PageIntro eyebrow="Blog Category" title={category.name} description={category.description || `${posts.length} article${posts.length === 1 ? '' : 's'} in this category.`} compact />
+  <section class="section"><div class="shell"><BlogList posts={posts} /></div></section>
+</BaseLayout>

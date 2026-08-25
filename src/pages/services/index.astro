@@ -1,0 +1,12 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import ServiceCards from '../../components/ServiceCards.astro';
+import CtaBand from '../../components/CtaBand.astro';
+const services = (await getCollection('services')).map((entry) => entry.data);
+---
+<BaseLayout title="Services" description="Four retail execution consulting practices, built to turn store data and technology into consistent daily performance." canonicalPath="/services/">
+  <PageIntro eyebrow="What We Do" title="Four aisles. One discipline." description="Turning what your data already tells you into what your stores actually do — every shift, every store, every time." />
+  <section class="section"><div class="shell"><ServiceCards services={services} /></div></section><CtaBand />
+</BaseLayout>

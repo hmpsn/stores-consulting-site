@@ -1,0 +1,18 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import WorkstreamGrid from '../../components/WorkstreamGrid.astro';
+import Metrics from '../../components/Metrics.astro';
+import CtaBand from '../../components/CtaBand.astro';
+export async function getStaticPaths() {
+  return (await getCollection('services')).map((service) => ({ params: { slug: service.data.slug }, props: { service: service.data } }));
+}
+const { service } = Astro.props;
+---
+<BaseLayout title={service.title} description={service.summary} canonicalPath={`/services/${service.slug}/`}>
+  <PageIntro eyebrow={service.eyebrow} title={service.title} description={service.summary}><p class="page-intro__description"><strong>{service.thesisLabel}:</strong> {service.thesis}</p></PageIntro>
+  <section class="section section--paper"><div class="shell"><div class="section__heading"><p class="eyebrow">How We Work This Pillar</p><h2>Six workstreams, applied to your specific gap.</h2></div><WorkstreamGrid items={service.workstreams} /></div></section>
+  <section class="section section--soft"><div class="shell"><div class="section__heading"><p class="eyebrow">Results</p></div><Metrics items={service.metrics} note={service.metricsNote} /></div></section>
+  <CtaBand title="Delivered through either path." description="Whether this starts as a 72-Hour Diagnostic or a full Foundations build depends on where you're starting — not this pillar specifically." href="/approach/" label="See Our Approach" />
+</BaseLayout>

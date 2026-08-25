@@ -1,0 +1,31 @@
+title: Fresh & Inventory Operations
+slug: fresh-inventory-operations
+order: 2
+eyebrow: AISLE 02 · What We Do
+summary: Close the gap between ordering, production, and what's actually on the shelf.
+thesisLabel: Why Technology Alone Hasn't Solved This
+thesis: Production-planning and CAO/CGO tools can tell a store what to order. They can't enforce the schematic compliance, PLU discipline, and shelf-life standards that determine whether that order ever becomes margin. That's the execution layer — and it's ours.
+workstreams:
+  - title: Production Planning
+    description: Software-agnostic production planning using store-specific historical POS data; central forecast administrator development; ingredient and recipe management.
+  - title: Merchandise Strategy & Standards
+    description: Space-to-sales analysis and planograms, activity-based costing and product profitability, core item selection by store cluster.
+  - title: Ordering & Inventory Management
+    description: Informed-ordering best practices, order-to-delivery cycle time and frequency, lean inventory and sell-through.
+  - title: Operational Readiness & Simplification
+    description: Workflow analysis for culling, cleaning, and production; elimination of non-value-added tasks; opening and closing procedures.
+  - title: Selling Opportunities & Effectiveness
+    description: Display standards for fresher product and longer shelf life, space-to-sales fit for selling patterns, traffic-flow-informed display placement.
+  - title: Shrink, Other Loss & Risk Controls
+    description: Known-loss capture and markdown controls, scale tare-weight accuracy, product ID accuracy at POS.
+metrics:
+  - value: Up to 7%
+    label: Typical total store sales gains from fresh and inventory execution programs
+  - value: 5–15%
+    label: Warehouse and replenishment productivity improvement, typical range
+  - value: Significant
+    label: Storewide in-stock improvement, consistently observed across engagements
+metricsNote: Ranges reflect typical results across tSCG's engagement history, not a single client.
+relatedPaths:
+  - /approach/
+  - /results/
