@@ -23,7 +23,7 @@ export default defineConfig({
     { name: 'chromium-no-js', use: { ...devices['Desktop Chrome'], viewport: { width: 390, height: 844 }, javaScriptEnabled: false } },
   ],
   webServer: {
-    command: 'npm run dev -- --host 127.0.0.1 && npx astro dev logs --follow',
+    command: 'npm run dev -- --host 127.0.0.1',
     url: 'http://127.0.0.1:4321',
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

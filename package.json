@@ -7,7 +7,7 @@
     "node": "24.x"
   },
   "scripts": {
-    "dev": "tinacms dev --noTelemetry -c \"astro dev\"",
+    "dev": "node scripts/run-with-tina.mjs dev",
     "build": "node scripts/run-with-tina.mjs build",
     "preview": "astro preview",
     "astro": "astro",
