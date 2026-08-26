@@ -1,18 +1,37 @@
 ---
+import FieldImage from './FieldImage.astro';
+
+interface Media {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  position?: string;
+}
 interface Props {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   description?: string;
   compact?: boolean;
+  media?: Media;
+  editFields?: {
+    eyebrow?: string;
+    title?: string;
+    description?: string;
+    media?: string;
+  };
 }
-const { eyebrow, title, description, compact = false } = Astro.props;
+const { eyebrow, title, description, compact = false, media, editFields } = Astro.props;
 ---
 
-<section class:list={['page-intro', { 'page-intro--compact': compact }]}>
-  <div class="shell page-intro__inner">
-    <p class="eyebrow">{eyebrow}</p>
-    <h1>{title}</h1>
-    {description && <p class="page-intro__description">{description}</p>}
-    <slot />
+<section class:list={['page-intro', { 'page-intro--compact': compact, 'page-intro--split': media }]}>
+  <div class:list={['shell', 'page-intro__inner', { 'page-intro__inner--split': media }]}>
+    <div class="page-intro__copy" data-reveal>
+      {eyebrow && <p class="eyebrow" data-tina-field={editFields?.eyebrow}>{eyebrow}</p>}
+      <h1 data-tina-field={editFields?.title}>{title}</h1>
+      {description && <p class="page-intro__description" data-tina-field={editFields?.description}>{description}</p>}
+      <slot />
+    </div>
+    {media && <FieldImage {...media} eager dataReveal editField={editFields?.media} />}
   </div>
 </section>

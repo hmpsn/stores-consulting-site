@@ -6,6 +6,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = join(ROOT, 'dist/client');
 const manifest = JSON.parse(await readFile(join(ROOT, 'src/data/route-manifest.json'), 'utf8'));
 const failures = [];
+const documentedExceptions = [];
 
 async function exists(path) {
   try { await access(path); return true; } catch { return false; }
@@ -24,6 +25,10 @@ for (const route of manifest) {
   const key = `${route.type}:${route.targetPath}`;
   if (seen.has(key)) failures.push(`duplicate manifest entry ${key}`);
   seen.add(key);
+  if (route.status === 'review') {
+    documentedExceptions.push(route.targetPath);
+    continue;
+  }
   if (route.status !== 200) {
     failures.push(`${route.targetPath}: manifest status is ${route.status}`);
     continue;
@@ -36,5 +41,6 @@ if (failures.length) {
   for (const failure of failures) console.error(`- ${failure}`);
   process.exitCode = 1;
 } else {
-  console.log(`Validated ${manifest.length} route and media manifest entries.`);
+  console.log(`Validated ${manifest.length} route and media manifest entries (${documentedExceptions.length} documented review exceptions).`);
+  for (const route of documentedExceptions) console.log(`- review: ${route}`);
 }

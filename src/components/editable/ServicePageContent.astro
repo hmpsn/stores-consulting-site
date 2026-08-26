@@ -1,0 +1,38 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { ServiceQuery } from '../../../tina/__generated__/types';
+import CtaBand from '../CtaBand.astro';
+import FieldImage from '../FieldImage.astro';
+import Metrics from '../Metrics.astro';
+import WorkstreamGrid from '../WorkstreamGrid.astro';
+
+interface Props { data: ServiceQuery['service']; }
+const { data } = Astro.props;
+function present<T>(value: T | null): value is T { return value !== null; }
+const workstreams = (data.workstreams ?? []).filter(present);
+const metrics = (data.metrics ?? []).filter(present);
+const heroMedia = data.heroMedia ? { ...data.heroMedia, position: data.heroMedia.position ?? undefined } : undefined;
+const supportingMedia = data.supportingMedia ? { ...data.supportingMedia, position: data.supportingMedia.position ?? undefined } : undefined;
+---
+
+<section class:list={['service-hero', { 'service-hero--with-media': heroMedia }]}>
+  <div class="service-hero__copy" data-reveal>
+    <p class="service-index" data-tina-field={tinaField(data, 'eyebrow')}>{data.eyebrow}</p>
+    <h1 data-tina-field={tinaField(data, 'title')}>{data.title}</h1>
+    <p class="service-hero__summary" data-tina-field={tinaField(data, 'summary')}>{data.summary}</p>
+    <p class="service-hero__thesis"><strong data-tina-field={tinaField(data, 'thesisLabel')}>{data.thesisLabel}</strong>{' '}<span data-tina-field={tinaField(data, 'thesis')}>{data.thesis}</span></p>
+  </div>
+  {heroMedia && <FieldImage {...heroMedia} eager dataReveal editField={tinaField(data.heroMedia!, 'src')} />}
+</section>
+
+<section class="section section--paper"><div class="shell">
+  <div class="section__heading" data-reveal><h2>Six workstreams, applied to your specific gap.</h2></div>
+  <div data-tina-field={tinaField(data, 'workstreams')}><WorkstreamGrid items={workstreams} /></div>
+</div></section>
+
+<section class="section"><div class:list={['shell', 'service-results', { 'service-results--with-media': supportingMedia }]}>
+  {supportingMedia && <FieldImage {...supportingMedia} dataReveal editField={tinaField(data.supportingMedia!, 'src')} />}
+  <div class="service-results__metrics" data-reveal><h2>Results</h2><div data-tina-field={tinaField(data, 'metrics')}><Metrics items={metrics} note={data.metricsNote} /></div></div>
+</div></section>
+
+<CtaBand title="Delivered through either path." description="Whether this starts as a 72-Hour Diagnostic or a full Foundations build depends on where you're starting — not this pillar specifically." href="/approach/" label="See Our Approach" />

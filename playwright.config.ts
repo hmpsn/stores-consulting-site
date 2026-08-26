@@ -19,6 +19,7 @@ export default defineConfig({
       name: `chromium-${width}`,
       use: { ...devices['Desktop Chrome'], viewport: { width, height: width <= 390 ? 844 : 900 } },
     })),
+    { name: 'chromium-1106', use: { ...devices['Desktop Chrome'], viewport: { width: 1106, height: 849 } } },
     { name: 'chromium-no-js', use: { ...devices['Desktop Chrome'], viewport: { width: 390, height: 844 }, javaScriptEnabled: false } },
   ],
   webServer: {

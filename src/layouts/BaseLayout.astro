@@ -1,7 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import FieldManualMotion from '../components/FieldManualMotion.astro';
+import SiteMotion from '../components/SiteMotion.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -11,7 +11,6 @@ interface Props {
   image?: string;
   article?: boolean;
   noindex?: boolean;
-  fieldManual?: boolean;
 }
 
 const {
@@ -21,7 +20,6 @@ const {
   image = '/wp-content/uploads/2016/06/Logo_Words_1.jpg',
   article = false,
   noindex = false,
-  fieldManual = false,
 } = Astro.props;
 const siteName = 'the Stores Consulting Group';
 const titleCandidate = title === siteName ? title : `${title} | ${siteName}`;
@@ -53,11 +51,10 @@ const socialImage = new URL(image, Astro.site || Astro.url.origin);
     <link rel="alternate" type="application/rss+xml" title="tSCG Blog" href="/feed/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Jost:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
-    {fieldManual && <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />}
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
-  <body class:list={{ 'theme-field-manual': fieldManual }}>
-    {fieldManual && <FieldManualMotion />}
+  <body>
+    <SiteMotion />
     <a class="skip-link" href="#main-content">Skip to content</a>
     <Header />
     <main id="main-content" tabindex="-1">

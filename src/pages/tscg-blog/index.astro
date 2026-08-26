@@ -6,6 +6,6 @@ import BlogList from '../../components/BlogList.astro';
 const posts = (await getCollection('posts', ({ data }) => !data.draft)).map((entry) => entry.data).sort((a, b) => b.publishedDate.valueOf() - a.publishedDate.valueOf());
 ---
 <BaseLayout title="tSCG Blog" description="Retail operations, workforce, shrink, inventory, and technology insights from the Stores Consulting Group." canonicalPath="/tscg-blog/">
-  <PageIntro eyebrow="Insights" title="tSCG Blog" description="Perspectives from retail operators and consultants who have done the work on the store floor." />
+  <PageIntro title="tSCG Blog" description="Perspectives from retail operators and consultants who have done the work on the store floor." />
   <section class="section"><div class="shell"><BlogList posts={posts} /></div></section>
 </BaseLayout>

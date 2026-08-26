@@ -16,11 +16,13 @@ const date = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', 
 <ol class="blog-list">
   {posts.map((post) => (
     <li>
-      <article>
+      <article data-reveal>
         <p class="blog-list__meta">{date.format(post.publishedDate)} · {post.author.replace(/-/g, ' ')}</p>
-        <h2><a href={post.route}>{post.title}</a></h2>
-        {post.excerpt && <p>{post.excerpt}</p>}
-        <a class="text-link" href={post.route}>Read article →</a>
+        <div class="blog-list__content">
+          <h2><a href={post.route}>{post.title}</a></h2>
+          {post.excerpt && <p>{post.excerpt}</p>}
+          <a class="text-link" href={post.route}>Read article →</a>
+        </div>
       </article>
     </li>
   ))}

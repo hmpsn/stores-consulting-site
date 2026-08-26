@@ -1,5 +1,5 @@
-# Accessibility Notes for the Later Design Pass
+# Accessibility Notes
 
-Structural accessibility checks exclude color contrast because this phase preserves the Claude mockup's visual values by design. Axe currently flags the mockup steel gray (`#8a8880`) against kraft backgrounds in the wordmark/footer at approximately 3.1–3.4:1, below the 4.5:1 target for small text.
+Operational Field Manual is the approved sitewide system. Its signal token is `#b34929`, a small contrast-safe refinement of the selected orange that clears 4.5:1 against both paper and white surfaces for compact labels.
 
-The production structure still enforces semantic landmarks, a single H1, keyboard navigation, visible focus, reduced-motion support, form labels, image alt fields, and no critical or serious non-contrast Axe violations. Contrast must be resolved during the approved visual/design pass before final launch acceptance.
+The production checks enforce semantic landmarks, a single H1, keyboard navigation, visible focus, reduced-motion support, form labels, image alt fields, and no critical or serious Axe violations, including color contrast. Accessibility scans run with reduced motion so entrance transitions do not create false contrast readings while elements are partially transparent.

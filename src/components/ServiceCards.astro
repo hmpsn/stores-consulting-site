@@ -13,7 +13,7 @@ const { services } = Astro.props;
 
 <div class="service-grid">
   {services.sort((a, b) => a.order - b.order).map((service) => (
-    <a class="service-card" href={`/services/${service.slug}/`}>
+    <a class="service-card" href={`/services/${service.slug}/`} data-reveal>
       <span class="service-card__hole" aria-hidden="true"></span>
       <span class="service-card__number">Aisle {String(service.order).padStart(2, '0')}</span>
       <h3>{service.title}</h3>

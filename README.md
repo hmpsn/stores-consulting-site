@@ -16,8 +16,10 @@ Pull requests create Vercel previews. `main` is production and requires one huma
 
 Read `docs/CONTENT-EDITING.md` and `AGENTS.md` before editing content.
 
+The local visual editor is available at `/admin/` while `npm run dev` is running. It currently covers the homepage, services index, contact page, and all four service pages. Local editing requires no account; hosted team access uses individual TinaCloud accounts. See `docs/TINA-EDITOR.md` for the complete workflow and media limits.
+
 The living interface reference is available at `/styleguide/` while the site is running locally. It renders the actual tokens and shared components used by production pages and is excluded from navigation and the sitemap.
 
 ## Current migration status
 
-The generated application, HTML, metadata, and internal-link gates pass. Route parity remains intentionally blocked until three WordPress media files that currently return `403` are recovered from the host backup. See `docs/MIGRATION-REPORT.md` for the frozen inventory, verification results, inherited external-link findings, and remaining launch dependencies.
+The generated application, HTML, metadata, and internal-link gates pass. Route parity has three documented WordPress-media exceptions that currently return `403` and must be recovered from the host backup before cutover. See `docs/MIGRATION-REPORT.md` for the frozen inventory, verification results, inherited external-link findings, and remaining launch dependencies.

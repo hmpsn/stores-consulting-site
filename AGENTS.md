@@ -10,12 +10,13 @@ Before building or changing a page, review the living style guide at `/styleguid
 - Do not copy component markup into content files.
 - New visual constants must be named CSS custom properties when they represent a reusable decision.
 - When an authorized structural change adds or changes a reusable pattern, update the style guide in the same pull request.
-- `Operational Field Manual` is the selected direction for a controlled prototype only. Its current review surfaces are `/` and `/services/shrink-profit-recovery/`; do not apply it to additional routes until a human approves the prototype for wider rollout.
-- Review `#field-manual-v2` in the style guide before changing either prototype surface. Its reusable implementation lives in `src/styles/field-manual.css` and `src/components/FieldImage.astro`.
+- `Operational Field Manual` is the approved sitewide system. Treat `/styleguide/` and `src/styles/global.css` as the canonical reference for every route family.
+- Use `PageIntro`, `FieldImage`, `ServiceCards`, `Metrics`, `WorkstreamGrid`, and the other shared components before creating a route-specific equivalent. Presentation belongs in components and the global foundation, not content records.
 - Follow the documented image roles: documentary context, operational detail, and approved evidence artifacts. Migrated stock images are provisional; do not treat them as final art direction or introduce new image claims.
 - Images are unannotated by default. Do not add decorative image labels, marker lines, or pseudo-data notes; use a separate metric or evidence component when structured information is required.
 - Eyebrows are orientation tools, not default section decoration. Keep them for evidence status, philosophy, methodology, or a necessary category distinction; skip them when the heading already supplies the context.
-- `Retail Wayfinding` and `Quiet Executive Authority` remain comparison prototypes, not approved production tokens.
+- Use imagery selectively. Homepage and approved service/post/client assets may be displayed when they add real context; otherwise build a complete text-led layout. Never add placeholders or repeat generic stock to fill space.
+- Motion requires an explicit `data-reveal` hook, must progressively enhance complete server-rendered content, and must respect `prefers-reduced-motion`.
 - The style guide is unlinked, excluded from the sitemap, and marked `noindex`; it is an implementation reference, not a public marketing page.
 
 Before proposing a pull request:
@@ -24,6 +25,21 @@ Before proposing a pull request:
 - Preserve routes and approved claims.
 - Do not add layout HTML, CSS, JavaScript, or Divi shortcodes to content.
 - Run `npm run validate` and resolve every failure.
+- Work and verify locally throughout an editing pass. Do not push after individual edits; batch a meaningful review milestone and push only when the human reviewer explicitly requests it or agrees the batch is ready for a hosted preview.
 - Use a branch and Vercel preview; do not push directly to production.
 
 Full schemas and examples are in `docs/CONTENT-EDITING.md`.
+
+## Tina visual editor
+
+TinaCMS is the approved visual editing layer. It does not replace Git: Tina reads and writes the same Markdown and YAML records that agents edit directly.
+
+- Run `npm run dev` and open `/admin/` for local editing. Local mode does not require a Tina account and writes directly to the working tree.
+- The pilot covers the homepage, services index, contact page, and all four service pages. Other route families remain agent-edited until their Tina schemas are approved.
+- Tina-managed page records live in `src/content/site-pages/`; service records remain in `src/content/services/`.
+- Uploaded editorial images go only in `public/assets/editorial/`. Do not move, rename, or expose the legacy `public/wp-content/uploads/` estate through the editor.
+- When adding or changing an editable field, update both `tina/config.ts` and `src/content.config.ts`, then update the corresponding editable component in `src/components/editable/`.
+- Keep route slugs, order fields, canonicals, migration identifiers, and layout controls hidden from editors.
+- Agents continue to use branches and pull requests. Do not use Tina to bypass local validation or human review.
+
+Production account setup, editor instructions, media behavior, and the current pilot boundary are documented in `docs/TINA-EDITOR.md`.

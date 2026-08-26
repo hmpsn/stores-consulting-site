@@ -11,6 +11,13 @@ const workstream = z.object({
   title: z.string(),
   description: z.string(),
 });
+const contentImage = z.object({
+  src: z.string().startsWith('/'),
+  alt: z.string().min(1),
+  width: z.number().int().positive(),
+  height: z.number().int().positive(),
+  position: z.string().optional(),
+});
 
 const services = defineCollection({
   loader: glob({ pattern: '**/*.{yaml,yml}', base: './src/content/services' }),
@@ -26,6 +33,8 @@ const services = defineCollection({
     metrics: z.array(metric).min(3),
     metricsNote: z.string(),
     relatedPaths: z.array(z.string().startsWith('/')).min(1),
+    heroMedia: contentImage.optional(),
+    supportingMedia: contentImage.optional(),
   }),
 });
 
@@ -112,4 +121,87 @@ const authors = defineCollection({
   }),
 });
 
-export const collections = { services, people, clients, posts, 'legacy-pages': legacyPages, categories, authors };
+const action = z.object({
+  label: z.string(),
+  href: z.string().startsWith('/'),
+});
+
+const metadata = z.object({
+  title: z.string(),
+  description: z.string(),
+});
+
+const homepage = z.object({
+  pageType: z.literal('home'),
+  metadata,
+  hero: z.object({
+    headline: z.string(),
+    emphasis: z.string(),
+    description: z.string(),
+    primaryAction: action,
+    secondaryAction: action,
+    image: contentImage,
+  }),
+  problem: z.object({
+    heading: z.string(),
+    description: z.string(),
+    cards: z.array(z.object({ label: z.string(), title: z.string(), copy: z.string() })).length(3),
+  }),
+  ratio: z.object({
+    items: z.array(z.object({ value: z.string(), label: z.string(), copy: z.string() })).length(2),
+    quote: z.string(),
+  }),
+  proof: z.object({
+    eyebrow: z.string(),
+    heading: z.string(),
+    paragraphs: z.array(z.string()).min(1),
+    action,
+    image: contentImage,
+    outcomes: z.array(metric).min(1),
+    totalLabel: z.string(),
+    totalValue: z.string(),
+  }),
+  servicesIntro: z.object({ heading: z.string(), description: z.string() }),
+  approach: z.object({
+    heading: z.string(),
+    description: z.string(),
+    action,
+    steps: z.array(z.object({ number: z.string(), title: z.string(), copy: z.string() })).length(3),
+  }),
+  technology: z.object({
+    eyebrow: z.string(),
+    heading: z.string(),
+    description: z.string(),
+    pills: z.array(z.string()).min(1),
+  }),
+  teamProof: z.object({
+    heading: z.string(),
+    description: z.string(),
+    metrics: z.array(metric).length(3),
+  }),
+});
+
+const servicesPage = z.object({
+  pageType: z.literal('services'),
+  metadata,
+  intro: z.object({ title: z.string(), description: z.string() }),
+});
+
+const contactPage = z.object({
+  pageType: z.literal('contact'),
+  metadata,
+  intro: z.object({ title: z.string(), description: z.string() }),
+  details: z.object({
+    eyebrow: z.string(),
+    name: z.string(),
+    addressLines: z.array(z.string()).min(1),
+    email: z.email(),
+  }),
+});
+
+const sitePages = defineCollection({
+  loader: glob({ pattern: '**/*.{yaml,yml}', base: './src/content/site-pages' }),
+  schema: z.discriminatedUnion('pageType', [homepage, servicesPage, contactPage]),
+});
+
+export const collections = { services, people, clients, posts, 'legacy-pages': legacyPages, categories, authors, 'site-pages': sitePages };

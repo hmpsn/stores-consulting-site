@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { ServicesPageQuery } from '../../../tina/__generated__/types';
+import CtaBand from '../CtaBand.astro';
+import PageIntro from '../PageIntro.astro';
+import ServiceCards from '../ServiceCards.astro';
+
+interface Props { data: ServicesPageQuery['servicesPage']; }
+const { data } = Astro.props;
+const intro = data.intro!;
+const services = (await getCollection('services')).map((entry) => entry.data);
+---
+
+<PageIntro
+  title={intro.title}
+  description={intro.description}
+  editFields={{ title: tinaField(intro, 'title'), description: tinaField(intro, 'description') }}
+/>
+<section class="section"><div class="shell"><ServiceCards services={services} /></div></section>
+<CtaBand />

@@ -1,0 +1,126 @@
+---
+import { getCollection } from 'astro:content';
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { HomepageQuery } from '../../../tina/__generated__/types';
+import CtaBand from '../CtaBand.astro';
+import FieldImage from '../FieldImage.astro';
+import Metrics from '../Metrics.astro';
+import ServiceCards from '../ServiceCards.astro';
+
+interface Props {
+  data: HomepageQuery['homepage'];
+}
+
+const { data } = Astro.props;
+const services = (await getCollection('services')).map((entry) => entry.data);
+const hero = data.hero!;
+const problem = data.problem!;
+const ratio = data.ratio!;
+const proof = data.proof!;
+const servicesIntro = data.servicesIntro!;
+const approach = data.approach!;
+const technology = data.technology!;
+const teamProof = data.teamProof!;
+function present<T>(value: T | null): value is T { return value !== null; }
+const problemCards = (problem.cards ?? []).filter(present);
+const ratioItems = (ratio.items ?? []).filter(present);
+const outcomes = (proof.outcomes ?? []).filter(present);
+const steps = (approach.steps ?? []).filter(present);
+const proofMetrics = (teamProof.metrics ?? []).filter(present);
+const heroImage = hero.image ? { ...hero.image, position: hero.image.position ?? undefined } : undefined;
+const proofImage = proof.image ? { ...proof.image, position: proof.image.position ?? undefined } : undefined;
+---
+
+<section class="fm-hero">
+  <div class="fm-hero__copy" data-reveal>
+    <h1 data-tina-field={tinaField(hero, 'headline')}>
+      {hero.headline} <em data-tina-field={tinaField(hero, 'emphasis')}>{hero.emphasis}</em>
+    </h1>
+    <p class="fm-hero__description" data-tina-field={tinaField(hero, 'description')}>{hero.description}</p>
+    <div class="hero-actions">
+      {hero.primaryAction && <a class="button" href={hero.primaryAction.href} data-tina-field={tinaField(hero.primaryAction, 'label')}>{hero.primaryAction.label}</a>}
+      {hero.secondaryAction && <a class="button button--outline" href={hero.secondaryAction.href} data-tina-field={tinaField(hero.secondaryAction, 'label')}>{hero.secondaryAction.label}</a>}
+    </div>
+  </div>
+  {heroImage && <FieldImage {...heroImage} eager dataReveal editField={tinaField(hero.image!, 'src')} />}
+</section>
+
+<section class="section section--paper"><div class="shell">
+  <div class="section__heading" data-reveal>
+    <h2 data-tina-field={tinaField(problem, 'heading')}>{problem.heading}</h2>
+    <p data-tina-field={tinaField(problem, 'description')}>{problem.description}</p>
+  </div>
+  <div class="problem-grid fm-problem-grid">
+    {problemCards.map((card) => (
+      <article class="problem-card" data-reveal>
+        <p class="problem-card__label" data-tina-field={tinaField(card, 'label')}>{card.label}</p>
+        <h3 data-tina-field={tinaField(card, 'title')}>{card.title}</h3>
+        <p data-tina-field={tinaField(card, 'copy')}>{card.copy}</p>
+      </article>
+    ))}
+  </div>
+</div></section>
+
+<section class="ratio-band" aria-labelledby="execution-thesis"><div class="shell ratio-band__grid">
+  {ratioItems.map((item) => (
+    <div class="ratio-band__item" data-reveal>
+      <div class="ratio-band__value" data-tina-field={tinaField(item, 'value')}>{item.value}</div>
+      <p class="ratio-band__label" data-tina-field={tinaField(item, 'label')}>{item.label}</p>
+      <p class="ratio-band__copy" data-tina-field={tinaField(item, 'copy')}>{item.copy}</p>
+    </div>
+  ))}
+  <blockquote id="execution-thesis" data-reveal data-tina-field={tinaField(ratio, 'quote')}>{ratio.quote}</blockquote>
+</div></section>
+
+<section class="section"><div class="shell fm-proof-layout">
+  <div data-reveal>
+    <p class="eyebrow" data-tina-field={tinaField(proof, 'eyebrow')}>{proof.eyebrow}</p>
+    <h2 data-tina-field={tinaField(proof, 'heading')}>{proof.heading}</h2>
+    {proof.paragraphs.map((paragraph) => <p data-tina-field={tinaField(proof, 'paragraphs')}>{paragraph}</p>)}
+    {proof.action && <a class="text-link" href={proof.action.href} data-tina-field={tinaField(proof.action, 'label')}>{proof.action.label}</a>}
+  </div>
+  <div class="fm-proof-layout__visual" data-reveal>
+    {proofImage && <FieldImage {...proofImage} editField={tinaField(proof.image!, 'src')} />}
+    <div class="evidence-panel" role="group" aria-label="Summary of typical engagement outcomes">
+      <p class="evidence-panel__head">tSCG · Engagement Outcomes</p>
+      <dl>{outcomes.map((outcome) => <div><dt data-tina-field={tinaField(outcome, 'label')}>{outcome.label}</dt><dd data-tina-field={tinaField(outcome, 'value')}>{outcome.value}</dd></div>)}</dl>
+      <p class="evidence-panel__total"><span data-tina-field={tinaField(proof, 'totalLabel')}>{proof.totalLabel}</span><strong data-tina-field={tinaField(proof, 'totalValue')}>{proof.totalValue}</strong></p>
+    </div>
+  </div>
+</div></section>
+
+<section class="section section--paper" id="what-we-do"><div class="shell">
+  <div class="section__heading" data-reveal>
+    <h2 data-tina-field={tinaField(servicesIntro, 'heading')}>{servicesIntro.heading}</h2>
+    <p data-tina-field={tinaField(servicesIntro, 'description')}>{servicesIntro.description}</p>
+  </div>
+  <ServiceCards services={services} />
+</div></section>
+
+<section class="section"><div class="shell approach-grid">
+  <div data-reveal>
+    <h2 data-tina-field={tinaField(approach, 'heading')}>{approach.heading}</h2>
+    <p data-tina-field={tinaField(approach, 'description')}>{approach.description}</p>
+    {approach.action && <a class="button" href={approach.action.href} data-tina-field={tinaField(approach.action, 'label')}>{approach.action.label}</a>}
+  </div>
+  <ol class="flow-list" data-reveal>
+    {steps.map((step) => <li><span class="flow-list__number" data-tina-field={tinaField(step, 'number')}>{step.number}</span><div><h3 data-tina-field={tinaField(step, 'title')}>{step.title}</h3><p data-tina-field={tinaField(step, 'copy')}>{step.copy}</p></div></li>)}
+  </ol>
+</div></section>
+
+<section class="section section--dark" id="technology"><div class="shell philosophy" data-reveal>
+  <p class="eyebrow" data-tina-field={tinaField(technology, 'eyebrow')}>{technology.eyebrow}</p>
+  <h2 data-tina-field={tinaField(technology, 'heading')}>{technology.heading}</h2>
+  <p data-tina-field={tinaField(technology, 'description')}>{technology.description}</p>
+  <ul class="pill-list">{technology.pills.map((pill) => <li data-tina-field={tinaField(technology, 'pills')}>{pill}</li>)}</ul>
+</div></section>
+
+<section class="section section--paper"><div class="shell">
+  <div class="section__heading" data-reveal>
+    <h2 data-tina-field={tinaField(teamProof, 'heading')}>{teamProof.heading}</h2>
+    <p data-tina-field={tinaField(teamProof, 'description')}>{teamProof.description}</p>
+  </div>
+  <div data-tina-field={tinaField(teamProof, 'metrics')}><Metrics items={proofMetrics} /></div>
+</div></section>
+
+<CtaBand />

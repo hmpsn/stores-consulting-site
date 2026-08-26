@@ -7,13 +7,14 @@
     "node": "24.x"
   },
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "dev": "tinacms dev --noTelemetry -c \"astro dev\"",
+    "build": "node scripts/run-with-tina.mjs build",
     "preview": "astro preview",
     "astro": "astro",
     "migrate": "node scripts/migrate-wordpress.mjs && node scripts/import-mockup-assets.mjs",
-    "check": "astro check",
-    "validate:html": "find dist/client -name '*.html' -not -path '*/wp-content/*' -print0 | xargs -0 html-validate",
+    "check": "node scripts/run-with-tina.mjs check",
+    "tina:audit": "tinacms audit --noTelemetry",
+    "validate:html": "find dist/client -name '*.html' -not -path '*/wp-content/*' -not -path '*/admin/*' -print0 | xargs -0 html-validate",
     "validate:links": "node scripts/check-links.mjs",
     "validate:routes": "node scripts/check-route-manifest.mjs",
     "test:e2e": "playwright test",
@@ -23,8 +24,10 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@astrojs/vercel": "^11.0.8",
+    "@tinacms/astro": "^0.6.1",
     "astro": "^7.2.6",
-    "resend": "^6.22.1"
+    "resend": "^6.22.1",
+    "tinacms": "^3.12.1"
   },
   "allowScripts": {
     "esbuild": true
@@ -38,6 +41,7 @@
     "@emnapi/core": "1.11.3",
     "@emnapi/runtime": "1.11.3",
     "@playwright/test": "^1.62.1",
+    "@tinacms/cli": "^2.6.1",
     "cheerio": "^1.2.0",
     "html-validate": "^11.10.0",
     "linkinator": "^8.0.4",

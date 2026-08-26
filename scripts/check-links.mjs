@@ -41,7 +41,11 @@ async function resolves(pathname) {
   return exists(join(DIST, decoded.slice(1), 'index.html'));
 }
 
-const files = (await walk(DIST)).filter((file) => extname(file) === '.html' && !file.includes(`${sep}wp-content${sep}`));
+const files = (await walk(DIST)).filter((file) =>
+  extname(file) === '.html' &&
+  !file.includes(`${sep}wp-content${sep}`) &&
+  !file.includes(`${sep}admin${sep}`)
+);
 for (const file of files) {
   pagesChecked += 1;
   const route = publicRoute(file);

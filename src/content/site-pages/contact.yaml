@@ -1,0 +1,15 @@
+pageType: contact
+metadata:
+  title: Contact Us
+  description: Start a conversation with the Stores Consulting Group about retail execution, operations, and technology adoption.
+intro:
+  title: Let's talk about the gap between the platform and the floor.
+  description: Tell us what is live, what is not working yet, and what the business needs to see change.
+details:
+  eyebrow: Contact Details
+  name: the Stores Consulting Group
+  addressLines:
+    - PO Box 950
+    - 1929 Rombach Ave
+    - Wilmington, OH 45177
+  email: contact@storesconsulting.com

@@ -1,36 +1,26 @@
 ---
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import ContactPageContent from '../../components/editable/ContactPageContent.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import PageIntro from '../../components/PageIntro.astro';
+import { getContactPage } from '../../lib/tina-data';
+import { tinaIslands } from '../../lib/tina-islands';
+
 const status = Astro.url.searchParams.get('status');
+const page = await getContactPage();
+const data = page.data.contactPage;
+const metadata = data.metadata!;
 ---
-<BaseLayout title="Contact Us" description="Start a conversation with the Stores Consulting Group about retail execution, operations, and technology adoption." canonicalPath="/contact-us/">
-  <PageIntro eyebrow="Contact" title="Let's talk about the gap between the platform and the floor." description="Tell us what is live, what is not working yet, and what the business needs to see change." />
-  <section class="section"><div class="shell contact-grid">
-    <div><p class="eyebrow">Contact Details</p><h2>the Stores Consulting Group</h2><ul class="contact-details"><li>PO Box 950</li><li>1929 Rombach Ave</li><li>Wilmington, OH 45177</li><li><a class="text-link" href="mailto:contact@storesconsulting.com">contact@storesconsulting.com</a></li></ul></div>
-    <div>
-      {status === 'success' && <p class="form-status" role="status">Thank you. Your message has been sent.</p>}
-      {status === 'invalid' && <p class="form-error" role="alert">Please review the required fields and try again.</p>}
-      {status === 'unavailable' && <p class="form-error" role="alert">The form is temporarily unavailable. Please email contact@storesconsulting.com.</p>}
-      <form class="contact-form" action="/api/contact" method="post" data-enhanced-contact>
-        <div class="form-grid">
-          <div class="form-field"><label for="name">Name <span aria-hidden="true">*</span></label><input id="name" name="name" type="text" autocomplete="name" maxlength="120" required /></div>
-          <div class="form-field"><label for="email">Email <span aria-hidden="true">*</span></label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" required /></div>
-          <div class="form-field"><label for="company">Company</label><input id="company" name="company" type="text" autocomplete="organization" maxlength="160" /></div>
-          <div class="form-field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40" /></div>
-          <div class="form-field form-field--wide"><label for="message">Message <span aria-hidden="true">*</span></label><textarea id="message" name="message" maxlength="5000" required></textarea></div>
-          <div class="form-honeypot" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" autocomplete="off" tabindex="-1" /></div>
-        </div>
-        <button class="button" type="submit">Send Message</button>
-        <p data-form-feedback aria-live="polite"></p>
-      </form>
-    </div>
-  </div></section>
+
+<BaseLayout title={metadata.title} description={metadata.description} canonicalPath="/contact-us/">
+  <TinaIsland name="contact" wrapper={tinaIslands.contact.wrapper} params={{ status: status ?? '' }} primary>
+    <ContactPageContent data={data} status={status} />
+  </TinaIsland>
   <script>
-    const form = document.querySelector('[data-enhanced-contact]');
-    const feedback = document.querySelector('[data-form-feedback]');
-    form?.addEventListener('submit', async (event) => {
-      if (!(event instanceof SubmitEvent) || !(form instanceof HTMLFormElement) || !window.fetch) return;
+    document.addEventListener('submit', async (event) => {
+      const form = event.target;
+      if (!(event instanceof SubmitEvent) || !(form instanceof HTMLFormElement) || !form.matches('[data-enhanced-contact]') || !window.fetch) return;
       event.preventDefault();
+      const feedback = form.querySelector('[data-form-feedback]');
       const submitter = event.submitter;
       if (submitter instanceof HTMLButtonElement) submitter.disabled = true;
       if (feedback) feedback.textContent = 'Sending…';
