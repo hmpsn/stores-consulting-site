@@ -1,23 +1,38 @@
 ---
+import BlogMeta from './BlogMeta.astro';
+
 interface Post {
   title: string;
   route: string;
   excerpt: string;
   publishedDate: Date;
   author: string;
+  categories: string[];
+}
+interface TaxonomyItem {
+  name: string;
+  slug: string;
+  route: string;
 }
 interface Props {
   posts: Post[];
+  authors: TaxonomyItem[];
+  categories: TaxonomyItem[];
 }
-const { posts } = Astro.props;
-const date = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const { posts, authors, categories } = Astro.props;
+const authorsBySlug = new Map(authors.map((author) => [author.slug, author]));
+const categoriesBySlug = new Map(categories.map((category) => [category.slug, category]));
 ---
 
 <ol class="blog-list">
   {posts.map((post) => (
     <li>
       <article data-reveal>
-        <p class="blog-list__meta">{date.format(post.publishedDate)} · {post.author.replace(/-/g, ' ')}</p>
+        <BlogMeta
+          publishedDate={post.publishedDate}
+          author={authorsBySlug.get(post.author)}
+          categories={post.categories.map((slug) => categoriesBySlug.get(slug)).filter((category) => category !== undefined)}
+        />
         <div class="blog-list__content">
           <h2><a href={post.route}>{post.title}</a></h2>
           {post.excerpt && <p>{post.excerpt}</p>}

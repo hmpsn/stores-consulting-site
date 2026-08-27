@@ -3,15 +3,33 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageIntro from '../components/PageIntro.astro';
 import LegacyCaseStudyGrid from '../components/LegacyCaseStudyGrid.astro';
+import BlogMeta from '../components/BlogMeta.astro';
 import mediaManifest from '../data/media-manifest.json';
 
 export async function getStaticPaths() {
   const explicitRoutes = new Set(['/', '/about/', '/approach/', '/results/', '/clients/', '/services/', '/contact-us/', '/tscg-blog/']);
-  const pages = (await getCollection('legacy-pages')).filter((entry) => !explicitRoutes.has(entry.data.route)).map((entry) => ({ params: { slug: entry.data.route.replace(/^\//, '').replace(/\/$/, '') }, props: { entry, type: 'page', description: entry.data.description, published: null } }));
-  const posts = (await getCollection('posts', ({ data }) => !data.draft)).map((entry) => ({ params: { slug: entry.data.route.replace(/^\//, '').replace(/\/$/, '') }, props: { entry, type: 'post', description: entry.data.excerpt || entry.data.title, published: entry.data.publishedDate } }));
+  const authors = (await getCollection('authors')).map((entry) => entry.data);
+  const categories = (await getCollection('categories')).map((entry) => entry.data);
+  const authorBySlug = new Map(authors.map((author) => [author.slug, author]));
+  const categoryBySlug = new Map(categories.map((category) => [category.slug, category]));
+  const pages = (await getCollection('legacy-pages')).filter((entry) => !explicitRoutes.has(entry.data.route)).map((entry) => ({ params: { slug: entry.data.route.replace(/^\//, '').replace(/\/$/, '') }, props: { entry, type: 'page', description: entry.data.description, published: null, author: null, categories: [], newer: null, older: null } }));
+  const postEntries = (await getCollection('posts', ({ data }) => !data.draft)).sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf());
+  const posts = postEntries.map((entry, index) => ({
+    params: { slug: entry.data.route.replace(/^\//, '').replace(/\/$/, '') },
+    props: {
+      entry,
+      type: 'post',
+      description: entry.data.excerpt || entry.data.title,
+      published: entry.data.publishedDate,
+      author: authorBySlug.get(entry.data.author) ?? null,
+      categories: entry.data.categories.map((slug) => categoryBySlug.get(slug)).filter((category) => category !== undefined),
+      newer: index > 0 ? postEntries[index - 1].data : null,
+      older: index < postEntries.length - 1 ? postEntries[index + 1].data : null,
+    },
+  }));
   return [...pages, ...posts];
 }
-const { entry, type, description, published } = Astro.props;
+const { entry, type, description, published, author, categories, newer, older } = Astro.props;
 const { Content } = await render(entry);
 const data = entry.data;
 const canonicalPath = data.route;
@@ -25,11 +43,21 @@ const featuredMedia = featuredPath && featuredRecord?.width && featuredRecord?.h
   position: 'center',
 } : undefined;
 const isCaseStudies = canonicalPath === '/case-studies/';
+const breadcrumbs = type === 'post'
+  ? [{ label: 'Home', href: '/' }, { label: 'Blog', href: '/tscg-blog/' }, { label: data.title }]
+  : [{ label: 'Home', href: '/' }, { label: data.title }];
 ---
-<BaseLayout title={data.title} description={description} canonicalPath={canonicalPath} article={type === 'post'}>
-  <PageIntro eyebrow={type === 'post' ? 'tSCG Blog' : undefined} title={data.title} description={description} media={featuredMedia} compact />
+<BaseLayout title={data.title} description={description} canonicalPath={canonicalPath} article={type === 'post'} navSection={type === 'post' ? 'blog' : undefined}>
+  <PageIntro eyebrow={type === 'post' ? 'tSCG Blog' : undefined} title={data.title} description={description} media={featuredMedia} breadcrumbs={breadcrumbs} compact />
   <article class="section"><div class:list={['shell', { prose: !isCaseStudies }]} data-reveal>
-    {published && <p class="article-meta">Published {published.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>}
+    {published && <BlogMeta publishedDate={published} author={author ?? undefined} categories={categories} />}
     {isCaseStudies ? <LegacyCaseStudyGrid source={entry.body ?? ''} /> : <Content />}
+    {type === 'post' && <nav class="article-navigation" aria-label="Article navigation">
+      <a class="text-link article-navigation__back" href="/tscg-blog/">Back to Blog →</a>
+      <div class="article-navigation__adjacent">
+        {newer && <a href={newer.route} aria-label={`Newer article: ${newer.title}`}><span>Newer Article</span><strong>{newer.title}</strong></a>}
+        {older && <a href={older.route} aria-label={`Older article: ${older.title}`}><span>Older Article</span><strong>{older.title}</strong></a>}
+      </div>
+    </nav>}
   </div></article>
 </BaseLayout>

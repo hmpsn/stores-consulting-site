@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SiteMotion from '../components/SiteMotion.astro';
+import type { NavSection } from '../data/navigation';
 import '../styles/global.css';
 
 interface Props {
@@ -11,6 +12,7 @@ interface Props {
   image?: string;
   article?: boolean;
   noindex?: boolean;
+  navSection?: NavSection;
 }
 
 const {
@@ -20,6 +22,7 @@ const {
   image = '/wp-content/uploads/2016/06/Logo_Words_1.jpg',
   article = false,
   noindex = false,
+  navSection,
 } = Astro.props;
 const siteName = 'the Stores Consulting Group';
 const titleCandidate = title === siteName ? title : `${title} | ${siteName}`;
@@ -56,10 +59,10 @@ const socialImage = new URL(image, Astro.site || Astro.url.origin);
   <body>
     <SiteMotion />
     <a class="skip-link" href="#main-content">Skip to content</a>
-    <Header />
+    <Header activeSection={navSection} />
     <main id="main-content" tabindex="-1">
       <slot />
     </main>
-    <Footer />
+    <Footer activeSection={navSection} />
   </body>
 </html>

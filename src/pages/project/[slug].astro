@@ -11,8 +11,8 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const logoRecord = entry.data.logo ? mediaManifest.find((item) => item.path === entry.data.logo) : null;
 ---
-<BaseLayout title={entry.data.name} description={`${entry.data.name} client profile from the Stores Consulting Group.`} canonicalPath={entry.data.route}>
-  <PageIntro eyebrow="Client Profile" title={entry.data.name} compact>
+<BaseLayout title={entry.data.name} description={`${entry.data.name} client profile from the Stores Consulting Group.`} canonicalPath={entry.data.route} navSection="clients">
+  <PageIntro eyebrow="Client Profile" title={entry.data.name} breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Clients', href: '/clients/' }, { label: entry.data.name }]} compact>
     {entry.data.logo && logoRecord?.width && logoRecord?.height && <div class="project-logo"><img src={entry.data.logo} alt={`${entry.data.name} logo`} width={logoRecord.width} height={logoRecord.height} loading="eager" /></div>}
   </PageIntro>
   <article class="section"><div class="shell prose project-content" data-reveal><Content /></div></article>

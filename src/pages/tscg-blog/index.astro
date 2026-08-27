@@ -4,8 +4,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageIntro from '../../components/PageIntro.astro';
 import BlogList from '../../components/BlogList.astro';
 const posts = (await getCollection('posts', ({ data }) => !data.draft)).map((entry) => entry.data).sort((a, b) => b.publishedDate.valueOf() - a.publishedDate.valueOf());
+const authors = (await getCollection('authors')).map((entry) => entry.data);
+const categories = (await getCollection('categories')).map((entry) => entry.data);
 ---
-<BaseLayout title="tSCG Blog" description="Retail operations, workforce, shrink, inventory, and technology insights from the Stores Consulting Group." canonicalPath="/tscg-blog/">
+<BaseLayout title="tSCG Blog" description="Retail operations, workforce, shrink, inventory, and technology insights from the Stores Consulting Group." canonicalPath="/tscg-blog/" navSection="blog">
   <PageIntro title="tSCG Blog" description="Perspectives from retail operators and consultants who have done the work on the store floor." />
-  <section class="section"><div class="shell"><BlogList posts={posts} /></div></section>
+  <section class="section"><div class="shell"><BlogList posts={posts} authors={authors} categories={categories} /></div></section>
 </BaseLayout>

@@ -1,5 +1,6 @@
 ---
 import FieldImage from './FieldImage.astro';
+import Breadcrumbs, { type BreadcrumbItem } from './Breadcrumbs.astro';
 
 interface Media {
   src: string;
@@ -14,6 +15,7 @@ interface Props {
   description?: string;
   compact?: boolean;
   media?: Media;
+  breadcrumbs?: BreadcrumbItem[];
   editFields?: {
     eyebrow?: string;
     title?: string;
@@ -21,12 +23,13 @@ interface Props {
     media?: string;
   };
 }
-const { eyebrow, title, description, compact = false, media, editFields } = Astro.props;
+const { eyebrow, title, description, compact = false, media, breadcrumbs, editFields } = Astro.props;
 ---
 
 <section class:list={['page-intro', { 'page-intro--compact': compact, 'page-intro--split': media }]}>
   <div class:list={['shell', 'page-intro__inner', { 'page-intro__inner--split': media }]}>
     <div class="page-intro__copy" data-reveal>
+      {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
       {eyebrow && <p class="eyebrow" data-tina-field={editFields?.eyebrow}>{eyebrow}</p>}
       <h1 data-tina-field={editFields?.title}>{title}</h1>
       {description && <p class="page-intro__description" data-tina-field={editFields?.description}>{description}</p>}

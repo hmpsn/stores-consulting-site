@@ -5,12 +5,13 @@ import PageIntro from '../../components/PageIntro.astro';
 import BlogList from '../../components/BlogList.astro';
 export async function getStaticPaths() {
   const authors = await getCollection('authors');
+  const categories = await getCollection('categories');
   const posts = await getCollection('posts', ({ data }) => !data.draft);
-  return authors.map((author) => ({ params: { slug: author.data.slug }, props: { author: author.data, posts: posts.filter((post) => post.data.author === author.data.slug).map((post) => post.data).sort((a, b) => b.publishedDate.valueOf() - a.publishedDate.valueOf()) } }));
+  return authors.map((author) => ({ params: { slug: author.data.slug }, props: { author: author.data, authors: authors.map((entry) => entry.data), categories: categories.map((entry) => entry.data), posts: posts.filter((post) => post.data.author === author.data.slug).map((post) => post.data).sort((a, b) => b.publishedDate.valueOf() - a.publishedDate.valueOf()) } }));
 }
-const { author, posts } = Astro.props;
+const { author, authors, categories, posts } = Astro.props;
 ---
-<BaseLayout title={author.name} description={author.description || `Articles by ${author.name} for the Stores Consulting Group.`} canonicalPath={author.route}>
-  <PageIntro eyebrow="Author" title={author.name} description={author.description || `${posts.length} published article${posts.length === 1 ? '' : 's'}.`} compact />
-  <section class="section"><div class="shell"><BlogList posts={posts} /></div></section>
+<BaseLayout title={author.name} description={author.description || `Articles by ${author.name} for the Stores Consulting Group.`} canonicalPath={author.route} navSection="blog">
+  <PageIntro eyebrow="Author" title={author.name} description={author.description || `${posts.length} published article${posts.length === 1 ? '' : 's'}.`} breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Blog', href: '/tscg-blog/' }, { label: author.name }]} compact />
+  <section class="section"><div class="shell"><BlogList posts={posts} authors={authors} categories={categories} /></div></section>
 </BaseLayout>

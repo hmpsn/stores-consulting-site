@@ -1,0 +1,26 @@
+---
+interface TaxonomyLink {
+  name: string;
+  route: string;
+}
+
+interface Props {
+  publishedDate: Date;
+  author?: TaxonomyLink;
+  categories?: TaxonomyLink[];
+}
+
+const { publishedDate, author, categories = [] } = Astro.props;
+const date = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<p class="blog-meta">
+  <time datetime={publishedDate.toISOString()}>{date.format(publishedDate)}</time>
+  {author && <><span aria-hidden="true">·</span><a href={author.route}>{author.name}</a></>}
+  {categories.length > 0 && <>
+    <span aria-hidden="true">·</span>
+    <span class="blog-meta__categories">
+      {categories.map((category, index) => <><a href={category.route}>{category.name}</a>{index < categories.length - 1 && <span aria-hidden="true">, </span>}</>)}
+    </span>
+  </>}
+</p>

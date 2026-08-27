@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import FieldImage from '../../components/FieldImage.astro';
 import Metrics from '../../components/Metrics.astro';
@@ -68,7 +69,7 @@ const sampleWorkstreams = [
         <header class="styleguide-heading" data-reveal>
           <p class="eyebrow">Foundations</p>
           <h2 id="foundations-heading">A restrained operating palette.</h2>
-          <p>Ink provides authority, mineral adds a practical retail tone, signal is reserved for emphasis and action, and paper keeps the system tactile without becoming nostalgic.</p>
+          <p>Ink provides authority, mineral adds a practical retail tone, signal is reserved for emphasis and action, and paper keeps the system tactile without becoming nostalgic. White surface leads primary heroes and gives evidence cards definition when they sit on paper.</p>
         </header>
         <div class="token-grid">
           {palette.map((color) => (
@@ -128,7 +129,7 @@ const sampleWorkstreams = [
         <header class="styleguide-heading" data-reveal>
           <p class="eyebrow">Spacing &amp; containers</p>
           <h2 id="spacing-heading">One rhythm from cards to full sections.</h2>
-          <p>The site uses an eight-step spacing scale, a restrained 4–6rem section rhythm, an 80rem maximum shell, responsive gutters, and separate lead and prose measures.</p>
+          <p>The site uses an eight-step spacing scale, a restrained 4–6rem section rhythm, an 80rem maximum shell, responsive gutters, and separate lead and prose measures. Components size to their content; minimum heights are reserved for patterns that genuinely require equalized rows.</p>
         </header>
         <div class="spacing-scale">
           {spacing.map(([step, value]) => (
@@ -229,8 +230,25 @@ const sampleWorkstreams = [
           <h2 id="components-heading">Shared patterns own presentation.</h2>
           <p>Content records supply validated words and media. Components supply hierarchy, responsive behavior, focus states, and visual rhythm.</p>
         </header>
+        <section class="styleguide-component" aria-labelledby="navigation-pattern-heading">
+          <h3 id="navigation-pattern-heading">Primary navigation</h3>
+          <p>The compact header remains sticky without resizing. What We Do uses a keyboard-accessible disclosure for the services overview and all four service routes; Blog is a primary destination. Mobile navigation exposes the same hierarchy in an independently scrollable disclosure, and every route family supplies an explicit active state.</p>
+        </section>
+        <section class="styleguide-component" aria-labelledby="wayfinding-pattern-heading">
+          <h3 id="wayfinding-pattern-heading">Breadcrumbs and return paths</h3>
+          <p>Detail routes use semantic breadcrumbs inside their introduction. Top-level marketing pages do not. Posts also link their author, categories, Blog index, and chronological neighbors; generic legacy pages receive only a Home return path.</p>
+          <div class="styleguide-rule">
+            <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'What We Do', href: '/services/' }, { label: 'Service detail' }]} />
+            <h4>Breadcrumbs orient without competing with the page title.</h4>
+          </div>
+        </section>
+        <section class="styleguide-component" aria-labelledby="footer-pattern-heading">
+          <h3 id="footer-pattern-heading">Footer hierarchy</h3>
+          <p>The footer groups destinations as Services, Company, and Explore. Generic legacy pages remain intentionally absent from global navigation.</p>
+        </section>
         <section class="styleguide-component" aria-labelledby="services-pattern-heading">
           <h3 id="services-pattern-heading">Service cards</h3>
+          <p>Cards use a full dark hover state to make the linked surface unmistakable while preserving the aisle hierarchy.</p>
           <ServiceCards services={sampleServices} />
         </section>
         <section class="styleguide-component" aria-labelledby="workstreams-pattern-heading">

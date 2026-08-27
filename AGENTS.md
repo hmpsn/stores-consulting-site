@@ -17,6 +17,10 @@ Before building or changing a page, review the living style guide at `/styleguid
 - Eyebrows are orientation tools, not default section decoration. Keep them for evidence status, philosophy, methodology, or a necessary category distinction; skip them when the heading already supplies the context.
 - Use imagery selectively. Homepage and approved service/post/client assets may be displayed when they add real context; otherwise build a complete text-led layout. Never add placeholders or repeat generic stock to fill space.
 - Motion requires an explicit `data-reveal` hook, must progressively enhance complete server-rendered content, and must respect `prefers-reduced-motion`.
+- Global navigation labels, destinations, footer groups, and active-section types live in `src/data/navigation.ts`; do not duplicate or reorder them inside route templates.
+- Keep the header compact and sticky without scroll-resize animation. Preserve the shared header offset for in-page anchors, keyboard focus, and Back/Forward navigation.
+- Use the shared `Breadcrumbs` component on service details, posts, author/category archives, client profiles, and generic legacy pages. Do not add breadcrumbs to top-level marketing pages.
+- Blog posts link to the Blog index, author, categories, and chronological neighbors. Generic WordPress-era pages remain live but are not added to menus or public archive directories.
 - The style guide is unlinked, excluded from the sitemap, and marked `noindex`; it is an implementation reference, not a public marketing page.
 
 Before proposing a pull request:

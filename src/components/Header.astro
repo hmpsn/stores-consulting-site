@@ -1,20 +1,10 @@
 ---
 import Brand from './Brand.astro';
+import { inferNavSection, primaryLinks, serviceLinks, type NavSection } from '../data/navigation';
 
 const currentPath = Astro.url.pathname;
-const links = [
-  { href: '/services/', label: 'What We Do' },
-  { href: '/approach/', label: 'Our Approach' },
-  { href: '/#technology', label: 'Technology' },
-  { href: '/results/', label: 'Results' },
-  { href: '/about/', label: 'About' },
-  { href: '/clients/', label: 'Clients' },
-];
-
-const isCurrent = (href: string) => {
-  const path = href.split('#')[0];
-  return path !== '/' && currentPath.startsWith(path);
-};
+interface Props { activeSection?: NavSection; }
+const { activeSection = inferNavSection(currentPath) } = Astro.props;
 ---
 
 <header class="site-header">
@@ -24,8 +14,21 @@ const isCurrent = (href: string) => {
     </a>
     <nav class="desktop-nav" aria-label="Primary navigation">
       <ul>
-        {links.map((link) => (
-          <li><a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a></li>
+        <li>
+          <details class="desktop-nav__disclosure">
+            <summary aria-current={activeSection === 'services' ? 'page' : undefined}>What We Do</summary>
+            <div class="desktop-nav__panel">
+              <a class="desktop-nav__overview" href={serviceLinks[0].href} aria-current={currentPath === serviceLinks[0].href ? 'page' : undefined}>{serviceLinks[0].label} <span aria-hidden="true">→</span></a>
+              <ul>
+                {serviceLinks.slice(1).map((link, index) => (
+                  <li><a href={link.href} aria-current={currentPath === link.href ? 'page' : undefined}><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>{link.label}</a></li>
+                ))}
+              </ul>
+            </div>
+          </details>
+        </li>
+        {primaryLinks.map((link) => (
+          <li><a href={link.href} aria-current={activeSection === link.section ? 'page' : undefined}>{link.label}</a></li>
         ))}
       </ul>
     </nav>
@@ -34,8 +37,16 @@ const isCurrent = (href: string) => {
       <summary>Menu</summary>
       <nav aria-label="Mobile navigation">
         <ul>
-          {links.map((link) => (
-            <li><a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a></li>
+          <li class="mobile-nav__section">
+            <span class="mobile-nav__label">What We Do</span>
+            <ul class="mobile-nav__subnav">
+              {serviceLinks.map((link) => (
+                <li><a href={link.href} aria-current={currentPath === link.href ? 'page' : undefined}>{link.label}</a></li>
+              ))}
+            </ul>
+          </li>
+          {primaryLinks.map((link) => (
+            <li><a href={link.href} aria-current={activeSection === link.section ? 'page' : undefined}>{link.label}</a></li>
           ))}
           <li><a href="/contact-us/">Talk to Us</a></li>
         </ul>
@@ -43,3 +54,31 @@ const isCurrent = (href: string) => {
     </details>
   </div>
 </header>
+
+<script>
+  const disclosures = document.querySelectorAll<HTMLDetailsElement>('.desktop-nav__disclosure, .mobile-nav');
+
+  disclosures.forEach((disclosure) => {
+    disclosure.addEventListener('toggle', () => {
+      if (!disclosure.open) return;
+      disclosures.forEach((other) => {
+        if (other !== disclosure) other.open = false;
+      });
+    });
+  });
+
+  document.addEventListener('pointerdown', (event) => {
+    disclosures.forEach((disclosure) => {
+      if (!disclosure.contains(event.target as Node)) disclosure.open = false;
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    disclosures.forEach((disclosure) => {
+      if (!disclosure.open) return;
+      disclosure.open = false;
+      disclosure.querySelector('summary')?.focus();
+    });
+  });
+</script>

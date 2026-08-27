@@ -18,7 +18,7 @@ const service = await getService(slug);
 const data = service.data.service;
 ---
 
-<BaseLayout title={data.title} description={data.summary} canonicalPath={`/services/${slug}/`}>
+<BaseLayout title={data.title} description={data.summary} canonicalPath={`/services/${slug}/`} navSection="services">
   <TinaIsland name="service" wrapper={tinaIslands.service.wrapper} params={{ slug }} primary>
     <ServicePageContent data={data} />
   </TinaIsland>

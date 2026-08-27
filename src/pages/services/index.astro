@@ -10,7 +10,7 @@ const data = page.data.servicesPage;
 const metadata = data.metadata!;
 ---
 
-<BaseLayout title={metadata.title} description={metadata.description} canonicalPath="/services/">
+<BaseLayout title={metadata.title} description={metadata.description} canonicalPath="/services/" navSection="services">
   <TinaIsland name="servicesIndex" wrapper={tinaIslands.servicesIndex.wrapper} primary>
     <ServicesIndexContent data={data} />
   </TinaIsland>

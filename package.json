@@ -16,9 +16,10 @@
     "tina:audit": "tinacms audit --noTelemetry",
     "validate:html": "find dist/client -name '*.html' -not -path '*/wp-content/*' -not -path '*/admin/*' -print0 | xargs -0 html-validate",
     "validate:links": "node scripts/check-links.mjs",
+    "validate:navigation": "node scripts/check-navigation.mjs",
     "validate:routes": "node scripts/check-route-manifest.mjs",
     "test:e2e": "playwright test",
-    "validate": "npm run check && npm run build && npm run validate:html && npm run validate:links && npm run validate:routes"
+    "validate": "npm run check && npm run build && npm run validate:html && npm run validate:links && npm run validate:navigation && npm run validate:routes"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",

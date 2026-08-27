@@ -11,7 +11,7 @@ const data = page.data.contactPage;
 const metadata = data.metadata!;
 ---
 
-<BaseLayout title={metadata.title} description={metadata.description} canonicalPath="/contact-us/">
+<BaseLayout title={metadata.title} description={metadata.description} canonicalPath="/contact-us/" navSection="contact">
   <TinaIsland name="contact" wrapper={tinaIslands.contact.wrapper} params={{ status: status ?? '' }} primary>
     <ContactPageContent data={data} status={status} />
   </TinaIsland>

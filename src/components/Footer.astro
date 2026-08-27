@@ -1,22 +1,26 @@
 ---
 import Brand from './Brand.astro';
+import { footerGroups, inferNavSection, type NavSection } from '../data/navigation';
 
 const year = new Date().getFullYear();
+interface Props { activeSection?: NavSection; }
+const { activeSection = inferNavSection(Astro.url.pathname) } = Astro.props;
 ---
 
 <footer class="site-footer">
   <div class="shell site-footer__inner">
     <a href="/" aria-label="the Stores Consulting Group home"><Brand compact /></a>
-    <nav aria-label="Footer navigation">
-      <ul>
-        <li><a href="/services/">What We Do</a></li>
-        <li><a href="/approach/">Our Approach</a></li>
-        <li><a href="/results/">Results</a></li>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/clients/">Clients</a></li>
-        <li><a href="/tscg-blog/">Blog</a></li>
-        <li><a href="/contact-us/">Contact</a></li>
-      </ul>
+    <nav class="site-footer__nav" aria-label="Footer navigation">
+      {footerGroups.map((group) => (
+        <section class="site-footer__group" aria-labelledby={`footer-${group.label.toLowerCase()}`}>
+          <h2 id={`footer-${group.label.toLowerCase()}`}>{group.label}</h2>
+          <ul>
+            {group.links.map((link) => (
+              <li><a href={link.href} aria-current={('section' in link ? activeSection === link.section : Astro.url.pathname === link.href) ? 'page' : undefined}>{link.label}</a></li>
+            ))}
+          </ul>
+        </section>
+      ))}
     </nav>
     <p class="site-footer__legal">© {year} the Stores Consulting Group · Wilmington, OH</p>
   </div>

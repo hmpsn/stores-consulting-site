@@ -2,6 +2,7 @@
 import { tinaField } from '@tinacms/astro/tina-field';
 import type { ServiceQuery } from '../../../tina/__generated__/types';
 import CtaBand from '../CtaBand.astro';
+import Breadcrumbs from '../Breadcrumbs.astro';
 import FieldImage from '../FieldImage.astro';
 import Metrics from '../Metrics.astro';
 import WorkstreamGrid from '../WorkstreamGrid.astro';
@@ -17,6 +18,7 @@ const supportingMedia = data.supportingMedia ? { ...data.supportingMedia, positi
 
 <section class:list={['service-hero', { 'service-hero--with-media': heroMedia }]}>
   <div class="service-hero__copy" data-reveal>
+    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'What We Do', href: '/services/' }, { label: data.title }]} />
     <p class="service-index" data-tina-field={tinaField(data, 'eyebrow')}>{data.eyebrow}</p>
     <h1 data-tina-field={tinaField(data, 'title')}>{data.title}</h1>
     <p class="service-hero__summary" data-tina-field={tinaField(data, 'summary')}>{data.summary}</p>
