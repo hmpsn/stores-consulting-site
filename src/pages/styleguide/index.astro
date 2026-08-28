@@ -15,8 +15,10 @@ const palette = [
   { id: 'signal', name: 'Signal', token: '--signal', value: '#b34929' },
   { id: 'paper', name: 'Paper', token: '--paper', value: '#f3f0e8' },
   { id: 'surface', name: 'Surface', token: '--surface', value: '#ffffff' },
+  { id: 'surface-soft', name: 'Surface soft', token: '--surface-soft', value: '#eef1ef' },
   { id: 'muted', name: 'Muted', token: '--muted', value: '#52636a' },
   { id: 'line', name: 'Line', token: '--line', value: '#b8c0be' },
+  { id: 'line-soft', name: 'Line soft', token: '--line-soft', value: '#d8ddda' },
 ];
 
 const spacing = [
@@ -47,6 +49,7 @@ const sampleWorkstreams = [
     title="Operational Field Manual"
     description="The approved sitewide source of truth for tokens, typography, spacing, imagery, motion, elements, components, forms, and editorial templates."
     compact
+    measure="standard"
   >
     <nav aria-label="Style guide sections">
       <ul class="styleguide-nav">
@@ -144,9 +147,9 @@ const sampleWorkstreams = [
           <span>Responsive shell · max 80rem</span>
           <div class="container-demo__lead">
             <span>Section lead · max 61rem</span>
-            <div><span>Intro copy · max 49rem</span></div>
+            <div><span>Wide intro · 68rem copy / 52rem lead</span></div>
           </div>
-          <div class="container-demo__prose"><span>Long-form prose · max 44rem</span></div>
+          <div class="container-demo__prose"><span>Long-form prose · max 48rem</span></div>
         </div>
       </div>
     </section>
@@ -246,14 +249,31 @@ const sampleWorkstreams = [
           <h3 id="footer-pattern-heading">Footer hierarchy</h3>
           <p>The footer groups destinations as Services, Company, and Explore. Generic legacy pages remain intentionally absent from global navigation.</p>
         </section>
+        <section class="styleguide-component" aria-labelledby="page-intro-pattern-heading">
+          <h3 id="page-intro-pattern-heading">Page introductions</h3>
+          <p>Marketing introductions explicitly request the 68rem wide measure. Compact archives, profiles, 404 pages, and split-media introductions use the 58rem standard measure. Media presence never silently changes the intended text role.</p>
+        </section>
+        <section class="styleguide-component" aria-labelledby="principle-cards-heading">
+          <h3 id="principle-cards-heading">Principle cards</h3>
+          <p>Short principle collections use a content-driven two-column grid. Cards stretch only to match their row and collapse to one column at the compact breakpoint.</p>
+        </section>
+        <section class="styleguide-component" aria-labelledby="link-archive-heading">
+          <h3 id="link-archive-heading">Link archives</h3>
+          <p>Large preserved directories use their own reset, dividers, and three-to-two-to-one-column behavior rather than borrowing a card grid.</p>
+          <ul class="link-archive-grid">
+            <li><a class="text-link" href="/clients/">Directory entry one</a></li>
+            <li><a class="text-link" href="/clients/">Directory entry two</a></li>
+            <li><a class="text-link" href="/clients/">Directory entry three</a></li>
+          </ul>
+        </section>
         <section class="styleguide-component" aria-labelledby="services-pattern-heading">
           <h3 id="services-pattern-heading">Service cards</h3>
           <p>Cards use a full dark hover state to make the linked surface unmistakable while preserving the aisle hierarchy.</p>
-          <ServiceCards services={sampleServices} />
+          <ServiceCards services={sampleServices} headingLevel={4} />
         </section>
         <section class="styleguide-component" aria-labelledby="workstreams-pattern-heading">
           <h3 id="workstreams-pattern-heading">Workstreams</h3>
-          <WorkstreamGrid items={sampleWorkstreams} />
+          <WorkstreamGrid items={sampleWorkstreams} headingLevel={4} />
         </section>
         <section class="styleguide-component" aria-labelledby="metrics-pattern-heading">
           <h3 id="metrics-pattern-heading">Metrics</h3>
@@ -262,6 +282,18 @@ const sampleWorkstreams = [
             { value: '20–60%', label: 'A second sample demonstrating repeated evidence' },
             { value: '7–10x', label: 'A third outcome with consistent visual priority' },
           ]} note="Metric values and claims must always come from approved source content." />
+        </section>
+        <section class="styleguide-component" aria-labelledby="principles-rail-heading">
+          <h3 id="principles-rail-heading">Principles rail</h3>
+          <p>Use a divided rail for a short set of parallel principles that need more presence than inline labels.</p>
+          <div class="styleguide-dark-demo">
+            <ul class="pill-list">
+              <li>Vendor-agnostic</li>
+              <li>Execution-first</li>
+              <li>Built for adoption</li>
+              <li>Measured in outcomes</li>
+            </ul>
+          </div>
         </section>
       </div>
     </section>
@@ -332,6 +364,17 @@ const sampleWorkstreams = [
     margin-bottom: var(--space-6);
   }
 
+  .styleguide-dark-demo {
+    margin-top: var(--space-3);
+    padding: var(--space-4);
+    background: var(--ink-deep);
+    color: var(--paper);
+  }
+
+  .styleguide-dark-demo .pill-list {
+    margin-top: 0;
+  }
+
   .styleguide-heading > p:last-child {
     max-width: 44rem;
     color: var(--muted);
@@ -339,7 +382,7 @@ const sampleWorkstreams = [
   }
 
   .section--dark .styleguide-heading > p:last-child {
-    color: #b9c6c9;
+    color: var(--text-dark-muted);
   }
 
   .token-grid {
@@ -368,8 +411,10 @@ const sampleWorkstreams = [
   .token-card__swatch--signal { background: var(--signal); }
   .token-card__swatch--paper { background: var(--paper); }
   .token-card__swatch--surface { background: var(--surface); }
+  .token-card__swatch--surface-soft { background: var(--surface-soft); }
   .token-card__swatch--muted { background: var(--muted); }
   .token-card__swatch--line { background: var(--line); }
+  .token-card__swatch--line-soft { background: var(--line-soft); }
 
   .token-card code,
   .token-card span:last-child,
@@ -495,14 +540,14 @@ const sampleWorkstreams = [
   }
 
   .container-demo__lead > div {
-    max-width: 49rem;
+    max-width: 68rem;
     margin-top: var(--space-3);
     padding: var(--space-3);
     background: var(--surface-soft);
   }
 
   .container-demo__prose {
-    max-width: 44rem;
+    max-width: 48rem;
     margin-top: var(--space-3);
     padding: var(--space-4);
     border: 1px solid var(--line-soft);
@@ -537,7 +582,7 @@ const sampleWorkstreams = [
     align-items: center;
     gap: var(--space-4);
     padding-top: var(--space-4);
-    border-top: 1px solid #324149;
+    border-top: 1px solid var(--line-dark-soft);
   }
 
   .motion-sample span {

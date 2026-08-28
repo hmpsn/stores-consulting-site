@@ -181,6 +181,8 @@ test.describe('production structure', () => {
     const geometry = await page.evaluate(() => {
       const firstCard = document.querySelector<HTMLElement>('.service-card');
       const philosophy = document.querySelector<HTMLElement>('.philosophy');
+      const philosophyHeading = document.querySelector<HTMLElement>('.philosophy h2');
+      const philosophyLead = document.querySelector<HTMLElement>('.philosophy > p:not(.eyebrow)');
       const ctaHeading = document.querySelector<HTMLElement>('.cta-band h2');
       const problemLabel = document.querySelector<HTMLElement>('.problem-card__label');
       const problemHeading = document.querySelector<HTMLElement>('.problem-card h3');
@@ -192,7 +194,7 @@ test.describe('production structure', () => {
       const proofVisual = document.querySelector<HTMLElement>('.fm-proof-layout__visual');
       const proofImage = proofVisual?.querySelector<HTMLImageElement>('img');
       const evidencePanel = proofVisual?.querySelector<HTMLElement>('.evidence-panel');
-      if (!firstCard || !philosophy || !ctaHeading || !problemLabel || !problemHeading || !headerCta || !header || !heroCopy || !heroMedia || !sectionHeading || !proofVisual || !proofImage || !evidencePanel) return null;
+      if (!firstCard || !philosophy || !philosophyHeading || !philosophyLead || !ctaHeading || !problemLabel || !problemHeading || !headerCta || !header || !heroCopy || !heroMedia || !sectionHeading || !proofVisual || !proofImage || !evidencePanel) return null;
       const philosophyRect = philosophy.getBoundingClientRect();
       const labelRect = problemLabel.getBoundingClientRect();
       const headingRect = problemHeading.getBoundingClientRect();
@@ -200,6 +202,8 @@ test.describe('production structure', () => {
         cardInset: Number.parseFloat(getComputedStyle(firstCard).paddingLeft),
         philosophyLeft: philosophyRect.left,
         philosophyRight: innerWidth - philosophyRect.right,
+        philosophyHeadingWidth: philosophyHeading.getBoundingClientRect().width,
+        philosophyLeadWidth: philosophyLead.getBoundingClientRect().width,
         ctaWidth: ctaHeading.getBoundingClientRect().width,
         labelFont: Number.parseFloat(getComputedStyle(problemLabel).fontSize),
         labelGap: headingRect.top - labelRect.bottom,
@@ -216,6 +220,8 @@ test.describe('production structure', () => {
     expect(geometry).not.toBeNull();
     expect(geometry!.cardInset).toBeGreaterThanOrEqual(24);
     expect(Math.abs(geometry!.philosophyLeft - geometry!.philosophyRight)).toBeLessThanOrEqual(1);
+    expect(geometry!.philosophyHeadingWidth).toBeGreaterThanOrEqual(700);
+    expect(geometry!.philosophyLeadWidth).toBeGreaterThanOrEqual(800);
     expect(geometry!.ctaWidth).toBeGreaterThan(500);
     expect(geometry!.labelFont).toBeLessThanOrEqual(12);
     expect(geometry!.labelGap).toBeLessThanOrEqual(18);
@@ -249,6 +255,23 @@ test.describe('production structure', () => {
     await expect(page.locator('.legacy-case-grid li')).toHaveCount(39);
     const archiveCards = await page.locator('.legacy-case-grid li').evaluateAll((items) => items.map((item) => item.getBoundingClientRect().height));
     expect(Math.max(...archiveCards)).toBeLessThanOrEqual(320);
+
+    await page.goto('/results/');
+    expect(await page.locator('.page-intro h1').evaluate((heading) => heading.getBoundingClientRect().width)).toBeGreaterThanOrEqual(700);
+    const resultsHierarchy = await page.evaluate(() => ({
+      section: Number.parseFloat(getComputedStyle(document.querySelector<HTMLElement>('.section__heading h2')!).fontSize),
+      card: Number.parseFloat(getComputedStyle(document.querySelector<HTMLElement>('.path-card h3')!).fontSize),
+    }));
+    expect(resultsHierarchy.section - resultsHierarchy.card).toBeGreaterThanOrEqual(8);
+    const resultPrinciples = await page.locator('.principle-card').evaluateAll((cards) => cards.map((card) => card.getBoundingClientRect().height));
+    expect(Math.max(...resultPrinciples)).toBeLessThanOrEqual(220);
+
+    await page.goto('/approach/');
+    const principleGrid = await page.locator('.principle-grid').evaluate((grid) => ({
+      columns: getComputedStyle(grid).gridTemplateColumns.split(' ').length,
+      rows: new Set(Array.from(grid.children, (card) => (card as HTMLElement).offsetTop)).size,
+    }));
+    expect(principleGrid).toEqual({ columns: 2, rows: 2 });
   });
 
   test('1106px typography preserves distinct editorial tiers', async ({ page }) => {
@@ -271,9 +294,91 @@ test.describe('production structure', () => {
     await page.goto('/big-data-big-deal/');
     const articleScale = await page.evaluate(() => ({
       body: Number.parseFloat(getComputedStyle(document.querySelector<HTMLElement>('.prose p')!).fontSize),
-      subheading: Number.parseFloat(getComputedStyle(document.querySelector<HTMLElement>('.prose h3')!).fontSize),
+      subheading: Number.parseFloat(getComputedStyle(document.querySelector<HTMLElement>('.prose h2')!).fontSize),
     }));
     expect(articleScale.subheading / articleScale.body).toBeGreaterThanOrEqual(1.45);
+  });
+
+  test('shared components separate semantic heading level from visual tier', async ({ page }) => {
+    test.skip(test.info().project.name !== 'chromium-1440', 'Component-contract regression runs once.');
+
+    await page.goto('/services/');
+    await expect(page.locator('.service-card h2.card-title')).toHaveCount(4);
+    const serviceTitleSize = await page.locator('.service-card .card-title').first().evaluate((heading) => Number.parseFloat(getComputedStyle(heading).fontSize));
+    expect(serviceTitleSize).toBeLessThan(44);
+
+    await page.goto('/styleguide/');
+    await expect(page.locator('.styleguide-component .service-card h4.card-title')).toHaveCount(2);
+    await expect(page.locator('.styleguide-component .workstream-grid h4.card-title')).toHaveCount(3);
+
+    await page.goto('/about/');
+    await expect(page.locator('.people-group > h2.eyebrow')).toHaveCount(4);
+    expect(await page.locator('.person-card h3').count()).toBeGreaterThan(0);
+
+    await page.goto('/results/');
+    await expect(page.locator('.section__heading--label-only h2.eyebrow')).toHaveText('How We Guard Against Overstating It');
+    const pathTitleSizes = await page.locator('.path-card > :is(h2, h3)').evaluateAll((headings) => headings.map((heading) => Number.parseFloat(getComputedStyle(heading).fontSize)));
+    expect(Math.max(...pathTitleSizes) - Math.min(...pathTitleSizes)).toBeLessThanOrEqual(0.1);
+  });
+
+  test('content-driven cards and deliberate responsive grids avoid dead space', async ({ page }) => {
+    test.skip(test.info().project.name !== 'chromium-1440', 'Responsive system regression runs once.');
+
+    for (const route of ['/results/', '/approach/']) {
+      await page.goto(route);
+      const minimums = await page.locator('.path-card').evaluateAll((cards) => cards.map((card) => getComputedStyle(card).minHeight));
+      expect(new Set(minimums)).toEqual(new Set(['0px']));
+    }
+
+    await page.goto('/services/fresh-inventory-operations/');
+    expect(await page.locator('.service-hero').evaluate((hero) => getComputedStyle(hero).minHeight)).toBe('0px');
+    expect(await page.locator('.service-hero__copy').evaluate((copy) => copy.getBoundingClientRect().width)).toBeGreaterThan(900);
+
+    await page.setViewportSize({ width: 1121, height: 934 });
+    await page.goto('/#technology');
+    const philosophyBefore = await page.locator('.philosophy h2').evaluate((heading) => heading.getBoundingClientRect().width);
+    await page.setViewportSize({ width: 1120, height: 934 });
+    const philosophyAfter = await page.locator('.philosophy h2').evaluate((heading) => heading.getBoundingClientRect().width);
+    expect(Math.abs(philosophyBefore - philosophyAfter)).toBeLessThanOrEqual(2);
+
+    await page.setViewportSize({ width: 768, height: 934 });
+    await page.goto('/');
+    expect(await page.locator('.problem-grid').evaluate((grid) => getComputedStyle(grid).gridTemplateColumns.split(' ').length)).toBe(1);
+    expect(await page.locator('.ratio-band__grid').evaluate((grid) => getComputedStyle(grid).gridTemplateColumns.split(' ').length)).toBe(1);
+
+    await page.goto('/clients/');
+    expect(await page.locator('.client-logo-grid').evaluate((grid) => getComputedStyle(grid).gridTemplateColumns.split(' ').length)).toBe(2);
+    await expect(page.locator('.client-logo-card img[alt="client logo"]')).toHaveCount(0);
+    const archive = page.locator('.link-archive-grid');
+    expect(await archive.evaluate((grid) => getComputedStyle(grid).listStyleType)).toBe('none');
+    expect(await archive.evaluate((grid) => Number.parseFloat(getComputedStyle(grid).paddingLeft))).toBeLessThanOrEqual(1);
+
+    await page.setViewportSize({ width: 390, height: 844 });
+    expect(await page.locator('.client-logo-grid').evaluate((grid) => getComputedStyle(grid).gridTemplateColumns.split(' ').length)).toBe(2);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(1);
+  });
+
+  test('intro measure is explicit and migrated headings are normalized', async ({ page }) => {
+    test.skip(test.info().project.name !== 'chromium-1440', 'Intro and migrated-content regression runs once.');
+
+    await page.goto('/results/');
+    await expect(page.locator('.page-intro')).toHaveClass(/page-intro--measure-wide/);
+    await page.goto('/category/loss-prevention/');
+    await expect(page.locator('.page-intro')).toHaveClass(/page-intro--measure-standard/);
+
+    await page.setViewportSize({ width: 768, height: 934 });
+    await page.goto('/styleguide/');
+    const compactHierarchy = await page.evaluate(() => ({
+      h1: Number.parseFloat(getComputedStyle(document.querySelector<HTMLElement>('.page-intro h1')!).fontSize),
+      h2: Number.parseFloat(getComputedStyle(document.querySelector<HTMLElement>('.styleguide h2')!).fontSize),
+    }));
+    expect(compactHierarchy.h1 / compactHierarchy.h2).toBeGreaterThanOrEqual(1.14);
+
+    await page.goto('/about/partners/');
+    await expect(page.getByRole('heading', { name: 'Partners', exact: true })).toHaveCount(1);
+    await page.goto('/big-data-big-deal/');
+    await expect(page.locator('.prose h2').first()).toContainText('Challenge One');
+    await expect(page.locator('.prose h3')).toHaveCount(0);
   });
 
   test('1269px homepage keeps content-driven cards and balanced feature measures', async ({ page }) => {

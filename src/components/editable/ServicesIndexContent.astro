@@ -15,7 +15,8 @@ const services = (await getCollection('services')).map((entry) => entry.data);
 <PageIntro
   title={intro.title}
   description={intro.description}
+  measure="wide"
   editFields={{ title: tinaField(intro, 'title'), description: tinaField(intro, 'description') }}
 />
-<section class="section"><div class="shell"><ServiceCards services={services} /></div></section>
+<section class="section"><div class="shell"><ServiceCards services={services} headingLevel={2} /></div></section>
 <CtaBand />

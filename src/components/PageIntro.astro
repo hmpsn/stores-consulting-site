@@ -14,6 +14,7 @@ interface Props {
   title: string;
   description?: string;
   compact?: boolean;
+  measure?: 'standard' | 'wide';
   media?: Media;
   breadcrumbs?: BreadcrumbItem[];
   editFields?: {
@@ -23,11 +24,11 @@ interface Props {
     media?: string;
   };
 }
-const { eyebrow, title, description, compact = false, media, breadcrumbs, editFields } = Astro.props;
+const { eyebrow, title, description, compact = false, measure = 'standard', media, breadcrumbs, editFields } = Astro.props;
 ---
 
-<section class:list={['page-intro', { 'page-intro--compact': compact, 'page-intro--split': media }]}>
-  <div class:list={['shell', 'page-intro__inner', { 'page-intro__inner--split': media }]}>
+<section class:list={['page-intro', `page-intro--measure-${measure}`, { 'page-intro--compact': compact, 'page-intro--split': media }]}>
+  <div class="shell page-intro__inner">
     <div class="page-intro__copy" data-reveal>
       {breadcrumbs && <Breadcrumbs items={breadcrumbs} />}
       {eyebrow && <p class="eyebrow" data-tina-field={editFields?.eyebrow}>{eyebrow}</p>}

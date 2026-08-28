@@ -5,15 +5,17 @@ interface Workstream {
 }
 interface Props {
   items: Workstream[];
+  headingLevel?: 2 | 3 | 4;
 }
-const { items } = Astro.props;
+const { items, headingLevel = 3 } = Astro.props;
+const Heading = `h${headingLevel}` as 'h2' | 'h3' | 'h4';
 ---
 
 <ol class="workstream-grid">
   {items.map((item, index) => (
     <li data-reveal>
       <span class="workstream-grid__number">{String(index + 1).padStart(2, '0')}</span>
-      <h3>{item.title}</h3>
+      <Heading class="card-title">{item.title}</Heading>
       <p>{item.description}</p>
     </li>
   ))}

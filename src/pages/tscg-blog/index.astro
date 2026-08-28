@@ -8,6 +8,6 @@ const authors = (await getCollection('authors')).map((entry) => entry.data);
 const categories = (await getCollection('categories')).map((entry) => entry.data);
 ---
 <BaseLayout title="tSCG Blog" description="Retail operations, workforce, shrink, inventory, and technology insights from the Stores Consulting Group." canonicalPath="/tscg-blog/" navSection="blog">
-  <PageIntro title="tSCG Blog" description="Perspectives from retail operators and consultants who have done the work on the store floor." />
+  <PageIntro title="tSCG Blog" description="Perspectives from retail operators and consultants who have done the work on the store floor." measure="wide" />
   <section class="section"><div class="shell"><BlogList posts={posts} authors={authors} categories={categories} /></div></section>
 </BaseLayout>

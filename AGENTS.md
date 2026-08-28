@@ -12,6 +12,10 @@ Before building or changing a page, review the living style guide at `/styleguid
 - When an authorized structural change adds or changes a reusable pattern, update the style guide in the same pull request.
 - `Operational Field Manual` is the approved sitewide system. Treat `/styleguide/` and `src/styles/global.css` as the canonical reference for every route family.
 - Use `PageIntro`, `FieldImage`, `ServiceCards`, `Metrics`, `WorkstreamGrid`, and the other shared components before creating a route-specific equivalent. Presentation belongs in components and the global foundation, not content records.
+- Choose `PageIntro` measure explicitly: `wide` for top-level marketing arguments and `standard` for compact archives, profiles, error pages, and split-media editorial entries. Media presence must not silently determine text measure.
+- Keep semantic heading order independent from appearance. Reusable card and workstream components expose a heading-level input; component-owned title classes determine the visual tier.
+- Content-driven height is the default for text cards and sequential rows. Add a minimum height only through a documented component variant when the pattern genuinely requires equalization.
+- Do not borrow a grid class for unrelated children. Repeated patterns own their child markup, list reset, dividers, and breakpoint behavior.
 - Follow the documented image roles: documentary context, operational detail, and approved evidence artifacts. Migrated stock images are provisional; do not treat them as final art direction or introduce new image claims.
 - Images are unannotated by default. Do not add decorative image labels, marker lines, or pseudo-data notes; use a separate metric or evidence component when structured information is required.
 - Eyebrows are orientation tools, not default section decoration. Keep them for evidence status, philosophy, methodology, or a necessary category distinction; skip them when the heading already supplies the context.

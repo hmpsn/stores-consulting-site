@@ -15,14 +15,14 @@ const groups = [
 ---
 
 <BaseLayout title="About" description="Meet the veteran retail professionals and analysts behind the Stores Consulting Group." canonicalPath="/about/" navSection="about">
-  <PageIntro title="The people at the Stores Consulting Group make our company what it is." description="Our team is comprised of industry experts with a deep level of knowledge and experience — veteran retail professionals and tech-savvy analysts who bring real experience to the client, not theory." />
+  <PageIntro title="The people at the Stores Consulting Group make our company what it is." description="Our team is comprised of industry experts with a deep level of knowledge and experience — veteran retail professionals and tech-savvy analysts who bring real experience to the client, not theory." measure="wide" />
   <section class="section"><div class="shell">
     {groups.map((group) => {
       const members = people.filter((person) => person.tier === group.tier);
       return <section class="people-group" aria-labelledby={`group-${group.tier}`}>
-        <p class="eyebrow" id={`group-${group.tier}`}>{group.title}</p>
-        <div class:list={['people-grid', { 'people-grid--compact': group.tier !== 'leadership' }]}>
-          {members.map(({ Content, ...person }) => <article class="person-card" data-reveal><p class="person-card__role">{person.role}</p><div class="person-card__content"><h2>{person.name}</h2><div class="prose"><Content /></div></div></article>)}
+        <h2 class="eyebrow" id={`group-${group.tier}`}>{group.title}</h2>
+        <div class="people-grid">
+          {members.map(({ Content, ...person }) => <article class="person-card" data-reveal><p class="person-card__role">{person.role}</p><div class="person-card__content"><h3>{person.name}</h3><div class="prose"><Content /></div></div></article>)}
         </div>
       </section>;
     })}
