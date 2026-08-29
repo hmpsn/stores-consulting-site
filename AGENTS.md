@@ -11,6 +11,8 @@ Before building or changing a page, review the living style guide at `/styleguid
 - New visual constants must be named CSS custom properties when they represent a reusable decision.
 - When an authorized structural change adds or changes a reusable pattern, update the style guide in the same pull request.
 - `Operational Field Manual` is the approved sitewide system. Treat `/styleguide/` and `src/styles/global.css` as the canonical reference for every route family.
+- The approved identity is the shelf-register mark paired with the `the Stores` wordmark and `Consulting Group` descriptor. Reuse `Brand.astro`; do not recreate, enclose, substitute, or decorate the mark inside route templates.
+- Typography uses role-based rhythm, not one global heading leading value. Use the named display, section, subsection, card, lead, and body tokens; do not override their leading or tracking without adding a documented component variant.
 - Use `PageIntro`, `FieldImage`, `ServiceCards`, `Metrics`, `WorkstreamGrid`, and the other shared components before creating a route-specific equivalent. Presentation belongs in components and the global foundation, not content records.
 - Choose `PageIntro` measure explicitly: `wide` for top-level marketing arguments and `standard` for compact archives, profiles, error pages, and split-media editorial entries. Media presence must not silently determine text measure.
 - Keep semantic heading order independent from appearance. Reusable card and workstream components expose a heading-level input; component-owned title classes determine the visual tier.

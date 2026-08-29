@@ -59,6 +59,17 @@
     --type-section: clamp(2.15rem, 1.8rem + 1.45vw, 3.2rem);
     --type-page: clamp(2.85rem, 2.2rem + 3vw, 5.15rem);
     --type-page-compact: clamp(2.875rem, 5.2vw, 4.75rem);
+    --leading-display: 0.94;
+    --leading-section: 0.99;
+    --leading-subheading: 1.04;
+    --leading-card: 1.09;
+    --leading-lead: 1.46;
+    --leading-body: 1.58;
+    --tracking-display: -0.057em;
+    --tracking-section: -0.05em;
+    --tracking-subheading: -0.04em;
+    --tracking-card: -0.035em;
+    --tracking-label: 0.14em;
     --shell: 80rem;
     --measure: 44rem;
     --measure-prose: 48rem;
@@ -90,7 +101,7 @@
     background: var(--surface);
     color: var(--ink);
     font-size: var(--type-body);
-    line-height: 1.58;
+    line-height: var(--leading-body);
     -webkit-font-smoothing: antialiased;
   }
 
@@ -125,8 +136,6 @@
     color: var(--ink);
     font-family: var(--font-display);
     font-weight: 650;
-    letter-spacing: -0.04em;
-    line-height: 1.02;
     text-wrap: balance;
   }
 
@@ -134,21 +143,29 @@
     max-width: 14ch;
     margin-bottom: var(--space-4);
     font-size: var(--type-page);
+    letter-spacing: var(--tracking-display);
+    line-height: var(--leading-display);
   }
 
   h2 {
     margin-bottom: var(--space-4);
     font-size: var(--type-section);
+    letter-spacing: var(--tracking-section);
+    line-height: var(--leading-section);
   }
 
   h3 {
     margin-bottom: var(--space-3);
     font-size: var(--type-subheading);
+    letter-spacing: var(--tracking-subheading);
+    line-height: var(--leading-subheading);
   }
 
   h4 {
     margin-bottom: var(--space-2);
     font-size: var(--type-card-title);
+    letter-spacing: var(--tracking-card);
+    line-height: var(--leading-card);
   }
 
   p:last-child,
@@ -217,6 +234,7 @@
     max-width: 49rem;
     color: var(--muted);
     font-size: var(--type-lead);
+    line-height: var(--leading-lead);
   }
 
   .section__heading--label-only {
@@ -287,6 +305,14 @@
     text-underline-offset: 0.25em;
   }
 
+  .card-title,
+  .problem-card h3,
+  .path-card > :is(h2, h3),
+  .principle-card h3 {
+    letter-spacing: var(--tracking-card);
+    line-height: var(--leading-card);
+  }
+
   .site-header {
     position: sticky;
     z-index: 100;
@@ -316,67 +342,106 @@
   .brand {
     display: inline-flex;
     align-items: center;
+    gap: 0.68rem;
     line-height: 1;
   }
 
   .brand__mark {
-    display: grid;
-    width: 3rem;
-    height: 3rem;
-    place-items: center;
-    margin-right: 0.9rem;
-    background: var(--mineral);
-    color: var(--surface);
-    font-family: var(--font-display);
-    font-size: 1.45rem;
+    position: relative;
+    width: 2.45rem;
+    height: 2.05rem;
+    flex: 0 0 auto;
+    margin-inline: -0.1rem;
+    transform: scale(0.88);
+    transform-origin: center;
+  }
+
+  .brand__shelf {
+    position: absolute;
+    left: 0;
+    height: 0.22rem;
+    background: var(--ink);
+  }
+
+  .brand__shelf--one {
+    top: 0.08rem;
+    width: 100%;
+  }
+
+  .brand__shelf--two {
+    top: 0.91rem;
+    width: 57%;
+  }
+
+  .brand__shelf--three {
+    bottom: 0.08rem;
+    width: 81%;
+  }
+
+  .brand__item {
+    position: absolute;
+    left: 1.62rem;
+    top: 0.75rem;
+    width: 0.45rem;
+    height: 0.58rem;
+    background: var(--signal);
+  }
+
+  .brand__type {
+    display: flex;
+    flex-direction: column;
   }
 
   .brand__wordmark {
     font-family: var(--font-display);
-    font-size: 1.12rem;
-    font-weight: 600;
-    letter-spacing: -0.04em;
-  }
-
-  .brand__wordmark strong {
-    color: var(--signal);
-  }
-
-  .brand__divider {
-    width: 1px;
-    height: 2.2rem;
-    margin-inline: 1rem;
-    background: var(--line);
+    font-size: 1.42rem;
+    font-weight: 700;
+    letter-spacing: -0.06em;
+    line-height: 0.9;
   }
 
   .brand__descriptor {
-    max-width: 7rem;
-    color: var(--muted);
+    margin-top: 0.3rem;
+    color: var(--mineral);
     font-family: var(--font-display);
-    font-size: 0.62rem;
-    letter-spacing: 0.18em;
-    line-height: 1.25;
+    font-size: 0.56rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    line-height: 1;
     text-transform: uppercase;
   }
 
   .brand--compact .brand__mark {
-    width: 2rem;
-    height: 2rem;
-    margin-right: 0.65rem;
-    font-size: 1rem;
+    width: 1.75rem;
+    height: 1.45rem;
+  }
+
+  .brand--compact {
+    gap: 0.55rem;
+  }
+
+  .brand--compact .brand__shelf {
+    height: 0.16rem;
+  }
+
+  .brand--compact .brand__shelf--two {
+    top: 0.64rem;
+  }
+
+  .brand--compact .brand__item {
+    left: 1.15rem;
+    top: 0.53rem;
+    width: 0.32rem;
+    height: 0.42rem;
   }
 
   .brand--compact .brand__wordmark {
-    font-size: 0.92rem;
-  }
-
-  .brand--compact .brand__divider {
-    height: 1.25rem;
-    margin-inline: 0.65rem;
+    font-size: 1.04rem;
   }
 
   .brand--compact .brand__descriptor {
-    font-size: 0.48rem;
+    margin-top: 0.2rem;
+    font-size: 0.43rem;
   }
 
   .desktop-nav {
@@ -654,7 +719,7 @@
     margin: 0;
     color: var(--muted);
     font-size: var(--type-lead);
-    line-height: 1.55;
+    line-height: var(--leading-lead);
   }
 
   .page-intro--measure-wide:not(.page-intro--split) .page-intro__description {
@@ -743,6 +808,7 @@
     max-width: 36rem;
     color: var(--muted);
     font-size: var(--type-lead);
+    line-height: var(--leading-lead);
   }
 
   .hero-actions {
@@ -849,6 +915,7 @@
     font-family: var(--font-display);
     font-size: var(--type-lead);
     font-weight: 600;
+    line-height: var(--leading-card);
   }
 
   .ratio-band blockquote {
@@ -1083,6 +1150,7 @@
     max-width: min(100%, var(--measure-lead));
     color: var(--text-dark-muted);
     font-size: var(--type-lead);
+    line-height: var(--leading-lead);
   }
 
   .pill-list {
@@ -1564,6 +1632,7 @@
   .service-hero__summary {
     color: var(--muted);
     font-size: var(--type-lead);
+    line-height: var(--leading-lead);
   }
 
   .service-hero__thesis {
@@ -1950,12 +2019,30 @@
     min-height: 4.5rem;
   }
 
-  .brand__mark {
-    width: 2.5rem;
-    height: 2.5rem;
+  .brand {
+    gap: 0.58rem;
   }
 
-  .brand__divider,
+  .brand__mark {
+    width: 1.95rem;
+    height: 1.62rem;
+  }
+
+  .brand__shelf {
+    height: 0.18rem;
+  }
+
+  .brand__shelf--two {
+    top: 0.72rem;
+  }
+
+  .brand__item {
+    left: 1.29rem;
+    top: 0.59rem;
+    width: 0.36rem;
+    height: 0.48rem;
+  }
+
   .brand__descriptor {
     display: none;
   }
@@ -2078,7 +2165,7 @@
 
 @media (max-width: 32.5rem) {
   .brand__wordmark {
-    font-size: 0.98rem;
+    font-size: 1.08rem;
   }
 
   .fm-hero h1 {

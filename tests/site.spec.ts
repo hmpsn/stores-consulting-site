@@ -291,6 +291,30 @@ test.describe('production structure', () => {
     expect(scale.card - scale.lead).toBeGreaterThanOrEqual(4);
     expect(scale.section - scale.card).toBeGreaterThanOrEqual(12);
 
+    const rhythm = await page.evaluate(() => {
+      const ratio = (selector: string) => {
+        const style = getComputedStyle(document.querySelector<HTMLElement>(selector)!);
+        return Number.parseFloat(style.lineHeight) / Number.parseFloat(style.fontSize);
+      };
+      return {
+        display: ratio('.fm-hero h1'),
+        section: ratio('.section__heading h2'),
+        card: ratio('.problem-card h3'),
+        lead: ratio('.section__heading > p:not(.eyebrow)'),
+        body: ratio('.problem-card p:last-child'),
+      };
+    });
+    expect(rhythm.display).toBeGreaterThanOrEqual(0.92);
+    expect(rhythm.display).toBeLessThanOrEqual(0.96);
+    expect(rhythm.section).toBeGreaterThanOrEqual(0.97);
+    expect(rhythm.section).toBeLessThanOrEqual(1.01);
+    expect(rhythm.card).toBeGreaterThanOrEqual(1.07);
+    expect(rhythm.card).toBeLessThanOrEqual(1.11);
+    expect(rhythm.lead).toBeGreaterThanOrEqual(1.44);
+    expect(rhythm.lead).toBeLessThanOrEqual(1.48);
+    expect(rhythm.body).toBeGreaterThanOrEqual(1.56);
+    expect(rhythm.body).toBeLessThanOrEqual(1.6);
+
     await page.goto('/big-data-big-deal/');
     const articleScale = await page.evaluate(() => ({
       body: Number.parseFloat(getComputedStyle(document.querySelector<HTMLElement>('.prose p')!).fontSize),
@@ -303,11 +327,48 @@ test.describe('production structure', () => {
     test.skip(test.info().project.name !== 'chromium-1440', 'Component-contract regression runs once.');
 
     await page.goto('/services/');
+    await expect(page.locator('.site-header .brand__shelf')).toHaveCount(3);
+    await expect(page.locator('.site-header .brand__item')).toHaveCount(1);
+    await expect(page.locator('.site-header .brand__descriptor')).toHaveText('Consulting Group');
+    await expect(page.locator('.site-header .brand__divider')).toHaveCount(0);
+    expect((await page.locator('.site-header .brand__mark').textContent())?.trim()).toBe('');
+    const brandBalance = await page.locator('.site-header .brand').evaluate((brand) => {
+      const mark = brand.querySelector<HTMLElement>('.brand__mark')!;
+      const wordmark = brand.querySelector<HTMLElement>('.brand__wordmark')!;
+      const descriptor = brand.querySelector<HTMLElement>('.brand__descriptor')!;
+      return {
+        nameToMark: wordmark.getBoundingClientRect().width / mark.getBoundingClientRect().width,
+        descriptorToName: descriptor.getBoundingClientRect().width / wordmark.getBoundingClientRect().width,
+        markToTypeHeight: mark.getBoundingClientRect().height / brand.querySelector<HTMLElement>('.brand__type')!.getBoundingClientRect().height,
+      };
+    });
+    expect(brandBalance.nameToMark).toBeGreaterThanOrEqual(2.75);
+    expect(brandBalance.descriptorToName).toBeGreaterThanOrEqual(0.85);
+    expect(brandBalance.markToTypeHeight).toBeLessThanOrEqual(0.95);
     await expect(page.locator('.service-card h2.card-title')).toHaveCount(4);
     const serviceTitleSize = await page.locator('.service-card .card-title').first().evaluate((heading) => Number.parseFloat(getComputedStyle(heading).fontSize));
     expect(serviceTitleSize).toBeLessThan(44);
 
     await page.goto('/styleguide/');
+    await expect(page.locator('.logo-option')).toHaveCount(2);
+    await expect(page.locator('#logo-option-pure-wordmark .review-wordmark')).toHaveCount(1);
+    await expect(page.locator('#logo-option-shelf-register .brand__shelf')).toHaveCount(3);
+    await expect(page.locator('#logo-option-shelf-register')).toHaveClass(/logo-option--active/);
+    const wordmarkBalance = await page.locator('#logo-option-pure-wordmark .review-wordmark').evaluate((wordmark) => {
+      const article = wordmark.closest<HTMLElement>('.logo-option')!;
+      return {
+        theGap: Number.parseFloat(getComputedStyle(wordmark.querySelector<HTMLElement>('.review-wordmark__name span')!).marginRight),
+        descriptorSize: Number.parseFloat(getComputedStyle(wordmark.querySelector<HTMLElement>('.review-wordmark__descriptor')!).fontSize),
+        topDelta: Math.abs(wordmark.querySelector<HTMLElement>('.review-wordmark__name span')!.getBoundingClientRect().top - wordmark.querySelector<HTMLElement>('.review-wordmark__name strong')!.getBoundingClientRect().top),
+        descriptorGap: wordmark.querySelector<HTMLElement>('.review-wordmark__descriptor')!.getBoundingClientRect().top - wordmark.querySelector<HTMLElement>('.review-wordmark__name')!.getBoundingClientRect().bottom,
+        shelfWidth: article.nextElementSibling!.querySelector<HTMLElement>('.brand')!.getBoundingClientRect().width,
+      };
+    });
+    expect(wordmarkBalance.theGap).toBeLessThanOrEqual(6);
+    expect(wordmarkBalance.descriptorSize).toBeGreaterThanOrEqual(12);
+    expect(wordmarkBalance.topDelta).toBeLessThanOrEqual(1);
+    expect(wordmarkBalance.descriptorGap).toBeLessThanOrEqual(8);
+    expect(wordmarkBalance.shelfWidth).toBeGreaterThanOrEqual(250);
     await expect(page.locator('.styleguide-component .service-card h4.card-title')).toHaveCount(2);
     await expect(page.locator('.styleguide-component .workstream-grid h4.card-title')).toHaveCount(3);
 

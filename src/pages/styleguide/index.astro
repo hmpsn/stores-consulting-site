@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Brand from '../../components/Brand.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import FieldImage from '../../components/FieldImage.astro';
@@ -54,6 +55,7 @@ const sampleWorkstreams = [
     <nav aria-label="Style guide sections">
       <ul class="styleguide-nav">
         <li><a href="#foundations">Foundations</a></li>
+        <li><a href="#identity">Identity</a></li>
         <li><a href="#typography">Typography</a></li>
         <li><a href="#spacing">Spacing</a></li>
         <li><a href="#imagery">Imagery</a></li>
@@ -74,6 +76,18 @@ const sampleWorkstreams = [
           <h2 id="foundations-heading">A restrained operating palette.</h2>
           <p>Ink provides authority, mineral adds a practical retail tone, signal is reserved for emphasis and action, and paper keeps the system tactile without becoming nostalgic. White surface leads primary heroes and gives evidence cards definition when they sit on paper.</p>
         </header>
+        <div class="brand-guidance" data-reveal>
+          <div class="brand-guidance__sample"><Brand /></div>
+          <div class="brand-guidance__rules">
+            <h3>Shelf register identity</h3>
+            <p>The three shelf rules and single signal item form the approved mark. The mark stays subordinate to the name, uses no enclosing tile, and must remain legible in one color.</p>
+            <ul>
+              <li>Use the full lockup for headers, footers, documents, and social graphics.</li>
+              <li>Use the shelf register alone only when the company name is already explicit.</li>
+              <li>Do not redraw the mark as a letter, add a container, or separate the descriptor with a rule.</li>
+            </ul>
+          </div>
+        </div>
         <div class="token-grid">
           {palette.map((color) => (
             <article class="token-card" data-reveal>
@@ -87,36 +101,77 @@ const sampleWorkstreams = [
       </div>
     </section>
 
+    <section class="section section--paper" id="identity" aria-labelledby="identity-heading">
+      <div class="shell">
+        <header class="styleguide-heading" data-reveal>
+          <p class="eyebrow">Identity review</p>
+          <h2 id="identity-heading">Two finalists, shown as working lockups.</h2>
+          <p>Both treatments remain here as live, separately targetable specimens for annotation. The Shelf Register is the active site identity; the Pure Wordmark remains a refinement candidate.</p>
+        </header>
+        <div class="logo-review-grid">
+          <article class="logo-option" id="logo-option-pure-wordmark" data-reveal>
+            <header class="logo-option__meta">
+              <span>Option 01</span>
+              <h3>Pure Wordmark</h3>
+              <p>The name carries the identity. “The” is tucked into the primary wordmark and the descriptor sits on its own optical baseline.</p>
+            </header>
+            <div class="logo-option__sample" role="img" aria-label="Pure Wordmark logo concept: the Stores Consulting Group">
+              <div class="review-wordmark">
+                <div class="review-wordmark__name">
+                  <span>the</span>
+                  <strong>Stores</strong>
+                </div>
+                <div class="review-wordmark__descriptor">Consulting Group</div>
+              </div>
+            </div>
+            <footer>The name is the mark.</footer>
+          </article>
+
+          <article class="logo-option logo-option--active" id="logo-option-shelf-register" data-reveal>
+            <header class="logo-option__meta">
+              <span>Option 03 · Active</span>
+              <h3>Shelf Register</h3>
+              <p>Three shelf rules create the operating field. One signal item records the intervention without becoming a letter or generic icon.</p>
+            </header>
+            <div class="logo-option__sample logo-option__sample--shelf" role="img" aria-label="Shelf Register logo concept: the Stores Consulting Group">
+              <Brand />
+            </div>
+            <footer>Observe. Align. Execute.</footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section section--paper" id="typography" aria-labelledby="typography-heading">
       <div class="shell">
         <header class="styleguide-heading" data-reveal>
           <p class="eyebrow">Typography</p>
           <h2 id="typography-heading">Archivo leads. Source Sans 3 carries.</h2>
-          <p>Display type is compact, direct, and sentence-cased. Seven named tiers keep page titles, sections, subsections, card titles, leads, body copy, and supporting information visibly distinct.</p>
+          <p>Display type is compact, direct, and sentence-cased. Seven named tiers use role-specific leading and tracking so page titles compress with authority, card titles stay readable, and body copy retains an open working rhythm.</p>
         </header>
         <div class="type-specimens">
           <article class="type-specimen" data-reveal>
-            <p class="type-specimen__meta">Display · Archivo · 650</p>
+            <p class="type-specimen__meta">Display · Archivo · 650 · 0.94</p>
             <p class="type-specimen__display">Decades inside retail. Not just around it.</p>
           </article>
           <article class="type-specimen" data-reveal>
-            <p class="type-specimen__meta">Section · Archivo · 650</p>
+            <p class="type-specimen__meta">Section · Archivo · 650 · 0.99</p>
             <p class="type-specimen__section">The execution gap is the only gap left.</p>
           </article>
           <article class="type-specimen" data-reveal>
-            <p class="type-specimen__meta">Subsection · Archivo · 650</p>
+            <p class="type-specimen__meta">Subsection · Archivo · 650 · 1.04</p>
             <p class="type-specimen__subheading">Challenge one: finding it</p>
           </article>
           <article class="type-specimen" data-reveal>
-            <p class="type-specimen__meta">Card title · Archivo · 650</p>
+            <p class="type-specimen__meta">Card title · Archivo · 650 · 1.09</p>
             <p class="type-specimen__card">Inventory management</p>
           </article>
           <article class="type-specimen" data-reveal>
-            <p class="type-specimen__meta">Lead · Source Sans 3 · 400</p>
+            <p class="type-specimen__meta">Lead · Source Sans 3 · 400 · 1.46</p>
             <p class="type-specimen__lead">Lead copy frames the argument before the operational detail begins.</p>
           </article>
           <article class="type-specimen" data-reveal>
-            <p class="type-specimen__meta">Body · Source Sans 3 · 400</p>
+            <p class="type-specimen__meta">Body · Source Sans 3 · 400 · 1.58</p>
             <p class="type-specimen__body">The body system prioritizes readable measure, clear hierarchy, and enough air for operational detail without drifting into generic corporate polish.</p>
           </article>
           <article class="type-specimen" data-reveal>
@@ -385,6 +440,141 @@ const sampleWorkstreams = [
     color: var(--text-dark-muted);
   }
 
+  .brand-guidance {
+    display: grid;
+    grid-template-columns: minmax(18rem, 0.8fr) minmax(0, 1.2fr);
+    margin-bottom: var(--space-6);
+    border: 1px solid var(--line);
+    background: var(--surface);
+  }
+
+  .brand-guidance__sample {
+    display: grid;
+    min-height: 15rem;
+    place-items: center;
+    padding: var(--space-5);
+    border-right: 1px solid var(--line);
+    background: var(--paper);
+  }
+
+  .brand-guidance__rules {
+    padding: var(--space-5);
+  }
+
+  .brand-guidance__rules h3 {
+    margin-bottom: var(--space-3);
+  }
+
+  .brand-guidance__rules p,
+  .brand-guidance__rules li {
+    color: var(--muted);
+  }
+
+  .logo-review-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+
+  .logo-option {
+    display: grid;
+    grid-template-rows: auto minmax(18rem, 1fr) auto;
+    min-width: 0;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+  }
+
+  .logo-option--active {
+    box-shadow: inset 0 0 0 2px var(--signal);
+  }
+
+  .logo-option__meta {
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .logo-option__meta > span,
+  .logo-option > footer {
+    color: var(--signal);
+    font-family: var(--font-display);
+    font-size: var(--type-label);
+    font-weight: 700;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+
+  .logo-option__meta h3 {
+    margin-block: var(--space-2);
+  }
+
+  .logo-option__meta p {
+    max-width: 31rem;
+    color: var(--muted);
+  }
+
+  .logo-option__sample {
+    display: grid;
+    min-width: 0;
+    place-items: center;
+    padding: clamp(3rem, 7vw, 6rem) var(--space-4);
+    background: var(--paper);
+  }
+
+  .logo-option > footer {
+    padding: var(--space-3) var(--space-4);
+    border-top: 1px solid var(--line-soft);
+    color: var(--ink);
+  }
+
+  .review-wordmark {
+    display: inline-block;
+    color: var(--ink);
+    font-family: var(--font-display);
+  }
+
+  .review-wordmark__name {
+    display: flex;
+    align-items: flex-start;
+    white-space: nowrap;
+  }
+
+  .review-wordmark__name span {
+    margin: 0 0.16em 0 0;
+    color: var(--muted);
+    font-size: clamp(1.2rem, 2.25vw, 1.7rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+  }
+
+  .review-wordmark__name strong {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: -0.067em;
+    line-height: 0.9;
+  }
+
+  .review-wordmark__descriptor {
+    margin: 0.38rem 0 0 clamp(2.35rem, 3.9vw, 3.4rem);
+    color: var(--mineral);
+    font-size: clamp(0.78rem, 1.05vw, 0.9rem);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .logo-option__sample--shelf :global(.brand) {
+    transform: scale(2);
+    transform-origin: center;
+  }
+
+  .logo-option__sample--shelf :global(.brand__descriptor) {
+    display: block;
+  }
+
   .token-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -450,8 +640,8 @@ const sampleWorkstreams = [
     font-family: var(--font-display);
     font-size: clamp(2rem, 5vw, 4.5rem);
     font-weight: 650;
-    letter-spacing: -0.05em;
-    line-height: 1;
+    letter-spacing: var(--tracking-display);
+    line-height: var(--leading-display);
   }
 
   .type-specimen__section,
@@ -460,31 +650,36 @@ const sampleWorkstreams = [
     margin: 0;
     font-family: var(--font-display);
     font-weight: 650;
-    letter-spacing: -0.04em;
-    line-height: 1.05;
   }
 
   .type-specimen__section {
     font-size: var(--type-section);
+    letter-spacing: var(--tracking-section);
+    line-height: var(--leading-section);
   }
 
   .type-specimen__subheading {
     font-size: var(--type-subheading);
+    letter-spacing: var(--tracking-subheading);
+    line-height: var(--leading-subheading);
   }
 
   .type-specimen__card {
     font-size: var(--type-card-title);
+    letter-spacing: var(--tracking-card);
+    line-height: var(--leading-card);
   }
 
   .type-specimen__lead {
     margin: 0;
     font-size: var(--type-lead);
-    line-height: 1.55;
+    line-height: var(--leading-lead);
   }
 
   .type-specimen__body {
     margin: 0;
     font-size: var(--type-body);
+    line-height: var(--leading-body);
   }
 
   .type-specimen__supporting {
@@ -647,11 +842,26 @@ const sampleWorkstreams = [
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .brand-guidance,
+    .logo-review-grid,
     .type-specimens,
     .imagery-grid,
     .styleguide-form-layout,
     .element-grid {
       grid-template-columns: 1fr;
+    }
+
+    .brand-guidance__sample {
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo-option {
+      grid-template-rows: auto minmax(15rem, 1fr) auto;
+    }
+
+    .logo-option__sample--shelf :global(.brand) {
+      transform: scale(1.65);
     }
   }
 
@@ -659,6 +869,14 @@ const sampleWorkstreams = [
     .token-grid,
     .editorial-grid {
       grid-template-columns: 1fr;
+    }
+
+    .logo-option__sample {
+      padding-inline: var(--space-3);
+    }
+
+    .logo-option__sample--shelf :global(.brand) {
+      transform: scale(1.35);
     }
 
     .editorial-grid article {
