@@ -1,0 +1,26 @@
+---
+import PageIntro from '../PageIntro.astro';
+import CtaBand from '../CtaBand.astro';
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { ApproachPageQuery } from '../../../tina/__generated__/types';
+interface Props { data: ApproachPageQuery['approachPage']; related?: any; }
+const { data } = Astro.props;
+const copy = data.copy!;
+import WorkstreamGrid from '../WorkstreamGrid.astro';
+const lighthouse = data.lighthouse!;
+const foundations = data.foundations!;
+---
+<div data-tina-field={tinaField(data, 'copy')}>
+
+  <PageIntro title={copy.title3} description={copy.description4} measure="wide" />
+  <section class="section section--soft"><div class="shell path-grid">
+    <article class="path-card" data-reveal><p class="eyebrow">{copy.text7}</p><h2>{copy.text8}</h2><p>{copy.text9}</p></article>
+    <article class="path-card" data-reveal><p class="eyebrow">{copy.text10}</p><h2>{copy.text11}</h2><p>{copy.text12}</p></article>
+  </div></section>
+  <section class="section section--paper"><div class="shell"><div class="section__heading" data-reveal><p class="eyebrow">{copy.text13}</p><h2>{copy.text14}</h2><p>{copy.text15}</p><p>{copy.text16}</p></div><WorkstreamGrid items={lighthouse} /></div></section>
+  <section class="section"><div class="shell"><div class="section__heading" data-reveal><p class="eyebrow">{copy.text17}</p><h2>{copy.text18}</h2></div><div class="principle-grid"><article class="principle-card" data-reveal><h3>{copy.text19}</h3><p>{copy.text20}</p></article><article class="principle-card" data-reveal><h3>{copy.text21}</h3><p>{copy.text22}</p></article><article class="principle-card" data-reveal><h3>{copy.text23}</h3><p>{copy.text24}</p></article><article class="principle-card" data-reveal><h3>{copy.text25}</h3><p>{copy.text26}</p></article></div></div></section>
+  <section class="section section--paper"><div class="shell"><div class="section__heading" data-reveal><p class="eyebrow">{copy.text27}</p><h2>{copy.text28}</h2><p>{copy.text29}</p><p>{copy.text30}</p></div><WorkstreamGrid items={foundations} /></div></section>
+  <CtaBand title={copy.title5} description={copy.description6} />
+
+
+</div>

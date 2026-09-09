@@ -42,6 +42,19 @@ test.describe('production structure', () => {
     const disclosure = page.locator('.desktop-nav__disclosure');
     const summary = disclosure.locator('summary');
     const panel = disclosure.locator('.desktop-nav__panel');
+    const disclosureControl = await summary.evaluate((element) => {
+      const summaryStyle = getComputedStyle(element);
+      const iconStyle = getComputedStyle(element, '::after');
+      return {
+        alignItems: summaryStyle.alignItems,
+        iconHeight: Number.parseFloat(iconStyle.height),
+        iconTransform: iconStyle.transform,
+        iconWidth: Number.parseFloat(iconStyle.width),
+      };
+    });
+    expect(disclosureControl.alignItems).toBe('center');
+    expect(Math.abs(disclosureControl.iconWidth - disclosureControl.iconHeight)).toBeLessThanOrEqual(0.5);
+    expect(disclosureControl.iconTransform).not.toBe('none');
 
     await summary.click();
     await expect(panel).toBeVisible();
@@ -89,6 +102,21 @@ test.describe('production structure', () => {
     const isNoJavaScript = test.info().project.name === 'chromium-no-js';
     await page.goto('/');
     const summary = page.locator('.mobile-nav summary');
+    const menuControl = await summary.evaluate((element) => {
+      const summaryStyle = getComputedStyle(element);
+      const iconStyle = getComputedStyle(element, '::after');
+      return {
+        alignItems: summaryStyle.alignItems,
+        display: summaryStyle.display,
+        iconHeight: Number.parseFloat(iconStyle.height),
+        iconTransform: iconStyle.transform,
+        iconWidth: Number.parseFloat(iconStyle.width),
+      };
+    });
+    expect(menuControl.display).toBe('inline-grid');
+    expect(menuControl.alignItems).toBe('center');
+    expect(Math.abs(menuControl.iconWidth - menuControl.iconHeight)).toBeLessThanOrEqual(0.5);
+    expect(menuControl.iconTransform).not.toBe('none');
     await summary.focus();
     await page.keyboard.press('Enter');
     await expect(page.locator('.mobile-nav nav')).toBeVisible();
@@ -356,19 +384,33 @@ test.describe('production structure', () => {
     await expect(page.locator('#logo-option-shelf-register')).toHaveClass(/logo-option--active/);
     const wordmarkBalance = await page.locator('#logo-option-pure-wordmark .review-wordmark').evaluate((wordmark) => {
       const article = wordmark.closest<HTMLElement>('.logo-option')!;
+      const the = wordmark.querySelector<HTMLElement>('.review-wordmark__name span')!;
+      const stores = wordmark.querySelector<HTMLElement>('.review-wordmark__name strong')!;
+      const descriptor = wordmark.querySelector<HTMLElement>('.review-wordmark__descriptor')!;
+      const shelfBrand = article.nextElementSibling!.querySelector<HTMLElement>('.brand')!;
+      const shelfMark = shelfBrand.querySelector<HTMLElement>('.brand__mark')!;
+      const shelfType = shelfBrand.querySelector<HTMLElement>('.brand__type')!;
+      const shelfWordmark = shelfBrand.querySelector<HTMLElement>('.brand__wordmark')!;
+      const shelfDescriptor = shelfBrand.querySelector<HTMLElement>('.brand__descriptor')!;
       return {
-        theGap: Number.parseFloat(getComputedStyle(wordmark.querySelector<HTMLElement>('.review-wordmark__name span')!).marginRight),
-        descriptorSize: Number.parseFloat(getComputedStyle(wordmark.querySelector<HTMLElement>('.review-wordmark__descriptor')!).fontSize),
-        topDelta: Math.abs(wordmark.querySelector<HTMLElement>('.review-wordmark__name span')!.getBoundingClientRect().top - wordmark.querySelector<HTMLElement>('.review-wordmark__name strong')!.getBoundingClientRect().top),
-        descriptorGap: wordmark.querySelector<HTMLElement>('.review-wordmark__descriptor')!.getBoundingClientRect().top - wordmark.querySelector<HTMLElement>('.review-wordmark__name')!.getBoundingClientRect().bottom,
-        shelfWidth: article.nextElementSibling!.querySelector<HTMLElement>('.brand')!.getBoundingClientRect().width,
+        theGap: stores.getBoundingClientRect().left - the.getBoundingClientRect().right,
+        descriptorSize: Number.parseFloat(getComputedStyle(descriptor).fontSize),
+        topDelta: Math.abs(the.getBoundingClientRect().top - stores.getBoundingClientRect().top),
+        descriptorGap: descriptor.getBoundingClientRect().top - stores.getBoundingClientRect().bottom,
+        descriptorAlignment: Math.abs(descriptor.getBoundingClientRect().left - stores.getBoundingClientRect().left),
+        shelfWidth: shelfBrand.getBoundingClientRect().width,
+        shelfGap: shelfType.getBoundingClientRect().left - shelfMark.getBoundingClientRect().right,
+        shelfDescriptorGap: shelfDescriptor.getBoundingClientRect().top - shelfWordmark.getBoundingClientRect().bottom,
       };
     });
-    expect(wordmarkBalance.theGap).toBeLessThanOrEqual(6);
+    expect(wordmarkBalance.theGap).toBeLessThanOrEqual(3);
     expect(wordmarkBalance.descriptorSize).toBeGreaterThanOrEqual(12);
     expect(wordmarkBalance.topDelta).toBeLessThanOrEqual(1);
-    expect(wordmarkBalance.descriptorGap).toBeLessThanOrEqual(8);
+    expect(wordmarkBalance.descriptorGap).toBeLessThanOrEqual(5);
+    expect(wordmarkBalance.descriptorAlignment).toBeLessThanOrEqual(1);
     expect(wordmarkBalance.shelfWidth).toBeGreaterThanOrEqual(250);
+    expect(wordmarkBalance.shelfGap).toBeLessThanOrEqual(18);
+    expect(wordmarkBalance.shelfDescriptorGap).toBeLessThanOrEqual(8);
     await expect(page.locator('.styleguide-component .service-card h4.card-title')).toHaveCount(2);
     await expect(page.locator('.styleguide-component .workstream-grid h4.card-title')).toHaveCount(3);
 

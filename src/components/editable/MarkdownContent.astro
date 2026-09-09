@@ -1,0 +1,9 @@
+---
+import { createMarkdownProcessor } from '@astrojs/markdown-remark';
+import remarkNormalizeMigratedHeadings from '../../lib/remark-normalize-migrated-headings.mjs';
+interface Props {body: string; title?: string; migrated?: boolean;}
+const {body, title, migrated = false} = Astro.props;
+const processor = await createMarkdownProcessor({remarkPlugins:[remarkNormalizeMigratedHeadings]});
+const result = await processor.render(body, {fileURL: migrated ? new URL('file:///src/content/posts/editor-preview.md') : undefined, frontmatter:{title}});
+---
+<Fragment set:html={result.code} />

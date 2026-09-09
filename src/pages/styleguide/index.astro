@@ -105,13 +105,13 @@ const sampleWorkstreams = [
       <div class="shell">
         <header class="styleguide-heading" data-reveal>
           <p class="eyebrow">Identity review</p>
-          <h2 id="identity-heading">Two finalists, shown as working lockups.</h2>
-          <p>Both treatments remain here as live, separately targetable specimens for annotation. The Shelf Register is the active site identity; the Pure Wordmark remains a refinement candidate.</p>
+          <h2 id="identity-heading">The Shelf Register is the selected identity.</h2>
+          <p>Selected for the team handoff on September 8, 2026. Use the icon and wordmark together across the site. The Pure Wordmark is retained only as an archived comparison; the identity may be revisited after the conversation with Marty.</p>
         </header>
         <div class="logo-review-grid">
           <article class="logo-option" id="logo-option-pure-wordmark" data-reveal>
             <header class="logo-option__meta">
-              <span>Option 01</span>
+              <span>Archived comparison</span>
               <h3>Pure Wordmark</h3>
               <p>The name carries the identity. “The” is tucked into the primary wordmark and the descriptor sits on its own optical baseline.</p>
             </header>
@@ -129,7 +129,7 @@ const sampleWorkstreams = [
 
           <article class="logo-option logo-option--active" id="logo-option-shelf-register" data-reveal>
             <header class="logo-option__meta">
-              <span>Option 03 · Active</span>
+              <span>Selected · Sitewide</span>
               <h3>Shelf Register</h3>
               <p>Three shelf rules create the operating field. One signal item records the intervention without becoming a letter or generic icon.</p>
             </header>
@@ -139,6 +139,8 @@ const sampleWorkstreams = [
             <footer>Observe. Align. Execute.</footer>
           </article>
         </div>
+        <p class="metrics__note">The header and footer use <code>Brand.astro</code>. Browser and saved-page icons use the shelf register alone; sharing previews use the full lockup. Regenerate exported assets with <code>node scripts/generate-brand-assets.mjs</code> when the identity changes.</p>
+        <img src="/assets/brand/social-card.png" alt="Selected Shelf Register identity on the default social-sharing card" width="1200" height="630" loading="lazy" />
       </div>
     </section>
 
@@ -286,7 +288,7 @@ const sampleWorkstreams = [
         <header class="styleguide-heading" data-reveal>
           <p class="eyebrow">Components</p>
           <h2 id="components-heading">Shared patterns own presentation.</h2>
-          <p>Content records supply validated words and media. Components supply hierarchy, responsive behavior, focus states, and visual rhythm.</p>
+          <p>Content records supply validated words and media. Components supply hierarchy, responsive behavior, focus states, and visual rhythm. Tina exposes these content fields across the public site; editor wrappers use display: contents around site chrome to preserve sticky behavior. Optional team portraits use a square crop. Existing layouts and URLs remain code-owned.</p>
         </header>
         <section class="styleguide-component" aria-labelledby="navigation-pattern-heading">
           <h3 id="navigation-pattern-heading">Primary navigation</h3>
@@ -529,19 +531,23 @@ const sampleWorkstreams = [
   }
 
   .review-wordmark {
-    display: inline-block;
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    column-gap: 0.12rem;
+    row-gap: 0.22rem;
     color: var(--ink);
     font-family: var(--font-display);
   }
 
   .review-wordmark__name {
-    display: flex;
-    align-items: flex-start;
-    white-space: nowrap;
+    display: contents;
   }
 
   .review-wordmark__name span {
-    margin: 0 0.16em 0 0;
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
+    align-self: start;
     color: var(--muted);
     font-size: clamp(1.2rem, 2.25vw, 1.7rem);
     font-weight: 500;
@@ -550,6 +556,8 @@ const sampleWorkstreams = [
   }
 
   .review-wordmark__name strong {
+    grid-column: 2;
+    grid-row: 1;
     font-size: clamp(3rem, 5vw, 4.5rem);
     font-weight: 700;
     letter-spacing: -0.067em;
@@ -557,7 +565,9 @@ const sampleWorkstreams = [
   }
 
   .review-wordmark__descriptor {
-    margin: 0.38rem 0 0 clamp(2.35rem, 3.9vw, 3.4rem);
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0;
     color: var(--mineral);
     font-size: clamp(0.78rem, 1.05vw, 0.9rem);
     font-weight: 700;

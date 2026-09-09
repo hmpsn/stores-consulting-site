@@ -1,4 +1,5 @@
 import { defineConfig, type TinaField } from 'tinacms';
+import { marketingCollections, editorialCollections, globalCollection } from './extended-schema';
 
 const branch =
   process.env.TINA_BRANCH ||
@@ -72,6 +73,9 @@ export default defineConfig({
   },
   schema: {
     collections: [
+      ...marketingCollections,
+      ...editorialCollections,
+      globalCollection,
       {
         name: 'homepage',
         label: 'Homepage',
@@ -269,6 +273,7 @@ export default defineConfig({
           router: () => '/contact-us/',
         },
         fields: [
+{"name":"form","label":"Form labels & messages","type":"object","required":true,"fields":[{"name":"name","label":"Name","type":"string","required":true},{"name":"email","label":"Email","type":"string","required":true},{"name":"company","label":"Company","type":"string","required":true},{"name":"phone","label":"Phone","type":"string","required":true},{"name":"message","label":"Message","type":"string","required":true},{"name":"submit","label":"Submit","type":"string","required":true},{"name":"sending","label":"Sending","type":"string","required":true},{"name":"success","label":"Success","type":"string","required":true},{"name":"invalid","label":"Invalid","type":"string","required":true},{"name":"unavailable","label":"Unavailable","type":"string","required":true}]},
           hiddenString('pageType'),
           { type: 'object', name: 'metadata', label: 'Metadata', fields: metadataFields },
           {
@@ -305,6 +310,13 @@ export default defineConfig({
           router: ({ document }) => `/services/${document._sys.filename}/`,
         },
         fields: [
+{type:'string',name:'workstreamsTitle',label:'Workstreams heading',required:true},
+{type:'string',name:'resultsTitle',label:'Results heading',required:true},
+{type:'string',name:'ctaTitle',label:'Closing heading',required:true},
+{type:'string',name:'ctaDescription',label:'Closing description',required:true},
+{type:'string',name:'ctaHref',label:'Closing button destination',required:true},
+{type:'string',name:'ctaLabel',label:'Closing button label',required:true},
+
           { type: 'string', name: 'title', label: 'Title', required: true, isTitle: true },
           hiddenString('slug'),
           { type: 'number', name: 'order', ui: { component: null } },

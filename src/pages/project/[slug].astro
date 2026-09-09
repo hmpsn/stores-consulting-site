@@ -1,20 +1,14 @@
 ---
-import { getCollection, render } from 'astro:content';
+import {getCollection} from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import PageIntro from '../../components/PageIntro.astro';
-import CtaBand from '../../components/CtaBand.astro';
-import mediaManifest from '../../data/media-manifest.json';
-export async function getStaticPaths() {
-  return (await getCollection('clients')).map((entry) => ({ params: { slug: entry.data.slug }, props: { entry } }));
-}
-const { entry } = Astro.props;
-const { Content } = await render(entry);
-const logoRecord = entry.data.logo ? mediaManifest.find((item) => item.path === entry.data.logo) : null;
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import EditorialPageContent from '../../components/editable/EditorialPageContent.astro';
+import {getEditorialPage} from '../../lib/tina-extended-data';
+export async function getStaticPaths() {return (await getCollection('clients')).map(entry=>({params:{slug:entry.data.slug},props:{path:entry.filePath!.split('/').pop()!}}));}
+const path = Astro.props.path;
+const content = await getEditorialPage('clientProfile',path);
+const data = content.data;
 ---
-<BaseLayout title={entry.data.name} description={`${entry.data.name} client profile from the Stores Consulting Group.`} canonicalPath={entry.data.route} navSection="clients">
-  <PageIntro eyebrow="Client Profile" title={entry.data.name} breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Clients', href: '/clients/' }, { label: entry.data.name }]} compact>
-    {entry.data.logo && logoRecord?.width && logoRecord?.height && <div class="project-logo"><img src={entry.data.logo} alt={`${entry.data.name} logo`} width={logoRecord.width} height={logoRecord.height} loading="eager" /></div>}
-  </PageIntro>
-  <article class="section"><div class="shell prose project-content" data-reveal><Content /></div></article>
-  <CtaBand />
+<BaseLayout title={data.name} description={data.description || `${data.name} client profile from the Stores Consulting Group.`} canonicalPath={data.route} navSection="clients">
+<TinaIsland name="clientProfile" params={{path}} primary wrapper={{tag:"div"}}><EditorialPageContent {...content}/></TinaIsland>
 </BaseLayout>

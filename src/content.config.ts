@@ -1,8 +1,9 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { marketingSchema } from './lib/marketing-schema';
 
-const nullablePath = z.string().startsWith('/').nullable();
+const nullablePath = z.string().startsWith('/').nullish();
 const metric = z.object({
   value: z.string(),
   label: z.string(),
@@ -22,6 +23,12 @@ const contentImage = z.object({
 const services = defineCollection({
   loader: glob({ pattern: '**/*.{yaml,yml}', base: './src/content/services' }),
   schema: z.object({
+    workstreamsTitle: z.string(),
+    resultsTitle: z.string(),
+    ctaTitle: z.string(),
+    ctaDescription: z.string(),
+    ctaHref: z.string(),
+    ctaLabel: z.string(),
     title: z.string(),
     slug: z.string(),
     order: z.number().int().positive(),
@@ -46,7 +53,7 @@ const people = defineCollection({
     tier: z.enum(['leadership', 'director', 'managing-consultant', 'senior-consultant']),
     order: z.number().int().positive(),
     image: nullablePath,
-    alt: z.string(),
+    alt: z.string().nullish(),
   }),
 });
 
@@ -59,9 +66,11 @@ const clients = defineCollection({
     category: z.string(),
     tier: z.enum(['national', 'regional', 'unspecified']),
     logo: nullablePath,
-    legacyUrl: z.url(),
+    logoWidth: z.number().int().positive().nullish(),
+    logoHeight: z.number().int().positive().nullish(),
+    legacyUrl: z.url().nullish(),
     updatedDate: z.coerce.date(),
-    sourceId: z.number().int().positive(),
+    sourceId: z.number().int().positive().nullish(),
   }),
 });
 
@@ -77,9 +86,12 @@ const posts = defineCollection({
     author: z.string(),
     categories: z.array(z.string()),
     featuredMedia: nullablePath,
+    featuredAlt: z.string().nullish(),
+    featuredWidth: z.number().int().positive().nullish(),
+    featuredHeight: z.number().int().positive().nullish(),
     canonicalUrl: z.url(),
     draft: z.boolean(),
-    sourceId: z.number().int().positive(),
+    sourceId: z.number().int().positive().nullish(),
   }),
 });
 
@@ -92,7 +104,7 @@ const legacyPages = defineCollection({
     description: z.string(),
     originalUrl: z.url(),
     updatedDate: z.coerce.date(),
-    sourceId: z.number().int().positive(),
+    sourceId: z.number().int().positive().nullish(),
     overlapStrategy: z.enum(['mockup-primary', 'legacy-preserved']),
   }),
 });
@@ -105,7 +117,7 @@ const categories = defineCollection({
     route: z.string().startsWith('/'),
     description: z.string(),
     count: z.number().int().nonnegative(),
-    sourceId: z.number().int().positive(),
+    sourceId: z.number().int().positive().nullish(),
   }),
 });
 
@@ -116,8 +128,8 @@ const authors = defineCollection({
     slug: z.string(),
     route: z.string().startsWith('/'),
     description: z.string(),
-    avatar: z.url().nullable(),
-    sourceId: z.number().int().positive(),
+    avatar: z.string().nullish(),
+    sourceId: z.number().int().positive().nullish(),
   }),
 });
 
@@ -189,6 +201,7 @@ const servicesPage = z.object({
 
 const contactPage = z.object({
   pageType: z.literal('contact'),
+  form: z.object({name:z.string(),email:z.string(),company:z.string(),phone:z.string(),message:z.string(),submit:z.string(),sending:z.string(),success:z.string(),invalid:z.string(),unavailable:z.string()}),
   metadata,
   intro: z.object({ title: z.string(), description: z.string() }),
   details: z.object({
@@ -204,4 +217,7 @@ const sitePages = defineCollection({
   schema: z.discriminatedUnion('pageType', [homepage, servicesPage, contactPage]),
 });
 
-export const collections = { services, people, clients, posts, 'legacy-pages': legacyPages, categories, authors, 'site-pages': sitePages };
+const marketing = defineCollection({loader: glob({pattern: '**/*.yaml', base: './src/content/marketing'}), schema: marketingSchema});
+
+const settings = defineCollection({loader: glob({pattern:'global.yaml',base:'./src/content/settings'}),schema:z.object({navigation:z.record(z.string(),z.string()),footer:z.object({services:z.string(),company:z.string(),explore:z.string(),organization:z.string(),location:z.string()}),cta:z.object({title:z.string(),description:z.string(),href:z.string().startsWith('/'),label:z.string()})})});
+export const collections = { settings, marketing, services, people, clients, posts, 'legacy-pages': legacyPages, categories, authors, 'site-pages': sitePages };

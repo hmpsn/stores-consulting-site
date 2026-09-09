@@ -29,7 +29,6 @@ metricsNote: Ranges reflect typical results across tSCG's engagement history, no
 relatedPaths:
   - /approach/
   - /results/
-
 heroMedia:
   src: /wp-content/uploads/2016/09/iStock-506018790_02.jpg
   alt: Rows of wine and spirits arranged on densely stocked retail shelves.
@@ -42,3 +41,9 @@ supportingMedia:
   width: 2048
   height: 1365
   position: center
+workstreamsTitle: Six workstreams, applied to your specific gap.
+resultsTitle: Results
+ctaTitle: Delivered through either path.
+ctaDescription: Whether this starts as a 72-Hour Diagnostic or a full Foundations build depends on where you're starting — not this pillar specifically.
+ctaHref: /approach/
+ctaLabel: See Our Approach

@@ -1,0 +1,24 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  href?: string;
+  label?: string;
+}
+import {getGlobalSettings} from '../../lib/tina-extended-data';
+const defaults = (await getGlobalSettings()).cta;
+const {
+  title = defaults.title,
+  description = defaults.description,
+  href = defaults.href,
+  label = defaults.label,
+} = Astro.props;
+---
+
+<section class="cta-band">
+  <div class="shell cta-band__inner" data-reveal>
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <a class="button" href={href}>{label}</a>
+  </div>
+</section>
