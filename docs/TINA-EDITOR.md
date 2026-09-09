@@ -79,4 +79,14 @@ When adding fields, update both schemas and the relevant render component. Keep 
 
 Run `npm run tina:audit`, `npm run validate`, and `npm run test:e2e`. Stop the local Tina dev server before running the audit/build commands to avoid port conflicts. `npm run build` also checks route collisions, taxonomy references and required managed-image metadata before publishing.
 
-Cloud account connection, hosted save/deploy synchronization and real email delivery remain pending. Local verification does not establish those gates.
+TinaCloud is connected; a homepage save reached GitHub. Full save/rollback acceptance and real email delivery remain pending. Local verification does not establish those gates.
+
+## Search and blog formats
+
+Set `TINA_SEARCH_TOKEN` to a **Search token** from TinaCloud → Tokens in Vercel Production and Preview. This is separate from the read-only content token. Never commit it or prefix it with `TINA_PUBLIC_`. The build uploads a branch-specific search index after the site compiles; title and body content are searchable. The local editor uses local search. See https://tina.io/docs/reference/search/overview.
+
+Choose Written article, Video, or PDF report in Post format. Report posts use the PDF report title/URL fields and show an embedded preview plus an Open report link; video bodies preserve their existing video embed markup. Keep Draft on while preparing a post; turn it off and save to publish after a successful build. Published empty/placeholder posts are rejected by validation.
+
+The 9/9 source audit retained 22 complete articles, four videos and one PDF report. Removed WordPress starter/slider tests and three password-protected internal-page stubs; their URLs now return 404 and are absent from public archives and the editor.
+
+Legacy image fields use absolute URLs on the stable `stores-consulting-site.vercel.app` asset host, preventing Tina's `assets/editorial` media root from being prepended on save. Original files remain in place. Newly uploaded images continue to use the editorial media library. Retain that Vercel alias when moving domains or migrate these legacy URLs deliberately.

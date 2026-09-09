@@ -16,9 +16,9 @@ const isCaseStudies = data.route==='/case-studies/';
 const title = data.title || data.name;
 const posts = isArchive ? related.posts.filter((p:any)=>collection==='author'?p.author===data.slug:p.categories.includes(data.slug)) : [];
 const description = isPost ? (data.excerpt||title) : isArchive ? data.description || (collection==='category' ? `${posts.length} article${posts.length===1?'':'s'} in this category.` : `${posts.length} published article${posts.length===1?'':'s'}.`) : data.description;
-const record = mediaManifest.find(item=>item.path===data.featuredMedia);
+const record = mediaManifest.find(item=>item.path===new URL(data.featuredMedia || '/', 'https://storesconsulting.com').pathname);
 const image = data.featuredMedia ? {src:data.featuredMedia,alt:data.featuredAlt||record?.alt||record?.title||title,width:data.featuredWidth||record?.width||1600,height:data.featuredHeight||record?.height||900,position:'center'} : undefined;
-const logoRecord = mediaManifest.find(item=>item.path===data.logo);
+const logoRecord = mediaManifest.find(item=>item.path===new URL(data.logo || '/', 'https://storesconsulting.com').pathname);
 const author = isPost ? related.authors.find((a:any)=>a.slug===data.author) : undefined;
 const categories = isPost ? data.categories.map((slug:string)=>related.categories.find((c:any)=>c.slug===slug)).filter(Boolean) : [];
 const index = isPost ? related.posts.findIndex((p:any)=>p.route===data.route) : -1;
@@ -32,6 +32,11 @@ const breadcrumbs = [{label:'Home',href:'/'}, ...(isPost||isArchive ? [{label:'B
 {isArchive ? <section class="section"><div class="shell"><BlogList posts={posts} authors={related.authors} categories={related.categories}/></div></section> : <article class="section"><div class:list={['shell',{prose:!isCaseStudies,'project-content':isClient}]} data-reveal data-tina-field={tinaField(data,'body')}>
  {isPost&&<BlogMeta publishedDate={new Date(data.publishedDate)} author={author} categories={categories}/>}
  {isCaseStudies ? <LegacyCaseStudyGrid source={data.body||''}/> : <MarkdownContent body={data.body||''} title={title} migrated/>}
+ {isPost&&data.resource&&<section class="report-resource" aria-label="PDF report" data-tina-field={tinaField(data,'resource')}>
+   <h2>{data.resource.title}</h2>
+   <p><a class="button" href={data.resource.url}>Open report (PDF)</a></p>
+   <iframe class="report-resource__preview" src={data.resource.url} title={data.resource.title} loading="lazy"></iframe>
+ </section>}
  {isPost&&<nav class="article-navigation" aria-label="Article navigation"><a class="text-link article-navigation__back" href="/tscg-blog/">Back to Blog →</a><div class="article-navigation__adjacent">
  {newer&&<a href={newer.route} aria-label={`Newer article: ${newer.title}`}><span>Newer Article</span><strong>{newer.title}</strong></a>}
  {older&&<a href={older.route} aria-label={`Older article: ${older.title}`}><span>Older Article</span><strong>{older.title}</strong></a>}

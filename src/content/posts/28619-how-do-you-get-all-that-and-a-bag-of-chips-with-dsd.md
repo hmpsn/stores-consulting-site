@@ -12,6 +12,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/how-do-you-get-all-that-and-a-bag-of-chips-with-dsd/
 draft: false
+contentType: article
 sourceId: 28619
 ---
 

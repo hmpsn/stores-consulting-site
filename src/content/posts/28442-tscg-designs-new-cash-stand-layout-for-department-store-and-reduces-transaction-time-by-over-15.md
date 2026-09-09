@@ -11,9 +11,10 @@ updatedDate: 2020-04-11T23:08:38
 author: rochelle
 categories:
   - process-improvement
-featuredMedia: /wp-content/uploads/2016/09/iStock-532177398.jpg
+featuredMedia: https://stores-consulting-site.vercel.app/wp-content/uploads/2016/09/iStock-532177398.jpg
 canonicalUrl: https://storesconsulting.com/tscg-designs-new-cash-stand-layout-for-department-store-and-reduces-transaction-time-by-over-15/
 draft: false
+contentType: article
 sourceId: 28442
 ---
 

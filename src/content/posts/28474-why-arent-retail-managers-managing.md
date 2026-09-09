@@ -11,6 +11,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/why-arent-retail-managers-managing/
 draft: false
+contentType: article
 sourceId: 28474
 ---
 

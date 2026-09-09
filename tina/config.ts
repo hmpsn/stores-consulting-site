@@ -11,6 +11,7 @@ const clientId = process.env.TINA_PUBLIC_CLIENT_ID || process.env.NEXT_PUBLIC_TI
 const hiddenString = (name: string): TinaField => ({
   type: 'string',
   name,
+  searchable: false,
   ui: { component: null },
 });
 
@@ -59,6 +60,11 @@ export default defineConfig({
   branch,
   clientId,
   token: process.env.TINA_TOKEN,
+  search: {
+    tina: { indexerToken: process.env.TINA_SEARCH_TOKEN || '', stopwordLanguages: ['eng'] },
+    indexBatchSize: 100,
+    maxSearchIndexFieldLength: 10000,
+  },
   build: {
     outputFolder: 'admin',
     publicFolder: 'public',

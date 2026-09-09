@@ -11,6 +11,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/labor-standards-what-is-the-correct-level-of-detail/
 draft: false
+contentType: article
 sourceId: 28534
 ---
 

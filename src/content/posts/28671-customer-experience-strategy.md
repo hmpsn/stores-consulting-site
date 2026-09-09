@@ -13,6 +13,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/customer-experience-strategy/
 draft: false
+contentType: article
 sourceId: 28671
 ---
 

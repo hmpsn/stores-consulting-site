@@ -13,6 +13,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/omnichannel-merchandising/
 draft: false
+contentType: article
 sourceId: 28664
 ---
 

@@ -13,6 +13,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/transaction-monitoring-with-tscg/
 draft: false
+contentType: article
 sourceId: 28528
 ---
 

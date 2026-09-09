@@ -3,7 +3,8 @@ import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 import { marketingSchema } from './lib/marketing-schema';
 
-const nullablePath = z.string().startsWith('/').nullish();
+const imagePath = z.string().refine((value) => value.startsWith('/') || /^https:\/\//.test(value), 'Use a local image path or HTTPS URL');
+const nullablePath = imagePath.nullish();
 const metric = z.object({
   value: z.string(),
   label: z.string(),
@@ -13,7 +14,7 @@ const workstream = z.object({
   description: z.string(),
 });
 const contentImage = z.object({
-  src: z.string().startsWith('/'),
+  src: imagePath,
   alt: z.string().min(1),
   width: z.number().int().positive(),
   height: z.number().int().positive(),
@@ -85,6 +86,8 @@ const posts = defineCollection({
     updatedDate: z.coerce.date(),
     author: z.string(),
     categories: z.array(z.string()),
+    contentType: z.enum(['article','video','report']).nullish(),
+    resource: z.object({title:z.string(),url:z.string()}).nullish(),
     featuredMedia: nullablePath,
     featuredAlt: z.string().nullish(),
     featuredWidth: z.number().int().positive().nullish(),

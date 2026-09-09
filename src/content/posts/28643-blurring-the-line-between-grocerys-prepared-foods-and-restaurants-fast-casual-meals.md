@@ -15,6 +15,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/blurring-the-line-between-grocerys-prepared-foods-and-restaurants-fast-casual-meals/
 draft: false
+contentType: article
 sourceId: 28643
 ---
 

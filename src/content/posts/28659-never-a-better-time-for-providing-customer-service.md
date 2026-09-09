@@ -12,6 +12,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/never-a-better-time-for-providing-customer-service/
 draft: false
+contentType: article
 sourceId: 28659
 ---
 

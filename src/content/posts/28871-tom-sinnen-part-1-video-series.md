@@ -15,6 +15,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/tom-sinnen-part-1-video-series/
 draft: false
+contentType: video
 sourceId: 28871
 ---
 

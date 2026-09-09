@@ -1,4 +1,4 @@
-import { readdir, readFile } from 'node:fs/promises';
+import { readdir, readFile, access } from 'node:fs/promises';
 import { parse } from 'yaml';
 
 const groups = ['posts','clients','people','authors','categories','legacy-pages'];
@@ -6,10 +6,30 @@ const documents = {};
 for (const group of groups) {
  documents[group] = await Promise.all((await readdir(`src/content/${group}`)).filter(f=>/\.(md|yaml)$/.test(f)).map(async file=>{
   const raw=await readFile(`src/content/${group}/${file}`,'utf8');
-  return {file,data:parse(file.endsWith('.md')?raw.split(/^---\s*$/m)[1]:raw)};
+  return {file,body:file.endsWith('.md')?raw.split(/^---\s*$/m).slice(2).join('---').trim():'',data:parse(file.endsWith('.md')?raw.split(/^---\s*$/m)[1]:raw)};
  }));
 }
 const errors=[];
+// Check image references in all structured content, including legacy assets
+// hosted on the stable Vercel alias to avoid Tina media-root rewriting.
+async function checkImages(value, file) {
+ if (!value || typeof value !== 'object') return;
+ for (const [key,item] of Object.entries(value)) {
+  if (['src','image','featuredMedia','logo','avatar'].includes(key) && typeof item === 'string') {
+   let path = item;
+   if (path.startsWith('https://stores-consulting-site.vercel.app/')) path = new URL(path).pathname;
+   if (path.startsWith('/')) {try{await access('public'+path);}catch{errors.push(`${file}: missing image ${path}`);}}
+  } else if (item && typeof item === 'object') await checkImages(item,file);
+ }
+}
+for (const group of [...groups,'site-pages','services','marketing','settings']) {
+ for (const file of await readdir(`src/content/${group}`)) {
+  if (!/\.(md|yaml)$/.test(file)) continue;
+  const raw=await readFile(`src/content/${group}/${file}`,'utf8');
+  await checkImages(parse(file.endsWith('.md')?raw.split(/^---\s*$/m)[1]:raw),file);
+ }
+}
+
 const routes=new Map();
 const explicit=new Set(['/','/about/','/approach/','/results/','/clients/','/services/','/contact-us/','/tscg-blog/','/styleguide/','/404/','/admin/','/feed/','/robots.txt','/api/contact']);
 for(const file of await readdir('src/content/services')) { const data = parse(await readFile('src/content/services/'+file,'utf8')); explicit.add(`/services/${data.slug}/`); }
@@ -22,7 +42,15 @@ for(const group of ['posts','clients','authors','categories','legacy-pages'])for
 }
 const authors=new Set(documents.authors.map(d=>d.data.slug));
 const categories=new Set(documents.categories.map(d=>d.data.slug));
-for(const {file,data} of documents.posts){
+for(const {file,data,body} of documents.posts){
+ if(!data.draft && (!body || /No additional narrative content|Welcome to WordPress|^## Password Protected/.test(body)))errors.push(`${file}: published post has no usable content`);
+ if(data.contentType==='report' && !data.resource?.url)errors.push(`${file}: report posts require a PDF resource`);
+ if(data.resource?.url){
+  const url=new URL(data.resource.url,'https://storesconsulting.com');
+  if(url.protocol!=='https:' || !url.pathname.toLowerCase().endsWith('.pdf'))errors.push(`${file}: report URL must point to a PDF over HTTPS or a local path`);
+  if(data.resource.url.startsWith('/')){try{await access('public'+url.pathname);}catch{errors.push(`${file}: PDF file is missing`);}}
+ }
+
  if(!authors.has(data.author))errors.push(`${file}: unknown author ${data.author}`);
  for(const category of data.categories||[])if(!categories.has(category))errors.push(`${file}: unknown category ${category}`);
  if(data.featuredMedia?.startsWith('/assets/editorial/')&&(!data.featuredAlt||!data.featuredWidth||!data.featuredHeight))errors.push(`${file}: new featured images require alternative text, width and height`);

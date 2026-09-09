@@ -13,6 +13,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/how-well-positioned-are-you-in-fresh-departments-to-differentiate-from-the-big-box-operators-and-your-other-local-competition/
 draft: false
+contentType: article
 sourceId: 28504
 ---
 

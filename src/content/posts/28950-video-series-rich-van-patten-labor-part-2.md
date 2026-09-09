@@ -15,6 +15,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/video-series-rich-van-patten-labor-part-2/
 draft: false
+contentType: video
 sourceId: 28950
 ---
 

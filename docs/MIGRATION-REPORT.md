@@ -78,3 +78,11 @@ The following work requires owner access and therefore remains a launch gate:
 - Existing GA4 ownership confirmation before re-enabling measurement
 
 Infrastructure decision recorded 2026-08-25: Josh owns GitHub and Vercel, shares the repository with Marty, and uses his Resend instance during testing. The connected Vercel integration currently exposes no team/account scope and the local CLI is not authenticated, so preview deployment still requires Vercel authorization. Production environment variables, DNS records, analytics property, and provider accounts remain unchanged until the preview is accepted.
+
+## Blog source audit — 2026-09-09
+
+Compared all 32 WordPress post records with the migrated files. All 22 written articles retain the source paragraphs/list items; four video posts retain their introductory text and video files. Improving Loss Prevention Strategies is a PDF report, not a missing prose article: its preserved PDF now has an embedded viewer and explicit link.
+
+Removed five non-editorial records under Josh’s cleanup instruction: Hello world!, Testing Slider123, and the password-protected tSCG Team Communication, Future, and Team page stubs. No protected content was accessed. Their routes are explicitly retired as 404 in the route manifest; archives retain 27 real posts.
+
+Added post-format fields, empty-post validation, and Tina search configuration with a separate branch-index upload after successful cloud builds. Hosted search requires TINA_SEARCH_TOKEN in Vercel before this batch can deploy. Also repaired two homepage image paths rewritten by a Tina save and made legacy image fields absolute to prevent recurrence, preserving the actual homepage copy edit. Original imagery is unchanged.
