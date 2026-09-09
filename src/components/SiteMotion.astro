@@ -1,5 +1,8 @@
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
+    // Tina replaces island markup inside its iframe; one-shot reveal observers
+    // cannot follow those replacements. Keep embedded previews fully visible.
+    if (window.self !== window.top) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
 
     const targets = document.querySelectorAll('[data-reveal]');

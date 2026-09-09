@@ -565,6 +565,23 @@ test.describe('production structure', () => {
     expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(1);
   });
 
+  test('Tina preview keeps replaced sections visible', async ({ page }) => {
+    test.skip(test.info().project.name !== 'chromium-1440', 'Editor visibility verification runs once.');
+    await page.goto('/');
+    // Reproduce the editor's iframe and markup replacement without cloud login.
+    await page.setContent('<iframe title="Editor preview" src="/about/"></iframe>');
+    const preview = page.frameLocator('iframe');
+    await expect(preview.getByRole('heading', { level: 1 })).toContainText('The people');
+    await expect(preview.locator('html')).not.toHaveClass(/motion-ready/);
+    await preview.locator('.page-intro__copy').evaluate((copy) => {
+      const replacement = copy.cloneNode(true) as HTMLElement;
+      replacement.classList.remove('is-visible');
+      copy.replaceWith(replacement);
+    });
+    await expect(preview.locator('.page-intro__copy')).toHaveCSS('opacity', '1');
+    await expect(preview.locator('.page-intro__copy')).toHaveCSS('transform', 'none');
+  });
+
   test('reduced motion leaves content complete and visible', async ({ page }) => {
     test.skip(test.info().project.name !== 'chromium-1440', 'Reduced-motion verification runs once.');
     await page.emulateMedia({ reducedMotion: 'reduce' });
