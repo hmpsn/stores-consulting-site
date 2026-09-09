@@ -13,6 +13,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/there-is-always-a-better-way/
 draft: false
+contentType: article
 sourceId: 28623
 ---
 

@@ -13,6 +13,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/training-makes-the-difference/
 draft: false
+contentType: article
 sourceId: 28667
 ---
 

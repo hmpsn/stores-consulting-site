@@ -12,7 +12,11 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/improving-loss-prevention-strategies/
 draft: false
+contentType: report
+resource:
+  title: Deterring Retail Theft with WorkJam and tSCG
+  url: /wp-content/uploads/2020/08/Improving-Loss-Prevention-Strategies-Deterring-Retail-Theft-with-WorkJam-and-tSCG-1.pdf
 sourceId: 28966
 ---
 
-[Improving Loss Prevention Strategies - Deterring Retail Theft with WorkJam and tSCG](/wp-content/uploads/2020/08/Improving-Loss-Prevention-Strategies-Deterring-Retail-Theft-with-WorkJam-and-tSCG-1.pdf)
+Deterring retail theft with WorkJam and tSCG. Read the report below.

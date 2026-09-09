@@ -15,6 +15,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/video-series-tom-sinnen-fresh-part-2/
 draft: false
+contentType: video
 sourceId: 28888
 ---
 

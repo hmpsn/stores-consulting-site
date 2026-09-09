@@ -12,6 +12,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/is-your-organization-stepping-over-dollars-to-pick-up-pennies/
 draft: false
+contentType: article
 sourceId: 28468
 ---
 

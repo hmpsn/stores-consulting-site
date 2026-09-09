@@ -12,6 +12,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/big-data-big-deal/
 draft: false
+contentType: article
 sourceId: 28606
 ---
 

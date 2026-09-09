@@ -13,6 +13,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/servant-leadership-evolving-to-an-effective-management-style/
 draft: false
+contentType: article
 sourceId: 28669
 ---
 

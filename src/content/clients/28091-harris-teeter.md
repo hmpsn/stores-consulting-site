@@ -4,7 +4,7 @@ slug: harris-teeter
 route: /project/harris-teeter/
 category: clients
 tier: unspecified
-logo: /wp-content/uploads/2017/01/harris-teeter-logo.png
+logo: https://stores-consulting-site.vercel.app/wp-content/uploads/2017/01/harris-teeter-logo.png
 legacyUrl: https://storesconsulting.com/project/harris-teeter/
 updatedDate: 2017-01-24T23:19:03
 sourceId: 28091

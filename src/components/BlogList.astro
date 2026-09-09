@@ -2,6 +2,7 @@
 import BlogMeta from './BlogMeta.astro';
 
 interface Post {
+  contentType?: string | null;
   title: string;
   route: string;
   excerpt: string;
@@ -36,7 +37,7 @@ const categoriesBySlug = new Map(categories.map((category) => [category.slug, ca
         <div class="blog-list__content">
           <h2><a href={post.route}>{post.title}</a></h2>
           {post.excerpt && <p>{post.excerpt}</p>}
-          <a class="text-link" href={post.route}>Read article →</a>
+          <a class="text-link" href={post.route}>{post.contentType === 'video' ? 'Watch video →' : post.contentType === 'report' ? 'Read report →' : 'Read article →'}</a>
         </div>
       </article>
     </li>

@@ -26,7 +26,3 @@ It is transparent
 It is team-based
 
 From the owners down to the most junior consultant, the rewards of success are shared more equitably than at other firms.  At the end of the day/week/month/year we want to be a company people love to work for and one that clients respect.  If this philosophy interests you please contact us today at employment@storesconsulting.com
-
-To access the tSCG Team Page please click [here](/tscg-team-page/)
-
-To access the tSCG Future Page please click [here](/tscg-future-page/)

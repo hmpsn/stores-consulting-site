@@ -13,6 +13,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/convenienceblog/
 draft: false
+contentType: article
 sourceId: 28707
 ---
 

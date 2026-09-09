@@ -13,6 +13,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/where-are-my-improvements-in-category-management/
 draft: false
+contentType: article
 sourceId: 28566
 ---
 

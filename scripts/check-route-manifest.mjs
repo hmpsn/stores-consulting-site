@@ -25,6 +25,10 @@ for (const route of manifest) {
   const key = `${route.type}:${route.targetPath}`;
   if (seen.has(key)) failures.push(`duplicate manifest entry ${key}`);
   seen.add(key);
+  if (route.retired && route.status === 404) {
+    if (await built(route.targetPath)) failures.push(`${route.targetPath}: retired post still exists`);
+    continue;
+  }
   if (route.status === 'review') {
     documentedExceptions.push(route.targetPath);
     continue;

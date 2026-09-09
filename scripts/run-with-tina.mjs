@@ -34,4 +34,16 @@ const result = spawnSync('tinacms', args, {
 });
 
 if (result.error) throw result.error;
+if (result.status) process.exit(result.status);
+// --content=local keeps builds deterministic but skips TinaCloud search indexing.
+// Upload a separate branch index only after the application build succeeds.
+if (task === 'build' && cloudConfigured) {
+  if (!process.env.TINA_SEARCH_TOKEN) {
+    console.error('TINA_SEARCH_TOKEN is required to publish the editor search index.');
+    process.exit(1);
+  }
+  const search = spawnSync('tinacms', ['search-index'], {stdio:'inherit', shell:false, env:process.env});
+  if (search.error) throw search.error;
+  process.exit(search.status ?? 1);
+}
 process.exit(result.status ?? 1);

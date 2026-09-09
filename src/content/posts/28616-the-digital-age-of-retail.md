@@ -12,6 +12,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/the-digital-age-of-retail/
 draft: false
+contentType: article
 sourceId: 28616
 ---
 

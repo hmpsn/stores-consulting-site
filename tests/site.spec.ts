@@ -6,7 +6,7 @@ const coreRoutes = [
   '/services/shrink-profit-recovery/', '/services/fresh-inventory-operations/',
   '/services/workforce-store-execution/', '/services/technology-adoption-change-management/',
   '/contact-us/', '/tscg-blog/', '/styleguide/',
-  '/category/blog/', '/author/admin/', '/project/kroger/', '/case-studies/', '/hello-world/',
+  '/category/blog/', '/author/admin/', '/project/kroger/', '/case-studies/', '/improving-loss-prevention-strategies/',
 ];
 
 test.describe('production structure', () => {
@@ -580,6 +580,23 @@ test.describe('production structure', () => {
     });
     await expect(preview.locator('.page-intro__copy')).toHaveCSS('opacity', '1');
     await expect(preview.locator('.page-intro__copy')).toHaveCSS('transform', 'none');
+  });
+
+  test('blog retains real media and removes migration placeholders', async ({ page, request }) => {
+    test.skip(test.info().project.name !== 'chromium-1440', 'Blog content audit runs once.');
+    await page.goto('/tscg-blog/');
+    await expect(page.locator('.blog-list article')).toHaveCount(27);
+    await expect(page.getByRole('link', { name: 'Read report →', exact: true })).toHaveCount(1);
+    await expect(page.getByRole('link', { name: 'Watch video →', exact: true })).toHaveCount(4);
+    for (const path of ['/hello-world/', '/testing-slider-123/', '/tscg-team-page/', '/tscg-future-page/', '/tscg-team-communication-page/']) {
+      expect((await request.get(path)).status()).toBe(404);
+    }
+    await page.goto('/improving-loss-prevention-strategies/');
+    const report = page.getByRole('link', { name: 'Open report (PDF)' });
+    const file = await request.get((await report.getAttribute('href'))!);
+    expect(file.status()).toBe(200);
+    expect((await file.body()).subarray(0, 5).toString()).toBe('%PDF-');
+    await expect(page.locator('.report-resource__preview')).toHaveAttribute('title', 'Deterring Retail Theft with WorkJam and tSCG');
   });
 
   test('reduced motion leaves content complete and visible', async ({ page }) => {

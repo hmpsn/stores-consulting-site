@@ -13,6 +13,7 @@ categories:
 featuredMedia: null
 canonicalUrl: https://storesconsulting.com/out-of-stocks-in-the-fresh-departments-solving-the-last-100-feet/
 draft: false
+contentType: article
 sourceId: 28522
 ---
 
