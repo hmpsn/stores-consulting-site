@@ -1,0 +1,31 @@
+---
+import PageIntro from '../PageIntro.astro';
+import CtaBand from '../CtaBand.astro';
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { AboutPageQuery } from '../../../tina/__generated__/types';
+interface Props { data: AboutPageQuery['aboutPage']; related?: any; }
+const { data, related } = Astro.props;
+const copy = data.copy!;
+import MarkdownContent from './MarkdownContent.astro';
+const people = related.people;
+const groups = data.groups!;
+---
+<div data-tina-field={tinaField(data, 'copy')}>
+
+
+  <PageIntro title={copy.title3} description={copy.description4} measure="wide" />
+  <section class="section"><div class="shell">
+    {groups.map((group) => {
+      const members = people.filter((person: any) => person.tier === group.tier);
+      return <section class="people-group" aria-labelledby={`group-${group.tier}`}>
+        <h2 class="eyebrow" id={`group-${group.tier}`}>{group.title}</h2>
+        <div class="people-grid">
+          {members.map((person: any) => <article class="person-card" data-reveal><p class="person-card__role">{person.role}</p>{person.image && <img class="person-card__portrait" src={person.image} alt={person.alt || person.name} width="240" height="240" loading="lazy" data-tina-field={tinaField(person, 'image')} />}<div class="person-card__content"><h3 data-tina-field={tinaField(person, 'name')}>{person.name}</h3><div class="prose"><MarkdownContent body={person.body || ''} /></div></div></article>)}
+        </div>
+      </section>;
+    })}
+  </div></section>
+  <CtaBand title={copy.title5} description={copy.description6} />
+
+
+</div>

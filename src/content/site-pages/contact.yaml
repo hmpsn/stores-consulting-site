@@ -13,3 +13,14 @@ details:
     - 1929 Rombach Ave
     - Wilmington, OH 45177
   email: contact@storesconsulting.com
+form:
+  name: Name
+  email: Email
+  company: Company
+  phone: Phone
+  message: Message
+  submit: Send Message
+  sending: Sending…
+  success: Thank you. Your message has been sent.
+  invalid: Please review the required fields and try again.
+  unavailable: The form is temporarily unavailable. Please email contact@storesconsulting.com.

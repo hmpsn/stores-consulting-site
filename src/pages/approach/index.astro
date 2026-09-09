@@ -1,29 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import PageIntro from '../../components/PageIntro.astro';
-import CtaBand from '../../components/CtaBand.astro';
-import WorkstreamGrid from '../../components/WorkstreamGrid.astro';
-const lighthouse = [
-  ['Day 1 · On-Site Diagnostic', '6–8 hours on the store floor observing real morning workflows. We categorize the execution gap on the spot.'],
-  ['Day 2 · Virtual Solutioning', 'Align with the District Manager. Benchmark against Lighthouse stores. Finalize a plan anchored in DM accountability — not dependence on us.'],
-  ['Day 3 · Ownership Transfer', 'Train leadership and execute quick wins together on-site. Install three sustainability mechanisms: dashboards, DM escalation, peer mentorship.'],
-  ['Ongoing · Validate & Graduate', 'Daily dashboards and red-flag escalation keep results holding. The store earns Lighthouse status — autonomous, peer-mentoring, self-sustaining.'],
-];
-const foundations = [
-  ['Assessment', '1–3 weeks on the floor across a representative sample of stores. Full benchmark data pulled, gaps categorized fleet-wide.'],
-  ['Model Store', 'Build and prove the standard in one store, hands-on, with a dedicated team — not a recommendation on paper.'],
-  ['Learning Centers', 'Expand into a small set of stores to refine and validate the standard before it is rolled out at scale.'],
-  ['Fleet Rollout', 'Scale in prioritized waves across the remaining fleet, with your own leadership carrying it forward.'],
-];
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import ApproachPageContent from '../../components/editable/ApproachPageContent.astro';
+import { getMarketingPage } from '../../lib/tina-extended-data';
+const { data, related } = await getMarketingPage('approach');
+const copy = data.copy;
 ---
-<BaseLayout title="Our Approach" description="Two paths into a single execution standard: the Lighthouse Path and the Foundations Path." canonicalPath="/approach/" navSection="approach">
-  <PageIntro title="Two paths in. One standard of execution." description="Every retailer we work with is facing one of two problems — not a spectrum, two different starting conditions. We triage which one you're in during our first conversation, and the path follows from there." measure="wide" />
-  <section class="section section--soft"><div class="shell path-grid">
-    <article class="path-card" data-reveal><p class="eyebrow">Path One</p><h2>The Lighthouse Path</h2><p>You've deployed the AI. Some stores are already acting on it. The gap is spreading what already works — fast, without adding headcount.</p></article>
-    <article class="path-card" data-reveal><p class="eyebrow">Path Two</p><h2>The Foundations Path</h2><p>No store has cracked it yet — technology aside. We build the standard from the floor up, prove it, and scale it at the pace that's right for you.</p></article>
-  </div></section>
-  <section class="section section--paper"><div class="shell"><div class="section__heading" data-reveal><p class="eyebrow">Path One · The Lighthouse Path</p><h2>The 72-Hour Diagnostic.</h2><p>For retailers with the technology already live. Fast, decisive, ownership-first — built from real deployments, not a framework borrowed off a shelf.</p><p>Five critical questions frame the diagnostic: accountability, training, authority, supply chain, resources. The answer determines the intervention.</p></div><WorkstreamGrid items={lighthouse.map(([title, description]) => ({ title, description }))} /></div></section>
-  <section class="section"><div class="shell"><div class="section__heading" data-reveal><p class="eyebrow">The Lighthouse Cascade</p><h2>Capability moves store to store.</h2></div><div class="principle-grid"><article class="principle-card" data-reveal><h3>Identify your Lighthouses</h3><p>Elevate elite stores into teaching hubs. They transfer ground-level knowledge no corporate memo ever could.</p></article><article class="principle-card" data-reveal><h3>Stop top-down mandates</h3><p>District mandates create compliance. Peer mentorship creates capability.</p></article><article class="principle-card" data-reveal><h3>Build the cascade</h3><p>Performance-driven mentorship from Lighthouses to apprentice stores — a network that scales without adding headcount.</p></article><article class="principle-card" data-reveal><h3>Graduate and repeat</h3><p>Apprentices become Lighthouses. The network grows. Field specialist dependency shrinks to zero.</p></article></div></div></section>
-  <section class="section section--paper"><div class="shell"><div class="section__heading" data-reveal><p class="eyebrow">Path Two · The Foundations Path</p><h2>Assessment. Model Store. Learning Centers. Fleet.</h2><p>For retailers where no store has proven the standard yet — technology aside. Build it, prove it in one store, refine it in a few more, then scale it across the fleet.</p><p>Not every engagement needs every stage. We scope to where you actually are.</p></div><WorkstreamGrid items={foundations.map(([title, description]) => ({ title, description }))} /></div></section>
-  <CtaBand title="Not sure which path fits?" description="That's exactly what the first conversation is for. Tell us where things stand, and we'll tell you which path — and why." />
+<BaseLayout title={copy.title1} description={copy.description2} canonicalPath="/approach/" navSection="approach">
+<TinaIsland name="approachPage" params={{}} primary wrapper={{tag:"div"}}>
+<ApproachPageContent data={data} related={related} />
+</TinaIsland>
 </BaseLayout>

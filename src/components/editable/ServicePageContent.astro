@@ -28,13 +28,13 @@ const supportingMedia = data.supportingMedia ? { ...data.supportingMedia, positi
 </section>
 
 <section class="section section--paper"><div class="shell">
-  <div class="section__heading" data-reveal><h2>Six workstreams, applied to your specific gap.</h2></div>
+  <div class="section__heading" data-reveal><h2>{data.workstreamsTitle}</h2></div>
   <div data-tina-field={tinaField(data, 'workstreams')}><WorkstreamGrid items={workstreams} /></div>
 </div></section>
 
 <section class="section"><div class:list={['shell', 'service-results', { 'service-results--with-media': supportingMedia }]}>
   {supportingMedia && <FieldImage {...supportingMedia} dataReveal editField={tinaField(data.supportingMedia!, 'src')} />}
-  <div class="service-results__metrics" data-reveal><h2>Results</h2><div data-tina-field={tinaField(data, 'metrics')}><Metrics items={metrics} note={data.metricsNote} /></div></div>
+  <div class="service-results__metrics" data-reveal><h2>{data.resultsTitle}</h2><div data-tina-field={tinaField(data, 'metrics')}><Metrics items={metrics} note={data.metricsNote} /></div></div>
 </div></section>
 
-<CtaBand title="Delivered through either path." description="Whether this starts as a 72-Hour Diagnostic or a full Foundations build depends on where you're starting — not this pillar specifically." href="/approach/" label="See Our Approach" />
+<CtaBand title={data.ctaTitle} description={data.ctaDescription} href={data.ctaHref} label={data.ctaLabel} />

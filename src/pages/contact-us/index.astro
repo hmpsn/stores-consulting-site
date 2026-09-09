@@ -23,13 +23,13 @@ const metadata = data.metadata!;
       const feedback = form.querySelector('[data-form-feedback]');
       const submitter = event.submitter;
       if (submitter instanceof HTMLButtonElement) submitter.disabled = true;
-      if (feedback) feedback.textContent = 'Sending…';
+      if (feedback) feedback.textContent = form.dataset.sending || 'Sending…';
       try {
         const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { accept: 'application/json' } });
         const result = await response.json();
         if (!response.ok) throw new Error(result.message || 'Please review the form and try again.');
         form.reset();
-        if (feedback) feedback.textContent = 'Thank you. Your message has been sent.';
+        if (feedback) feedback.textContent = form.dataset.success || 'Thank you. Your message has been sent.';
       } catch (error) {
         if (feedback) feedback.textContent = error instanceof Error ? error.message : 'The form is temporarily unavailable.';
       } finally {

@@ -1,0 +1,26 @@
+navigation:
+  services: What We Do
+  servicesOverview: Services Overview
+  shrink: Shrink & Profit Recovery
+  fresh: Fresh & Inventory Operations
+  workforce: Workforce & Store Execution
+  technology: Technology Adoption & Change Management
+  approach: Our Approach
+  results: Results
+  about: About
+  clients: Clients
+  blog: Blog
+  contact: Contact
+  contactAction: Talk to Us
+  menu: Menu
+footer:
+  services: Services
+  company: Company
+  explore: Explore
+  organization: the Stores Consulting Group
+  location: Wilmington, OH
+cta:
+  title: If the technology is live and the ROI still isn't showing up — let's talk.
+  description: That gap is exactly the conversation we are built for.
+  href: /contact-us/
+  label: Start the Conversation

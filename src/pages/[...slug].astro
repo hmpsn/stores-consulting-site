@@ -1,11 +1,9 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageIntro from '../components/PageIntro.astro';
-import LegacyCaseStudyGrid from '../components/LegacyCaseStudyGrid.astro';
-import BlogMeta from '../components/BlogMeta.astro';
-import mediaManifest from '../data/media-manifest.json';
-
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import EditorialPageContent from '../components/editable/EditorialPageContent.astro';
+import { getEditorialPage } from '../lib/tina-extended-data';
 export async function getStaticPaths() {
   const explicitRoutes = new Set(['/', '/about/', '/approach/', '/results/', '/clients/', '/services/', '/contact-us/', '/tscg-blog/']);
   const authors = (await getCollection('authors')).map((entry) => entry.data);
@@ -29,35 +27,12 @@ export async function getStaticPaths() {
   }));
   return [...pages, ...posts];
 }
-const { entry, type, description, published, author, categories, newer, older } = Astro.props;
-const { Content } = await render(entry);
-const data = entry.data;
-const canonicalPath = data.route;
-const featuredPath = type === 'post' && 'featuredMedia' in data ? data.featuredMedia : null;
-const featuredRecord = featuredPath ? mediaManifest.find((item) => item.path === featuredPath) : null;
-const featuredMedia = featuredPath && featuredRecord?.width && featuredRecord?.height ? {
-  src: featuredPath,
-  alt: featuredRecord.alt || featuredRecord.title,
-  width: featuredRecord.width,
-  height: featuredRecord.height,
-  position: 'center',
-} : undefined;
-const isCaseStudies = canonicalPath === '/case-studies/';
-const breadcrumbs = type === 'post'
-  ? [{ label: 'Home', href: '/' }, { label: 'Blog', href: '/tscg-blog/' }, { label: data.title }]
-  : [{ label: 'Home', href: '/' }, { label: data.title }];
+const { entry, type } = Astro.props;
+const collection = type === 'post' ? 'post' : 'legacyPage';
+const path = entry.filePath!.split('/').pop()!;
+const content = await getEditorialPage(collection, path);
+const data = content.data;
 ---
-<BaseLayout title={data.title} description={description} canonicalPath={canonicalPath} article={type === 'post'} navSection={type === 'post' ? 'blog' : undefined}>
-  <PageIntro eyebrow={type === 'post' ? 'tSCG Blog' : undefined} title={data.title} description={description} media={featuredMedia} breadcrumbs={breadcrumbs} compact />
-  <article class="section"><div class:list={['shell', { prose: !isCaseStudies }]} data-reveal>
-    {published && <BlogMeta publishedDate={published} author={author ?? undefined} categories={categories} />}
-    {isCaseStudies ? <LegacyCaseStudyGrid source={entry.body ?? ''} /> : <Content />}
-    {type === 'post' && <nav class="article-navigation" aria-label="Article navigation">
-      <a class="text-link article-navigation__back" href="/tscg-blog/">Back to Blog →</a>
-      <div class="article-navigation__adjacent">
-        {newer && <a href={newer.route} aria-label={`Newer article: ${newer.title}`}><span>Newer Article</span><strong>{newer.title}</strong></a>}
-        {older && <a href={older.route} aria-label={`Older article: ${older.title}`}><span>Older Article</span><strong>{older.title}</strong></a>}
-      </div>
-    </nav>}
-  </div></article>
+<BaseLayout title={data.title} description={data.excerpt || data.description || data.title} canonicalPath={data.route} article={type === 'post'} navSection={type === 'post' ? 'blog' : undefined}>
+<TinaIsland name={collection} params={{path}} primary wrapper={{tag:"div"}}><EditorialPageContent {...content}/></TinaIsland>
 </BaseLayout>

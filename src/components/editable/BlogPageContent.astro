@@ -1,0 +1,17 @@
+---
+import PageIntro from '../PageIntro.astro';
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { BlogPageQuery } from '../../../tina/__generated__/types';
+interface Props { data: BlogPageQuery['blogPage']; related?: any; }
+const { data, related } = Astro.props;
+const copy = data.copy!;
+import BlogList from '../BlogList.astro';
+const { posts, authors, categories } = related;
+---
+<div data-tina-field={tinaField(data, 'copy')}>
+
+  <PageIntro title={copy.title3} description={copy.description4} measure="wide" />
+  <section class="section"><div class="shell"><BlogList posts={posts} authors={authors} categories={categories} /></div></section>
+
+
+</div>

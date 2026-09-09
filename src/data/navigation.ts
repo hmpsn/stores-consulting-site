@@ -50,3 +50,14 @@ export function inferNavSection(pathname: string): NavSection | undefined {
   if (pathname.startsWith('/contact-us/')) return 'contact';
   return undefined;
 }
+
+// Shared label mapping: destinations remain code-owned, labels come from Tina.
+const navigationLabelKeys: Record<string, string> = {
+ '/services/':'servicesOverview', '/services/shrink-profit-recovery/':'shrink',
+ '/services/fresh-inventory-operations/':'fresh', '/services/workforce-store-execution/':'workforce',
+ '/services/technology-adoption-change-management/':'technology', '/approach/':'approach',
+ '/results/':'results', '/about/':'about', '/clients/':'clients', '/tscg-blog/':'blog', '/contact-us/':'contact',
+};
+export function navigationLabel(labels: Record<string,string>, href: string, fallback: string) {
+ return labels[navigationLabelKeys[href]] || fallback;
+}

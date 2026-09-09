@@ -1,84 +1,11 @@
 ---
-import Brand from './Brand.astro';
-import { inferNavSection, primaryLinks, serviceLinks, type NavSection } from '../data/navigation';
-
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import Content from './editable/HeaderContent.astro';
+import {getGlobalSettings} from '../lib/tina-extended-data';
+import type {NavSection} from '../data/navigation';
+interface Props {activeSection?: NavSection;}
+const {activeSection} = Astro.props;
+const settings = await getGlobalSettings();
 const currentPath = Astro.url.pathname;
-interface Props { activeSection?: NavSection; }
-const { activeSection = inferNavSection(currentPath) } = Astro.props;
 ---
-
-<header class="site-header">
-  <div class="site-header__inner">
-    <a class="site-header__brand" href="/" aria-label="the Stores Consulting Group home">
-      <Brand />
-    </a>
-    <nav class="desktop-nav" aria-label="Primary navigation">
-      <ul>
-        <li>
-          <details class="desktop-nav__disclosure">
-            <summary aria-current={activeSection === 'services' ? 'page' : undefined}>What We Do</summary>
-            <div class="desktop-nav__panel">
-              <a class="desktop-nav__overview" href={serviceLinks[0].href} aria-current={currentPath === serviceLinks[0].href ? 'page' : undefined}>{serviceLinks[0].label} <span aria-hidden="true">→</span></a>
-              <ul>
-                {serviceLinks.slice(1).map((link, index) => (
-                  <li><a href={link.href} aria-current={currentPath === link.href ? 'page' : undefined}><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>{link.label}</a></li>
-                ))}
-              </ul>
-            </div>
-          </details>
-        </li>
-        {primaryLinks.map((link) => (
-          <li><a href={link.href} aria-current={activeSection === link.section ? 'page' : undefined}>{link.label}</a></li>
-        ))}
-      </ul>
-    </nav>
-    <a class="button button--small site-header__cta" href="/contact-us/">Talk to Us</a>
-    <details class="mobile-nav">
-      <summary>Menu</summary>
-      <nav aria-label="Mobile navigation">
-        <ul>
-          <li class="mobile-nav__section">
-            <span class="mobile-nav__label">What We Do</span>
-            <ul class="mobile-nav__subnav">
-              {serviceLinks.map((link) => (
-                <li><a href={link.href} aria-current={currentPath === link.href ? 'page' : undefined}>{link.label}</a></li>
-              ))}
-            </ul>
-          </li>
-          {primaryLinks.map((link) => (
-            <li><a href={link.href} aria-current={activeSection === link.section ? 'page' : undefined}>{link.label}</a></li>
-          ))}
-          <li><a href="/contact-us/">Talk to Us</a></li>
-        </ul>
-      </nav>
-    </details>
-  </div>
-</header>
-
-<script>
-  const disclosures = document.querySelectorAll<HTMLDetailsElement>('.desktop-nav__disclosure, .mobile-nav');
-
-  disclosures.forEach((disclosure) => {
-    disclosure.addEventListener('toggle', () => {
-      if (!disclosure.open) return;
-      disclosures.forEach((other) => {
-        if (other !== disclosure) other.open = false;
-      });
-    });
-  });
-
-  document.addEventListener('pointerdown', (event) => {
-    disclosures.forEach((disclosure) => {
-      if (!disclosure.contains(event.target as Node)) disclosure.open = false;
-    });
-  });
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key !== 'Escape') return;
-    disclosures.forEach((disclosure) => {
-      if (!disclosure.open) return;
-      disclosure.open = false;
-      disclosure.querySelector('summary')?.focus();
-    });
-  });
-</script>
+<TinaIsland wrapper={{tag:"div",className:"tina-chrome"}} name="globalHeader" params={{activeSection:activeSection || '',currentPath}}><Content settings={settings} activeSection={activeSection} currentPath={currentPath}/></TinaIsland>

@@ -1,0 +1,19 @@
+---
+import PageIntro from '../PageIntro.astro';
+import CtaBand from '../CtaBand.astro';
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { ClientsPageQuery } from '../../../tina/__generated__/types';
+interface Props { data: ClientsPageQuery['clientsPage']; related?: any; }
+const { data, related } = Astro.props;
+const copy = data.copy!;
+const clients = related.clients.map((data: any) => ({data}));
+---
+<div data-tina-field={tinaField(data, 'copy')}>
+
+  <PageIntro title={copy.title3} description={copy.description4} measure="wide" />
+  <section class="section"><div class="shell"><div class="client-logo-grid">{data.logos!.map((logo) => <a class="client-logo-card" href={logo.href} data-reveal><img src={logo.image.src} width={logo.image.width} height={logo.image.height} alt={logo.image.alt} loading="lazy" /><span>{logo.name}</span></a>)}</div><p class="metrics__note">{copy.text7}</p></div></section>
+  <section class="section section--soft"><div class="shell"><div class="section__heading" data-reveal><p class="eyebrow">{copy.text8}</p><h2>{copy.text9}</h2><p>{copy.text10}</p></div><ul class="link-archive-grid">{clients.map((client: any) => <li data-reveal><a class="text-link" href={client.data.route}>{client.data.name}</a></li>)}</ul></div></section>
+  <CtaBand title={copy.title5} description={copy.description6} />
+
+
+</div>

@@ -1,17 +1,14 @@
 ---
-import { getCollection } from 'astro:content';
+import {getCollection} from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import PageIntro from '../../components/PageIntro.astro';
-import BlogList from '../../components/BlogList.astro';
-export async function getStaticPaths() {
-  const categories = await getCollection('categories');
-  const authors = await getCollection('authors');
-  const posts = await getCollection('posts', ({ data }) => !data.draft);
-  return categories.map((category) => ({ params: { slug: category.data.slug }, props: { category: category.data, authors: authors.map((entry) => entry.data), categories: categories.map((entry) => entry.data), posts: posts.filter((post) => post.data.categories.includes(category.data.slug)).map((post) => post.data).sort((a, b) => b.publishedDate.valueOf() - a.publishedDate.valueOf()) } }));
-}
-const { category, authors, categories, posts } = Astro.props;
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import EditorialPageContent from '../../components/editable/EditorialPageContent.astro';
+import {getEditorialPage} from '../../lib/tina-extended-data';
+export async function getStaticPaths() {return (await getCollection('categories')).map(entry=>({params:{slug:entry.data.slug},props:{path:entry.filePath!.split('/').pop()!}}));}
+const path = Astro.props.path;
+const content = await getEditorialPage('category',path);
+const data = content.data;
 ---
-<BaseLayout title={category.name} description={category.description || `tSCG articles filed under ${category.name}.`} canonicalPath={category.route} navSection="blog">
-  <PageIntro eyebrow="Blog Category" title={category.name} description={category.description || `${posts.length} article${posts.length === 1 ? '' : 's'} in this category.`} breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Blog', href: '/tscg-blog/' }, { label: category.name }]} compact />
-  <section class="section"><div class="shell"><BlogList posts={posts} authors={authors} categories={categories} /></div></section>
+<BaseLayout title={data.name} description={data.description || `tSCG articles filed under ${data.name}.`} canonicalPath={data.route} navSection="blog">
+<TinaIsland name="category" params={{path}} primary wrapper={{tag:"div"}}><EditorialPageContent {...content}/></TinaIsland>
 </BaseLayout>

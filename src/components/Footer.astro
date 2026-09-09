@@ -1,27 +1,11 @@
 ---
-import Brand from './Brand.astro';
-import { footerGroups, inferNavSection, type NavSection } from '../data/navigation';
-
-const year = new Date().getFullYear();
-interface Props { activeSection?: NavSection; }
-const { activeSection = inferNavSection(Astro.url.pathname) } = Astro.props;
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import Content from './editable/FooterContent.astro';
+import {getGlobalSettings} from '../lib/tina-extended-data';
+import type {NavSection} from '../data/navigation';
+interface Props {activeSection?: NavSection;}
+const {activeSection} = Astro.props;
+const settings = await getGlobalSettings();
+const currentPath = Astro.url.pathname;
 ---
-
-<footer class="site-footer">
-  <div class="shell site-footer__inner">
-    <a href="/" aria-label="the Stores Consulting Group home"><Brand compact /></a>
-    <nav class="site-footer__nav" aria-label="Footer navigation">
-      {footerGroups.map((group) => (
-        <section class="site-footer__group" aria-labelledby={`footer-${group.label.toLowerCase()}`}>
-          <h2 id={`footer-${group.label.toLowerCase()}`}>{group.label}</h2>
-          <ul>
-            {group.links.map((link) => (
-              <li><a href={link.href} aria-current={('section' in link ? activeSection === link.section : Astro.url.pathname === link.href) ? 'page' : undefined}>{link.label}</a></li>
-            ))}
-          </ul>
-        </section>
-      ))}
-    </nav>
-    <p class="site-footer__legal">© {year} the Stores Consulting Group · Wilmington, OH</p>
-  </div>
-</footer>
+<TinaIsland wrapper={{tag:"div",className:"tina-chrome"}} name="globalFooter" params={{activeSection:activeSection || '',currentPath}}><Content settings={settings} activeSection={activeSection} currentPath={currentPath}/></TinaIsland>
