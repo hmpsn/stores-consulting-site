@@ -4,8 +4,8 @@ metadata:
   description: Retail execution consulting that closes the gap between what technology promises and what stores actually deliver.
 hero:
   headline: Retailers have the AI. Most aren't capturing
-  emphasis: the return.
-  description: the Stores Consulting Group closes the gap between what your technology promises and what your stores actually deliver — foundational retail execution, built for the AI era.
+  emphasis: the return
+  description: 'the Stores Consulting Group closes the gap between what your technology promises and what your stores actually deliver — foundational retail execution, built for the AI era.'
   primaryAction:
     label: See How We Work
     href: /approach/
@@ -13,24 +13,24 @@ hero:
     label: Talk to Us
     href: /contact-us/
   image:
-    src: /wp-content/uploads/2016/09/iStock-543570406_2.jpg
+    src: /assets/editorial/wp-content/uploads/2016/09/iStock-543570406_2.jpg
     alt: A contemporary clothing store with merchandise arranged across display tables and racks.
     width: 2048
     height: 1365
     position: center
 problem:
   heading: The hardware wave has crested. The execution gap is the only gap left.
-  description: ESLs, shelf robots, and AI platforms are deployed across tens of thousands of stores. The technology is in. The adoption isn't. Three structural gaps compound one another every day that technology goes underutilized — and tSCG exists to close them.
+  description: 'ESLs, shelf robots, and AI platforms are deployed across tens of thousands of stores. The technology is in. The adoption isn''t. Three structural gaps compound one another every day that technology goes underutilized — and tSCG exists to close them.'
   cards:
     - label: The Adoption Gap
       title: The alert fires. Nobody acts.
-      copy: Most stores are dramatically underutilizing platforms they've already paid for — not because the technology failed, but because adoption did. The workflow was never installed. The accountability was never built.
+      copy: 'Most stores are dramatically underutilizing platforms they''ve already paid for — not because the technology failed, but because adoption did. The workflow was never installed. The accountability was never built.'
     - label: The Attention Gap
       title: Too much data. No framework.
-      copy: "Store teams receive more alerts and tasks than ever, with no structured framework for directing limited time and energy. The result: paralysis, or doing what was always done regardless of what the platform recommends."
+      copy: 'Store teams receive more alerts and tasks than ever, with no structured framework for directing limited time and energy. The result: paralysis, or doing what was always done regardless of what the platform recommends.'
     - label: The ROI Gap
       title: The promise never shows up on the floor.
-      copy: The gap between what technology promises on paper and what the store delivers is where margin is lost every single day. This isn't a technology problem — it's organizational, and it requires a different kind of intervention.
+      copy: 'The gap between what technology promises on paper and what the store delivers is where margin is lost every single day. This isn''t a technology problem — it''s organizational, and it requires a different kind of intervention.'
 ratio:
   items:
     - value: 70%
@@ -39,18 +39,18 @@ ratio:
     - value: 30%
       label: The Platform
       copy: AI surfaces the problem. Humans actually solve it.
-  quote: “This is 70% a change management game, 30% a technology game.”
+  quote: '“This is 70% a change management game, 30% a technology game.”'
 proof:
-  eyebrow: Proof, Not Promises
+  eyebrow: 'Proof, Not Promises'
   heading: We measure results the way your finance team would.
   paragraphs:
-    - Every range we quote is pulled from actual engagement outcomes across grocery, drug, department, convenience, and specialty retail — not an industry average or a best-case scenario borrowed from somewhere else.
+    - 'Every range we quote is pulled from actual engagement outcomes across grocery, drug, department, convenience, and specialty retail — not an industry average or a best-case scenario borrowed from somewhere else.'
     - A diagnostic determines which of these drivers actually applies to you before any number ends up in a proposal.
   action:
     label: See how we measure results →
     href: /results/
   image:
-    src: /wp-content/uploads/2016/09/convenience.jpg
+    src: /assets/editorial/wp-content/uploads/2016/09/convenience.jpg
     alt: A store associate at a checkout while a customer stands beside the counter.
     width: 2048
     height: 1407
@@ -64,31 +64,31 @@ proof:
       value: Up to 7%
     - label: Cash-handling hours cut
       value: 30–80%
-  totalLabel: Profit created, all clients
+  totalLabel: 'Profit created, all clients'
   totalValue: $12B+
 servicesIntro:
   heading: Four aisles. One discipline.
-  description: Turning what your data already tells you into what your stores actually do — every shift, every store, every time.
+  description: 'Turning what your data already tells you into what your stores actually do — every shift, every store, every time.'
 approach:
-  heading: The 72-Hour Diagnostic. The Lighthouse Strategy. Two paths, one standard.
-  description: Whether you've deployed the technology and need adoption, or you're still building the standard from the floor up, the path in depends on where you're starting — not a one-size-fits-all engagement.
+  heading: 'The 72-Hour Diagnostic. The Lighthouse Strategy. Two paths, one standard.'
+  description: 'Whether you''ve deployed the technology and need adoption, or you''re still building the standard from the floor up, the path in depends on where you''re starting — not a one-size-fits-all engagement.'
   action:
     label: See Our Full Approach
     href: /approach/
   steps:
     - number: '01'
       title: Diagnose the real gap
-      copy: Observe the store floor, quantify friction, and establish which intervention is actually required.
+      copy: 'Observe the store floor, quantify friction, and establish which intervention is actually required.'
     - number: '02'
       title: Prove the standard
       copy: Build ownership with store and district leaders in a lighthouse or model-store environment.
     - number: '03'
       title: Scale through the field
-      copy: Transfer capability through dashboards, escalation paths, and peer mentorship.
+      copy: 'Transfer capability through dashboards, escalation paths, and peer mentorship.'
 technology:
   eyebrow: Technology Philosophy
   heading: We work with any platform — on purpose.
-  description: "We're not selling software, and we're not paid by the vendors whose platforms you've already bought. That independence is the point: our job is making sure the investment you already made actually pays off on the floor."
+  description: 'We''re not selling software, and we''re not paid by the vendors whose platforms you''ve already bought. That independence is the point: our job is making sure the investment you already made actually pays off on the floor.'
   pills:
     - Vendor-agnostic
     - Execution-first
@@ -96,11 +96,11 @@ technology:
     - Measured in outcomes
 teamProof:
   heading: Decades inside retail. Not just around it.
-  description: Our team has run stores, managed P&Ls, and sat where you sit. We don't bring theory — we bring people who've done the job, and a methodology built from doing it again and again.
+  description: 'Our team has run stores, managed P&Ls, and sat where you sit. We don''t bring theory — we bring people who''ve done the job, and a methodology built from doing it again and again.'
   metrics:
     - value: 40+
-      label: Practitioners across grocery, specialty, convenience and mass retail
+      label: 'Practitioners across grocery, specialty, convenience and mass retail'
     - value: 7–10x
       label: Typical return generated relative to engagement investment
     - value: Multi
-      label: Project engagements are the norm, not the exception, with our clients
+      label: 'Project engagements are the norm, not the exception, with our clients'
