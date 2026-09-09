@@ -617,19 +617,19 @@ export const marketingCollections: Collection[] = [
           },
           {
             "name": "text8",
-            "label": "Legacy Client Profiles",
+            "label": "Client directory eyebrow",
             "type": "string",
             "required": true
           },
           {
             "name": "text9",
-            "label": "Existing project URLs, preserved.",
+            "label": "Client directory heading",
             "type": "string",
             "required": true
           },
           {
             "name": "text10",
-            "label": "Every public WordPress client/project entry remains availa",
+            "label": "Client directory introduction",
             "type": "string",
             "required": true
           }
@@ -782,7 +782,7 @@ export const editorialCollections: Collection[] = [
  {name:'clientProfile',label:'Client profiles',path:'src/content/clients',format:'md',ui:{...newRecord('client'),router:({document}:any)=>document.route || `/project/${document._sys.filename}/`},defaultItem:()=>({category:'clients',tier:'unspecified',updatedDate:new Date().toISOString()}),fields:[
  {...text('name','Name'),isTitle:true},hidden('slug'),hidden('route'),hidden('category'),{name:'tier',label:'Tier',type:'string',options:['national','regional','unspecified'],required:true},{name:'logo',type:'image',label:'Logo'},{name:'logoWidth',label:'Logo width',type:'number'},{name:'logoHeight',label:'Logo height',type:'number'},hidden('legacyUrl'),{name:'updatedDate',type:'datetime',ui:{component:null}},hidden('sourceId','number'),body,
  ]},
- {name:'legacyPage',label:'Preserved pages',match:{exclude:'{11-about,13-contact-us,159-services,26774-homepage-1,27300-clients,28431-tscg-blog}'},path:'src/content/legacy-pages',format:'md',ui:{...existing,router:({document}:any)=>document.route},fields:[
+ {name:'legacyPage',label:'Additional pages',match:{exclude:'{11-about,13-contact-us,159-services,26774-homepage-1,27300-clients,28431-tscg-blog}'},path:'src/content/legacy-pages',format:'md',ui:{...existing,router:({document}:any)=>document.route},fields:[
  {...text('title','Title'),isTitle:true},hidden('slug'),hidden('route'),{...text('description','Description'),ui:{component:'textarea'}},hidden('originalUrl'),{name:'updatedDate',type:'datetime',ui:{component:null}},hidden('sourceId','number'),hidden('overlapStrategy'),body,
  ]},
  {name:'category',label:'Blog categories',path:'src/content/categories',format:'yaml',ui:{...existing,router:({document}:any)=>document.route},fields:[{...text('name','Name'),isTitle:true},hidden('slug'),hidden('route'),{...text('description','Description',false),ui:{component:'textarea'}},hidden('count','number'),hidden('sourceId','number')]},
