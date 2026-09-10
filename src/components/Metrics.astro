@@ -1,23 +1,25 @@
 ---
+import { tinaField } from '@tinacms/astro/tina-field';
 interface Metric {
+  _content_source?: {queryId:string;path:(string|number)[]};
   value: string;
   label: string;
 }
 interface Props {
   items: Metric[];
-  note?: string;
+  note?: string; noteField?: string;
 }
-const { items, note } = Astro.props;
+const { items, note, noteField } = Astro.props;
 ---
 
 <div class="metrics">
   <dl class="metrics__grid">
     {items.map((item) => (
       <div class="metrics__item" data-reveal>
-        <dt>{item.value}</dt>
-        <dd>{item.label}</dd>
+        <dt data-tina-field={tinaField(item,'value')}>{item.value}</dt>
+        <dd data-tina-field={tinaField(item,'label')}>{item.label}</dd>
       </div>
     ))}
   </dl>
-  {note && <p class="metrics__note">{note}</p>}
+  {note && <p class="metrics__note" data-tina-field={noteField}>{note}</p>}
 </div>

@@ -1,4 +1,5 @@
 ---
+import {getGlobalSettings} from '../../lib/tina-extended-data';
 import { tinaField } from '@tinacms/astro/tina-field';
 import type { ServiceQuery } from '../../../tina/__generated__/types';
 import CtaBand from '../CtaBand.astro';
@@ -10,6 +11,7 @@ import WorkstreamGrid from '../WorkstreamGrid.astro';
 
 interface Props { data: ServiceQuery['service']; }
 const { data } = Astro.props;
+const settings = await getGlobalSettings();
 function present<T>(value: T | null): value is T { return value !== null; }
 const workstreams = (data.workstreams ?? []).filter(present);
 const metrics = (data.metrics ?? []).filter(present);
@@ -19,7 +21,7 @@ const supportingMedia = data.supportingMedia ? { ...data.supportingMedia, positi
 
 <section class:list={['service-hero', { 'service-hero--with-media': heroMedia }]}>
   <div class="service-hero__copy" data-reveal>
-    <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'What We Do', href: '/services/' }, { label: data.title }]} />
+    <Breadcrumbs items={[{ label: settings.labels.home, href: '/', editField:tinaField(settings.labels,'home') }, { label: settings.navigation.services, href: '/services/', editField:tinaField(settings.navigation,'services') }, { label: data.title, editField:tinaField(data,'title') }]} />
     <p class="service-index" data-tina-field={tinaField(data, 'eyebrow')}>{data.eyebrow}</p>
     <h1 data-tina-field={tinaField(data, 'title')}>{data.title}</h1>
     <p class="service-hero__summary" data-tina-field={tinaField(data, 'summary')}>{data.summary}</p>
@@ -29,14 +31,14 @@ const supportingMedia = data.supportingMedia ? { ...data.supportingMedia, positi
 </section>
 
 <section class="section section--paper"><div class="shell">
-  <div class="section__heading" data-reveal><h2>{data.workstreamsTitle}</h2></div>
+  <div class="section__heading" data-reveal><h2 data-tina-field={tinaField(data,'workstreamsTitle')}>{data.workstreamsTitle}</h2></div>
   <div data-tina-field={tinaField(data, 'workstreams')}><WorkstreamGrid items={workstreams} /></div>
 </div></section>
 
 <section class="section"><div class:list={['shell', 'service-results', { 'service-results--with-media': supportingMedia }]}>
   {supportingMedia && <FieldImage {...supportingMedia} dataReveal editField={tinaField(data.supportingMedia!, 'src')} />}
-  <div class="service-results__metrics" data-reveal><h2>{data.resultsTitle}</h2><div data-tina-field={tinaField(data, 'metrics')}><Metrics items={metrics} note={data.metricsNote} /></div></div>
+  <div class="service-results__metrics" data-reveal><h2 data-tina-field={tinaField(data,'resultsTitle')}>{data.resultsTitle}</h2><div data-tina-field={tinaField(data, 'metrics')}><Metrics items={metrics} note={data.metricsNote} noteField={tinaField(data,'metricsNote')} /></div></div>
 </div></section>
 
-<div data-tina-field={tinaField(data,'relatedContent')}><RelatedContent paths={data.relatedContent} title="Related insights & client work" /></div>
-<CtaBand title={data.ctaTitle} description={data.ctaDescription} href={data.ctaHref} label={data.ctaLabel} />
+<div data-tina-field={tinaField(data,'relatedContent')}><RelatedContent paths={data.relatedContent} kind="work" selectionField={tinaField(data,'relatedContent')} /></div>
+<CtaBand editFields={{title:tinaField(data,'ctaTitle'),description:tinaField(data,'ctaDescription'),label:tinaField(data,'ctaLabel'),href:tinaField(data,'ctaHref')}} title={data.ctaTitle} description={data.ctaDescription} href={data.ctaHref} label={data.ctaLabel} />

@@ -52,7 +52,7 @@ export function inferNavSection(pathname: string): NavSection | undefined {
 }
 
 // Shared label mapping: destinations remain code-owned, labels come from Tina.
-const navigationLabelKeys: Record<string, string> = {
+export const navigationLabelKeys: Record<string, string> = {
  '/services/':'servicesOverview', '/services/shrink-profit-recovery/':'shrink',
  '/services/fresh-inventory-operations/':'fresh', '/services/workforce-store-execution/':'workforce',
  '/services/technology-adoption-change-management/':'technology', '/approach/':'approach',

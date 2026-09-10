@@ -24,24 +24,27 @@ const form = data.form!;
     <p class="eyebrow" data-tina-field={tinaField(details, 'eyebrow')}>{details.eyebrow}</p>
     <h2 data-tina-field={tinaField(details, 'name')}>{details.name}</h2>
     <ul class="contact-details">
-      {details.addressLines.map((line) => <li data-tina-field={tinaField(details, 'addressLines')}>{line}</li>)}
+      {details.addressLines.map((line,index) => <li data-tina-field={tinaField(details, 'addressLines',index)}>{line}</li>)}
       <li><a class="text-link" href={`mailto:${details.email}`} data-tina-field={tinaField(details, 'email')}>{details.email}</a></li>
     </ul>
   </div>
   <div>
-    {status === 'success' && <p class="form-status" role="status">{form.success}</p>}
-    {status === 'invalid' && <p class="form-error" role="alert">{form.invalid}</p>}
-    {status === 'unavailable' && <p class="form-error" role="alert">{form.unavailable}</p>}
-    <form class="contact-form" action="/api/contact" method="post" data-enhanced-contact data-reveal data-sending={form.sending} data-success={form.success} data-invalid={form.invalid} data-unavailable={form.unavailable}>
+    {status === 'success' && <p class="form-status" role="status" data-tina-field={tinaField(form,'success')}>{form.success}</p>}
+    {status === 'invalid' && <p class="form-error" role="alert" data-tina-field={tinaField(form,'invalid')}>{form.invalid}</p>}
+    {status === 'unavailable' && <p class="form-error" role="alert" data-tina-field={tinaField(form,'unavailable')}>{form.unavailable}</p>}
+    <aside data-editor-controls aria-label="Contact feedback text">
+      {(['sending','success','invalid','unavailable','rateLimited'] as const).map(key=><p data-tina-field={tinaField(form,key)}>{form[key]}</p>)}
+    </aside>
+    <form class="contact-form" action="/api/contact" method="post" data-enhanced-contact data-reveal data-rate-limited={form.rateLimited} data-sending={form.sending} data-success={form.success} data-invalid={form.invalid} data-unavailable={form.unavailable}>
       <div class="form-grid">
-        <div class="form-field"><label for="name">{form.name} <span aria-hidden="true">*</span></label><input id="name" name="name" type="text" autocomplete="name" maxlength="120" required /></div>
-        <div class="form-field"><label for="email">{form.email} <span aria-hidden="true">*</span></label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" required /></div>
-        <div class="form-field"><label for="company">{form.company}</label><input id="company" name="company" type="text" autocomplete="organization" maxlength="160" /></div>
-        <div class="form-field"><label for="phone">{form.phone}</label><input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40" /></div>
-        <div class="form-field form-field--wide"><label for="message">{form.message} <span aria-hidden="true">*</span></label><textarea id="message" name="message" maxlength="5000" required></textarea></div>
+        <div class="form-field"><label for="name" data-tina-field={tinaField(form,'name')}>{form.name} <span aria-hidden="true">*</span></label><input id="name" name="name" type="text" autocomplete="name" maxlength="120" required /></div>
+        <div class="form-field"><label for="email" data-tina-field={tinaField(form,'email')}>{form.email} <span aria-hidden="true">*</span></label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" required /></div>
+        <div class="form-field"><label for="company" data-tina-field={tinaField(form,'company')}>{form.company}</label><input id="company" name="company" type="text" autocomplete="organization" maxlength="160" /></div>
+        <div class="form-field"><label for="phone" data-tina-field={tinaField(form,'phone')}>{form.phone}</label><input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40" /></div>
+        <div class="form-field form-field--wide"><label for="message" data-tina-field={tinaField(form,'message')}>{form.message} <span aria-hidden="true">*</span></label><textarea id="message" name="message" maxlength="5000" required></textarea></div>
         <div class="form-honeypot" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" autocomplete="off" tabindex="-1" /></div>
       </div>
-      <button class="button" type="submit">{form.submit}</button>
+      <button class="button" type="submit" data-tina-field={tinaField(form,'submit')}>{form.submit}</button>
       <p data-form-feedback aria-live="polite"></p>
     </form>
   </div>

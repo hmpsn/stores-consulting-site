@@ -14,6 +14,7 @@ details:
     - Wilmington, OH 45177
   email: contact@storesconsulting.com
 form:
+  rateLimited: Too many attempts. Please wait a minute and try again.
   name: Name
   email: Email
   company: Company

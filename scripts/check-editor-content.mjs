@@ -56,7 +56,7 @@ for(const group of ['posts','clients','authors','categories','legacy-pages'])for
 const authors=new Set(documents.authors.map(d=>d.data.slug));
 const categories=new Set(documents.categories.map(d=>d.data.slug));
 for(const {file,data,body} of documents.posts){
- if(!data.draft && (!body || /No additional narrative content|Welcome to WordPress|^## Password Protected/.test(body)))errors.push(`${file}: published post has no usable content`);
+ if(!data.draft && ((!body && !data.contentBlocks?.length) || /No additional narrative content|Welcome to WordPress|^## Password Protected/.test(body)))errors.push(`${file}: published post has no usable content`);
  if(data.contentType==='report' && !data.resource?.url)errors.push(`${file}: report posts require a PDF resource`);
  if(data.resource?.url){
   const url=new URL(data.resource.url,'https://storesconsulting.com');

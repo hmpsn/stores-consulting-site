@@ -1,26 +1,28 @@
 ---
+import { tinaField } from '@tinacms/astro/tina-field';
 interface TaxonomyLink {
+  _content_source?: {queryId:string;path:(string|number)[]};
   name: string;
   route: string;
 }
 
 interface Props {
-  publishedDate: Date;
+  publishedDate: Date; dateField?:string;
   author?: TaxonomyLink;
   categories?: TaxonomyLink[];
 }
 
-const { publishedDate, author, categories = [] } = Astro.props;
+const { publishedDate, dateField, author, categories = [] } = Astro.props;
 const date = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 
 <p class="blog-meta">
-  <time datetime={publishedDate.toISOString()}>{date.format(publishedDate)}</time>
-  {author && <><span aria-hidden="true">·</span><a href={author.route}>{author.name}</a></>}
+  <time data-tina-field={dateField} datetime={publishedDate.toISOString()}>{date.format(publishedDate)}</time>
+  {author && <><span aria-hidden="true">·</span><a href={author.route} data-tina-field={tinaField(author,'name')}>{author.name}</a></>}
   {categories.length > 0 && <>
     <span aria-hidden="true">·</span>
     <span class="blog-meta__categories">
-      {categories.map((category, index) => <><a href={category.route}>{category.name}</a>{index < categories.length - 1 && <span aria-hidden="true">, </span>}</>)}
+      {categories.map((category, index) => <><a href={category.route} data-tina-field={tinaField(category,'name')}>{category.name}</a>{index < categories.length - 1 && <span aria-hidden="true">, </span>}</>)}
     </span>
   </>}
 </p>

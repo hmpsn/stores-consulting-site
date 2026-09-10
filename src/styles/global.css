@@ -1508,7 +1508,8 @@
     line-height: 1.1;
   }
 
-  .project-content > img:first-child {
+  .project-content > img:first-child,
+  .project-content > .editorial-body > img:first-child {
     display: none;
   }
 
@@ -2230,3 +2231,10 @@
   .report-resource { margin-block: var(--space-8); }
   .report-resource__preview { display: block; width: 100%; height: 70vh; min-height: 24rem; border: 1px solid var(--line); background: var(--surface); }
 }
+
+/* Existing buttons/typography, visible only in Tina quick-edit mode. */
+[data-editor-controls] { display: none; }
+body.__tina-quick-editing-enabled [data-editor-controls] { display: block; }
+
+:root { --media-video-ratio: 16 / 9; }
+.prose iframe.article-video { aspect-ratio: var(--media-video-ratio); height: auto; }

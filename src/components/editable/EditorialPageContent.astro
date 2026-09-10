@@ -1,4 +1,5 @@
 ---
+import {getGlobalSettings} from '../../lib/tina-extended-data';
 import { tinaField } from '@tinacms/astro/tina-field';
 import PageIntro from '../PageIntro.astro';
 import CtaBand from '../CtaBand.astro';
@@ -6,10 +7,13 @@ import BlogList from '../BlogList.astro';
 import BlogMeta from '../BlogMeta.astro';
 import RelatedContent from '../RelatedContent.astro';
 import LegacyCaseStudyGrid from '../LegacyCaseStudyGrid.astro';
+import ArticleBlocks from './ArticleBlocks.astro';
 import MarkdownContent from './MarkdownContent.astro';
 import mediaManifest from '../../data/media-manifest.json';
 interface Props {data:any; related:any; collection: 'post'|'clientProfile'|'legacyPage'|'author'|'category';}
 const {data,related,collection} = Astro.props;
+const settings=await getGlobalSettings();
+const labels=settings.labels;
 const isPost = collection==='post';
 const isClient = collection==='clientProfile';
 const isArchive = collection==='author'||collection==='category';
@@ -25,23 +29,26 @@ const categories = isPost ? data.categories.map((slug:string)=>related.categorie
 const index = isPost ? related.posts.findIndex((p:any)=>p.route===data.route) : -1;
 const newer = index>0 ? related.posts[index-1] : undefined;
 const older = index>=0 ? related.posts[index+1] : undefined;
-const breadcrumbs = [{label:'Home',href:'/'}, ...(isPost||isArchive ? [{label:'Blog',href:'/tscg-blog/'}] : isClient ? [{label:'Clients',href:'/clients/'}] : []),{label:title}];
+const breadcrumbs = [{label:labels.home,href:'/',editField:tinaField(labels,'home')}, ...(isPost||isArchive ? [{label:settings.navigation.blog,href:'/tscg-blog/',editField:tinaField(settings.navigation,'blog')}] : isClient ? [{label:settings.navigation.clients,href:'/clients/',editField:tinaField(settings.navigation,'clients')}] : []),{label:title,editField:tinaField(data,data.title?'title':'name')}];
 ---
-<PageIntro title={title} description={description} eyebrow={isPost?'tSCG Blog':isClient?'Client Profile':collection==='author'?'Author':collection==='category'?'Blog Category':undefined} media={image} breadcrumbs={breadcrumbs} compact editFields={{title:tinaField(data,data.title?'title':'name'),description:tinaField(data,isPost?'excerpt':'description')}}>
+<PageIntro title={title} description={description} eyebrow={isPost?labels.postEyebrow:isClient?labels.clientEyebrow:collection==='author'?labels.authorEyebrow:collection==='category'?labels.categoryEyebrow:undefined} media={image} breadcrumbs={breadcrumbs} compact editFields={{media:tinaField(data,'featuredMedia'),eyebrow:tinaField(labels,isPost?'postEyebrow':isClient?'clientEyebrow':collection==='author'?'authorEyebrow':'categoryEyebrow'),title:tinaField(data,data.title?'title':'name'),description:tinaField(data,isPost?'excerpt':'description')}}>
  {isClient&&data.logo&&<div class="project-logo" data-tina-field={tinaField(data,'logo')}><img src={data.logo} alt={`${data.name} logo`} width={data.logoWidth||logoRecord?.width||400} height={data.logoHeight||logoRecord?.height||400} loading="eager" /></div>}
 </PageIntro>
-{isArchive ? <section class="section"><div class="shell"><BlogList posts={posts} authors={related.authors} categories={related.categories}/></div></section> : <article class="section"><div class:list={['shell',{prose:!isCaseStudies,'project-content':isClient}]} data-reveal data-tina-field={tinaField(data,'body')}>
- {isPost&&<BlogMeta publishedDate={new Date(data.publishedDate)} author={author} categories={categories}/>}
- {isClient&&data.caseStudy?.published ? <section aria-label="Case study" data-tina-field={tinaField(data,'caseStudy')}><h2>The challenge</h2><p>{data.caseStudy.challenge}</p><h2>What we did</h2><p>{data.caseStudy.work}</p><h2>Results</h2><p>{data.caseStudy.results}</p></section> : isCaseStudies ? <LegacyCaseStudyGrid source={data.body||''}/> : <MarkdownContent body={data.body||''} title={title} migrated/>}
+{isArchive ? <section class="section"><div class="shell"><BlogList posts={posts} authors={related.authors} categories={related.categories}/></div></section> : <article class="section"><div class:list={['shell',{prose:!isCaseStudies,'project-content':isClient}]} data-reveal>
+ {isPost&&<BlogMeta publishedDate={new Date(data.publishedDate)} dateField={tinaField(data,'publishedDate')} author={author} categories={categories}/>}
+ {isClient&&data.caseStudy?.published ? <section aria-label="Case study" data-tina-field={tinaField(data,'caseStudy')}><h2 data-tina-field={tinaField(labels,'challenge')}>{labels.challenge}</h2><p data-tina-field={tinaField(data.caseStudy,'challenge')}>{data.caseStudy.challenge}</p><h2 data-tina-field={tinaField(labels,'work')}>{labels.work}</h2><p data-tina-field={tinaField(data.caseStudy,'work')}>{data.caseStudy.work}</p><h2 data-tina-field={tinaField(labels,'results')}>{labels.results}</h2><p data-tina-field={tinaField(data.caseStudy,'results')}>{data.caseStudy.results}</p></section> : isCaseStudies ? <LegacyCaseStudyGrid entries={data.directoryEntries||[]}/> : <div class="prose editorial-body" data-tina-field={tinaField(data,'body')}><MarkdownContent body={data.body||''} title={title} migrated/></div>}
+ {isPost&&<ArticleBlocks blocks={data.contentBlocks}/>}
  {isPost&&data.resource&&<section class="report-resource" aria-label="PDF report" data-tina-field={tinaField(data,'resource')}>
-   <h2>{data.resource.title}</h2>
-   <p><a class="button" href={data.resource.url}>Open report (PDF)</a></p>
+   <h2 data-tina-field={tinaField(data.resource,'title')}>{data.resource.title}</h2>
+   <p><a class="button" href={data.resource.url} data-tina-field={tinaField(data.resource,'url')}><span data-tina-field={tinaField(labels,'openReport')}>{labels.openReport}</span></a></p>
    <iframe class="report-resource__preview" src={data.resource.url} title={data.resource.title} loading="lazy"></iframe>
  </section>}
- {isPost&&<nav class="article-navigation" aria-label="Article navigation"><a class="text-link article-navigation__back" href="/tscg-blog/">Back to Blog →</a><div class="article-navigation__adjacent">
- {newer&&<a href={newer.route} aria-label={`Newer article: ${newer.title}`}><span>Newer Article</span><strong>{newer.title}</strong></a>}
- {older&&<a href={older.route} aria-label={`Older article: ${older.title}`}><span>Older Article</span><strong>{older.title}</strong></a>}
+ {isPost&&<nav class="article-navigation" aria-label="Article navigation"><a class="text-link article-navigation__back" href="/tscg-blog/" data-tina-field={tinaField(labels,'backToBlog')}>{labels.backToBlog}</a><div class="article-navigation__adjacent">
+ {newer&&<a href={newer.route} aria-label={`Newer article: ${newer.title}`}><span data-tina-field={tinaField(labels,'newerArticle')}>{labels.newerArticle}</span><strong data-tina-field={tinaField(newer,'title')}>{newer.title}</strong></a>}
+ {older&&<a href={older.route} aria-label={`Older article: ${older.title}`}><span data-tina-field={tinaField(labels,'olderArticle')}>{labels.olderArticle}</span><strong data-tina-field={tinaField(older,'title')}>{older.title}</strong></a>}
  </div></nav>}
  </div></article>}
-{(isPost||isClient)&&<RelatedContent paths={isPost?data.relatedServices:data.caseStudy?.published?data.caseStudy.services:[]} title="How we can help"/>}
+{isPost&&<div class="shell" data-editor-controls><button type="button" class="button button--outline" data-tina-field={tinaField(data,'contentBlocks')}>Edit article blocks</button></div>}
+{isClient&&<div class="shell" data-editor-controls><button type="button" class="button button--outline" data-tina-field={tinaField(data,'caseStudy')}>Edit case study</button></div>}
+{(isPost||isClient)&&<RelatedContent paths={isPost?data.relatedServices:data.caseStudy?.published?data.caseStudy.services:[]} kind="services" selectionField={isPost?tinaField(data,'relatedServices'):tinaField(data.caseStudy,'services')}/>}
 {(isClient||isPost)&&<CtaBand/>}

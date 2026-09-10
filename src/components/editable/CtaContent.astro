@@ -1,11 +1,14 @@
 ---
+import {tinaField} from '@tinacms/astro/tina-field';
 interface Props {
   title?: string;
   description?: string;
   href?: string;
   label?: string;
+  editFields?: {title?:string;description?:string;label?:string;href?:string};
 }
 import {getGlobalSettings} from '../../lib/tina-extended-data';
+const editFields = Astro.props.editFields || {};
 const defaults = (await getGlobalSettings()).cta;
 const {
   title = defaults.title,
@@ -17,8 +20,8 @@ const {
 
 <section class="cta-band">
   <div class="shell cta-band__inner" data-reveal>
-    <h2>{title}</h2>
-    <p>{description}</p>
-    <a class="button" href={href}>{label}</a>
+    <h2 data-tina-field={editFields.title || tinaField(defaults,'title')}>{title}</h2>
+    <p data-tina-field={editFields.description || tinaField(defaults,'description')}>{description}</p>
+    <a class="button" href={href} data-tina-field={editFields.href || tinaField(defaults,'href')}><span data-tina-field={editFields.label || tinaField(defaults,'label')}>{label}</span></a>
   </div>
 </section>

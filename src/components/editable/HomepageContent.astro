@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getGlobalSettings, getEditorialList } from '../../lib/tina-extended-data';
 import { tinaField } from '@tinacms/astro/tina-field';
 import type { HomepageQuery } from '../../../tina/__generated__/types';
 import CtaBand from '../CtaBand.astro';
@@ -12,7 +12,8 @@ interface Props {
 }
 
 const { data } = Astro.props;
-const services = (await getCollection('services')).map((entry) => entry.data);
+const services = await getEditorialList('service');
+const labels = (await getGlobalSettings()).labels;
 const hero = data.hero!;
 const problem = data.problem!;
 const ratio = data.ratio!;
@@ -76,13 +77,13 @@ const proofImage = proof.image ? { ...proof.image, position: proof.image.positio
   <div data-reveal>
     <p class="eyebrow" data-tina-field={tinaField(proof, 'eyebrow')}>{proof.eyebrow}</p>
     <h2 data-tina-field={tinaField(proof, 'heading')}>{proof.heading}</h2>
-    {proof.paragraphs.map((paragraph) => <p data-tina-field={tinaField(proof, 'paragraphs')}>{paragraph}</p>)}
+    {proof.paragraphs.map((paragraph, index) => <p data-tina-field={tinaField(proof, 'paragraphs',index)}>{paragraph}</p>)}
     {proof.action && <a class="text-link" href={proof.action.href} data-tina-field={tinaField(proof.action, 'label')}>{proof.action.label}</a>}
   </div>
   <div class="fm-proof-layout__visual" data-reveal>
     {proofImage && <FieldImage {...proofImage} editField={tinaField(proof.image!, 'src')} />}
     <div class="evidence-panel" role="group" aria-label="Summary of typical engagement outcomes">
-      <p class="evidence-panel__head">tSCG · Engagement Outcomes</p>
+      <p class="evidence-panel__head" data-tina-field={tinaField(labels,'outcomesHeading')}>{labels.outcomesHeading}</p>
       <dl>{outcomes.map((outcome) => <div><dt data-tina-field={tinaField(outcome, 'label')}>{outcome.label}</dt><dd data-tina-field={tinaField(outcome, 'value')}>{outcome.value}</dd></div>)}</dl>
       <p class="evidence-panel__total"><span data-tina-field={tinaField(proof, 'totalLabel')}>{proof.totalLabel}</span><strong data-tina-field={tinaField(proof, 'totalValue')}>{proof.totalValue}</strong></p>
     </div>
@@ -112,7 +113,7 @@ const proofImage = proof.image ? { ...proof.image, position: proof.image.positio
   <p class="eyebrow" data-tina-field={tinaField(technology, 'eyebrow')}>{technology.eyebrow}</p>
   <h2 data-tina-field={tinaField(technology, 'heading')}>{technology.heading}</h2>
   <p data-tina-field={tinaField(technology, 'description')}>{technology.description}</p>
-  <ul class="pill-list">{technology.pills.map((pill) => <li data-tina-field={tinaField(technology, 'pills')}>{pill}</li>)}</ul>
+  <ul class="pill-list">{technology.pills.map((pill,index) => <li data-tina-field={tinaField(technology, 'pills',index)}>{pill}</li>)}</ul>
 </div></section>
 
 <section class="section section--paper"><div class="shell">

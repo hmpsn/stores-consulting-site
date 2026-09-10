@@ -1,34 +1,9 @@
 ---
-interface Props {
-  source: string;
-}
-
-const { source } = Astro.props;
-const pattern = /<img\s+src="([^"]+)"\s+alt="([^"]*)"\s+width="(\d+)"\s+height="(\d+)"[^>]*>\s*\[\s*###\s+([^\n]+)\s+([A-Z][a-z]+\s+\d{1,2},\s+\d{4})\s*\]\(([^)]+)\)/g;
-const entries = [...source.matchAll(pattern)].map((match) => ({
-  image: match[1],
-  alt: match[2],
-  width: Number(match[3]),
-  height: Number(match[4]),
-  title: match[5].trim(),
-  date: match[6],
-  route: match[7],
-}));
+import {tinaField} from '@tinacms/astro/tina-field';
+import {getGlobalSettings} from '../lib/tina-extended-data';
+interface Props {entries:any[];}
+const {entries=[]}=Astro.props;
+const labels=(await getGlobalSettings()).labels;
 ---
-
-<p class="eyebrow">tSCG Clients</p>
-<ul class="legacy-case-grid">
-  {entries.map((entry) => (
-    <li data-reveal>
-      <a href={entry.route}>
-        <span class="legacy-case-grid__media">
-          <img src={entry.image} alt={entry.alt} width={entry.width} height={entry.height} loading="lazy" decoding="async" />
-        </span>
-        <div class="legacy-case-grid__copy">
-          <h2>{entry.title}</h2>
-          <time>{entry.date}</time>
-        </div>
-      </a>
-    </li>
-  ))}
-</ul>
+<p class="eyebrow" data-tina-field={tinaField(labels,'clientDirectory')}>{labels.clientDirectory}</p>
+<ul class="legacy-case-grid">{entries.filter(Boolean).map(entry=><li data-reveal><a href={entry.url} data-tina-field={tinaField(entry,'url')}><span class="legacy-case-grid__media"><img src={entry.image} alt={entry.alt} width={entry.width} height={entry.height} loading="lazy" decoding="async" data-tina-field={tinaField(entry,'image')}/></span><div class="legacy-case-grid__copy"><h2 data-tina-field={tinaField(entry,'title')}>{entry.title}</h2><time data-tina-field={tinaField(entry,'date')}>{entry.date}</time></div></a></li>)}</ul>

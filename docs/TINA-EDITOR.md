@@ -118,3 +118,21 @@ In GA4, verify incoming events and mark `generate_lead` as a key event. Review l
 Recovery drill completed 2026-09-09 in an isolated temporary Git repository: restored one content file from the prior commit while preserving a later unrelated file. Production rollback was not invoked. Alert issue creation and deduplication were tested with mocked GitHub responses; no false production failure was generated.
 
 Editor routing uses a generated filename-to-public-URL map, so older numeric filenames open the correct article/client preview. Draft posts do not open a public preview. This mapping and the named pickers regenerate during each build.
+
+## Visual editing coverage audit
+
+Collection coverage does not guarantee that every visible element selects its field. See [the editability audit](TINA-EDITABILITY-AUDIT.md) for confirmed service-card gaps, remaining bindings, and the proposed completion matrix. Audit baseline: `d720cad`; implementation and verification notes are recorded in the audit.
+
+## Editing visible elements
+
+Enable Tina quick editing to select a label, heading, image or body directly in the preview. Disable quick editing to follow links or open the navigation menu normally. The sidebar remains available for invisible/optional fields, image alternative text, URLs and SEO metadata.
+
+- Service titles now drive cards, related links and navigation. Global Navigation has optional short service-label overrides; leave them blank to keep names synchronized.
+- Closing CTAs edit their owning page when an override exists; default CTAs edit global settings. Global defaults do not overwrite page-specific closing copy.
+- Click a blog title, person name, author/category name or client name to edit that source record. Renaming an author/category affects every use; change a post's association in its Author/Categories controls.
+- Shared display labels contain service-card actions, related-section headings, article navigation/report buttons and case-study labels.
+- Article blocks add text, images, YouTube/Vimeo videos and links below a post's existing body. Existing Markdown/HTML remains intact; paragraph text can be edited in Body (Markdown). New media should use blocks rather than raw HTML.
+- The Case Studies additional page uses structured Directory cards. Titles, images, dates and destinations can be edited independently without special Markdown formatting.
+- In quick-edit mode, extra controls expose related links, article blocks, case-study preparation and contact feedback messages. These controls are hidden on the public site. Contact forms inside editor previews never send inquiries. Test email delivery separately at the live team sync.
+
+The approved logo artwork, layout, public route slugs, automatic date/count formatting, 404/system text and backend mechanics remain controlled by code.

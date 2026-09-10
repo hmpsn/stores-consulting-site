@@ -8,9 +8,9 @@ const copy = data.copy!;
 import BlogList from '../BlogList.astro';
 const { posts, authors, categories } = related;
 ---
-<div data-tina-field={tinaField(data, 'copy')}>
+<div>
 
-  <PageIntro title={copy.title3} description={copy.description4} measure="wide" />
+  <PageIntro title={copy.title3} description={copy.description4} measure="wide" editFields={{title: tinaField(copy, 'title3'), description: tinaField(copy, 'description4')}} />
   <section class="section"><div class="shell"><BlogList posts={posts} authors={authors} categories={categories} /></div></section>
 
 

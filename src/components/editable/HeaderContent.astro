@@ -1,12 +1,17 @@
 ---
+import {navigationItem} from '../../lib/navigation-editing';
+import {getEditorialList} from '../../lib/tina-extended-data';
+import {tinaField} from '@tinacms/astro/tina-field';
 import Brand from '../Brand.astro';
-import { navigationLabel, inferNavSection, primaryLinks, serviceLinks, type NavSection } from '../../data/navigation';
+import { inferNavSection, primaryLinks, serviceLinks, type NavSection } from '../../data/navigation';
 
 const currentPath = Astro.props.currentPath || Astro.url.pathname;
 interface Props { activeSection?: NavSection; settings: any; currentPath?: string; }
 const { activeSection = inferNavSection(currentPath), settings } = Astro.props;
 const labels = settings.navigation;
-const labelFor = (href: string, fallback: string) => navigationLabel(labels, href, fallback);
+const services=await getEditorialList('service');
+const itemFor=(href:string,fallback:string)=>navigationItem(settings,services,href,fallback);
+const labelFor=(href:string,fallback:string)=>itemFor(href,fallback).label;
 ---
 
 <header class="site-header">
@@ -18,39 +23,39 @@ const labelFor = (href: string, fallback: string) => navigationLabel(labels, hre
       <ul>
         <li>
           <details class="desktop-nav__disclosure">
-            <summary aria-current={activeSection === 'services' ? 'page' : undefined}>{labels.services}</summary>
+            <summary aria-current={activeSection === 'services' ? 'page' : undefined} data-tina-field={tinaField(labels,'services')}>{labels.services}</summary>
             <div class="desktop-nav__panel">
-              <a class="desktop-nav__overview" href={serviceLinks[0].href} aria-current={currentPath === serviceLinks[0].href ? 'page' : undefined}>{labelFor(serviceLinks[0].href, serviceLinks[0].label)} <span aria-hidden="true">→</span></a>
+              <a class="desktop-nav__overview" href={serviceLinks[0].href} aria-current={currentPath === serviceLinks[0].href ? 'page' : undefined} data-tina-field={tinaField(labels,'servicesOverview')}>{labelFor(serviceLinks[0].href, serviceLinks[0].label)} <span aria-hidden="true">→</span></a>
               <ul>
                 {serviceLinks.slice(1).map((link, index) => (
-                  <li><a href={link.href} aria-current={currentPath === link.href ? 'page' : undefined}><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>{labelFor(link.href, link.label)}</a></li>
+                  <li><a href={link.href} aria-current={currentPath === link.href ? 'page' : undefined} data-tina-field={itemFor(link.href,link.label).field}><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>{labelFor(link.href, link.label)}</a></li>
                 ))}
               </ul>
             </div>
           </details>
         </li>
         {primaryLinks.map((link) => (
-          <li><a href={link.href} aria-current={activeSection === link.section ? 'page' : undefined}>{labelFor(link.href, link.label)}</a></li>
+          <li><a href={link.href} aria-current={activeSection === link.section ? 'page' : undefined} data-tina-field={itemFor(link.href,link.label).field}>{labelFor(link.href, link.label)}</a></li>
         ))}
       </ul>
     </nav>
-    <a class="button button--small site-header__cta" href="/contact-us/">{labels.contactAction}</a>
+    <a class="button button--small site-header__cta" href="/contact-us/" data-tina-field={tinaField(labels,'contactAction')}>{labels.contactAction}</a>
     <details class="mobile-nav">
-      <summary>{labels.menu}</summary>
+      <summary data-tina-field={tinaField(labels,'menu')}>{labels.menu}</summary>
       <nav aria-label="Mobile navigation">
         <ul>
           <li class="mobile-nav__section">
-            <span class="mobile-nav__label">{labels.services}</span>
+            <span class="mobile-nav__label" data-tina-field={tinaField(labels,'services')}>{labels.services}</span>
             <ul class="mobile-nav__subnav">
               {serviceLinks.map((link) => (
-                <li><a href={link.href} aria-current={currentPath === link.href ? 'page' : undefined}>{labelFor(link.href, link.label)}</a></li>
+                <li><a href={link.href} aria-current={currentPath === link.href ? 'page' : undefined} data-tina-field={itemFor(link.href,link.label).field}>{labelFor(link.href, link.label)}</a></li>
               ))}
             </ul>
           </li>
           {primaryLinks.map((link) => (
-            <li><a href={link.href} aria-current={activeSection === link.section ? 'page' : undefined}>{labelFor(link.href, link.label)}</a></li>
+            <li><a href={link.href} aria-current={activeSection === link.section ? 'page' : undefined} data-tina-field={itemFor(link.href,link.label).field}>{labelFor(link.href, link.label)}</a></li>
           ))}
-          <li><a href="/contact-us/">{labels.contactAction}</a></li>
+          <li><a href="/contact-us/" data-tina-field={tinaField(labels,'contactAction')}>{labels.contactAction}</a></li>
         </ul>
       </nav>
     </details>
