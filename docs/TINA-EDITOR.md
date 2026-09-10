@@ -90,3 +90,29 @@ Choose Written article, Video, or PDF report in Post format. Report posts use th
 The 9/9 source audit retained 22 complete articles, four videos and one PDF report. Removed WordPress starter/slider tests and three password-protected internal-page stubs; their URLs now return 404 and are absent from public archives and the editor.
 
 Legacy image fields use absolute URLs on the stable `stores-consulting-site.vercel.app` asset host, preventing Tina's `assets/editorial` media root from being prepended on save. Original files remain in place. Newly uploaded images continue to use the editorial media library. Retain that Vercel alias when moving domains or migrate these legacy URLs deliberately.
+
+## Five-minute editor walkthrough
+
+1. Open https://stores-consulting-site.vercel.app/admin/index.html and sign in with your invited account.
+2. Use the navigation menu to choose a page or Blog posts. Search by title or topic. Click the preview text or open its named field to edit.
+3. For a new post, choose Add File. Set title, excerpt, date, author and categories using the pickers. Keep Draft enabled while writing. Choose its format; PDF reports also need the report title and PDF URL. Select related services for the reader's next step.
+4. For a case study, open its Client profile → Case study. Add the challenge, work and approved results, then choose related services. Enable Publish approved case study only when the claims and client identification have approval. An unpublished case study does not replace the existing profile.
+5. Save, then check the deployment at https://vercel.com/josh-hampsons-projects/stores-consulting-site/deployments. A saved Git commit is not confirmation that the website update is live. Wait for Ready, open the public page, and check the change. Failed production deploys create/update a GitHub issue assigned to Josh; editors can watch repository issues for notifications.
+
+For service pages, Related articles, reports & clients lets you choose supporting evidence by name. New choices appear after the previous content save has built successfully; refresh the editor to load the updated options. A post referenced by a service cannot be unpublished until that reference is removed.
+
+### Undo or recover
+
+- Before saving: use Reset to discard unsaved edits.
+- After saving: open the changed file's GitHub History, find the last correct version, and restore just that file through a pull request. Avoid reverting a whole repository snapshot, which can remove later edits by other people.
+- Developer command from a fresh branch: `git restore --source=<good-commit> -- src/content/<collection>/<file>`, inspect `git diff`, run validation, commit and open a PR. Pull current main before starting. The filename and commit must come from History, not guesswork.
+- Failed deploy: the previous successful deployment normally stays live. Open its logs and the publishing alert issue, correct the reported content/configuration error, and save again. Close the issue after confirming Ready and the public result.
+- Urgent site-wide incident: Josh can use Vercel's Instant Rollback to the known good deployment, then repair main separately. A hosting rollback does not change Git or Tina content. Don't save through Tina until the Git correction is understood.
+
+### Analytics
+
+Josh confirmed the existing property `G-73E0EDSM19` on 2026-09-09. Public production hosts collect page views, `contact_click`, `report_download`, and `generate_lead` after a confirmed delivery response. Preview hosts, localhost, the styleguide, and embedded Tina previews are excluded. Custom events include no form values or email addresses. Live email delivery is deliberately deferred to the team session; lead event behavior is tested with mocked responses only.
+
+In GA4, verify incoming events and mark `generate_lead` as a key event. Review landing pages alongside inquiries and report downloads. Account access is required to configure GA4 reporting and confirm received data.
+
+Recovery drill completed 2026-09-09 in an isolated temporary Git repository: restored one content file from the prior commit while preserving a later unrelated file. Production rollback was not invoked. Alert issue creation and deduplication were tested with mocked GitHub responses; no false production failure was generated.

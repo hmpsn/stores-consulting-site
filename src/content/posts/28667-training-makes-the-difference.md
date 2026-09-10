@@ -15,6 +15,8 @@ canonicalUrl: https://storesconsulting.com/training-makes-the-difference/
 draft: false
 contentType: article
 sourceId: 28667
+relatedServices:
+  - /services/workforce-store-execution/
 ---
 
 **Trained people make the difference**

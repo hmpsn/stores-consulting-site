@@ -20,7 +20,8 @@
     "validate:routes": "node scripts/check-route-manifest.mjs",
     "test:e2e": "playwright test",
     "validate": "npm run validate:content && npm run check && npm run build && npm run validate:html && npm run validate:links && npm run validate:navigation && npm run validate:routes",
-    "validate:content": "node scripts/check-editor-content.mjs"
+    "validate:content": "node scripts/check-editor-content.mjs",
+    "test:ops": "node --test tests/ops/*.test.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.2.4",

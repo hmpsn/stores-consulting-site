@@ -15,6 +15,8 @@ canonicalUrl: https://storesconsulting.com/transaction-monitoring-with-tscg/
 draft: false
 contentType: article
 sourceId: 28528
+relatedServices:
+  - /services/shrink-profit-recovery/
 ---
 
 #### ***tSCG’s Transaction Monitoring Program***

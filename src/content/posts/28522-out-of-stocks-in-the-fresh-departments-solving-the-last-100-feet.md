@@ -15,6 +15,8 @@ canonicalUrl: https://storesconsulting.com/out-of-stocks-in-the-fresh-department
 draft: false
 contentType: article
 sourceId: 28522
+relatedServices:
+  - /services/fresh-inventory-operations/
 ---
 
 #### ***Out of stocks in the Fresh Departments – Solving the last 100 feet***

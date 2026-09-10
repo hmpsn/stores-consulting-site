@@ -1,0 +1,8 @@
+---
+import options from '../../tina/editor-options.json';
+interface Props {paths?: (string|null)[]|null; title?:string;}
+const {paths=[],title='Explore related work'}=Astro.props;
+const all=[...options.services,...options.content];
+const links=[...new Set(paths||[])].map(path=>all.find(x=>x.value===path)).filter(Boolean);
+---
+{links.length>0&&<section class="section section--paper"><div class="shell"><div class="section__heading"><h2>{title}</h2></div><ul class="link-archive-grid">{links.map(link=><li><a class="text-link" href={link!.value}>{link!.label}</a></li>)}</ul></div></section>}

@@ -79,7 +79,7 @@ export const POST: APIRoute = async ({ request }) => {
     console.error('Contact delivery failed', { submissionId, error: error instanceof Error ? error.message : 'Unknown error' });
     return reply(request, 502, 'unavailable', 'The form could not be delivered. Please email contact@storesconsulting.com.');
   }
-  return reply(request, 200, 'success', 'Thank you. Your message has been sent.');
+  return reply(request, 200, 'delivered', 'Thank you. Your message has been sent.');
 };
 
 export const ALL: APIRoute = ({ request }) => reply(request, 405, 'invalid', 'Method not allowed.');

@@ -1,3 +1,4 @@
+import editorOptions from './editor-options.json';
 import type { Collection, TinaField } from 'tinacms';
 
 export const marketingCollections: Collection[] = [
@@ -754,18 +755,25 @@ export const marketingCollections: Collection[] = [
 marketingCollections.forEach((collection) => { const name = collection.name.replace(/Page$/, ''); collection.ui!.router = () => '/' + (name === 'blog' ? 'tscg-blog' : name) + '/'; });
 
 const hidden = (name: string, type: 'string' | 'number' = 'string'): TinaField => (type === 'number' ? {name,type:'number',searchable:false,ui:{component:null}} : {name,type:'string',searchable:false,ui:{component:null}});
-const text = (name: string, label: string, required = true) => ({name, label, type: 'string' as const, required});
+const text = (name: string, label: string, required = true) => ({name, label, type: 'string' as const, required, ui:{validate:(value:unknown)=>required&&!String(value||'').trim()?`${label} is required.`:undefined}});
 const body: TinaField = {name: 'body', label: 'Body (Markdown)', type: 'string', isBody: true, ui: {component: 'textarea'}, description: 'Edit text and Markdown links. Preserve existing image and video markup; use the image fields for new featured images.'};
 const slugify = (value: unknown) => String(value || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const existing = {allowedActions: {create: false, delete: false}, filename: {readonly: true}};
 const newRecord = (kind: 'post' | 'client' | 'person'): NonNullable<Collection['ui']> => ({
  allowedActions: {create: true, delete: false},
  filename: {readonly: true, slugify: (values) => slugify(values.title || values.name)},
- beforeSubmit: async ({values, form}) => {
+ beforeSubmit: async ({values: rawValues, form}) => {
+   const values = rawValues as Record<string, any>;
    // Existing routes always win; derive new routes once from the generated filename.
    const filename = String(form.relativePath || '').split('/').pop()?.replace(/\.md$/, '');
    const slug = values.slug || filename || slugify(values.title || values.name);
    if (!slug) throw new Error('A title or name is required.');
+   if (kind === 'post' && !values.draft) {
+     if (!String(values.body || '').trim()) throw new Error('Add post content before publishing, or leave Draft enabled.');
+     if (!values.categories?.length) throw new Error('Choose at least one category.');
+     if (values.contentType === 'report' && (!values.resource?.title || !/^(https:\/\/|\/).*\.pdf(?:[?#].*)?$/i.test(values.resource?.url || ''))) throw new Error('Add a report title and valid PDF URL before publishing.');
+   }
+   if (kind === 'client' && values.caseStudy?.published && (!values.caseStudy.challenge?.trim() || !values.caseStudy.work?.trim() || !values.caseStudy.results?.trim() || !values.caseStudy.services?.length)) throw new Error('Complete the challenge, work, approved results, and related service before publishing the case study.');
    if (kind === 'person') return {...values, order: values.order || Date.now()};
    return {...values, slug, route: values.route || (kind === 'post' ? `/${slug}/` : `/project/${slug}/`), updatedDate: new Date().toISOString(), ...(kind === 'post' ? {canonicalUrl: values.canonicalUrl || `https://storesconsulting.com/${slug}/`} : {})};
  },
@@ -775,12 +783,18 @@ export const editorialCollections: Collection[] = [
  {...text('name','Name'),isTitle:true},text('role','Role'),{name:'tier',label:'Team group',type:'string',required:true,options:['leadership','director','managing-consultant','senior-consultant']},hidden('order','number'),{name:'image',type:'image',label:'Portrait'},text('alt','Portrait alternative text',false),body,
  ]},
  {name:'post',label:'Blog posts',path:'src/content/posts',format:'md',ui:{...newRecord('post'),router:({document}:any)=>document.draft ? undefined : document.route || `/${document._sys.filename}/`},defaultItem:()=>({draft:true,contentType:'article',author:'admin',categories:['uncategorized'],publishedDate:new Date().toISOString(),updatedDate:new Date().toISOString()}),fields:[
- {...text('title','Title'),isTitle:true},hidden('slug'),hidden('route'),{...text('excerpt','Excerpt'),ui:{component:'textarea'}},{name:'publishedDate',type:'datetime',label:'Published date',required:true},{name:'updatedDate',type:'datetime',ui:{component:null}},text('author','Author slug'),{name:'categories',label:'Category slugs',type:'string',list:true,required:true},{name:'featuredMedia',type:'image',label:'Featured image'},text('featuredAlt','Featured image alternative text',false),{name:'featuredWidth',label:'Image width',type:'number'},{name:'featuredHeight',label:'Image height',type:'number'},hidden('canonicalUrl'),{name:'draft',label:'Draft (not public)',description:'Leave on while preparing a post. Turn off and Save to publish after the build succeeds.',type:'boolean',required:true},hidden('sourceId','number'),
+ {...text('title','Title'),isTitle:true},hidden('slug'),hidden('route'),{...text('excerpt','Excerpt'),ui:{component:'textarea'}},{name:'publishedDate',type:'datetime',label:'Published date',required:true},{name:'updatedDate',type:'datetime',ui:{component:null}},{...text('author','Author'),options:editorOptions.authors},{name:'categories',label:'Categories',type:'string',list:true,required:true,options:editorOptions.categories},{name:'featuredMedia',type:'image',label:'Featured image'},text('featuredAlt','Featured image alternative text',false),{name:'featuredWidth',label:'Image width',type:'number'},{name:'featuredHeight',label:'Image height',type:'number'},hidden('canonicalUrl'),{name:'draft',label:'Draft (not public)',description:'Leave on while preparing a post. Turn off and Save to publish after the build succeeds.',type:'boolean',required:true},hidden('sourceId','number'),
  {name:'contentType',label:'Post format',type:'string',options:[{value:'article',label:'Written article'},{value:'video',label:'Video'},{value:'report',label:'PDF report'}]},
+ {name:'relatedServices',label:'Related services',type:'string',list:true,options:editorOptions.services,description:'Choose the services readers should explore next.'},
  {name:'resource',label:'PDF report',type:'object',description:'For report posts, provide the PDF file URL and its display title.',fields:[text('title','Report title'),text('url','PDF file URL')]},body,
  ]},
  {name:'clientProfile',label:'Client profiles',path:'src/content/clients',format:'md',ui:{...newRecord('client'),router:({document}:any)=>document.route || `/project/${document._sys.filename}/`},defaultItem:()=>({category:'clients',tier:'unspecified',updatedDate:new Date().toISOString()}),fields:[
- {...text('name','Name'),isTitle:true},hidden('slug'),hidden('route'),hidden('category'),{name:'tier',label:'Tier',type:'string',options:['national','regional','unspecified'],required:true},{name:'logo',type:'image',label:'Logo'},{name:'logoWidth',label:'Logo width',type:'number'},{name:'logoHeight',label:'Logo height',type:'number'},hidden('legacyUrl'),{name:'updatedDate',type:'datetime',ui:{component:null}},hidden('sourceId','number'),body,
+ {...text('name','Name'),isTitle:true},hidden('slug'),hidden('route'),hidden('category'),{name:'tier',label:'Tier',type:'string',options:['national','regional','unspecified'],required:true},{name:'logo',type:'image',label:'Logo'},{name:'logoWidth',label:'Logo width',type:'number'},{name:'logoHeight',label:'Logo height',type:'number'},hidden('legacyUrl'),{name:'updatedDate',type:'datetime',ui:{component:null}},hidden('sourceId','number'),
+ {name:'caseStudy',label:'Case study',type:'object',description:'Prepare approved engagement details here. Existing profile content stays visible until you publish this case study.',fields:[
+ {name:'published',label:'Publish approved case study',type:'boolean',description:'Enable only after the client name and results are approved for public use.'},
+ {...text('challenge','The challenge',false),ui:{component:'textarea'}},{...text('work','What we did',false),ui:{component:'textarea'}},{...text('results','Approved results',false),ui:{component:'textarea'}},
+ {name:'services',label:'Related services',type:'string',list:true,options:editorOptions.services}
+ ]},body,
  ]},
  {name:'legacyPage',label:'Additional pages',match:{exclude:'{11-about,13-contact-us,159-services,26774-homepage-1,27300-clients,28431-tscg-blog}'},path:'src/content/legacy-pages',format:'md',ui:{...existing,router:({document}:any)=>document.route},fields:[
  {...text('title','Title'),isTitle:true},hidden('slug'),hidden('route'),{...text('description','Description'),ui:{component:'textarea'}},hidden('originalUrl'),{name:'updatedDate',type:'datetime',ui:{component:null}},hidden('sourceId','number'),hidden('overlapStrategy'),body,

@@ -65,6 +65,7 @@ const socialImage = new URL(image, Astro.site || Astro.url.origin);
   </head>
   <body>
     <SiteMotion />
+    <script>import '../scripts/analytics';</script>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <Header activeSection={navSection} />
     <main id="main-content" tabindex="-1">

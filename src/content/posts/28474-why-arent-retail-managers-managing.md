@@ -13,6 +13,8 @@ canonicalUrl: https://storesconsulting.com/why-arent-retail-managers-managing/
 draft: false
 contentType: article
 sourceId: 28474
+relatedServices:
+  - /services/workforce-store-execution/
 ---
 
 #### ***Why aren’t retail managers managing?***

@@ -4,6 +4,7 @@ import PageIntro from '../PageIntro.astro';
 import CtaBand from '../CtaBand.astro';
 import BlogList from '../BlogList.astro';
 import BlogMeta from '../BlogMeta.astro';
+import RelatedContent from '../RelatedContent.astro';
 import LegacyCaseStudyGrid from '../LegacyCaseStudyGrid.astro';
 import MarkdownContent from './MarkdownContent.astro';
 import mediaManifest from '../../data/media-manifest.json';
@@ -31,7 +32,7 @@ const breadcrumbs = [{label:'Home',href:'/'}, ...(isPost||isArchive ? [{label:'B
 </PageIntro>
 {isArchive ? <section class="section"><div class="shell"><BlogList posts={posts} authors={related.authors} categories={related.categories}/></div></section> : <article class="section"><div class:list={['shell',{prose:!isCaseStudies,'project-content':isClient}]} data-reveal data-tina-field={tinaField(data,'body')}>
  {isPost&&<BlogMeta publishedDate={new Date(data.publishedDate)} author={author} categories={categories}/>}
- {isCaseStudies ? <LegacyCaseStudyGrid source={data.body||''}/> : <MarkdownContent body={data.body||''} title={title} migrated/>}
+ {isClient&&data.caseStudy?.published ? <section aria-label="Case study" data-tina-field={tinaField(data,'caseStudy')}><h2>The challenge</h2><p>{data.caseStudy.challenge}</p><h2>What we did</h2><p>{data.caseStudy.work}</p><h2>Results</h2><p>{data.caseStudy.results}</p></section> : isCaseStudies ? <LegacyCaseStudyGrid source={data.body||''}/> : <MarkdownContent body={data.body||''} title={title} migrated/>}
  {isPost&&data.resource&&<section class="report-resource" aria-label="PDF report" data-tina-field={tinaField(data,'resource')}>
    <h2>{data.resource.title}</h2>
    <p><a class="button" href={data.resource.url}>Open report (PDF)</a></p>
@@ -42,4 +43,5 @@ const breadcrumbs = [{label:'Home',href:'/'}, ...(isPost||isArchive ? [{label:'B
  {older&&<a href={older.route} aria-label={`Older article: ${older.title}`}><span>Older Article</span><strong>{older.title}</strong></a>}
  </div></nav>}
  </div></article>}
-{isClient&&<CtaBand/>}
+{(isPost||isClient)&&<RelatedContent paths={isPost?data.relatedServices:data.caseStudy?.published?data.caseStudy.services:[]} title="How we can help"/>}
+{(isClient||isPost)&&<CtaBand/>}

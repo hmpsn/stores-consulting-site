@@ -1,0 +1,354 @@
+{
+  "authors": [
+    {
+      "label": "admin",
+      "value": "admin"
+    },
+    {
+      "label": "Eileen Collie",
+      "value": "ecollie"
+    },
+    {
+      "label": "Rochelle Romeo",
+      "value": "rochelle"
+    },
+    {
+      "label": "Scott Dresen",
+      "value": "scott"
+    }
+  ],
+  "categories": [
+    {
+      "label": "About",
+      "value": "about"
+    },
+    {
+      "label": "Blog",
+      "value": "blog"
+    },
+    {
+      "label": "Category Management",
+      "value": "category-management"
+    },
+    {
+      "label": "Customer Service",
+      "value": "customer-service"
+    },
+    {
+      "label": "Fresh",
+      "value": "fresh"
+    },
+    {
+      "label": "Industry Perspective",
+      "value": "industry-perspective"
+    },
+    {
+      "label": "Labor",
+      "value": "labor"
+    },
+    {
+      "label": "Loss Prevention",
+      "value": "loss-prevention"
+    },
+    {
+      "label": "Process Improvement",
+      "value": "process-improvement"
+    },
+    {
+      "label": "Slider Category",
+      "value": "slider-category"
+    },
+    {
+      "label": "Store Manager Effectiveness",
+      "value": "store-manager-effectiveness"
+    },
+    {
+      "label": "Uncategorized",
+      "value": "uncategorized"
+    }
+  ],
+  "services": [
+    {
+      "label": "Fresh & Inventory Operations",
+      "value": "/services/fresh-inventory-operations/"
+    },
+    {
+      "label": "Shrink & Profit Recovery",
+      "value": "/services/shrink-profit-recovery/"
+    },
+    {
+      "label": "Technology Adoption & Change Management",
+      "value": "/services/technology-adoption-change-management/"
+    },
+    {
+      "label": "Workforce & Store Execution",
+      "value": "/services/workforce-store-execution/"
+    }
+  ],
+  "content": [
+    {
+      "label": "99 Cent Only",
+      "value": "/project/99-cent-only/"
+    },
+    {
+      "label": "Ahold",
+      "value": "/project/ahold/"
+    },
+    {
+      "label": "American Thrift Stores",
+      "value": "/project/american-thrift-stores/"
+    },
+    {
+      "label": "AML",
+      "value": "/project/aml/"
+    },
+    {
+      "label": "At Home",
+      "value": "/project/at-home/"
+    },
+    {
+      "label": "Bargain Hunt",
+      "value": "/project/bargain-hunt/"
+    },
+    {
+      "label": "Bealls",
+      "value": "/project/bealls/"
+    },
+    {
+      "label": "Best Buy",
+      "value": "/project/best-buy/"
+    },
+    {
+      "label": "Big Data, Big Deal",
+      "value": "/big-data-big-deal/"
+    },
+    {
+      "label": "Bloomingdale’s",
+      "value": "/project/bloomingdales/"
+    },
+    {
+      "label": "Blurring the Line Between Grocery’s Prepared Foods and Restaurant’s Fast Casual Meals",
+      "value": "/blurring-the-line-between-grocerys-prepared-foods-and-restaurants-fast-casual-meals/"
+    },
+    {
+      "label": "Buehler’s",
+      "value": "/project/buehlers/"
+    },
+    {
+      "label": "Coborn’s",
+      "value": "/project/coborns/"
+    },
+    {
+      "label": "Convenience Stores: “Gas, Smokes and Cokes” – No More",
+      "value": "/convenienceblog/"
+    },
+    {
+      "label": "Crate & Barrel",
+      "value": "/project/crate-barrel/"
+    },
+    {
+      "label": "Customer Experience Strategy",
+      "value": "/customer-experience-strategy/"
+    },
+    {
+      "label": "Delhaize",
+      "value": "/project/delhaize/"
+    },
+    {
+      "label": "Family Dollar",
+      "value": "/project/family-dollar/"
+    },
+    {
+      "label": "getGo",
+      "value": "/project/getgo/"
+    },
+    {
+      "label": "Giant Eagle",
+      "value": "/project/giant-eagle/"
+    },
+    {
+      "label": "Good Food Holdings",
+      "value": "/project/good-food-holdings/"
+    },
+    {
+      "label": "Goodyear",
+      "value": "/project/goodyear/"
+    },
+    {
+      "label": "Harris Teeter",
+      "value": "/project/harris-teeter/"
+    },
+    {
+      "label": "How do you get “All that and a bag of chips” with DSD?",
+      "value": "/how-do-you-get-all-that-and-a-bag-of-chips-with-dsd/"
+    },
+    {
+      "label": "How well-positioned are you in Fresh Departments to differentiate from the Big Box operators and your other local competition?",
+      "value": "/how-well-positioned-are-you-in-fresh-departments-to-differentiate-from-the-big-box-operators-and-your-other-local-competition/"
+    },
+    {
+      "label": "Improving Loss Prevention Strategies",
+      "value": "/improving-loss-prevention-strategies/"
+    },
+    {
+      "label": "Is your organization stepping over dollars to pick-up pennies?",
+      "value": "/is-your-organization-stepping-over-dollars-to-pick-up-pennies/"
+    },
+    {
+      "label": "Kangaroo Express",
+      "value": "/project/kangaroo-express/"
+    },
+    {
+      "label": "Kroger",
+      "value": "/project/kroger/"
+    },
+    {
+      "label": "Labor Standards – what is the correct level of detail?",
+      "value": "/labor-standards-what-is-the-correct-level-of-detail/"
+    },
+    {
+      "label": "Lazy Days",
+      "value": "/project/lazy-days/"
+    },
+    {
+      "label": "Lowes Foods",
+      "value": "/project/lowes-foods/"
+    },
+    {
+      "label": "Lunds & Byerlys",
+      "value": "/project/29124/"
+    },
+    {
+      "label": "Macy’s",
+      "value": "/project/macys/"
+    },
+    {
+      "label": "Michaels",
+      "value": "/project/michaels/"
+    },
+    {
+      "label": "National Vision",
+      "value": "/project/national-vision/"
+    },
+    {
+      "label": "Never a better time for providing Customer Service",
+      "value": "/never-a-better-time-for-providing-customer-service/"
+    },
+    {
+      "label": "Omnichannel Merchandising",
+      "value": "/omnichannel-merchandising/"
+    },
+    {
+      "label": "Out of stocks in the Fresh Departments – Solving the last 100 feet",
+      "value": "/out-of-stocks-in-the-fresh-departments-solving-the-last-100-feet/"
+    },
+    {
+      "label": "Pilot Flying J",
+      "value": "/project/pilot-flying-j/"
+    },
+    {
+      "label": "Schnucks",
+      "value": "/project/schnucks/"
+    },
+    {
+      "label": "Servant Leadership – Evolving to an Effective Management Style",
+      "value": "/servant-leadership-evolving-to-an-effective-management-style/"
+    },
+    {
+      "label": "Shane Company",
+      "value": "/project/shane-company/"
+    },
+    {
+      "label": "Sobeys",
+      "value": "/project/sobeys/"
+    },
+    {
+      "label": "Southeastern Grocers",
+      "value": "/project/southeastern-grocers/"
+    },
+    {
+      "label": "Superior Grocers",
+      "value": "/project/superior-grocers/"
+    },
+    {
+      "label": "Supervalu",
+      "value": "/project/supervalu/"
+    },
+    {
+      "label": "Sustainability",
+      "value": "/sustainability/"
+    },
+    {
+      "label": "The Digital Age of Retail",
+      "value": "/the-digital-age-of-retail/"
+    },
+    {
+      "label": "The Fresh Market",
+      "value": "/project/the-fresh-market/"
+    },
+    {
+      "label": "the Stores Consulting Group designs new cash stand and reduces transaction time by over 15%",
+      "value": "/tscg-designs-new-cash-stand-layout-for-department-store-and-reduces-transaction-time-by-over-15/"
+    },
+    {
+      "label": "There is Always a Better Way",
+      "value": "/there-is-always-a-better-way/"
+    },
+    {
+      "label": "Tops",
+      "value": "/project/tops/"
+    },
+    {
+      "label": "Total Wine",
+      "value": "/project/total-wine/"
+    },
+    {
+      "label": "Training makes the difference",
+      "value": "/training-makes-the-difference/"
+    },
+    {
+      "label": "Transaction Monitoring with tSCG",
+      "value": "/transaction-monitoring-with-tscg/"
+    },
+    {
+      "label": "Video Series – Rich Van Patten – Labor",
+      "value": "/video-series-rich-van-patten-labor/"
+    },
+    {
+      "label": "Video Series – Rich Van Patten – Labor Part 2",
+      "value": "/video-series-rich-van-patten-labor-part-2/"
+    },
+    {
+      "label": "Video Series – Tom Sinnen – Fresh",
+      "value": "/tom-sinnen-part-1-video-series/"
+    },
+    {
+      "label": "Video Series – Tom Sinnen – Fresh Part 2",
+      "value": "/video-series-tom-sinnen-fresh-part-2/"
+    },
+    {
+      "label": "Weis Markets",
+      "value": "/project/weis-markets/"
+    },
+    {
+      "label": "What do Grocers do Next?",
+      "value": "/28549-2/"
+    },
+    {
+      "label": "Where are my improvements in Category Management?",
+      "value": "/where-are-my-improvements-in-category-management/"
+    },
+    {
+      "label": "Who is the Stores Consulting Group?",
+      "value": "/who-is-the-stores-consulting-group/"
+    },
+    {
+      "label": "Whole Foods",
+      "value": "/project/whole-foods/"
+    },
+    {
+      "label": "Why aren’t retail managers managing?",
+      "value": "/why-arent-retail-managers-managing/"
+    }
+  ]
+}

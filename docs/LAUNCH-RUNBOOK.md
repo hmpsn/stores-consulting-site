@@ -8,7 +8,7 @@
 - Capture current DNS records and TTLs.
 - Confirm ownership of GitHub, Vercel, Resend, the domain registrar, DNS, and GA4.
 - Configure every variable in `.env.example` for Vercel Preview and Production.
-- Verify the existing GA4 property before adding measurement ID `G-73E0EDSM19`; do not create a new property during migration.
+- Josh confirmed existing GA4 measurement ID `G-73E0EDSM19` on 2026-09-09; production tracking uses that property. Verify received events and mark generate_lead as a key event once the property dashboard is accessible. Do not create a replacement property.
 - Configure the available GitHub protections for code changes while permitting the TinaCloud App to commit editorial saves directly to `main`. Team editors do not need Josh approval. Confirm private-repository plan support; the earlier setup could not enforce branch protection.
 
 ## Acceptance gate
