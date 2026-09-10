@@ -1508,7 +1508,8 @@
     line-height: 1.1;
   }
 
-  .project-content > img:first-child {
+  .project-content > img:first-child,
+  .project-content > .editorial-body > img:first-child {
     display: none;
   }
 
