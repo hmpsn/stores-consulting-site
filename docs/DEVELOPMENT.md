@@ -98,3 +98,12 @@ For recovery, follow [the editor guide](TINA-EDITOR.md#undo-or-recover): restore
 Credentials stay in local environment files or hosting settings, never documentation or Git. `.env.example` lists configuration names. Displayed contact email is content; delivery recipient is server configuration. Preserve the stable Vercel alias used by existing asset URLs when changing domains.
 
 Real email delivery is reserved for the team sync. Use mocks during development and retain the editor-preview no-send guard. DNS access, team invitations, GA4 reporting verification and any paid service opt-in require the relevant account owner. See [the launch runbook](LAUNCH-RUNBOOK.md); do not claim these gates are complete from code tests alone.
+
+
+## SEO and browser assets
+
+`src/lib/structured-data.ts` builds linked JSON-LD from actual content and safely serializes it for HTML. `BaseLayout.astro` selects social images and emits metadata. Keep JSON-LD facts aligned with public content; never invent reviews, ratings, author credentials or business locations. Page `seo` fields are attached through `tina/seo-fields.ts` and validated in `src/lib/seo-schema.ts`; all CMS-backed public page shells must pass their record's `seo` to BaseLayout. Schema and social metadata are build outputs, not Tina island overlays.
+
+`src/pages/site.webmanifest.ts` emits the browser manifest. The brand generator writes opaque white SVG/PNG/ICO and touch/home-screen icons, including the root Apple touch fallback. Rebuild all exports together and update icon URL versions when changing the design. The organization search logo is a separate editable asset.
+
+Run `npm run test:ops` for JSON-LD escaping, entity references and icon opacity; `tests/seo.spec.ts` checks generated page graphs and metadata. Editor coverage includes business-profile and social-sharing fields. Google references: [Organization](https://developers.google.com/search/docs/appearance/structured-data/organization), [Article](https://developers.google.com/search/docs/appearance/structured-data/article), [Breadcrumb](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb); [Service vocabulary](https://schema.org/Service). Search Console reception and rich-result eligibility are separate from local validation.

@@ -45,11 +45,15 @@ test('only a delivered inquiry emits the lead event',async({page})=>{
  expect(await page.evaluate(()=>(window as any).leadEvents)).toBe(1);
 });
 test('Tina opens existing posts at public routes and shows named pickers',async({page})=>{
+ // Public-page tests cover remote media; editor registration should not wait on it.
+ await page.route('https://**/*',route=>route.abort());
  await page.goto('/admin/index.html#/collections/post/~');
  const enter=page.getByRole('button',{name:'Enter Edit Mode'});
  await enter.click();
  await page.getByText('Big Data, Big Deal',{exact:true}).click();
  await expect(page.locator('#tina-iframe')).toHaveAttribute('src','/big-data-big-deal/');
+ await expect(page.frameLocator('#tina-iframe').locator('main')).toBeVisible();
+ await page.waitForLoadState('networkidle');
  await expect(page.getByLabel('Author',{exact:true})).toBeVisible();
  await expect(page.getByLabel('Author',{exact:true}).locator('option')).toContainText(['admin','Eileen Collie','Rochelle Romeo','Scott Dresen']);
 });

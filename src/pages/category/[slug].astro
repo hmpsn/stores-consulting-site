@@ -9,6 +9,6 @@ const path = Astro.props.path;
 const content = await getEditorialPage('category',path);
 const data = content.data;
 ---
-<BaseLayout title={data.name} description={data.description || `tSCG articles filed under ${data.name}.`} canonicalPath={data.route} navSection="blog">
+<BaseLayout breadcrumbParent="blog" seo={data.seo} title={data.name} description={data.description || `tSCG articles filed under ${data.name}.`} canonicalPath={data.route} navSection="blog">
 <TinaIsland name="category" params={{path}} primary wrapper={{tag:"div"}}><EditorialPageContent {...content}/></TinaIsland>
 </BaseLayout>

@@ -1,3 +1,4 @@
+import {sharingSchema,businessSchema} from './lib/seo-schema';
 import {articleBlocks} from './lib/article-blocks';
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
@@ -25,6 +26,7 @@ const contentImage = z.object({
 const services = defineCollection({
   loader: glob({ pattern: '**/*.{yaml,yml}', base: './src/content/services' }),
   schema: z.object({
+    seo: sharingSchema,
     workstreamsTitle: z.string(),
     resultsTitle: z.string(),
     ctaTitle: z.string(),
@@ -51,6 +53,7 @@ const services = defineCollection({
 const people = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/people' }),
   schema: z.object({
+    seo: sharingSchema,
     name: z.string(),
     role: z.string(),
     tier: z.enum(['leadership', 'director', 'managing-consultant', 'senior-consultant']),
@@ -63,6 +66,7 @@ const people = defineCollection({
 const clients = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/clients' }),
   schema: z.object({
+    seo: sharingSchema,
     name: z.string(),
     slug: z.string(),
     route: z.string().startsWith('/'),
@@ -81,6 +85,7 @@ const clients = defineCollection({
 const posts = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/posts' }),
   schema: z.object({
+    seo: sharingSchema,
     title: z.string(),
     slug: z.string(),
     route: z.string().startsWith('/'),
@@ -107,6 +112,7 @@ const directoryEntry=z.object({title:z.string(),date:z.string(),url:z.string().r
 const legacyPages = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/legacy-pages' }),
   schema: z.object({
+    seo: sharingSchema,
     title: z.string(),
     slug: z.string(),
     route: z.string().startsWith('/'),
@@ -122,6 +128,7 @@ const legacyPages = defineCollection({
 const categories = defineCollection({
   loader: glob({ pattern: '**/*.{yaml,yml}', base: './src/content/categories' }),
   schema: z.object({
+    seo: sharingSchema,
     name: z.string(),
     slug: z.string(),
     route: z.string().startsWith('/'),
@@ -134,6 +141,7 @@ const categories = defineCollection({
 const authors = defineCollection({
   loader: glob({ pattern: '**/*.{yaml,yml}', base: './src/content/authors' }),
   schema: z.object({
+    seo: sharingSchema,
     name: z.string(),
     slug: z.string(),
     route: z.string().startsWith('/'),
@@ -154,6 +162,7 @@ const metadata = z.object({
 });
 
 const homepage = z.object({
+  seo: sharingSchema,
   pageType: z.literal('home'),
   metadata,
   hero: z.object({
@@ -204,12 +213,14 @@ const homepage = z.object({
 });
 
 const servicesPage = z.object({
+  seo: sharingSchema,
   pageType: z.literal('services'),
   metadata,
   intro: z.object({ title: z.string(), description: z.string() }),
 });
 
 const contactPage = z.object({
+  seo: sharingSchema,
   pageType: z.literal('contact'),
   form: z.object({rateLimited:z.string(),name:z.string(),email:z.string(),company:z.string(),phone:z.string(),message:z.string(),submit:z.string(),sending:z.string(),success:z.string(),invalid:z.string(),unavailable:z.string()}),
   metadata,
@@ -229,5 +240,5 @@ const sitePages = defineCollection({
 
 const marketing = defineCollection({loader: glob({pattern: '**/*.yaml', base: './src/content/marketing'}), schema: marketingSchema});
 
-const settings = defineCollection({loader: glob({pattern:'global.yaml',base:'./src/content/settings'}),schema:z.object({labels:z.record(z.string(),z.string()),navigation:z.record(z.string(),z.string()),footer:z.object({services:z.string(),company:z.string(),explore:z.string(),organization:z.string(),location:z.string()}),cta:z.object({title:z.string(),description:z.string(),href:z.string().startsWith('/'),label:z.string()})})});
+const settings = defineCollection({loader: glob({pattern:'global.yaml',base:'./src/content/settings'}),schema:z.object({business:businessSchema,sharing:sharingSchema,labels:z.record(z.string(),z.string()),navigation:z.record(z.string(),z.string()),footer:z.object({services:z.string(),company:z.string(),explore:z.string(),organization:z.string(),location:z.string()}),cta:z.object({title:z.string(),description:z.string(),href:z.string().startsWith('/'),label:z.string()})})});
 export const collections = { settings, marketing, services, people, clients, posts, 'legacy-pages': legacyPages, categories, authors, 'site-pages': sitePages };

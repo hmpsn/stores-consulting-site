@@ -1,3 +1,5 @@
+import {withSharing} from './seo-fields';
+import type {Collection} from 'tinacms';
 import editorOptions from './editor-options.json';
 import { defineConfig, type TinaField } from 'tinacms';
 import { marketingCollections, editorialCollections, globalCollection } from './extended-schema';
@@ -79,7 +81,7 @@ export default defineConfig({
     accept: ['image/jpeg', 'image/png', 'image/webp', 'image/avif', 'image/svg+xml'],
   },
   schema: {
-    collections: [
+    collections: ([
       ...marketingCollections,
       ...editorialCollections,
       globalCollection,
@@ -360,6 +362,6 @@ export default defineConfig({
           { type: 'object', name: 'supportingMedia', label: 'Supporting image', fields: imageFields },
         ],
       },
-    ],
+    ] satisfies Collection[]).map(withSharing),
   },
 });

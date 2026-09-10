@@ -10,7 +10,7 @@ const data = homepage.data.homepage;
 const metadata = data.metadata!;
 ---
 
-<BaseLayout title={metadata.title} description={metadata.description} canonicalPath="/">
+<BaseLayout seo={data.seo} title={metadata.title} description={metadata.description} canonicalPath="/">
   <TinaIsland name="homepage" wrapper={tinaIslands.homepage.wrapper} primary>
     <HomepageContent data={data} />
   </TinaIsland>

@@ -32,7 +32,9 @@ const collection = type === 'post' ? 'post' : 'legacyPage';
 const path = entry.filePath!.split('/').pop()!;
 const content = await getEditorialPage(collection, path);
 const data = content.data;
+const authors=(content.related as {authors?:Array<{slug:string;name:string;route:string}>}).authors;
+const author=authors?.find(item=>item.slug===data.author);
 ---
-<BaseLayout title={data.title} description={data.excerpt || data.description || data.title} canonicalPath={data.route} article={type === 'post'} navSection={type === 'post' ? 'blog' : undefined}>
+<BaseLayout schemaKind={type!=='post'||data.contentType==='video'?'page':data.contentType==='report'?'report':'article'} record={data} author={author} image={data.featuredMedia||undefined} breadcrumbParent={type==='post'?'blog':'home'} seo={data.seo} title={data.title} description={data.excerpt || data.description || data.title} canonicalPath={data.route} article={type === 'post'} navSection={type === 'post' ? 'blog' : undefined}>
 <TinaIsland name={collection} params={{path}} primary wrapper={{tag:"div"}}><EditorialPageContent {...content}/></TinaIsland>
 </BaseLayout>
