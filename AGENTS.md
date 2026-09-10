@@ -24,7 +24,7 @@ Before building or changing a page, review the living style guide at `/styleguid
 - Eyebrows are orientation tools, not default section decoration. Keep them for evidence status, philosophy, methodology, or a necessary category distinction; skip them when the heading already supplies the context.
 - Use imagery selectively. Homepage and approved service/post/client assets may be displayed when they add real context; otherwise build a complete text-led layout. Never add placeholders or repeat generic stock to fill space.
 - Motion requires an explicit `data-reveal` hook, must progressively enhance complete server-rendered content, and must respect `prefers-reduced-motion`.
-- Global navigation labels, destinations, footer groups, and active-section types live in `src/data/navigation.ts`; do not duplicate or reorder them inside route templates.
+- Global navigation destinations, ordering and active-section types live in `src/data/navigation.ts`; editable labels/footer copy live in `src/content/settings/global.yaml`. Service labels default to live service titles via `src/lib/navigation-editing.ts`. Do not duplicate these sources inside route templates.
 - Keep the header compact and sticky without scroll-resize animation. Preserve the shared header offset for in-page anchors, keyboard focus, and Back/Forward navigation.
 - Use the shared `Breadcrumbs` component on service details, posts, author/category archives, client profiles, and generic legacy pages. Do not add breadcrumbs to top-level marketing pages.
 - Blog posts link to the Blog index, author, categories, and chronological neighbors. Generic WordPress-era pages remain live but are not added to menus or public archive directories.
@@ -39,7 +39,7 @@ Before proposing a pull request:
 - Work and verify locally throughout an editing pass. Do not push after individual edits; batch a meaningful review milestone and push only when the human reviewer explicitly requests it or agrees the batch is ready for a hosted preview.
 - Use a branch and Vercel preview; do not push directly to production.
 
-Full schemas and examples are in `docs/CONTENT-EDITING.md`.
+Full schemas and examples are in `docs/CONTENT-EDITING.md`. Architecture, ownership, change recipes and test selection are in `docs/DEVELOPMENT.md`; start with the documentation map in `README.md`.
 
 ## Tina visual editor
 
@@ -54,3 +54,5 @@ TinaCMS is the approved visual editing layer. It does not replace Git: Tina read
 - Agents continue to use branches and pull requests. Team editors may save directly to the production branch and publish without Josh approval (confirmed 2026-09-08). Run the validation gates before handing over a code batch; do not auto-push local agent work.
 
 Production account setup, editor instructions, media behavior, and the full editor scope are documented in `docs/TINA-EDITOR.md`.
+
+When changing editor wiring, run `npm run test:editing` as well as validation. Preserve metadata through queries and component props, bind the exact field owner, and verify unsaved preview, Save and Reset. See the developer guide before adding a page or collection.
