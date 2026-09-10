@@ -30,6 +30,19 @@ for (const group of [...groups,'site-pages','services','marketing','settings']) 
  }
 }
 
+const servicePaths = new Set((await readdir('src/content/services')).filter(f=>f.endsWith('.yaml')).map(f=>'/services/'+f.replace('.yaml','')+'/'));
+for (const {file,data} of documents.clients) {
+ const c=data.caseStudy;
+ if(c?.published && (!c.challenge?.trim()||!c.work?.trim()||!c.results?.trim()||!c.services?.length)) errors.push(`${file}: published case study requires challenge, work, results and services`);
+ for(const path of c?.services||[]) if(!servicePaths.has(path))errors.push(`${file}: unknown case-study service ${path}`);
+}
+for (const {file,data} of documents.posts) for(const path of data.relatedServices||[]) if(!servicePaths.has(path))errors.push(`${file}: unknown related service ${path}`);
+const publicContent = new Set([...documents.posts.filter(x=>!x.data.draft),...documents.clients].map(x=>x.data.route));
+for(const file of await readdir('src/content/services')) {
+ if(!file.endsWith('.yaml'))continue;
+ const data=parse(await readFile('src/content/services/'+file,'utf8'));
+ for(const path of data.relatedContent||[]) if(!publicContent.has(path))errors.push(`${file}: related content is missing or a draft: ${path}`);
+}
 const routes=new Map();
 const explicit=new Set(['/','/about/','/approach/','/results/','/clients/','/services/','/contact-us/','/tscg-blog/','/styleguide/','/404/','/admin/','/feed/','/robots.txt','/api/contact']);
 for(const file of await readdir('src/content/services')) { const data = parse(await readFile('src/content/services/'+file,'utf8')); explicit.add(`/services/${data.slug}/`); }

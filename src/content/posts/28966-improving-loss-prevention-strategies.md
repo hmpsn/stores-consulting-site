@@ -17,6 +17,8 @@ resource:
   title: Deterring Retail Theft with WorkJam and tSCG
   url: /wp-content/uploads/2020/08/Improving-Loss-Prevention-Strategies-Deterring-Retail-Theft-with-WorkJam-and-tSCG-1.pdf
 sourceId: 28966
+relatedServices:
+  - /services/shrink-profit-recovery/
 ---
 
 Deterring retail theft with WorkJam and tSCG. Read the report below.

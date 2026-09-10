@@ -1,5 +1,7 @@
 import { spawnSync } from 'node:child_process';
 
+const optionsResult = spawnSync(process.execPath, ['scripts/build-editor-options.mjs'], {stdio:'inherit'});
+if (optionsResult.status !== 0) process.exit(optionsResult.status ?? 1);
 const task = process.argv[2];
 const commands = {
   dev: 'astro dev',

@@ -4,6 +4,7 @@ const viewports = [320, 390, 768, 1024, 1440];
 
 export default defineConfig({
   testDir: './tests',
+  testIgnore: '**/ops/**',
   fullyParallel: false,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 2 : 0,

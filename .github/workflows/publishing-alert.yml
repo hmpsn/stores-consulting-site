@@ -1,0 +1,25 @@
+name: Publishing alert
+on:
+  deployment_status:
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: publishing-alert
+  cancel-in-progress: false
+jobs:
+  notify:
+    if: github.event.deployment.environment == 'Production' && (github.event.deployment_status.state == 'failure' || github.event.deployment_status.state == 'error')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const {owner,repo}=context.repo;
+            const title='Website publishing needs attention';
+            const {data:issues}=await github.rest.issues.listForRepo({owner,repo,state:'open',creator:'github-actions[bot]',per_page:100});
+            const previous=issues.find(issue=>issue.title===title);
+            const deployment=context.payload.deployment;
+            const body=`A production deployment failed. The last successful site remains live.\n\nCommit: ${deployment.sha}\nDeployment: ${context.payload.deployment_status.log_url || context.payload.deployment_status.target_url || deployment.url}\n\nOpen the deployment logs, fix the cause, and redeploy. See docs/TINA-EDITOR.md for publishing and recovery steps. Close this issue after confirming the corrected version is live.`;
+            if(previous) await github.rest.issues.createComment({owner,repo,issue_number:previous.number,body});
+            else await github.rest.issues.create({owner,repo,title,body,assignees:[owner]});

@@ -14,6 +14,8 @@ canonicalUrl: https://storesconsulting.com/the-digital-age-of-retail/
 draft: false
 contentType: article
 sourceId: 28616
+relatedServices:
+  - /services/technology-adoption-change-management/
 ---
 
 ## The Digital Age of Retail

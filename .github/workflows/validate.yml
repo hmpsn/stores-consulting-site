@@ -23,6 +23,7 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - run: npm run test:ops
       - run: npm run validate
   browser:
     runs-on: ubuntu-latest

@@ -4,6 +4,7 @@ import type { ServiceQuery } from '../../../tina/__generated__/types';
 import CtaBand from '../CtaBand.astro';
 import Breadcrumbs from '../Breadcrumbs.astro';
 import FieldImage from '../FieldImage.astro';
+import RelatedContent from '../RelatedContent.astro';
 import Metrics from '../Metrics.astro';
 import WorkstreamGrid from '../WorkstreamGrid.astro';
 
@@ -37,4 +38,5 @@ const supportingMedia = data.supportingMedia ? { ...data.supportingMedia, positi
   <div class="service-results__metrics" data-reveal><h2>{data.resultsTitle}</h2><div data-tina-field={tinaField(data, 'metrics')}><Metrics items={metrics} note={data.metricsNote} /></div></div>
 </div></section>
 
+<div data-tina-field={tinaField(data,'relatedContent')}><RelatedContent paths={data.relatedContent} title="Related insights & client work" /></div>
 <CtaBand title={data.ctaTitle} description={data.ctaDescription} href={data.ctaHref} label={data.ctaLabel} />

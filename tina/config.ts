@@ -1,3 +1,4 @@
+import editorOptions from './editor-options.json';
 import { defineConfig, type TinaField } from 'tinacms';
 import { marketingCollections, editorialCollections, globalCollection } from './extended-schema';
 
@@ -354,6 +355,7 @@ export default defineConfig({
           },
           { type: 'string', name: 'metricsNote', label: 'Metrics note', required: true, ui: { component: 'textarea' } },
           { type: 'string', name: 'relatedPaths', list: true, ui: { component: null } },
+          {type:'string',name:'relatedContent',label:'Related articles, reports & clients',list:true,options:editorOptions.content,description:'Select useful evidence for this service. Draft posts are excluded.'},
           { type: 'object', name: 'heroMedia', label: 'Hero image', fields: imageFields },
           { type: 'object', name: 'supportingMedia', label: 'Supporting image', fields: imageFields },
         ],
