@@ -1,7 +1,7 @@
 ---
 export interface BreadcrumbItem {
   label: string;
-  href?: string;
+  href?: string; editField?:string;
 }
 
 interface Props {
@@ -16,8 +16,8 @@ const { items } = Astro.props;
     {items.map((item, index) => (
       <li>
         {item.href && index < items.length - 1
-          ? <a href={item.href}>{item.label}</a>
-          : <span aria-current={index === items.length - 1 ? 'page' : undefined}>{item.label}</span>}
+          ? <a href={item.href} data-tina-field={item.editField}>{item.label}</a>
+          : <span data-tina-field={item.editField} aria-current={index === items.length - 1 ? 'page' : undefined}>{item.label}</span>}
       </li>
     ))}
   </ol>

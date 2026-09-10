@@ -20,13 +20,14 @@ const metadata = data.metadata!;
       const form = event.target;
       if (!(event instanceof SubmitEvent) || !(form instanceof HTMLFormElement) || !form.matches('[data-enhanced-contact]') || !window.fetch) return;
       event.preventDefault();
+      if (window.self !== window.top) return; // Editor previews never deliver inquiries.
       const feedback = form.querySelector('[data-form-feedback]');
       const submitter = event.submitter;
       if (submitter instanceof HTMLButtonElement) submitter.disabled = true;
       if (feedback) feedback.textContent = form.dataset.sending || 'Sending…';
       try {
         const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { accept: 'application/json' } });
-        if (response.status === 429) throw new Error('Too many attempts. Please wait a minute and try again.');
+        if (response.status === 429) throw new Error(form.dataset.rateLimited);
         const result = await response.json();
         if (!response.ok) throw new Error(result.message || 'Please review the form and try again.');
         if (result.code === 'delivered') document.dispatchEvent(new Event('stores:inquiry-success'));

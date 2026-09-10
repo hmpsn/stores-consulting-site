@@ -1,3 +1,4 @@
+import {articleBlocks} from './lib/article-blocks';
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
@@ -89,6 +90,7 @@ const posts = defineCollection({
     author: z.string(),
     categories: z.array(z.string()),
     relatedServices: z.array(z.string().startsWith('/')).nullish(),
+    contentBlocks:articleBlocks,
     contentType: z.enum(['article','video','report']).nullish(),
     resource: z.object({title:z.string(),url:z.string()}).nullish(),
     featuredMedia: nullablePath,
@@ -101,6 +103,7 @@ const posts = defineCollection({
   }),
 });
 
+const directoryEntry=z.object({title:z.string(),date:z.string(),url:z.string().regex(/^\/(?!\/)/),image:imagePath,alt:z.string(),width:z.number().positive(),height:z.number().positive()});
 const legacyPages = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/legacy-pages' }),
   schema: z.object({
@@ -111,6 +114,7 @@ const legacyPages = defineCollection({
     originalUrl: z.url(),
     updatedDate: z.coerce.date(),
     sourceId: z.number().int().positive().nullish(),
+    directoryEntries:z.array(directoryEntry).nullish(),
     overlapStrategy: z.enum(['mockup-primary', 'legacy-preserved']),
   }),
 });
@@ -207,7 +211,7 @@ const servicesPage = z.object({
 
 const contactPage = z.object({
   pageType: z.literal('contact'),
-  form: z.object({name:z.string(),email:z.string(),company:z.string(),phone:z.string(),message:z.string(),submit:z.string(),sending:z.string(),success:z.string(),invalid:z.string(),unavailable:z.string()}),
+  form: z.object({rateLimited:z.string(),name:z.string(),email:z.string(),company:z.string(),phone:z.string(),message:z.string(),submit:z.string(),sending:z.string(),success:z.string(),invalid:z.string(),unavailable:z.string()}),
   metadata,
   intro: z.object({ title: z.string(), description: z.string() }),
   details: z.object({
@@ -225,5 +229,5 @@ const sitePages = defineCollection({
 
 const marketing = defineCollection({loader: glob({pattern: '**/*.yaml', base: './src/content/marketing'}), schema: marketingSchema});
 
-const settings = defineCollection({loader: glob({pattern:'global.yaml',base:'./src/content/settings'}),schema:z.object({navigation:z.record(z.string(),z.string()),footer:z.object({services:z.string(),company:z.string(),explore:z.string(),organization:z.string(),location:z.string()}),cta:z.object({title:z.string(),description:z.string(),href:z.string().startsWith('/'),label:z.string()})})});
+const settings = defineCollection({loader: glob({pattern:'global.yaml',base:'./src/content/settings'}),schema:z.object({labels:z.record(z.string(),z.string()),navigation:z.record(z.string(),z.string()),footer:z.object({services:z.string(),company:z.string(),explore:z.string(),organization:z.string(),location:z.string()}),cta:z.object({title:z.string(),description:z.string(),href:z.string().startsWith('/'),label:z.string()})})});
 export const collections = { settings, marketing, services, people, clients, posts, 'legacy-pages': legacyPages, categories, authors, 'site-pages': sitePages };

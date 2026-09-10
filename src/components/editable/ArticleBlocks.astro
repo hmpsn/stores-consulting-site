@@ -1,0 +1,13 @@
+---
+import {tinaField} from '@tinacms/astro/tina-field';
+import {videoEmbed} from '../../lib/article-blocks';
+import MarkdownContent from './MarkdownContent.astro';
+interface Props {blocks?:any[]|null;}
+const {blocks=[]}=Astro.props;
+---
+{(blocks||[]).filter(Boolean).map(block=><section data-tina-field={tinaField(block)}>
+ {(block._template==='text'||block.__typename==='PostContentBlocksText')&&<div class="prose" data-tina-field={tinaField(block,'text')}><MarkdownContent body={block.text||''}/></div>}
+ {(block._template==='image'||block.__typename==='PostContentBlocksImage')&&<figure><img src={block.image} alt={block.alt} width={block.width} height={block.height} loading="lazy" data-tina-field={tinaField(block,'image')}/>{block.caption&&<figcaption data-tina-field={tinaField(block,'caption')}>{block.caption}</figcaption>}</figure>}
+ {(block._template==='video'||block.__typename==='PostContentBlocksVideo')&&<><h2 data-tina-field={tinaField(block,'title')}>{block.title}</h2>{videoEmbed(block.url)&&<div data-tina-field-overlay={tinaField(block,'url')}><iframe class="article-video" src={videoEmbed(block.url)} title={block.title} loading="lazy" allowfullscreen /></div>}</>}
+ {(block._template==='link'||block.__typename==='PostContentBlocksLink')&&<p><a href={/^(\/(?!\/)|https:\/\/)/.test(block.url||'')?block.url:undefined} data-tina-field={tinaField(block,'url')}><span data-tina-field={tinaField(block,'label')}>{block.label}</span></a></p>}
+</section>)}

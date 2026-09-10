@@ -1,7 +1,9 @@
 ---
+import { tinaField } from '@tinacms/astro/tina-field';
 import BlogMeta from './BlogMeta.astro';
 
 interface Post {
+  _content_source?: {queryId:string;path:(string|number)[]};
   contentType?: string | null;
   title: string;
   route: string;
@@ -11,6 +13,7 @@ interface Post {
   categories: string[];
 }
 interface TaxonomyItem {
+  _content_source?: {queryId:string;path:(string|number)[]};
   name: string;
   slug: string;
   route: string;
@@ -20,6 +23,8 @@ interface Props {
   authors: TaxonomyItem[];
   categories: TaxonomyItem[];
 }
+import {getGlobalSettings} from '../lib/tina-extended-data';
+const labels=(await getGlobalSettings()).labels;
 const { posts, authors, categories } = Astro.props;
 const authorsBySlug = new Map(authors.map((author) => [author.slug, author]));
 const categoriesBySlug = new Map(categories.map((category) => [category.slug, category]));
@@ -30,14 +35,14 @@ const categoriesBySlug = new Map(categories.map((category) => [category.slug, ca
     <li>
       <article data-reveal>
         <BlogMeta
-          publishedDate={post.publishedDate}
+          publishedDate={post.publishedDate} dateField={tinaField(post,'publishedDate')}
           author={authorsBySlug.get(post.author)}
           categories={post.categories.map((slug) => categoriesBySlug.get(slug)).filter((category) => category !== undefined)}
         />
         <div class="blog-list__content">
-          <h2><a href={post.route}>{post.title}</a></h2>
-          {post.excerpt && <p>{post.excerpt}</p>}
-          <a class="text-link" href={post.route}>{post.contentType === 'video' ? 'Watch video →' : post.contentType === 'report' ? 'Read report →' : 'Read article →'}</a>
+          <h2><a href={post.route} data-tina-field={tinaField(post,'title')}>{post.title}</a></h2>
+          {post.excerpt && <p data-tina-field={tinaField(post,'excerpt')}>{post.excerpt}</p>}
+          <a class="text-link" href={post.route} data-tina-field={tinaField(labels,post.contentType==='video'?'watchVideo':post.contentType==='report'?'readReport':'readArticle')}>{labels[post.contentType==='video'?'watchVideo':post.contentType==='report'?'readReport':'readArticle']}</a>
         </div>
       </article>
     </li>

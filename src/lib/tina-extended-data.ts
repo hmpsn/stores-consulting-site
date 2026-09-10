@@ -2,7 +2,7 @@ import { requestWithMetadata } from '@tinacms/astro/data';
 import client from '../../tina/__generated__/client';
 
 // Connection pagination is required: the legacy estate already exceeds default limits.
-export async function getEditorialList(collection: 'person' | 'post' | 'clientProfile' | 'author' | 'category') {
+export async function getEditorialList(collection: 'person' | 'post' | 'clientProfile' | 'author' | 'category' | 'service') {
   const queryName = `${collection}Connection`;
   const records: any[] = [];
   let after: string | undefined;

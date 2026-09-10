@@ -1,7 +1,8 @@
 ---
 import TinaIsland from '@tinacms/astro/TinaIsland.astro';
 import Content from './editable/CtaContent.astro';
-interface Props {title?:string;description?:string;href?:string;label?:string;}
-const params = Object.fromEntries(Object.entries(Astro.props).filter(([,value])=>value!==undefined));
+interface Props {title?:string;description?:string;href?:string;label?:string;editFields?:{title?:string;description?:string;href?:string;label?:string};}
+const params = Object.fromEntries(Object.entries(Astro.props).filter(([,value])=>value!==undefined && typeof value === 'string'));
 ---
-<TinaIsland name="globalCta" params={params} wrapper={{tag:"div"}}><Content {...Astro.props}/></TinaIsland>
+<!-- Page overrides retain the page query metadata rather than a nested global form. -->
+{Astro.props.editFields ? <Content {...Astro.props}/> : <TinaIsland name="globalCta" params={params} wrapper={{tag:"div"}}><Content {...Astro.props}/></TinaIsland>}

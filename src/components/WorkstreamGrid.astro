@@ -1,5 +1,7 @@
 ---
+import { tinaField } from '@tinacms/astro/tina-field';
 interface Workstream {
+  _content_source?: {queryId:string;path:(string|number)[]};
   title: string;
   description: string;
 }
@@ -15,8 +17,8 @@ const Heading = `h${headingLevel}` as 'h2' | 'h3' | 'h4';
   {items.map((item, index) => (
     <li data-reveal>
       <span class="workstream-grid__number">{String(index + 1).padStart(2, '0')}</span>
-      <Heading class="card-title">{item.title}</Heading>
-      <p>{item.description}</p>
+      <Heading class="card-title" data-tina-field={tinaField(item,'title')}>{item.title}</Heading>
+      <p data-tina-field={tinaField(item,'description')}>{item.description}</p>
     </li>
   ))}
 </ol>

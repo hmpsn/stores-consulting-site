@@ -1,5 +1,7 @@
 ---
+import { tinaField } from '@tinacms/astro/tina-field';
 interface Service {
+  _content_source?: {queryId:string;path:(string|number)[]};
   title: string;
   slug: string;
   order: number;
@@ -9,17 +11,19 @@ interface Props {
   services: Service[];
   headingLevel?: 2 | 3 | 4;
 }
+import {getGlobalSettings} from '../lib/tina-extended-data';
+const labels = (await getGlobalSettings()).labels;
 const { services, headingLevel = 3 } = Astro.props;
 const Heading = `h${headingLevel}` as 'h2' | 'h3' | 'h4';
 ---
 
 <div class="service-grid">
-  {services.sort((a, b) => a.order - b.order).map((service) => (
+  {[...services].sort((a, b) => a.order - b.order).map((service) => (
     <a class="service-card" href={`/services/${service.slug}/`} data-reveal>
-      <span class="service-card__number">Aisle {String(service.order).padStart(2, '0')}</span>
-      <Heading class="card-title">{service.title}</Heading>
-      <p>{service.summary}</p>
-      <span class="service-card__link">Explore this aisle →</span>
+      <span class="service-card__number"><span data-tina-field={tinaField(labels,'aisle')}>{labels.aisle}</span> {String(service.order).padStart(2, '0')}</span>
+      <Heading class="card-title" data-tina-field={tinaField(service,'title')}>{service.title}</Heading>
+      <p data-tina-field={tinaField(service,'summary')}>{service.summary}</p>
+      <span class="service-card__link" data-tina-field={tinaField(labels,'exploreService')}>{labels.exploreService}</span>
     </a>
   ))}
 </div>

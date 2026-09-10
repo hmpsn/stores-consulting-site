@@ -1,3 +1,5 @@
+import {contentBlocks} from './content-blocks';
+import {sharedLabelFields} from './shared-labels';
 import editorOptions from './editor-options.json';
 import type { Collection, TinaField } from 'tinacms';
 
@@ -59,13 +61,13 @@ export const marketingCollections: Collection[] = [
           },
           {
             "name": "title5",
-            "label": "Over 50 retailers since 2009.",
+            "label": "Closing heading",
             "type": "string",
             "required": true
           },
           {
             "name": "description6",
-            "label": "More than half have engaged us on more than one project. T",
+            "label": "Closing description",
             "type": "string",
             "required": true,
             "ui": {
@@ -157,13 +159,13 @@ export const marketingCollections: Collection[] = [
           },
           {
             "name": "title5",
-            "label": "Not sure which path fits?",
+            "label": "Closing heading",
             "type": "string",
             "required": true
           },
           {
             "name": "description6",
-            "label": "That's exactly what the first conversation is for. Tell us",
+            "label": "Closing description",
             "type": "string",
             "required": true,
             "ui": {
@@ -172,19 +174,19 @@ export const marketingCollections: Collection[] = [
           },
           {
             "name": "text7",
-            "label": "Path One",
+            "label": "Diagnostic card label",
             "type": "string",
             "required": true
           },
           {
             "name": "text8",
-            "label": "The Lighthouse Path",
+            "label": "Diagnostic card heading",
             "type": "string",
             "required": true
           },
           {
             "name": "text9",
-            "label": "You've deployed the AI. Some stores are already acting on ",
+            "label": "Diagnostic card description",
             "type": "string",
             "required": true,
             "ui": {
@@ -193,19 +195,19 @@ export const marketingCollections: Collection[] = [
           },
           {
             "name": "text10",
-            "label": "Path Two",
+            "label": "Foundations card label",
             "type": "string",
             "required": true
           },
           {
             "name": "text11",
-            "label": "The Foundations Path",
+            "label": "Foundations card heading",
             "type": "string",
             "required": true
           },
           {
             "name": "text12",
-            "label": "No store has cracked it yet — technology aside. We build t",
+            "label": "Foundations card description",
             "type": "string",
             "required": true,
             "ui": {
@@ -214,19 +216,19 @@ export const marketingCollections: Collection[] = [
           },
           {
             "name": "text13",
-            "label": "Path One · The Lighthouse Path",
+            "label": "Diagnostic section label",
             "type": "string",
             "required": true
           },
           {
             "name": "text14",
-            "label": "The 72-Hour Diagnostic.",
+            "label": "Diagnostic section heading",
             "type": "string",
             "required": true
           },
           {
             "name": "text15",
-            "label": "For retailers with the technology already live. Fast, deci",
+            "label": "Diagnostic introduction",
             "type": "string",
             "required": true,
             "ui": {
@@ -235,7 +237,7 @@ export const marketingCollections: Collection[] = [
           },
           {
             "name": "text16",
-            "label": "Five critical questions frame the diagnostic: accountabili",
+            "label": "Diagnostic detail",
             "type": "string",
             "required": true,
             "ui": {
@@ -244,25 +246,25 @@ export const marketingCollections: Collection[] = [
           },
           {
             "name": "text17",
-            "label": "The Lighthouse Cascade",
+            "label": "Principles section label",
             "type": "string",
             "required": true
           },
           {
             "name": "text18",
-            "label": "Capability moves store to store.",
+            "label": "Principles section heading",
             "type": "string",
             "required": true
           },
           {
             "name": "text19",
-            "label": "Identify your Lighthouses",
+            "label": "Principle 1 heading",
             "type": "string",
             "required": true
           },
           {
             "name": "text20",
-            "label": "Elevate elite stores into teaching hubs. They transfer gro",
+            "label": "Principle 1 description",
             "type": "string",
             "required": true,
             "ui": {
@@ -271,25 +273,25 @@ export const marketingCollections: Collection[] = [
           },
           {
             "name": "text21",
-            "label": "Stop top-down mandates",
+            "label": "Principle 2 heading",
             "type": "string",
             "required": true
           },
           {
             "name": "text22",
-            "label": "District mandates create compliance. Peer mentorship creat",
+            "label": "Principle 2 description",
             "type": "string",
             "required": true
           },
           {
             "name": "text23",
-            "label": "Build the cascade",
+            "label": "Principle 3 heading",
             "type": "string",
             "required": true
           },
           {
             "name": "text24",
-            "label": "Performance-driven mentorship from Lighthouses to apprenti",
+            "label": "Principle 3 description",
             "type": "string",
             "required": true,
             "ui": {
@@ -298,13 +300,13 @@ export const marketingCollections: Collection[] = [
           },
           {
             "name": "text25",
-            "label": "Graduate and repeat",
+            "label": "Principle 4 heading",
             "type": "string",
             "required": true
           },
           {
             "name": "text26",
-            "label": "Apprentices become Lighthouses. The network grows. Field s",
+            "label": "Principle 4 description",
             "type": "string",
             "required": true,
             "ui": {
@@ -313,19 +315,19 @@ export const marketingCollections: Collection[] = [
           },
           {
             "name": "text27",
-            "label": "Path Two · The Foundations Path",
+            "label": "Foundations section label",
             "type": "string",
             "required": true
           },
           {
             "name": "text28",
-            "label": "Assessment. Model Store. Learning Centers. Fleet.",
+            "label": "Foundations section heading",
             "type": "string",
             "required": true
           },
           {
             "name": "text29",
-            "label": "For retailers where no store has proven the standard yet —",
+            "label": "Foundations introduction",
             "type": "string",
             "required": true,
             "ui": {
@@ -334,7 +336,7 @@ export const marketingCollections: Collection[] = [
           },
           {
             "name": "text30",
-            "label": "Not every engagement needs every stage. We scope to where ",
+            "label": "Foundations detail",
             "type": "string",
             "required": true
           }
@@ -450,49 +452,49 @@ export const marketingCollections: Collection[] = [
           },
           {
             "name": "title6",
-            "label": "These ranges reflect decades of engagements.",
+            "label": "Closing heading",
             "type": "string",
             "required": true
           },
           {
             "name": "description7",
-            "label": "Yours starts with a diagnostic, not a number pulled from a",
+            "label": "Closing description",
             "type": "string",
             "required": true
           },
           {
             "name": "text8",
-            "label": "Typical Results",
+            "label": "Results section label",
             "type": "string",
             "required": true
           },
           {
             "name": "text9",
-            "label": "Delivering consistent, proven results that impact the bott",
+            "label": "Results section heading",
             "type": "string",
             "required": true
           },
           {
             "name": "text10",
-            "label": "Every engagement is scoped to the specific gap in front of",
+            "label": "Results section introduction",
             "type": "string",
             "required": true
           },
           {
             "name": "text11",
-            "label": "How We Guard Against Overstating It",
+            "label": "Principles section label",
             "type": "string",
             "required": true
           },
           {
             "name": "text12",
-            "label": "Ranges, not best-case numbers",
+            "label": "First principle heading",
             "type": "string",
             "required": true
           },
           {
             "name": "text13",
-            "label": "Every figure on this page is a range pulled from actual en",
+            "label": "First principle description",
             "type": "string",
             "required": true,
             "ui": {
@@ -501,13 +503,13 @@ export const marketingCollections: Collection[] = [
           },
           {
             "name": "text14",
-            "label": "Scoped to the real gap, every time",
+            "label": "Second principle heading",
             "type": "string",
             "required": true
           },
           {
             "name": "text15",
-            "label": "A diagnostic determines which of these drivers actually ap",
+            "label": "Second principle description",
             "type": "string",
             "required": true,
             "ui": {
@@ -597,19 +599,19 @@ export const marketingCollections: Collection[] = [
           },
           {
             "name": "title5",
-            "label": "$12B in profit created, across every kind of store there i",
+            "label": "Closing heading",
             "type": "string",
             "required": true
           },
           {
             "name": "description6",
-            "label": "That's not luck. That's a portable standard.",
+            "label": "Closing description",
             "type": "string",
             "required": true
           },
           {
             "name": "text7",
-            "label": "A sample, not a roster — dozens more across grocery, speci",
+            "label": "Client logo note",
             "type": "string",
             "required": true,
             "ui": {
@@ -618,19 +620,19 @@ export const marketingCollections: Collection[] = [
           },
           {
             "name": "text8",
-            "label": "Client directory eyebrow",
+            "label": "Client profiles section label",
             "type": "string",
             "required": true
           },
           {
             "name": "text9",
-            "label": "Client directory heading",
+            "label": "Client profiles heading",
             "type": "string",
             "required": true
           },
           {
             "name": "text10",
-            "label": "Client directory introduction",
+            "label": "Client profiles introduction",
             "type": "string",
             "required": true
           }
@@ -651,7 +653,7 @@ export const marketingCollections: Collection[] = [
           },
           {
             "name": "href",
-            "label": "Href",
+            "label": "Button destination",
             "type": "string",
             "required": true
           },
@@ -769,7 +771,7 @@ const newRecord = (kind: 'post' | 'client' | 'person'): NonNullable<Collection['
    const slug = values.slug || filename || slugify(values.title || values.name);
    if (!slug) throw new Error('A title or name is required.');
    if (kind === 'post' && !values.draft) {
-     if (!String(values.body || '').trim()) throw new Error('Add post content before publishing, or leave Draft enabled.');
+     if (!String(values.body || '').trim() && !values.contentBlocks?.length) throw new Error('Add post content before publishing, or leave Draft enabled.');
      if (!values.categories?.length) throw new Error('Choose at least one category.');
      if (values.contentType === 'report' && (!values.resource?.title || !/^(https:\/\/|\/).*\.pdf(?:[?#].*)?$/i.test(values.resource?.url || ''))) throw new Error('Add a report title and valid PDF URL before publishing.');
    }
@@ -786,7 +788,7 @@ export const editorialCollections: Collection[] = [
  {...text('title','Title'),isTitle:true},hidden('slug'),hidden('route'),{...text('excerpt','Excerpt'),ui:{component:'textarea'}},{name:'publishedDate',type:'datetime',label:'Published date',required:true},{name:'updatedDate',type:'datetime',ui:{component:null}},{...text('author','Author'),options:editorOptions.authors},{name:'categories',label:'Categories',type:'string',list:true,required:true,options:editorOptions.categories},{name:'featuredMedia',type:'image',label:'Featured image'},text('featuredAlt','Featured image alternative text',false),{name:'featuredWidth',label:'Image width',type:'number'},{name:'featuredHeight',label:'Image height',type:'number'},hidden('canonicalUrl'),{name:'draft',label:'Draft (not public)',description:'Leave on while preparing a post. Turn off and Save to publish after the build succeeds.',type:'boolean',required:true},hidden('sourceId','number'),
  {name:'contentType',label:'Post format',type:'string',options:[{value:'article',label:'Written article'},{value:'video',label:'Video'},{value:'report',label:'PDF report'}]},
  {name:'relatedServices',label:'Related services',type:'string',list:true,options:editorOptions.services,description:'Choose the services readers should explore next.'},
- {name:'resource',label:'PDF report',type:'object',description:'For report posts, provide the PDF file URL and its display title.',fields:[text('title','Report title'),text('url','PDF file URL')]},body,
+ {name:'resource',label:'PDF report',type:'object',description:'For report posts, provide the PDF file URL and its display title.',fields:[text('title','Report title'),text('url','PDF file URL')]},body,contentBlocks,
  ]},
  {name:'clientProfile',label:'Client profiles',path:'src/content/clients',format:'md',ui:{...newRecord('client'),router:({document}:any)=>document.route || (editorOptions.routes.clientProfile as Record<string,string>)[document._sys.filename] || `/project/${document._sys.filename}/`},defaultItem:()=>({category:'clients',tier:'unspecified',updatedDate:new Date().toISOString()}),fields:[
  {...text('name','Name'),isTitle:true},hidden('slug'),hidden('route'),hidden('category'),{name:'tier',label:'Tier',type:'string',options:['national','regional','unspecified'],required:true},{name:'logo',type:'image',label:'Logo'},{name:'logoWidth',label:'Logo width',type:'number'},{name:'logoHeight',label:'Logo height',type:'number'},hidden('legacyUrl'),{name:'updatedDate',type:'datetime',ui:{component:null}},hidden('sourceId','number'),
@@ -797,7 +799,7 @@ export const editorialCollections: Collection[] = [
  ]},body,
  ]},
  {name:'legacyPage',label:'Additional pages',match:{exclude:'{11-about,13-contact-us,159-services,26774-homepage-1,27300-clients,28431-tscg-blog}'},path:'src/content/legacy-pages',format:'md',ui:{...existing,router:({document}:any)=>document.route || (editorOptions.routes.legacyPage as Record<string,string>)[document._sys.filename]},fields:[
- {...text('title','Title'),isTitle:true},hidden('slug'),hidden('route'),{...text('description','Description'),ui:{component:'textarea'}},hidden('originalUrl'),{name:'updatedDate',type:'datetime',ui:{component:null}},hidden('sourceId','number'),hidden('overlapStrategy'),body,
+ {...text('title','Title'),isTitle:true},hidden('slug'),hidden('route'),{...text('description','Description'),ui:{component:'textarea'}},hidden('originalUrl'),{name:'updatedDate',type:'datetime',ui:{component:null}},hidden('sourceId','number'),hidden('overlapStrategy'),{name:'directoryEntries',label:'Directory cards',description:'Structured cards for the case-studies directory.',type:'object',list:true,ui:{itemProps:(item)=>({label:item?.title||'Directory card'})},fields:[text('title','Card title'),text('date','Display date'),{...text('url','Profile URL'),ui:{validate:(value:unknown)=>typeof value==='string'&&/^\/(?!\/)/.test(value)?undefined:'Use an existing site path beginning with /.'}},{name:'image',type:'image',label:'Card image'},text('alt','Image alternative text'),{name:'width',type:'number',label:'Image width'},{name:'height',type:'number',label:'Image height'}]},body,
  ]},
  {name:'category',label:'Blog categories',path:'src/content/categories',format:'yaml',ui:{...existing,router:({document}:any)=>document.route || (editorOptions.routes.category as Record<string,string>)[document._sys.filename]},fields:[{...text('name','Name'),isTitle:true},hidden('slug'),hidden('route'),{...text('description','Description',false),ui:{component:'textarea'}},hidden('count','number'),hidden('sourceId','number')]},
  {name:'author',label:'Blog authors',path:'src/content/authors',format:'yaml',ui:{...existing,router:({document}:any)=>document.route || (editorOptions.routes.author as Record<string,string>)[document._sys.filename]},fields:[{...text('name','Name'),isTitle:true},hidden('slug'),hidden('route'),{...text('description','Description',false),ui:{component:'textarea'}},{name:'avatar',label:'Avatar',type:'image'},hidden('sourceId','number')]},
@@ -822,6 +824,7 @@ export const globalCollection: Collection = {
     }
   },
   "fields": [
+    {name:"labels", label:"Shared display labels", type:"object", required:true, fields:sharedLabelFields},
     {
       "name": "navigation",
       "label": "Navigation",
@@ -844,25 +847,25 @@ export const globalCollection: Collection = {
           "name": "shrink",
           "label": "Shrink",
           "type": "string",
-          "required": true
+          "required": false, "description": "Optional short navigation label. Leave blank to use the service title everywhere."
         },
         {
           "name": "fresh",
           "label": "Fresh",
           "type": "string",
-          "required": true
+          "required": false, "description": "Optional short navigation label. Leave blank to use the service title everywhere."
         },
         {
           "name": "workforce",
           "label": "Workforce",
           "type": "string",
-          "required": true
+          "required": false, "description": "Optional short navigation label. Leave blank to use the service title everywhere."
         },
         {
           "name": "technology",
           "label": "Technology",
           "type": "string",
-          "required": true
+          "required": false, "description": "Optional short navigation label. Leave blank to use the service title everywhere."
         },
         {
           "name": "approach",
@@ -954,7 +957,7 @@ export const globalCollection: Collection = {
     },
     {
       "name": "cta",
-      "label": "Cta",
+      "label": "Default closing call to action",
       "type": "object",
       "required": true,
       "fields": [
@@ -972,7 +975,7 @@ export const globalCollection: Collection = {
         },
         {
           "name": "href",
-          "label": "Href",
+          "label": "Button destination",
           "type": "string",
           "required": true
         },

@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getEditorialList } from '../../lib/tina-extended-data';
 import { tinaField } from '@tinacms/astro/tina-field';
 import type { ServicesPageQuery } from '../../../tina/__generated__/types';
 import CtaBand from '../CtaBand.astro';
@@ -9,7 +9,7 @@ import ServiceCards from '../ServiceCards.astro';
 interface Props { data: ServicesPageQuery['servicesPage']; }
 const { data } = Astro.props;
 const intro = data.intro!;
-const services = (await getCollection('services')).map((entry) => entry.data);
+const services = await getEditorialList('service');
 ---
 
 <PageIntro
