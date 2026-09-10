@@ -1,25 +1,63 @@
 # the Stores Consulting Group website
 
-Production rebuild of storesconsulting.com using Astro 7, strict TypeScript, Node 24, npm, and the Vercel adapter.
+Astro 7, strict TypeScript, Node 24, npm, TinaCMS and Vercel. Marketing and editorial pages are prerendered; contact delivery and Tina preview rendering use server endpoints.
+
+## Start locally
 
 ```bash
 npm ci
 npm run dev
-npm run migrate        # developer-only WordPress/mockup import
-npm run validate       # schemas, types, build, HTML, links, route parity
-npm run test:e2e       # viewport and accessibility checks
 ```
 
-All public pages are prerendered. `POST /api/contact` is the only on-demand Vercel Function. Environment variables are documented in `.env.example`.
+- Website: http://localhost:4321/
+- Local editor: http://localhost:4321/admin/ — choose **Enter Edit Mode**. Save changes the local working tree; it does not publish.
+- Design reference: http://localhost:4321/styleguide/
 
-Pull requests create Vercel previews. `main` is production and requires one human approval. DNS cutover is allowed only after route parity, contact delivery, mobile/accessibility checks, backup capture, and analytics ownership confirmation. Keep WordPress available for 30 days after cutover.
+Local Tina editing and validation do not require cloud credentials. Environment variable names and placeholders are in [.env.example](.env.example); never commit actual credentials. Hosted contact delivery requires configured Resend credentials and a verified sender.
 
-Read `docs/CONTENT-EDITING.md` and `AGENTS.md` before editing content.
+## Read first
 
-The local visual editor is available at `/admin/` while `npm run dev` is running. It currently covers the homepage, services index, contact page, and all four service pages. Local editing requires no account; hosted team access uses individual TinaCloud accounts. See `docs/TINA-EDITOR.md` for the complete workflow and media limits.
+| Reference | Purpose |
+|---|---|
+| [AGENTS.md](AGENTS.md) | Shared agent rules, design constraints and code review workflow |
+| [CLAUDE.md](CLAUDE.md) | Claude entry point to those same instructions |
+| [Developer guide](docs/DEVELOPMENT.md) | Architecture, field ownership, change recipes and checks |
+| [Tina editor guide](docs/TINA-EDITOR.md) | Editing, direct publishing, image uploads and recovery |
+| [Content guide](docs/CONTENT-EDITING.md) | Content locations, schemas and examples |
+| [Launch runbook](docs/LAUNCH-RUNBOOK.md) | Account, domain, delivery and cutover gates |
+| [Accessibility notes](docs/ACCESSIBILITY-NOTES.md) | Accessibility implementation and verification |
+| [Editability audit](docs/TINA-EDITABILITY-AUDIT.md) | Historical baseline, implemented fixes and verification scope |
+| [Migration report](docs/MIGRATION-REPORT.md) | Historical inventory and unresolved source-media exceptions |
 
-The living interface reference is available at `/styleguide/` while the site is running locally. It renders the actual tokens and shared components used by production pages and is excluded from navigation and the sitemap.
+## Design source
 
-## Current migration status
+The living `/styleguide/` renders production tokens and shared components. Its source is [src/pages/styleguide/index.astro](src/pages/styleguide/index.astro); tokens live in [src/styles/global.css](src/styles/global.css), and the approved logo is [Brand.astro](src/components/Brand.astro). These are the maintained design references; no separate Figma source is bundled. The styleguide is unlinked and excluded from indexing and the sitemap.
 
-The generated application, HTML, metadata, and internal-link gates pass. Route parity has three documented WordPress-media exceptions that currently return `403` and must be recovered from the host backup before cutover. See `docs/MIGRATION-REPORT.md` for the frozen inventory, verification results, inherited external-link findings, and remaining launch dependencies.
+## Publishing
+
+- Live review site: https://stores-consulting-site.vercel.app/
+- Hosted editor: https://stores-consulting-site.vercel.app/admin/index.html
+- Repository: https://github.com/hmpsn/stores-consulting-site
+- Deployments: https://vercel.com/josh-hampsons-projects/stores-consulting-site/deployments
+
+Tina covers marketing pages, services, people, articles, client profiles, additional pages, taxonomy and shared display copy. Hosted Save commits to `main` and triggers deployment without Josh approval. Draft posts stay unpublished. A save is live only after its deployment succeeds.
+
+Code changes use branches, pull requests and Vercel previews. Fetch current `main` before integrating code so newer Tina saves survive. Never force-push production. Repository protections depend on account configuration; do not assume a technical approval gate exists. See the developer guide for the review workflow.
+
+## Verification
+
+```bash
+npm run validate
+npm run test:ops
+npx playwright install --with-deps chromium
+npm run test:e2e
+npm run test:editing
+```
+
+Stop local Tina before audit/check/build commands to avoid port conflicts. Run these commands sequentially in one checkout; build and dev commands regenerate the Tina client. The developer guide explains which checks apply to each change.
+
+## Remaining handoff gates
+
+Team account access, DNS/domain cutover and real email delivery acceptance require the team session. GA4 property `G-73E0EDSM19` is confirmed and tracking is implemented; received events/key-event configuration still require the correct dashboard. A proposed Vercel contact rate limit requires paid opt-in and has not been enabled.
+
+Three documented source-media exceptions still require recovery or an explicit disposition before domain cutover. Keep the prior WordPress host for 30 days after cutover. `npm run migrate` is a historical import tool, never a normal build or publishing step; rerunning it can overwrite editor-managed content.

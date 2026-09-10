@@ -1,6 +1,8 @@
 # Tina editability audit
 
-Date: 2026-09-09. Baseline: main `d720cad`. Audit only; no implementation or publication in this pass.
+Date: 2026-09-09. Historical baseline: main `d720cad`. The findings below describe the pre-fix state.
+
+**Release status:** P1/P2 coverage work shipped in PR #7 at `68c7826`. Validation, 164 public browser tests and 23 editor tests passed; production public pages and six Tina preview-render endpoints passed read-only checks. Code-owned boundaries remain intentional. See [the editor guide](TINA-EDITOR.md#editing-visible-elements) for current behavior and the implementation notes below for scope.
 
 ## Finding
 
@@ -54,4 +56,4 @@ Implemented on `enhance/visual-editing-coverage`: Tina-backed service cards; syn
 
 P3 identity/system text stays code-owned as described above. Existing article HTML is preserved, with its text editable through the Markdown body field; there is no automatic rich-text conversion of older articles. New content may use structured blocks.
 
-Local verification complete: full validation gate passed (117 HTML pages, 5,179 internal links/assets, 89 required navigation destinations, 393 route/media entries). Desktop/mobile public checks: 63 passed, 33 intentionally skipped. Editor matrix: 19 representative routes plus service save/restore, CTA preview/reset, contact no-send/feedback and structured-block add/reset checks passed. Four operations tests passed. Hosted validation passed. The wider browser suite found a duplicate client-logo visibility regression caused by the body wrapper; its selector was corrected and the existing 1106px layout regression test passed locally. Final hosted checks and deployment verification pending.
+Local verification complete: full validation gate passed (117 HTML pages, 5,179 internal links/assets, 89 required navigation destinations, 393 route/media entries). Desktop/mobile public checks: 63 passed, 33 intentionally skipped. Editor matrix: 19 representative routes plus service save/restore, CTA preview/reset, contact no-send/feedback and structured-block add/reset checks passed. Four operations tests passed. Hosted validation passed. The wider browser suite found a duplicate client-logo visibility regression caused by the body wrapper; its selector was corrected and the existing 1106px layout regression test passed locally. Final hosted checks passed: 164 public browser tests and 23 editor tests. PR #7 merged at `68c7826`; production was READY, public/preview-render checks passed and no new deployment errors were observed.

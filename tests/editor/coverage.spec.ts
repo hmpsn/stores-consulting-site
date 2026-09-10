@@ -39,11 +39,18 @@ test('service cards select their record and live edits update shared navigation'
   await title.fill(originalData.title);
   await page.getByRole('button',{name:'Save',exact:true}).click();
   await expect.poll(()=>parse(fs.readFileSync(file,'utf8')).title).toBe(originalData.title);
+  await expect(page.getByRole('button',{name:'Save',exact:true})).toBeDisabled();
  } finally {
   const current=parse(fs.readFileSync(file,'utf8'));
   // Restore only our title edit/serialization; never overwrite unrelated changes.
   expect({...current,title:originalData.title}).toEqual(originalData);
-  fs.writeFileSync(file,original);
+  // An in-place write can let Tina's watcher index an empty/truncated YAML file.
+  // Rename a complete temporary file so subsequent previews see a full record.
+  if(fs.readFileSync(file,'utf8')!==original){
+   const temporary=file+'.restore-tmp';
+   fs.writeFileSync(temporary,original);
+   fs.renameSync(temporary,file);
+  }
  }
 
 });

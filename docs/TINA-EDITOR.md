@@ -14,10 +14,10 @@ Tina edits the same Git-backed content records used by the Astro build. Their te
 | Blog posts | Titles, excerpts, dates, author/category associations, body and featured images; new posts can be added |
 | Client profiles | Names, logos and profile body; new profiles can be added |
 | Blog authors and categories | Display names and archive descriptions |
-| Preserved pages | Public legacy page copy and body; superseded WordPress versions of primary pages are excluded from the editor |
+| Additional pages | Public legacy page copy and body; superseded WordPress versions of primary pages are excluded from the editor |
 | Navigation, footer & default CTA | Navigation labels, footer headings/details and the default closing action |
 
-Existing routes, filenames, migration identifiers and component layout stay protected. Existing records cannot be deleted from Tina. Styleguide, 404/system messages, template labels such as breadcrumbs, CSS and code remain developer-maintained.
+Existing routes, filenames, migration identifiers and component layout stay protected. Existing records cannot be deleted from Tina. Styleguide, 404/system messages, automatic date/count formatting, CSS and code remain developer-maintained. Shared display labels, including breadcrumb labels, are editable in global settings.
 
 Older article/profile/page bodies use a Markdown text field to preserve their embedded legacy HTML without a lossy rich-text conversion. Plain paragraphs, lists, emphasis and Markdown links are editable there; retain existing HTML/image structures. A new layout or structural rewrite belongs in the codebase.
 
@@ -77,9 +77,9 @@ The contact email shown on the page is editable content; actual form delivery us
 
 When adding fields, update both schemas and the relevant render component. Keep the existing appearance and claims. Generated `tina/tina-lock.json` belongs in the review batch.
 
-Run `npm run tina:audit`, `npm run validate`, and `npm run test:e2e`. Stop the local Tina dev server before running the audit/build commands to avoid port conflicts. `npm run build` also checks route collisions, taxonomy references and required managed-image metadata before publishing.
+Run `npm run tina:audit`, `npm run validate`, `npm run test:e2e`, and `npm run test:editing` sequentially. See [the developer guide](DEVELOPMENT.md) for architecture and change recipes. Stop the local Tina dev server before running the audit/build commands to avoid port conflicts. `npm run build` also checks route collisions, taxonomy references and required managed-image metadata before publishing.
 
-TinaCloud is connected; a homepage save reached GitHub. Full save/rollback acceptance and real email delivery remain pending. Local verification does not establish those gates.
+TinaCloud is connected; a hosted homepage save reached GitHub, and production editor access/search have been verified. PR #7 editor tests cover local save/restore/reset and production preview rendering was checked read-only. Team-account acceptance and real email delivery remain pending; a production rollback was not exercised.
 
 ## Search and blog formats
 
@@ -121,7 +121,7 @@ Editor routing uses a generated filename-to-public-URL map, so older numeric fil
 
 ## Visual editing coverage audit
 
-Collection coverage does not guarantee that every visible element selects its field. See [the editability audit](TINA-EDITABILITY-AUDIT.md) for confirmed service-card gaps, remaining bindings, and the proposed completion matrix. Audit baseline: `d720cad`; implementation and verification notes are recorded in the audit.
+Collection coverage does not guarantee that every visible element selects its field. See [the editability audit](TINA-EDITABILITY-AUDIT.md) for the historical baseline at `d720cad` and implemented fixes. The coverage follow-up shipped in PR #7 at `68c7826`, with 164 public browser tests and 23 editor tests passing. The supported workflow is described below.
 
 ## Editing visible elements
 
