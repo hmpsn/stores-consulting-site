@@ -116,3 +116,5 @@ Josh confirmed the existing property `G-73E0EDSM19` on 2026-09-09. Public produc
 In GA4, verify incoming events and mark `generate_lead` as a key event. Review landing pages alongside inquiries and report downloads. Account access is required to configure GA4 reporting and confirm received data.
 
 Recovery drill completed 2026-09-09 in an isolated temporary Git repository: restored one content file from the prior commit while preserving a later unrelated file. Production rollback was not invoked. Alert issue creation and deduplication were tested with mocked GitHub responses; no false production failure was generated.
+
+Editor routing uses a generated filename-to-public-URL map, so older numeric filenames open the correct article/client preview. Draft posts do not open a public preview. This mapping and the named pickers regenerate during each build.

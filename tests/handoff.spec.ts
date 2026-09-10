@@ -44,3 +44,12 @@ test('only a delivered inquiry emits the lead event',async({page})=>{
  for(const value of ['rate_limited','success','delivered']){code=value;await page.locator('#name').fill('Test');await page.locator('#email').fill('test@example.com');await page.locator('#message').fill('Local mocked test');await page.getByRole('button',{name:'Send Message',exact:false}).click();await expect(page.locator('[data-form-feedback]')).toContainText(value==='rate_limited'?'Too many attempts':'Thank');}
  expect(await page.evaluate(()=>(window as any).leadEvents)).toBe(1);
 });
+test('Tina opens existing posts at public routes and shows named pickers',async({page})=>{
+ await page.goto('/admin/index.html#/collections/post/~');
+ const enter=page.getByRole('button',{name:'Enter Edit Mode'});
+ await enter.click();
+ await page.getByText('Big Data, Big Deal',{exact:true}).click();
+ await expect(page.locator('#tina-iframe')).toHaveAttribute('src','/big-data-big-deal/');
+ await expect(page.getByLabel('Author',{exact:true})).toBeVisible();
+ await expect(page.getByLabel('Author',{exact:true}).locator('option')).toContainText(['admin','Eileen Collie','Rochelle Romeo','Scott Dresen']);
+});
