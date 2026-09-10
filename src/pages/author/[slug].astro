@@ -9,6 +9,6 @@ const path = Astro.props.path;
 const content = await getEditorialPage('author',path);
 const data = content.data;
 ---
-<BaseLayout title={data.name} description={data.description || `Articles by ${data.name} for the Stores Consulting Group.`} canonicalPath={data.route} navSection="blog">
+<BaseLayout breadcrumbParent="blog" seo={data.seo} title={data.name} description={data.description || `Articles by ${data.name} for the Stores Consulting Group.`} canonicalPath={data.route} navSection="blog">
 <TinaIsland name="author" params={{path}} primary wrapper={{tag:"div"}}><EditorialPageContent {...content}/></TinaIsland>
 </BaseLayout>

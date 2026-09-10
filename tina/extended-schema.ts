@@ -1,3 +1,4 @@
+import {businessFields,sharingFields} from './seo-fields';
 import {contentBlocks} from './content-blocks';
 import {sharedLabelFields} from './shared-labels';
 import editorOptions from './editor-options.json';
@@ -807,7 +808,7 @@ export const editorialCollections: Collection[] = [
 
 export const globalCollection: Collection = {
   "name": "globalSettings",
-  "label": "Navigation, footer & default CTA",
+  "label": "Site settings",
   "path": "src/content/settings",
   "format": "yaml",
   "match": {
@@ -824,6 +825,8 @@ export const globalCollection: Collection = {
     }
   },
   "fields": [
+    {name:"business",label:"Business profile (structured data)",type:"object",required:true,fields:businessFields},
+    {name:"sharing",label:"Default social sharing",type:"object",fields:sharingFields},
     {name:"labels", label:"Shared display labels", type:"object", required:true, fields:sharedLabelFields},
     {
       "name": "navigation",

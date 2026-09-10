@@ -117,3 +117,27 @@ test('article blocks expose structured editing controls',async({page})=>{
  await expect(frame.getByRole('heading',{name:'Unsaved structured block',exact:true})).toHaveCount(0);
 
 });
+
+test('business profile fields are available from the shared settings record',async({page})=>{
+ await openEditor(page,'services/');await quickEdit(page);
+ await page.frameLocator('#tina-iframe').locator('footer .site-footer__group h2').first().click();
+ await page.getByRole('button',{name:'Back to Site settings',exact:true}).click();
+ await page.getByText('Business profile (structured data)',{exact:true}).click();
+ const description=page.locator('textarea[name="business.description"]');
+ await expect(description).toBeVisible();
+ await expect(description).not.toHaveValue('');
+ await description.fill('Unsaved business description');
+ await page.getByRole('button',{name:'Reset',exact:true}).click();
+ await page.locator('#modal-root').getByRole('button',{name:'Reset',exact:true}).click();
+ await expect(description).not.toHaveValue('Unsaved business description');
+});
+test('service sharing override fields can be edited and reset',async({page})=>{
+ await openEditor(page,'services/');await quickEdit(page);
+ await page.frameLocator('#tina-iframe').locator('.service-card h2').first().click();
+ await page.getByText('Social sharing',{exact:true}).click();
+ const alt=page.locator('input[name="seo.alt"]');
+ await expect(alt).toBeVisible();await alt.fill('Unsaved sharing description');
+ await page.getByRole('button',{name:'Reset',exact:true}).click();
+ await page.locator('#modal-root').getByRole('button',{name:'Reset',exact:true}).click();
+ await expect(alt).not.toHaveValue('Unsaved sharing description');
+});

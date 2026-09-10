@@ -1,4 +1,7 @@
 ---
+import {getGlobalSettings} from '../lib/tina-extended-data';
+import {getContactPage} from '../lib/tina-data';
+import {buildStructuredData,serializeJsonLd} from '../lib/structured-data';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SiteMotion from '../components/SiteMotion.astro';
@@ -6,6 +9,11 @@ import type { NavSection } from '../data/navigation';
 import '../styles/global.css';
 
 interface Props {
+  seo?: {image?:string|null;alt?:string|null}|null;
+  schemaKind?: 'service'|'article'|'report'|'page';
+  record?: Record<string,any>;
+  author?: {name:string;route:string};
+  breadcrumbParent?: 'services'|'blog'|'clients'|'home';
   title: string;
   description: string;
   canonicalPath?: string;
@@ -19,16 +27,24 @@ const {
   title,
   description,
   canonicalPath = Astro.url.pathname,
-  image = '/assets/brand/social-card.png',
+  image,
+  seo, schemaKind,record,author,breadcrumbParent,
   article = false,
   noindex = false,
   navSection,
 } = Astro.props;
-const siteName = 'the Stores Consulting Group';
+const settings=await getGlobalSettings();
+const contact=(await getContactPage()).data.contactPage;
+const siteName=settings.footer.organization;
 const titleCandidate = title === siteName ? title : `${title} | ${siteName}`;
 const pageTitle = titleCandidate.length > 62 ? `${titleCandidate.slice(0, 61).trimEnd()}…` : titleCandidate;
 const canonical = new URL(canonicalPath, Astro.site || Astro.url.origin);
-const socialImage = new URL(image, Astro.site || Astro.url.origin);
+const selectedImage=seo?.image || image || settings.sharing?.image || '/assets/brand/social-card.png';
+const socialAlt=seo?.image ? (seo.alt||title) : image ? (record?.featuredAlt||title) : (settings.sharing?.alt||siteName);
+const socialImage = new URL(selectedImage, Astro.site || Astro.url.origin);
+const parent=breadcrumbParent && breadcrumbParent!=='home' ? {name:settings.navigation[breadcrumbParent],path:breadcrumbParent==='blog'?'/tscg-blog/':`/${breadcrumbParent}/`} : undefined;
+const breadcrumbs=breadcrumbParent ? [{name:settings.labels.home,path:'/'},...(parent?[parent]:[]),{name:title,path:canonicalPath}] : [];
+const structuredData=noindex ? undefined : buildStructuredData({origin:canonical.origin,path:canonicalPath,title,description,image:socialImage.href,organization:siteName,email:contact.details!.email,business:settings.business,kind:schemaKind,record,author,breadcrumbs});
 ---
 
 <!doctype html>
@@ -46,18 +62,23 @@ const socialImage = new URL(image, Astro.site || Astro.url.origin);
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={socialImage} />
-    {image === "/assets/brand/social-card.png" && <>
+    {socialImage.pathname === "/assets/brand/social-card.png" && <>
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="the Stores Consulting Group — shelf register identity" />
     </>}
+    <meta property="og:image:alt" content={socialAlt} />
+    <meta name="twitter:image:alt" content={socialAlt} />
+    {structuredData && <script is:inline type="application/ld+json" set:html={serializeJsonLd(structuredData)} />}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=white-20260910" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png?v=white-20260910" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png?v=white-20260910" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="apple-mobile-web-app-title" content={siteName} />
     <link rel="alternate" type="application/rss+xml" title="tSCG Blog" href="/feed/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -15,7 +15,7 @@ Tina edits the same Git-backed content records used by the Astro build. Their te
 | Client profiles | Names, logos and profile body; new profiles can be added |
 | Blog authors and categories | Display names and archive descriptions |
 | Additional pages | Public legacy page copy and body; superseded WordPress versions of primary pages are excluded from the editor |
-| Navigation, footer & default CTA | Navigation labels, footer headings/details and the default closing action |
+| Site settings | Navigation labels, footer headings/details and the default closing action |
 
 Existing routes, filenames, migration identifiers and component layout stay protected. Existing records cannot be deleted from Tina. Styleguide, 404/system messages, automatic date/count formatting, CSS and code remain developer-maintained. Shared display labels, including breadcrumb labels, are editable in global settings.
 
@@ -136,3 +136,16 @@ Enable Tina quick editing to select a label, heading, image or body directly in 
 - In quick-edit mode, extra controls expose related links, article blocks, case-study preparation and contact feedback messages. These controls are hidden on the public site. Contact forms inside editor previews never send inquiries. Test email delivery separately at the live team sync.
 
 The approved logo artwork, layout, public route slugs, automatic date/count formatting, 404/system text and backend mechanics remain controlled by code.
+
+
+## Search schema and social previews
+
+Open **Site settings** for **Business profile (structured data)** and **Default social sharing**. Business description, search logo and verified official profile URLs are editable. Organization name comes from Footer → Organization; email comes from Contact page → Public contact details. Keep these facts consistent with the public site. The search-logo field does not replace browser icons or the header artwork.
+
+Every public page record has **Social sharing** with an optional image and image description. Image priority is page override → article featured image (for posts) → site default. Leave an override blank to inherit the fallback. Use descriptive alt text and a landscape image, ideally 1200 × 630. Existing page title/search-description fields also feed social titles/descriptions.
+
+The site generates Organization, WebSite and WebPage JSON-LD, plus matching breadcrumbs, Service data and BlogPosting data for written articles. PDF reports use DigitalDocument. Video pages retain WebPage/breadcrumb data; no video rich-result claims are generated without complete video-specific metadata. Draft posts have no public page, and noindex/system pages omit structured data. Layout and raw schema templates stay code-owned; editors update normal fields rather than JSON.
+
+SEO head tags, schema and the web manifest update after Save and a successful deployment. They are not an unsaved visual-preview panel. Check the public page's source or a structured-data validator after publication. Correct markup does not guarantee a search feature.
+
+Favicons and home-screen icons use the approved white background in every size. Browser links have a version suffix; pinned/home-screen shortcuts may need to be removed and added again because devices cache their icons independently.

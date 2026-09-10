@@ -31,7 +31,7 @@ Local Tina editing and validation do not require cloud credentials. Environment 
 
 ## Design source
 
-The living `/styleguide/` renders production tokens and shared components. Its source is [src/pages/styleguide/index.astro](src/pages/styleguide/index.astro); tokens live in [src/styles/global.css](src/styles/global.css), and the approved logo is [Brand.astro](src/components/Brand.astro). These are the maintained design references; no separate Figma source is bundled. The styleguide is unlinked and excluded from indexing and the sitemap.
+The living `/styleguide/` renders production tokens and shared components. Its source is [src/pages/styleguide/index.astro](src/pages/styleguide/index.astro); tokens live in [src/styles/global.css](src/styles/global.css), and the approved logo is [Brand.astro](src/components/Brand.astro). Browser icons have an opaque white background for dark-mode legibility and are generated with the brand assets. These are the maintained design references; no separate Figma source is bundled. The styleguide is unlinked and excluded from indexing and the sitemap.
 
 ## Publishing
 
@@ -55,6 +55,10 @@ npm run test:editing
 ```
 
 Stop local Tina before audit/check/build commands to avoid port conflicts. Run these commands sequentially in one checkout; build and dev commands regenerate the Tina client. The developer guide explains which checks apply to each change.
+
+## Search and social metadata
+
+Tina Site settings contains business-profile facts and the default social image; public page records have optional social-image overrides. JSON-LD is generated from these settings and page content. See [the editor guide](docs/TINA-EDITOR.md#search-schema-and-social-previews) for field ownership and publishing behavior. Browser metadata includes versioned favicons, Apple touch icons and a web manifest.
 
 ## Remaining handoff gates
 
