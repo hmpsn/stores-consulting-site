@@ -12,3 +12,6 @@ export const getContactPage = () =>
 
 export const getService = (slug: string) =>
   requestWithMetadata(client.queries.service({ relativePath: `${slug}.yaml` }), { priority: 'primary' });
+
+// Head-only metadata must not register Contact as a primary editable page on every route.
+export const getContactMetadata = () => client.queries.contactPage({ relativePath: 'contact.yaml' });
